@@ -1,13 +1,20 @@
-import { profile } from "@/data/profile";
+"use client";
+
+import { getProfile } from "@/data/profile";
+import { useLocale } from "@/lib/i18n";
+import { ui } from "@/lib/ui";
 import { Reveal } from "./Reveal";
 
 export function Skills() {
+  const { locale } = useLocale();
+  const profile = getProfile(locale);
+  const t = ui[locale];
   return (
     <section className="section" id="skills">
       <div className="container">
         <Reveal>
           <p className="section-label">Skills</p>
-          <h2 className="section-title">できること</h2>
+          <h2 className="section-title">{t.skillsTitle}</h2>
         </Reveal>
         <div className="skills-grid">
           {profile.skills.map((group, i) => (

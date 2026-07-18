@@ -2,6 +2,8 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { PostMeta } from "@/lib/posts";
+import { useLocale } from "@/lib/i18n";
+import { ui } from "@/lib/ui";
 
 // ⌘K / Ctrl+K で開く記事検索パレット。ヘッダーの検索ボタンからも開ける。
 
@@ -10,6 +12,8 @@ type Props = {
 };
 
 export function CommandPalette({ posts }: Props) {
+  const { locale } = useLocale();
+  const t = ui[locale];
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [active, setActive] = useState(0);
@@ -60,7 +64,7 @@ export function CommandPalette({ posts }: Props) {
       <button
         className="search-btn"
         onClick={() => setOpen(true)}
-        aria-label="記事を検索"
+        aria-label={t.searchAria}
       >
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" aria-hidden="true">
           <circle cx="11" cy="11" r="7" />
@@ -73,13 +77,13 @@ export function CommandPalette({ posts }: Props) {
           <div
             className="cmdk"
             role="dialog"
-            aria-label="記事検索"
+            aria-label={t.searchAria}
             onClick={(e) => e.stopPropagation()}
           >
             <input
               ref={inputRef}
               className="cmdk-input"
-              placeholder="記事を検索…"
+              placeholder={t.searchPlaceholder}
               value={query}
               onChange={(e) => {
                 setQuery(e.target.value);
@@ -99,7 +103,7 @@ export function CommandPalette({ posts }: Props) {
             />
             <ul className="cmdk-results">
               {results.length === 0 && (
-                <li className="cmdk-empty">見つかりませんでした</li>
+                <li className="cmdk-empty">{t.searchEmpty}</li>
               )}
               {results.map((p, i) => (
                 <li key={p.slug}>

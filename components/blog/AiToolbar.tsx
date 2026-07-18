@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useLocale } from "@/lib/i18n";
+import { ui } from "@/lib/ui";
 
 // Chrome内蔵AI (Gemini Nano) を使うツールバー。
 // Summarizer / Translator API はWeb標準のグローバルとして提供される。
@@ -13,14 +15,13 @@ type Props = {
 
 type Busy = null | "summary" | "keypoints" | "translate-en" | "translate-ko";
 
-const UNSUPPORTED_MSG =
-  "この機能はブラウザ内蔵AI(Chrome 138以降のGemini Nano)が必要です。対応ブラウザで開くと、オンデバイスで要約・翻訳が動きます。";
-
 function getGlobal(name: "Summarizer" | "Translator"): any {
   return (globalThis as any)[name];
 }
 
 export function AiToolbar({ title, text }: Props) {
+  const { locale } = useLocale();
+  const t = ui[locale];
   const [busy, setBusy] = useState<Busy>(null);
   const [progress, setProgress] = useState("");
   const [output, setOutput] = useState("");
@@ -38,7 +39,7 @@ export function AiToolbar({ title, text }: Props) {
   const monitor = (m: any) => {
     m.addEventListener("downloadprogress", (e: any) => {
       const pct = Math.round((e.loaded ?? 0) * 100);
-      setProgress(`モデルをダウンロード中… ${pct}%(初回のみ)`);
+      setProgress(t.aiDownloading(pct));
     });
   };
 
@@ -46,12 +47,12 @@ export function AiToolbar({ title, text }: Props) {
     const S = getGlobal("Summarizer");
     setOutputLabel(label);
     if (!S) {
-      setOutput(UNSUPPORTED_MSG);
+      setOutput(t.aiUnsupported);
       return;
     }
     setBusy(type === "tldr" ? "summary" : "keypoints");
     setOutput("");
-    setProgress("準備中…");
+    setProgress(t.aiPreparing);
     try {
       const base = {
         type,
@@ -69,15 +70,13 @@ export function AiToolbar({ title, text }: Props) {
       } catch {
         summarizer = await S.create(base);
       }
-      setProgress("要約を生成中…");
+      setProgress(t.aiSummarizing);
       const result = await summarizer.summarize(text.slice(0, 12000), {
         context: `ブログ記事「${title}」の本文です。`,
       });
       setOutput(result);
     } catch {
-      setOutput(
-        "要約モデルをこの環境で実行できませんでした。Chromeの最新版でお試しください。"
-      );
+      setOutput(t.aiSummaryFailed);
     } finally {
       setBusy(null);
       setProgress("");
@@ -88,19 +87,19 @@ export function AiToolbar({ title, text }: Props) {
     const T = getGlobal("Translator");
     setOutputLabel(label);
     if (!T) {
-      setOutput(UNSUPPORTED_MSG);
+      setOutput(t.aiUnsupported);
       return;
     }
     setBusy(target === "en" ? "translate-en" : "translate-ko");
     setOutput("");
-    setProgress("準備中…");
+    setProgress(t.aiPreparing);
     try {
       const availability = await T.availability({
         sourceLanguage: "ja",
         targetLanguage: target,
       });
       if (availability === "unavailable") {
-        setOutput("この言語ペアの翻訳モデルは、この環境では利用できません。");
+        setOutput(t.aiPairUnavailable);
         return;
       }
       const translator = await T.create({
@@ -108,13 +107,11 @@ export function AiToolbar({ title, text }: Props) {
         targetLanguage: target,
         monitor,
       });
-      setProgress("翻訳中…");
+      setProgress(t.aiTranslating);
       const result = await translator.translate(text.slice(0, 8000));
       setOutput(result);
     } catch {
-      setOutput(
-        "翻訳モデルをこの環境で実行できませんでした。Chromeの最新版でお試しください。"
-      );
+      setOutput(t.aiTranslateFailed);
     } finally {
       setBusy(null);
       setProgress("");
@@ -123,8 +120,8 @@ export function AiToolbar({ title, text }: Props) {
 
   function toggleSpeech() {
     if (typeof speechSynthesis === "undefined") {
-      setOutputLabel("読み上げ");
-      setOutput("このブラウザは音声合成に対応していません。");
+      setOutputLabel(t.aiSpeechLabel);
+      setOutput(t.aiSpeechUnsupported);
       return;
     }
     if (speaking) {
@@ -133,7 +130,7 @@ export function AiToolbar({ title, text }: Props) {
       setSpeaking(false);
       return;
     }
-    // 長文を文単位のチャンクに分けて順番に読む
+    // 長文を文単位のチャンクに分けて順番に読む(本文は日本語)
     const sentences = `${title}。${text}`.match(/[^。!?！?]+[。!?！?]?/g) ?? [];
     const chunks: string[] = [];
     let current = "";
@@ -178,33 +175,33 @@ export function AiToolbar({ title, text }: Props) {
         <button
           className="btn-ai"
           disabled={busy !== null}
-          onClick={() => summarize("tldr", "AI要約 (TL;DR)")}
+          onClick={() => summarize("tldr", t.aiSummaryLabel)}
         >
-          {busy === "summary" ? "生成中…" : "✦ AI要約"}
+          {busy === "summary" ? t.aiGenerating : t.aiSummaryBtn}
         </button>
         <button
           className="btn-ai"
           disabled={busy !== null}
-          onClick={() => summarize("key-points", "AI要点リスト")}
+          onClick={() => summarize("key-points", t.aiKeypointsLabel)}
         >
-          {busy === "keypoints" ? "生成中…" : "✦ 要点リスト"}
+          {busy === "keypoints" ? t.aiGenerating : t.aiKeypointsBtn}
         </button>
         <button
           className="btn-ai"
           disabled={busy !== null}
           onClick={() => translate("en", "English translation")}
         >
-          {busy === "translate-en" ? "翻訳中…" : "EN 翻訳"}
+          {busy === "translate-en" ? t.aiTranslatingBtn : t.aiTranslateEn}
         </button>
         <button
           className="btn-ai"
           disabled={busy !== null}
           onClick={() => translate("ko", "한국어 번역")}
         >
-          {busy === "translate-ko" ? "翻訳中…" : "KO 번역"}
+          {busy === "translate-ko" ? t.aiTranslatingBtn : t.aiTranslateKo}
         </button>
         <button className="btn-ai" onClick={toggleSpeech}>
-          {speaking ? "■ 停止" : "▶ 読み上げ"}
+          {speaking ? t.aiSpeechStop : t.aiSpeechStart}
         </button>
       </div>
       {progress && <p className="ai-toolbar-progress">{progress}</p>}
@@ -214,9 +211,7 @@ export function AiToolbar({ title, text }: Props) {
           <p className="ai-toolbar-output-text">{output}</p>
         </div>
       )}
-      <p className="ai-toolbar-note">
-        AI要約・翻訳はブラウザ内蔵AI(Gemini Nano)でオンデバイス実行されます。本文が外部サーバーへ送信されることはありません。
-      </p>
+      <p className="ai-toolbar-note">{t.aiNote}</p>
     </div>
   );
 }

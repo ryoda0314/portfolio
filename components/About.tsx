@@ -1,13 +1,20 @@
-import { profile } from "@/data/profile";
+"use client";
+
+import { getProfile } from "@/data/profile";
+import { useLocale } from "@/lib/i18n";
+import { ui } from "@/lib/ui";
 import { Reveal } from "./Reveal";
 
 export function About() {
+  const { locale } = useLocale();
+  const profile = getProfile(locale);
+  const t = ui[locale];
   return (
     <section className="section" id="about">
       <div className="container">
         <Reveal>
           <p className="section-label">{profile.about.heading}</p>
-          <h2 className="section-title">私について</h2>
+          <h2 className="section-title">{t.aboutTitle}</h2>
         </Reveal>
         <div className="about-grid">
           <Reveal delay={100}>

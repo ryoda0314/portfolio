@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getAllPosts } from "@/lib/posts";
 import { profile } from "@/data/profile";
+import { Tr } from "@/components/Tr";
 
 export const metadata: Metadata = {
   title: `Blog — ${profile.nameRomaji}`,
@@ -12,7 +13,9 @@ export default function BlogPage() {
   return (
     <div className="page container">
       <p className="section-label">Blog</p>
-      <h1 className="section-title">書いたもの</h1>
+      <h1 className="section-title">
+        <Tr ja="書いたもの" en="Writing" ko="쓴 글" />
+      </h1>
       <ul className="post-list">
         {posts.map((post) => (
           <li key={post.slug}>

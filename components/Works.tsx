@@ -1,13 +1,20 @@
-import { profile } from "@/data/profile";
+"use client";
+
+import { getProfile } from "@/data/profile";
+import { useLocale } from "@/lib/i18n";
+import { ui } from "@/lib/ui";
 import { Reveal } from "./Reveal";
 
 export function Works() {
+  const { locale } = useLocale();
+  const profile = getProfile(locale);
+  const t = ui[locale];
   return (
     <section className="section" id="works">
       <div className="container">
         <Reveal>
           <p className="section-label">Works</p>
-          <h2 className="section-title">つくったもの</h2>
+          <h2 className="section-title">{t.worksTitle}</h2>
         </Reveal>
         <div className="works-grid">
           {profile.works.map((work, i) => {
@@ -55,7 +62,7 @@ export function Works() {
         </div>
         <Reveal>
           <a href="/lp" className="all-posts-link">
-            LP・Web制作の作品集も見る →
+            {t.lpPortfolioLink}
           </a>
         </Reveal>
       </div>

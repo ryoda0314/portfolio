@@ -1,6 +1,7 @@
 import { profile } from "@/data/profile";
 import { getAllPosts } from "@/lib/posts";
 import { CommandPalette } from "./blog/CommandPalette";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 const navItems = [
   { label: "About", href: "/#about" },
@@ -25,6 +26,7 @@ export function Header() {
             </a>
           ))}
           <CommandPalette posts={getAllPosts()} />
+          <LanguageSwitcher />
         </nav>
       </div>
     </header>
