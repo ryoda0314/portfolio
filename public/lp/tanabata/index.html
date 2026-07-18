@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>星川町 七夕まつり 2026 ｜ 願いを、空へ。｜ 第38回</title>
+<meta name="description" content="星川町 七夕まつり2026（第38回）公式サイト。テーマは「願いを、空へ。」。2026年8月6日(木)〜8日(土)、星川中央商店街ほかで開催。天の川、短冊飾り、露店、花火。">
+<meta property="og:title" content="星川町 七夕まつり 2026 ｜ 願いを、空へ。">
+<meta property="og:description" content="一年に一度、天の川が街に降りる三日間。2026.8.6 THU − 8.8 SAT ｜ 星川中央商店街ほか">
+<meta property="og:type" content="website">
+<meta property="og:image" content="image/七夕まつり.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230c1236'/%3E%3Cpath d='M16 6l1.7 5.4H23l-4.3 3.2 1.6 5.2L16 16.8 11.7 19.8l1.6-5.2L9 11.4h5.3z' fill='%23f2d18a'/%3E%3Ccircle cx='7' cy='24' r='1' fill='%23fff'/%3E%3Ccircle cx='25' cy='9' r='1' fill='%23fff'/%3E%3Ccircle cx='24' cy='23' r='.8' fill='%23cfe0ff'/%3E%3C/svg%3E">
+<style>
+:root{
+  --n1:#0a1030;--n2:#101a45;--n3:#18265c;
+  --milky-a:#cfe0ff;--milky-b:#efeaff;--milky-c:#d6f2ff;
+  --gold:#f2d18a;--gold-2:#ffe6ad;--star:#ffffff;
+  --peri:#9db2ff;
+  --t-green:#7fb79a;--t-red:#e2919a;--t-yellow:#ecd07f;--t-white:#eef1f6;--t-purple:#b3a4d9;
+  --text:#eef1fb;--muted:#b6bdda;--dim:#7d85a9;
+  --line:rgba(255,255,255,.13);--line-2:rgba(255,255,255,.07);
+  --panel:rgba(255,255,255,.045);--panel-2:rgba(255,255,255,.075);
+  --max:1180px;--ease:cubic-bezier(.22,.61,.36,1);
+  --serif:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP",serif;
+  --sans:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic","YuGothic","Meiryo",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:96px;overflow-x:hidden;}
+body{font-family:var(--sans);color:var(--text);line-height:2;font-size:15.5px;-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative;background-color:#0c1338;
+  background-image:radial-gradient(1100px 700px at 15% 6%,rgba(40,58,120,.55),transparent 60%),radial-gradient(1000px 900px at 90% 40%,rgba(30,26,80,.5),transparent 60%),linear-gradient(165deg,#0a1030 0%,#111c48 55%,#0c1440 100%);
+  background-repeat:no-repeat;}
+/* base starfield */
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.7;
+  background-image:radial-gradient(1.3px 1.3px at 18% 22%,rgba(255,255,255,.9),transparent),radial-gradient(1.1px 1.1px at 68% 14%,rgba(255,255,255,.7),transparent),radial-gradient(1.5px 1.5px at 42% 66%,rgba(255,255,255,.8),transparent),radial-gradient(1px 1px at 82% 58%,rgba(255,255,255,.6),transparent),radial-gradient(1.2px 1.2px at 55% 40%,rgba(207,224,255,.7),transparent),radial-gradient(1px 1px at 10% 74%,rgba(255,255,255,.6),transparent),radial-gradient(1.4px 1.4px at 92% 84%,rgba(255,255,255,.7),transparent),radial-gradient(1px 1px at 30% 12%,rgba(255,255,255,.5),transparent),radial-gradient(1.1px 1.1px at 75% 90%,rgba(207,224,255,.6),transparent);
+  animation:tw 6s ease-in-out infinite;}
+@keyframes tw{0%,100%{opacity:.6}50%{opacity:.9}}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 32px;position:relative;z-index:1;}
+.serif{font-family:var(--serif);}
+.section{padding:120px 0;position:relative;z-index:1;}
+
+/* headings */
+.orn{display:inline-flex;align-items:center;gap:14px;font-family:var(--serif);font-size:15px;letter-spacing:.18em;color:var(--gold);margin-bottom:22px;}
+.orn::before,.orn::after{content:"✦";color:var(--gold);font-size:10px;opacity:.8;}
+.orn.solo::after{display:none;}
+.h-sec{font-family:var(--serif);font-size:clamp(28px,4.2vw,46px);font-weight:600;line-height:1.4;letter-spacing:.06em;}
+.h-en{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.34em;color:var(--dim);font-weight:600;margin-top:16px;}
+
+/* buttons */
+.pill{display:inline-flex;align-items:center;gap:14px;padding:15px 32px;border:1px solid var(--gold);border-radius:100px;color:var(--gold-2);font-weight:600;font-size:14px;letter-spacing:.1em;background:rgba(242,209,138,.06);cursor:pointer;transition:.35s var(--ease);font-family:var(--sans);}
+.pill:hover{background:var(--gold);color:#1a1330;box-shadow:0 8px 30px rgba(242,209,138,.3);}
+.pill .cx{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.7;}
+.hair-link{display:inline-flex;align-items:center;gap:10px;font-family:var(--serif);font-size:15px;letter-spacing:.08em;color:var(--gold-2);}
+.hair-link::before{content:"";width:34px;height:1px;background:var(--gold);transition:width .3s var(--ease);}
+.hair-link:hover::before{width:52px;}
+.hair-link .cx{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.7;}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(26px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:var(--d,0s);}
+.rv.in{opacity:1;transform:none;}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none;}*{animation:none!important;}}
+
+/* header */
+header{position:fixed;top:0;left:0;width:100%;z-index:1000;transition:.4s var(--ease);}
+header.scrolled{background:rgba(10,16,48,.74);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-2);}
+.bar{display:flex;align-items:center;justify-content:space-between;height:86px;transition:height .4s var(--ease);}
+header.scrolled .bar{height:70px;}
+.brand{display:flex;align-items:center;gap:12px;}
+.brand .mk{width:30px;height:30px;flex-shrink:0;}
+.brand b{font-family:var(--serif);font-size:19px;font-weight:600;letter-spacing:.1em;color:var(--text);}
+.brand small{display:block;font-size:9px;letter-spacing:.22em;color:var(--dim);font-weight:600;margin-top:1px;}
+.nav{display:flex;align-items:center;gap:34px;}
+.nav a{font-size:14px;font-weight:600;letter-spacing:.06em;color:var(--text);transition:.25s;opacity:.9;}
+.nav a:not(.nav-pill):hover{color:var(--gold-2);opacity:1;}
+.nav-pill{border:1px solid var(--gold);color:var(--gold-2)!important;padding:9px 22px;border-radius:100px;letter-spacing:.1em;transition:.3s var(--ease);}
+.nav-pill:hover{background:var(--gold);color:#1a1330!important;}
+.burger{display:none;flex-direction:column;gap:6px;background:none;border:none;cursor:pointer;padding:6px;z-index:1002;}
+.burger span{width:24px;height:1.6px;background:var(--text);transition:.3s;}
+.burger.open span:nth-child(1){transform:translateY(7.6px) rotate(45deg);}
+.burger.open span:nth-child(2){opacity:0;}
+.burger.open span:nth-child(3){transform:translateY(-7.6px) rotate(-45deg);}
+.ov{position:fixed;inset:0;background:rgba(5,8,26,.6);z-index:998;opacity:0;visibility:hidden;transition:.3s;}
+.ov.open{opacity:1;visibility:visible;}
+body.lock{overflow:hidden;}
+
+/* hero + milky way */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;padding:120px 0 90px;}
+.galaxy{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;}
+.hero-glow{position:absolute;top:42%;left:50%;transform:translate(-50%,-50%);width:620px;height:620px;max-width:94vw;border-radius:50%;background:radial-gradient(circle,rgba(157,178,255,.16),transparent 62%);z-index:0;filter:blur(8px);}
+/* two stars: 織姫・彦星 */
+.vega,.altair{position:absolute;z-index:1;width:10px;height:10px;border-radius:50%;background:#fff;box-shadow:0 0 14px 4px rgba(207,224,255,.9),0 0 30px 8px rgba(157,178,255,.4);animation:twinkle 3.4s ease-in-out infinite;}
+.vega{top:30%;left:26%;}
+.altair{top:60%;right:24%;width:9px;height:9px;animation-delay:1.2s;box-shadow:0 0 14px 4px rgba(242,209,138,.8),0 0 28px 8px rgba(242,209,138,.35);}
+@keyframes twinkle{0%,100%{opacity:.7;transform:scale(1)}50%{opacity:1;transform:scale(1.25)}}
+.hero-in{position:relative;z-index:3;}
+.hero-ed{font-family:var(--serif);font-size:clamp(14px,1.9vw,18px);letter-spacing:.4em;color:var(--gold);margin-bottom:14px;text-indent:.4em;}
+.hero-nm{font-family:var(--serif);font-weight:600;line-height:1.06;letter-spacing:.14em;font-size:clamp(52px,10vw,120px);text-indent:.14em;
+  background:linear-gradient(180deg,#ffffff,#dfe8ff 55%,#c7d3ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 4px 24px rgba(157,178,255,.3));}
+.hero-catch{font-family:var(--serif);font-size:clamp(19px,2.8vw,30px);letter-spacing:.14em;margin:26px 0 8px;color:#fff;}
+.hero-note{color:var(--muted);font-size:14.5px;margin-bottom:16px;}
+.hero-dt{font-family:var(--serif);font-size:clamp(17px,2vw,22px);letter-spacing:.06em;margin-bottom:36px;}
+.hero-dt .num{font-family:var(--sans);font-weight:300;}
+.hero-dt small{font-size:.62em;color:var(--muted);margin:0 3px;}
+.hero-dt .sep{color:var(--gold);margin:0 10px;}
+.hero-meta{margin-top:14px;color:var(--dim);font-size:13px;letter-spacing:.08em;}
+.scroll-cue{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);z-index:3;font-size:10px;letter-spacing:.35em;color:var(--dim);display:flex;flex-direction:column;align-items:center;gap:10px;}
+.scroll-cue::after{content:"";width:1px;height:40px;background:linear-gradient(var(--gold),transparent);animation:cue 1.8s infinite;}
+@keyframes cue{0%{opacity:0;height:0}45%{opacity:1;height:40px}100%{opacity:0;height:40px}}
+
+/* quick */
+.quick{margin-top:-30px;position:relative;z-index:5;}
+.quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+.q{background:var(--panel);border:1px solid var(--line-2);border-radius:16px;padding:30px 20px;text-align:center;transition:.4s var(--ease);backdrop-filter:blur(6px);}
+.q:hover{border-color:var(--gold);transform:translateY(-6px);background:var(--panel-2);box-shadow:0 20px 44px rgba(0,0,0,.3);}
+.q .qi{width:44px;height:44px;margin:0 auto 14px;stroke:var(--gold-2);fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;}
+.q .qn{font-family:var(--serif);font-size:17px;letter-spacing:.06em;}
+.q .qe{font-size:10px;letter-spacing:.2em;color:var(--dim);font-weight:600;margin-top:4px;}
+
+/* concept */
+.concept{text-align:center;max-width:720px;margin:0 auto;}
+.concept .big{font-family:var(--serif);font-size:clamp(25px,3.6vw,40px);line-height:1.9;letter-spacing:.08em;margin:6px 0 32px;}
+.concept .big .g{color:var(--gold-2);}
+.concept p{color:var(--muted);font-size:15.5px;text-align:justify;}
+
+/* tanzaku (wish strips) */
+.wish{position:relative;overflow:hidden;}
+.tanzaku-row{display:flex;justify-content:center;gap:26px;flex-wrap:wrap;margin-top:8px;}
+.tz{position:relative;width:74px;padding-top:20px;}
+.tz .str{position:absolute;top:0;left:50%;width:1px;height:20px;background:rgba(255,255,255,.4);transform:translateX(-50%);}
+.tz .str::before{content:"";position:absolute;top:18px;left:50%;transform:translateX(-50%);width:5px;height:5px;border-radius:50%;background:var(--gold);}
+.tz .paper{border-radius:4px 4px 3px 3px;padding:16px 0 20px;writing-mode:vertical-rl;text-orientation:upright;margin:0 auto;height:200px;font-family:var(--serif);font-size:14px;letter-spacing:.14em;color:#2a2540;box-shadow:0 10px 24px rgba(0,0,0,.35);transform-origin:top center;animation:sway 5s ease-in-out infinite;}
+.tz:nth-child(1) .paper{background:linear-gradient(180deg,#c6ddd0,#a9cbba);animation-delay:0s;}
+.tz:nth-child(2) .paper{background:linear-gradient(180deg,#f0c2c7,#e29ea6);animation-delay:.6s;}
+.tz:nth-child(3) .paper{background:linear-gradient(180deg,#f4e2ac,#e7cd7f);animation-delay:1.2s;}
+.tz:nth-child(4) .paper{background:linear-gradient(180deg,#f4f6fa,#e0e5ee);animation-delay:.9s;}
+.tz:nth-child(5) .paper{background:linear-gradient(180deg,#d6cbec,#b9aadc);animation-delay:.3s;}
+@keyframes sway{0%,100%{transform:rotate(-2.5deg)}50%{transform:rotate(2.5deg)}}
+
+/* features */
+.feat-row{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:100px;}
+.feat-row:last-child{margin-bottom:0;}
+.feat-row:nth-child(even) .feat-media{order:-1;}
+.feat-media{position:relative;padding:22px;}
+.feat-media .card{aspect-ratio:4/5;background:rgba(255,255,255,.05);border:1px solid var(--line-2);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--dim);font-size:12px;letter-spacing:.1em;position:relative;box-shadow:0 30px 60px rgba(0,0,0,.35);}
+.feat-media .card.back{position:absolute;inset:0;transform:rotate(-5deg);opacity:.4;}
+.feat-media .card.mid{position:absolute;inset:0;transform:rotate(3deg) translateY(8px);opacity:.65;}
+.feat-media .card.front{position:relative;transform:rotate(-1deg);}
+.feat-media .card.photo{padding:0;overflow:hidden;background:#0e1740;}
+.feat-media .card.photo img{width:100%;height:100%;object-fit:cover;display:block;}
+.feat-media::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 55%,rgba(157,178,255,.14),transparent 60%);z-index:-1;filter:blur(30px);}
+.feat-body .no{font-family:var(--serif);font-size:14px;letter-spacing:.2em;color:var(--gold-2);}
+.feat-body h3{font-family:var(--serif);font-size:clamp(24px,3vw,32px);font-weight:600;letter-spacing:.05em;margin:12px 0 16px;line-height:1.5;}
+.feat-body h3 .en{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.28em;color:var(--dim);margin-top:8px;font-weight:600;}
+.feat-body p{color:var(--muted);font-size:15px;margin-bottom:26px;}
+
+/* timetable */
+.tt-tabs{display:inline-flex;border:1px solid var(--line);border-radius:100px;padding:5px;margin-bottom:40px;flex-wrap:wrap;justify-content:center;}
+.tt-tab{padding:11px 26px;border:none;background:none;border-radius:100px;font-family:var(--serif);font-size:15px;letter-spacing:.06em;color:var(--muted);cursor:pointer;transition:.3s var(--ease);}
+.tt-tab.active{background:linear-gradient(120deg,var(--gold),var(--gold-2));color:#1a1330;}
+.tt-panel{display:none;}
+.tt-panel.active{display:block;animation:fade .6s var(--ease);}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.tt-row{display:grid;grid-template-columns:120px 1fr auto;gap:30px;align-items:baseline;padding:24px 8px;border-bottom:1px solid var(--line-2);transition:.3s;}
+.tt-row:first-child{border-top:1px solid var(--line-2);}
+.tt-row:hover{background:rgba(255,255,255,.03);}
+.tt-time{font-family:var(--serif);font-size:20px;letter-spacing:.04em;color:var(--gold-2);}
+.tt-ev{font-size:16px;font-weight:600;}
+.tt-ev small{display:block;color:var(--muted);font-size:13px;font-weight:400;margin-top:3px;}
+.tt-pl{font-size:12px;letter-spacing:.08em;color:var(--dim);white-space:nowrap;}
+
+/* access */
+.access-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.map{aspect-ratio:4/3;background:rgba(255,255,255,.04);border:1px solid var(--line-2);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--dim);font-size:12px;letter-spacing:.1em;overflow:hidden;}
+.map img{width:100%;height:100%;object-fit:cover;display:block;}
+.access-info h3{font-family:var(--serif);font-size:24px;font-weight:600;letter-spacing:.05em;margin-bottom:4px;}
+.access-info .addr{color:var(--muted);margin-bottom:30px;font-size:14.5px;}
+.access-info dl{display:grid;grid-template-columns:80px 1fr;}
+.access-info dt,.access-info dd{padding:16px 0;border-top:1px solid var(--line-2);font-size:15px;}
+.access-info dt{font-family:var(--serif);color:var(--gold-2);letter-spacing:.08em;}
+.access-info dd{color:var(--muted);}
+.note{margin-top:24px;font-size:13px;color:var(--muted);line-height:1.9;}
+
+/* news */
+.news{max-width:840px;margin:0 auto;}
+.news a{display:grid;grid-template-columns:120px 88px 1fr auto;gap:24px;align-items:center;padding:24px 8px;border-top:1px solid var(--line-2);transition:.3s var(--ease);}
+.news a:last-child{border-bottom:1px solid var(--line-2);}
+.news a:hover{background:rgba(255,255,255,.03);padding-left:16px;}
+.news .date{font-family:var(--serif);font-size:15px;color:var(--dim);letter-spacing:.04em;}
+.news .cat{font-size:11px;letter-spacing:.1em;text-align:center;border:1px solid var(--gold);color:var(--gold-2);border-radius:100px;padding:3px 0;font-weight:600;}
+.news .ttl{font-size:15px;font-weight:600;}
+.news .cx{width:14px;height:14px;stroke:var(--gold);fill:none;stroke-width:1.7;justify-self:end;}
+
+/* faq */
+.faq{max-width:820px;margin:0 auto;border-top:1px solid var(--line-2);}
+.faq-item{border-bottom:1px solid var(--line-2);}
+.faq-q{display:flex;align-items:center;gap:20px;width:100%;text-align:left;background:none;border:none;color:var(--text);cursor:pointer;padding:28px 8px;font-family:var(--serif);font-size:18px;letter-spacing:.04em;}
+.faq-q .qi{color:var(--gold-2);}
+.faq-q .cx{margin-left:auto;width:15px;height:15px;position:relative;flex-shrink:0;}
+.faq-q .cx::before,.faq-q .cx::after{content:"";position:absolute;background:var(--gold);transition:.35s var(--ease);}
+.faq-q .cx::before{top:50%;left:0;right:0;height:1.6px;transform:translateY(-50%);}
+.faq-q .cx::after{left:50%;top:0;bottom:0;width:1.6px;transform:translateX(-50%);}
+.faq-item.open .cx::after{transform:translateX(-50%) scaleY(0);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s var(--ease);}
+.faq-a-in{padding:0 8px 30px 44px;color:var(--muted);font-size:15px;}
+
+/* closing */
+.closing{position:relative;text-align:center;padding:150px 0;overflow:hidden;}
+.closing .milky{opacity:.55;}
+.closing .in{position:relative;z-index:2;}
+.closing .dt{font-family:var(--serif);letter-spacing:.14em;color:var(--gold-2);margin-bottom:26px;font-size:16px;}
+.closing .ttl{font-family:var(--serif);font-size:clamp(34px,6vw,72px);letter-spacing:.12em;line-height:1.4;margin-bottom:22px;}
+.closing p{color:var(--muted);margin-bottom:36px;}
+
+/* footer */
+footer{border-top:1px solid var(--line-2);padding:70px 0 34px;position:relative;z-index:1;}
+.foot-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:40px;margin-bottom:50px;}
+.foot-brand{max-width:340px;}.foot-brand .brand{margin-bottom:18px;}
+.foot-brand p{color:var(--muted);font-size:13.5px;}
+.foot-cols{display:flex;gap:60px;flex-wrap:wrap;}
+.foot-col h5{font-family:var(--serif);font-size:14px;letter-spacing:.08em;margin-bottom:18px;color:var(--text);}
+.foot-col a{display:block;color:var(--muted);font-size:13.5px;margin-bottom:12px;transition:.2s;letter-spacing:.03em;}
+.foot-col a:hover{color:var(--gold-2);}
+.foot-bottom{border-top:1px solid var(--line-2);padding-top:26px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:var(--dim);font-size:12px;letter-spacing:.04em;}
+
+@media(max-width:900px){
+  .quick-grid{grid-template-columns:repeat(2,1fr);}
+  .feat-row,.access-grid{grid-template-columns:1fr;gap:36px;}
+  .feat-row:nth-child(even) .feat-media{order:0;}
+  .feat-media{max-width:400px;}
+}
+@media(max-width:720px){
+  .section{padding:88px 0;}.wrap{padding:0 24px;}
+  .nav{position:fixed;top:70px;left:0;width:100%;background:rgba(10,16,48,.97);backdrop-filter:blur(14px);flex-direction:column;align-items:stretch;gap:0;padding:8px 0 20px;clip-path:inset(0 0 100% 0);pointer-events:none;transition:clip-path .34s var(--ease);border-bottom:1px solid var(--line-2);z-index:999;}
+  .nav.open{clip-path:inset(0 0 0 0);pointer-events:auto;}
+  .nav a{padding:17px 26px;border-bottom:1px solid var(--line-2);}
+  .nav a:nth-last-child(2){border-bottom:none;}
+  .nav-pill{margin:14px 26px 0;text-align:center;}
+  .burger{display:flex;}
+  .hero{min-height:auto;padding:130px 0 80px;}.scroll-cue{display:none;}
+  .tz{width:60px;}.tz .paper{height:170px;font-size:13px;}
+  .tt-row{grid-template-columns:auto 1fr;gap:4px 18px;}.tt-pl{grid-column:2;}
+  .news a{grid-template-columns:auto 1fr;gap:4px 16px;}.news .cat{grid-row:1;grid-column:2;justify-self:start;padding:3px 12px;}.news .ttl{grid-column:1/3;}.news .cx{display:none;}
+  .foot-bottom{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+
+<header id="hd">
+  <div class="wrap bar">
+    <a href="#" class="brand">
+      <svg class="mk" viewBox="0 0 32 32"><path d="M16 4l2.2 6.9H25l-5.4 4.1 2 6.6L16 17.6 10.4 21.6l2-6.6L7 10.9h6.8z" fill="#f2d18a"/></svg>
+      <span><b>星川 七夕まつり</b><small>HOSHIKAWA TANABATA ・ 38th</small></span>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#concept">まつりについて</a>
+      <a href="#feature">見どころ</a>
+      <a href="#wish">短冊に願いを</a>
+      <a href="#timetable">タイムテーブル</a>
+      <a href="#access">アクセス</a>
+      <a href="#access" class="nav-pill">来場案内</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="メニュー" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="ov" id="ov"></div>
+
+<!-- Hero -->
+<section class="hero">
+  <canvas class="galaxy" id="galaxyHero"></canvas>
+  <div class="hero-glow"></div>
+  <span class="vega" title="織姫（ベガ）"></span>
+  <span class="altair" title="彦星（アルタイル）"></span>
+  <div class="wrap hero-in">
+    <div class="hero-ed serif">星川町 第38回</div>
+    <h1 class="hero-nm serif">七夕まつり</h1>
+    <p class="hero-catch serif">願いを、空へ。</p>
+    <p class="hero-note">一年に一度、天の川が街に降りる三日間。</p>
+    <div class="hero-dt serif"><span class="num">2026</span>&nbsp;8.6<small>木</small><span class="sep">—</span>8.8<small>土</small></div>
+    <a href="#wish" class="pill">短冊に願いを書く
+      <svg class="cx" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <div class="hero-meta">星川中央商店街ほか ・ 入場無料 ・ 月遅れ開催</div>
+  </div>
+  <div class="scroll-cue">SCROLL</div>
+</section>
+
+<!-- Quick -->
+<div class="quick">
+  <div class="wrap">
+    <div class="quick-grid">
+      <a href="#timetable" class="q rv"><svg class="qi" viewBox="0 0 48 48"><circle cx="24" cy="24" r="16"/><path d="M24 15v9l7 5"/></svg><div class="qn serif">タイムテーブル</div><div class="qe">SCHEDULE</div></a>
+      <a href="#access" class="q rv" style="--d:.06s"><svg class="qi" viewBox="0 0 48 48"><path d="M24 6c-7 0-12 5-12 12 0 8 12 22 12 22s12-14 12-22c0-7-5-12-12-12z"/><circle cx="24" cy="18" r="4"/></svg><div class="qn serif">会場マップ</div><div class="qe">MAP</div></a>
+      <a href="#feature" class="q rv" style="--d:.12s"><svg class="qi" viewBox="0 0 48 48"><path d="M10 20h28l-3 18H13z"/><path d="M10 20l4-8h20l4 8"/></svg><div class="qn serif">露店・屋台</div><div class="qe">STALLS</div></a>
+      <a href="#news" class="q rv" style="--d:.18s"><svg class="qi" viewBox="0 0 48 48"><rect x="10" y="11" width="28" height="26" rx="2"/><path d="M16 19h16M16 25h16M16 31h10"/></svg><div class="qn serif">お知らせ</div><div class="qe">NEWS</div></a>
+    </div>
+  </div>
+</div>
+
+<!-- Concept -->
+<section class="section" id="concept">
+  <div class="wrap">
+    <div class="concept rv">
+      <div class="orn" style="justify-content:center;">まつりについて</div>
+      <p class="big serif">織姫と彦星が出会う夜に、<br>あなたの<span class="g">願い</span>も、空へ。</p>
+      <p>天の川をはさんで一年に一度だけ会えるふたつの星——織姫と彦星。その夜に、人々は色とりどりの短冊へ願いを託してきました。星川の七夕まつりは、商店街いっぱいに揺れる七夕飾り、笹の葉のさざめき、露店のにぎわい、そして夜空を見上げる時間。願いを書いて、笹に結んで、ゆっくり歩く。それだけで、少しだけ空が近くなる三日間です。</p>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="section" id="feature">
+  <div class="wrap">
+    <div class="rv" style="text-align:center;margin-bottom:80px;">
+      <div class="orn" style="justify-content:center;">見どころ</div>
+      <h2 class="h-sec serif">星降る街の、たのしみ。<span class="h-en">HIGHLIGHTS</span></h2>
+    </div>
+
+    <div class="feat-row rv">
+      <div class="feat-body">
+        <span class="no serif">— 飾り</span>
+        <h3 class="serif">頭上いっぱいの、七夕飾り。<span class="en">DECORATIONS</span></h3>
+        <p>商店街のアーケードを埋めつくす、吹き流しと短冊。地元の学校や商店が丹精込めた大飾りが、風にゆれて鳴る。見上げて歩くだけで、心が躍る通りです。</p>
+        <a href="#" class="hair-link">飾りコンクール<svg class="cx" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="feat-media"><div class="card back"></div><div class="card mid"></div><div class="card front photo"><img src="image/七夕飾り.png" alt="星川町の商店街を埋めつくす七夕飾り" loading="lazy"></div></div>
+    </div>
+
+    <div class="feat-row rv">
+      <div class="feat-body">
+        <span class="no serif">— 露店</span>
+        <h3 class="serif">湯気とにぎわいの、屋台通り。<span class="en">FOOD STALLS</span></h3>
+        <p>焼きそば、かき氷、りんご飴。夕暮れとともに灯りがともり、通りは祭りの匂いでいっぱいに。片手に何かを持って、そぞろ歩きを楽しんで。</p>
+        <a href="#" class="hair-link">露店マップ<svg class="cx" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="feat-media"><div class="card back"></div><div class="card mid"></div><div class="card front photo"><img src="image/露店屋台.png" alt="灯りのともった夜の屋台通り" loading="lazy"></div></div>
+    </div>
+
+    <div class="feat-row rv">
+      <div class="feat-body">
+        <span class="no serif">— 夜空</span>
+        <h3 class="serif">最終夜は、天の川花火。<span class="en">FIREWORKS</span></h3>
+        <p>三日目の夜、河川敷から打ち上がる約2,000発の花火。天の川に見立てた大玉が夜空を横切るとき、街じゅうの願いが一斉に空へのぼっていく。</p>
+        <a href="#" class="hair-link">花火観覧のご案内<svg class="cx" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="feat-media"><div class="card back"></div><div class="card mid"></div><div class="card front photo"><img src="image/花火.png" alt="河川敷から打ち上がる天の川花火" loading="lazy"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Wish (tanzaku) -->
+<section class="section wish" id="wish">
+  <div class="wrap">
+    <div class="rv" style="text-align:center;margin-bottom:44px;">
+      <div class="orn" style="justify-content:center;">短冊に願いを</div>
+      <h2 class="h-sec serif">その願い、笹に結んで。<span class="h-en">MAKE A WISH</span></h2>
+      <p style="color:var(--muted);margin-top:16px;max-width:620px;margin-left:auto;margin-right:auto;">会場の願いごとコーナーでは、短冊に願いを書いて笹に結べます。書いていただいた願いは、最終夜の「昇天神事」でお焚き上げし、空へお届けします。</p>
+    </div>
+    <div class="tanzaku-row rv">
+      <div class="tz"><span class="str"></span><div class="paper">家族が健やかでありますように</div></div>
+      <div class="tz"><span class="str"></span><div class="paper">志望校に合格しますように</div></div>
+      <div class="tz"><span class="str"></span><div class="paper">世界が平和になりますように</div></div>
+      <div class="tz"><span class="str"></span><div class="paper">来年もこの街で会えますように</div></div>
+      <div class="tz"><span class="str"></span><div class="paper">みんなが笑顔でいられますように</div></div>
+    </div>
+    <div class="rv" style="text-align:center;margin-top:44px;">
+      <a href="#access" class="pill">願いごとコーナーの場所<svg class="cx" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- Timetable -->
+<section class="section" id="timetable">
+  <div class="wrap">
+    <div class="rv" style="text-align:center;margin-bottom:8px;">
+      <div class="orn" style="justify-content:center;">タイムテーブル</div>
+      <h2 class="h-sec serif">三日間の、過ごし方。<span class="h-en">SCHEDULE</span></h2>
+    </div>
+    <div class="rv" style="text-align:center;">
+      <div class="tt-tabs">
+        <button class="tt-tab active" data-day="0">8.6 木</button>
+        <button class="tt-tab" data-day="1">8.7 金</button>
+        <button class="tt-tab" data-day="2">8.8 土</button>
+      </div>
+    </div>
+    <div class="tt-panel active rv" data-day="0">
+      <div class="tt-row"><span class="tt-time serif">15:00</span><span class="tt-ev">開幕・点灯式<small>七夕飾りお披露目</small></span><span class="tt-pl">中央商店街</span></div>
+      <div class="tt-row"><span class="tt-time serif">16:00</span><span class="tt-ev">願いごとコーナー オープン<small>短冊・笹の設置</small></span><span class="tt-pl">星川神社 参道</span></div>
+      <div class="tt-row"><span class="tt-time serif">18:30</span><span class="tt-ev">こども七夕ステージ<small>地元学校・保育園</small></span><span class="tt-pl">中央ステージ</span></div>
+      <div class="tt-row"><span class="tt-time serif">20:00</span><span class="tt-ev">星空ガイド<small>天体観望会</small></span><span class="tt-pl">河川敷ひろば</span></div>
+    </div>
+    <div class="tt-panel rv" data-day="1">
+      <div class="tt-row"><span class="tt-time serif">14:00</span><span class="tt-ev">七夕飾りコンクール 審査発表<small></small></span><span class="tt-pl">中央商店街</span></div>
+      <div class="tt-row"><span class="tt-time serif">17:00</span><span class="tt-ev">よさこい・和太鼓 演舞<small>地元団体</small></span><span class="tt-pl">中央ステージ</span></div>
+      <div class="tt-row"><span class="tt-time serif">19:00</span><span class="tt-ev">七夕コンサート<small>ゲスト出演</small></span><span class="tt-pl">中央ステージ</span></div>
+      <div class="tt-row"><span class="tt-time serif">20:30</span><span class="tt-ev">笹流し<small>願いを乗せて</small></span><span class="tt-pl">星川</span></div>
+    </div>
+    <div class="tt-panel rv" data-day="2">
+      <div class="tt-row"><span class="tt-time serif">16:00</span><span class="tt-ev">盆踊り大会<small>どなたでも参加可</small></span><span class="tt-pl">中央ひろば</span></div>
+      <div class="tt-row"><span class="tt-time serif">18:30</span><span class="tt-ev">昇天神事（お焚き上げ）<small>願いを空へ</small></span><span class="tt-pl">星川神社</span></div>
+      <div class="tt-row"><span class="tt-time serif">20:00</span><span class="tt-ev">天の川花火大会<small>約2,000発・フィナーレ</small></span><span class="tt-pl">河川敷</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Access -->
+<section class="section" id="access">
+  <div class="wrap">
+    <div class="rv" style="margin-bottom:60px;">
+      <div class="orn">アクセス</div>
+      <h2 class="h-sec serif">来場案内<span class="h-en">HOW TO GET THERE</span></h2>
+    </div>
+    <div class="access-grid">
+      <div class="map rv"><img src="image/マップ.png" alt="星川町 七夕まつり 会場マップ（星川駅・中央商店街・星川神社・河川敷ひろば）" loading="lazy"></div>
+      <div class="access-info rv" style="--d:.1s">
+        <h3 class="serif">星川中央商店街 ／ 星川神社 ／ 河川敷ひろば</h3>
+        <p class="addr">〒000-0000 ◯◯県星川市中央1丁目 一帯（架空の地名です）</p>
+        <dl>
+          <dt>電車</dt><dd>「星川駅」より徒歩5分（架空駅）</dd>
+          <dt>会期</dt><dd>2026年8月6日(木)〜8日(土)</dd>
+          <dt>時間</dt><dd>各日 15:00〜21:00（花火は最終日20:00〜）</dd>
+          <dt>入場</dt><dd>無料（露店・一部有料観覧席あり）</dd>
+        </dl>
+        <p class="note">会期中は会場周辺で交通規制を行います。お車でのご来場はご遠慮ください。夜間・混雑時はお子さまから目を離さないようご注意ください。荒天時は花火の順延・中止があります。最新情報は公式SNSでご確認ください。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- News -->
+<section class="section" id="news">
+  <div class="wrap">
+    <div class="rv" style="text-align:center;margin-bottom:50px;">
+      <div class="orn" style="justify-content:center;">お知らせ</div>
+      <h2 class="h-sec serif">NEWS</h2>
+    </div>
+    <div class="news rv">
+      <a href="#"><span class="date serif">2026.06.20</span><span class="cat">重要</span><span class="ttl">花火大会の有料観覧席の申込を開始しました。</span><svg class="cx" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
+      <a href="#"><span class="date serif">2026.06.01</span><span class="cat">募集</span><span class="ttl">七夕飾りコンクールの参加団体を募集します。</span><svg class="cx" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
+      <a href="#"><span class="date serif">2026.05.15</span><span class="cat">露店</span><span class="ttl">露店の出店エントリー受付を開始しました。</span><svg class="cx" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
+      <a href="#"><span class="date serif">2026.05.01</span><span class="cat">お知らせ</span><span class="ttl">星川町 七夕まつり2026 公式サイトを公開しました。</span><svg class="cx" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="rv" style="text-align:center;margin-bottom:50px;">
+      <div class="orn" style="justify-content:center;">よくある質問</div>
+      <h2 class="h-sec serif">FAQ</h2>
+    </div>
+    <div class="faq rv">
+      <div class="faq-item"><button class="faq-q serif"><span class="qi">問</span>短冊は無料で書けますか？<span class="cx"></span></button><div class="faq-a"><div class="faq-a-in">はい、願いごとコーナーで無料で短冊に願いを書き、笹に結んでいただけます。書いた短冊は最終夜の昇天神事(お焚き上げ)で供養します。</div></div></div>
+      <div class="faq-item"><button class="faq-q serif"><span class="qi">問</span>花火は雨でも開催しますか？<span class="cx"></span></button><div class="faq-a"><div class="faq-a-in">小雨決行です。荒天の場合は翌日以降への順延、または中止となることがあります。実施可否は当日の公式SNSでお知らせします。</div></div></div>
+      <div class="faq-item"><button class="faq-q serif"><span class="qi">問</span>車で行けますか・駐車場はありますか？<span class="cx"></span></button><div class="faq-a"><div class="faq-a-in">会期中は会場周辺で大規模な交通規制を実施します。専用駐車場はございませんので、公共交通機関でのご来場にご協力ください。</div></div></div>
+      <div class="faq-item"><button class="faq-q serif"><span class="qi">問</span>浴衣で行っても大丈夫ですか？<span class="cx"></span></button><div class="faq-a"><div class="faq-a-in">もちろんです。浴衣でのご来場を歓迎します。会場周辺には着付け・レンタルを行う協力店もあります(数に限りあり)。歩きやすい履物でお越しください。</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Closing -->
+<section class="closing">
+  <canvas class="galaxy" id="galaxyClose"></canvas>
+  <div class="wrap in">
+    <div class="dt serif">2026.8.6 THU — 8.8 SAT</div>
+    <p class="ttl serif rv">星に、会いにおいで。</p>
+    <p class="rv">短冊に願いをひとつ書いて、星川の夜へ。</p>
+    <a href="#access" class="pill rv">来場案内を見る<svg class="cx" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a href="#" class="brand">
+          <svg class="mk" viewBox="0 0 32 32"><path d="M16 4l2.2 6.9H25l-5.4 4.1 2 6.6L16 17.6 10.4 21.6l2-6.6L7 10.9h6.8z" fill="#f2d18a"/></svg>
+          <span><b>星川 七夕まつり</b><small>HOSHIKAWA TANABATA</small></span>
+        </a>
+        <p>星川町 第38回 七夕まつり 公式サイト。テーマは「願いを、空へ。」月遅れ(8月)開催。</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col"><h5>まつり</h5><a href="#concept">まつりについて</a><a href="#feature">見どころ</a><a href="#wish">短冊に願いを</a><a href="#timetable">タイムテーブル</a></div>
+        <div class="foot-col"><h5>ご案内</h5><a href="#access">アクセス</a><a href="#news">お知らせ</a><a href="#faq">よくある質問</a></div>
+        <div class="foot-col"><h5>SNS</h5><a href="#">X（Twitter）</a><a href="#">Instagram</a><a href="#">LINE</a></div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>主催：星川町 七夕まつり実行委員会</span>
+      <span>© 2026 HOSHIKAWA TANABATA ／ これは実在しない架空のおまつりサイトです。</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const burger=document.getElementById('burger'),nav=document.getElementById('nav'),ov=document.getElementById('ov');
+const openN=()=>{nav.classList.add('open');ov.classList.add('open');burger.classList.add('open');document.body.classList.add('lock');burger.setAttribute('aria-expanded','true');};
+const closeN=()=>{nav.classList.remove('open');ov.classList.remove('open');burger.classList.remove('open');document.body.classList.remove('lock');burger.setAttribute('aria-expanded','false');};
+burger.addEventListener('click',()=>burger.classList.contains('open')?closeN():openN());
+ov.addEventListener('click',closeN);
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeN));
+addEventListener('keydown',e=>{if(e.key==='Escape')closeN();});
+addEventListener('resize',()=>{if(innerWidth>720)closeN();});
+const hd=document.getElementById('hd');
+addEventListener('scroll',()=>hd.classList.toggle('scrolled',scrollY>24),{passive:true});
+
+/* ===== 天の川（canvasで描画） ===== */
+function drawGalaxy(cv,opts){
+  if(!cv)return;const ctx=cv.getContext('2d');const DPR=Math.min(window.devicePixelRatio||1,2);
+  const angle=(opts&&opts.angle!=null?opts.angle:-22)*Math.PI/180;
+  const cyR=(opts&&opts.cy!=null?opts.cy:0.48);
+  const bandR=(opts&&opts.band!=null?opts.band:0.42);
+  function randn(){let u=1-Math.random(),v=Math.random();return Math.sqrt(-2*Math.log(u))*Math.cos(6.2831853*v);}
+  function starCol(){const r=Math.random();if(r<0.68)return[255,255,255];if(r<0.9)return[205,222,255];return[255,231,199];}
+  function render(){
+    const W=cv.width,H=cv.height;if(!W||!H)return;
+    ctx.clearRect(0,0,W,H);
+    const dx=Math.cos(angle),dy=Math.sin(angle),nx=-dy,ny=dx;
+    const cx=W*0.5,cy=H*cyR,L=Math.hypot(W,H),band=H*bandR,area=W*H,d2=DPR*DPR;
+    /* ガス雲（加算） */
+    ctx.globalCompositeOperation='lighter';
+    const pal=[[92,120,255],[150,110,235],[68,92,205],[120,182,220],[214,172,140]];
+    const clouds=Math.round(area/(120000*d2))+26;
+    for(let i=0;i<clouds;i++){
+      const t=(Math.random()-0.5)*1.15,off=randn()*band*0.4;
+      const px=cx+dx*t*L+nx*off,py=cy+dy*t*L+ny*off;
+      const rad=(46+Math.random()*150)*DPR,c=pal[(Math.random()*pal.length)|0],a=0.045+Math.random()*0.085;
+      const g=ctx.createRadialGradient(px,py,0,px,py,rad);
+      g.addColorStop(0,'rgba('+c[0]+','+c[1]+','+c[2]+','+a+')');g.addColorStop(1,'rgba('+c[0]+','+c[1]+','+c[2]+',0)');
+      ctx.fillStyle=g;ctx.beginPath();ctx.arc(px,py,rad,0,6.2832);ctx.fill();
+    }
+    /* 暗黒帯（ダストレーン） */
+    ctx.globalCompositeOperation='source-over';
+    for(let i=0;i<11;i++){
+      const t=(Math.random()-0.5)*1.0,off=randn()*band*0.18;
+      const px=cx+dx*t*L+nx*off,py=cy+dy*t*L+ny*off,rad=(34+Math.random()*100)*DPR;
+      const g=ctx.createRadialGradient(px,py,0,px,py,rad);
+      g.addColorStop(0,'rgba(9,13,42,0.55)');g.addColorStop(1,'rgba(9,13,42,0)');
+      ctx.fillStyle=g;ctx.beginPath();ctx.arc(px,py,rad,0,6.2832);ctx.fill();
+    }
+    /* 星 */
+    ctx.globalCompositeOperation='lighter';
+    const bg=Math.round(area/(11000*d2));
+    for(let i=0;i<bg;i++){const x=Math.random()*W,y=Math.random()*H,rr=(Math.random()*0.8+0.2)*DPR,a=0.2+Math.random()*0.5,c=starCol();
+      ctx.fillStyle='rgba('+c[0]+','+c[1]+','+c[2]+','+a+')';ctx.beginPath();ctx.arc(x,y,rr,0,6.2832);ctx.fill();}
+    const dense=Math.round(area/(2400*d2));
+    for(let i=0;i<dense;i++){const t=(Math.random()-0.5)*1.15,off=randn()*band*0.42;
+      const x=cx+dx*t*L+nx*off,y=cy+dy*t*L+ny*off;if(x<0||x>W||y<0||y>H)continue;
+      const rr=(Math.random()*1.05+0.2)*DPR,a=0.35+Math.random()*0.6,c=starCol();
+      ctx.fillStyle='rgba('+c[0]+','+c[1]+','+c[2]+','+a+')';ctx.beginPath();ctx.arc(x,y,rr,0,6.2832);ctx.fill();}
+    /* 輝星 */
+    for(let i=0;i<9;i++){const t=(Math.random()-0.5)*1.0,off=randn()*band*0.5;
+      const x=cx+dx*t*L+nx*off,y=cy+dy*t*L+ny*off,rr=(1.3+Math.random()*1.5)*DPR,c=starCol();
+      const gg=ctx.createRadialGradient(x,y,0,x,y,rr*7);
+      gg.addColorStop(0,'rgba('+c[0]+','+c[1]+','+c[2]+',0.9)');gg.addColorStop(0.4,'rgba('+c[0]+','+c[1]+','+c[2]+',0.22)');gg.addColorStop(1,'rgba('+c[0]+','+c[1]+','+c[2]+',0)');
+      ctx.fillStyle=gg;ctx.beginPath();ctx.arc(x,y,rr*7,0,6.2832);ctx.fill();
+      ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(x,y,rr,0,6.2832);ctx.fill();}
+    ctx.globalCompositeOperation='source-over';
+  }
+  function size(){const r=cv.parentElement.getBoundingClientRect();cv.width=Math.max(1,Math.round(r.width*DPR));cv.height=Math.max(1,Math.round(r.height*DPR));render();}
+  size();let rt;window.addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(size,220);});
+}
+drawGalaxy(document.getElementById('galaxyHero'),{angle:-22,cy:0.46,band:0.44});
+drawGalaxy(document.getElementById('galaxyClose'),{angle:-14,cy:0.5,band:0.6});
+const rv=document.querySelectorAll('.rv');
+if('IntersectionObserver' in window){const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -60px 0px'});rv.forEach(el=>io.observe(el));}else rv.forEach(el=>el.classList.add('in'));
+document.querySelectorAll('.tt-tab').forEach(t=>t.addEventListener('click',()=>{const d=t.dataset.day;document.querySelectorAll('.tt-tab').forEach(x=>x.classList.remove('active'));t.classList.add('active');document.querySelectorAll('.tt-panel').forEach(p=>p.classList.toggle('active',p.dataset.day===d));}));
+document.querySelectorAll('.faq-item').forEach(item=>{const q=item.querySelector('.faq-q'),a=item.querySelector('.faq-a');q.addEventListener('click',()=>{const o=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>{i.classList.remove('open');i.querySelector('.faq-a').style.maxHeight=null;});if(!o){item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px';}});});
+</script>
+</body>
+</html>

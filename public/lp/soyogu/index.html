@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第74回 青葉祭 ｜ そよぐ ｜ 青葉台大学 学園祭 公式ウェブサイト</title>
+<meta name="description" content="青葉台大学 第74回学園祭「青葉祭」公式サイト。テーマは「そよぐ」。2026年5月23日(土)・24日(日)、若葉キャンパスにて開催。入場無料。">
+<meta property="og:title" content="第74回 青葉祭 ｜ そよぐ">
+<meta property="og:description" content="風が、はじまりを連れてくる。2026.5.23 SAT − 5.24 SUN ｜ 青葉台大学 若葉キャンパス">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='1' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%238fe3c6'/%3E%3Cstop offset='1' stop-color='%232a9fc0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M6 24 C12 20 12 10 20 8 C24 7 27 9 27 9' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linecap='round'/%3E%3Cpath d='M5 27 C13 23 14 15 22 12' fill='none' stroke='url(%23g)' stroke-width='1.6' stroke-linecap='round' opacity='.6'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#ffffff;
+  --ink:#2b3a37;--ink-soft:#6c7a75;--ink-mute:#9aa8a3;
+  --teal:#22a996;--teal-deep:#1c8b7c;
+  --g1:#93e4c8;--g2:#33c1a6;--g3:#2aa0c1;
+  --line:#e8efec;--line-2:#f1f6f3;
+  --wash:#f4faf7;
+  --max:1180px;--ease:cubic-bezier(.22,.61,.36,1);
+  --serif:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP",serif;
+  --sans:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic","YuGothic","Meiryo",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:100px;}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:2;font-size:15.5px;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 32px;}
+.serif{font-family:var(--serif);}
+.section{padding:130px 0;position:relative;}
+
+/* teal gradient text */
+.grad{background:linear-gradient(100deg,var(--g2),var(--g3));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+
+/* small mincho label with hairline */
+.tag-label{display:inline-flex;align-items:center;gap:16px;font-family:var(--serif);font-size:15px;letter-spacing:.14em;color:var(--teal-deep);margin-bottom:26px;}
+.tag-label::before{content:"";width:40px;height:1px;background:linear-gradient(90deg,var(--g2),var(--g3));}
+.h-sec{font-family:var(--serif);font-size:clamp(28px,4.2vw,46px);font-weight:600;line-height:1.4;letter-spacing:.05em;}
+.h-en{font-family:var(--sans);font-size:11px;letter-spacing:.34em;color:var(--ink-mute);font-weight:600;margin-top:16px;display:block;}
+.lead{color:var(--ink-soft);font-size:15.5px;margin-top:24px;max-width:640px;}
+
+/* links / buttons — thin outline only */
+.pill{display:inline-flex;align-items:center;gap:14px;padding:15px 32px;border:1px solid var(--teal);border-radius:100px;color:var(--teal-deep);font-weight:600;font-size:14px;letter-spacing:.1em;background:transparent;cursor:pointer;transition:.35s var(--ease);font-family:var(--sans);}
+.pill:hover{background:var(--teal);color:#fff;}
+.pill .cx{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.6;}
+.hair-link{display:inline-flex;align-items:center;gap:10px;font-family:var(--serif);font-size:15px;letter-spacing:.08em;color:var(--teal-deep);}
+.hair-link::before{content:"";width:34px;height:1px;background:var(--teal);transition:width .3s var(--ease);}
+.hair-link:hover::before{width:50px;}
+.hair-link .cx{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.6;}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(24px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease);transition-delay:var(--d,0s);}
+.rv.in{opacity:1;transform:none;}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none;}*{animation:none!important;}}
+
+/* header */
+header{position:fixed;top:0;left:0;width:100%;z-index:1000;transition:.4s var(--ease);}
+header.scrolled{background:rgba(255,255,255,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+.bar{display:flex;align-items:center;justify-content:space-between;height:90px;transition:height .4s var(--ease);}
+header.scrolled .bar{height:72px;}
+.brand{display:flex;align-items:center;gap:12px;}
+.brand .mk{width:34px;height:34px;flex-shrink:0;}
+.brand b{font-family:var(--serif);font-size:19px;font-weight:600;letter-spacing:.08em;color:var(--ink);}
+.brand small{display:block;font-size:9px;letter-spacing:.24em;color:var(--ink-mute);font-weight:600;margin-top:1px;}
+.nav{display:flex;align-items:center;gap:38px;}
+.nav a{font-size:14px;font-weight:600;letter-spacing:.06em;color:var(--ink);position:relative;transition:.25s;}
+.nav a:not(.nav-pill)::after{content:"";position:absolute;left:0;bottom:-7px;width:0;height:1px;background:var(--teal);transition:width .3s var(--ease);}
+.nav a:not(.nav-pill):hover{color:var(--teal-deep);}
+.nav a:not(.nav-pill):hover::after{width:100%;}
+.nav-pill{border:1px solid var(--teal);color:var(--teal-deep)!important;padding:9px 22px;border-radius:100px;letter-spacing:.1em;transition:.3s var(--ease);}
+.nav-pill:hover{background:var(--teal);color:#fff!important;}
+.burger{display:none;flex-direction:column;gap:6px;background:none;border:none;cursor:pointer;padding:6px;z-index:1002;}
+.burger span{width:24px;height:1.5px;background:var(--ink);transition:.3s;}
+.burger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg);}
+.burger.open span:nth-child(2){opacity:0;}
+.burger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg);}
+.ov{position:fixed;inset:0;background:rgba(43,58,55,.25);z-index:998;opacity:0;visibility:hidden;transition:.3s;}
+.ov.open{opacity:1;visibility:visible;}
+body.lock{overflow:hidden;}
+
+/* hero */
+.hero{position:relative;min-height:100vh;overflow:hidden;display:flex;align-items:flex-end;padding:0 0 78px;}
+.hero-flow{position:absolute;inset:0;z-index:0;width:100%;height:100%;}
+.hero-inner{position:relative;z-index:2;width:100%;}
+.hero-grid{display:grid;grid-template-columns:1fr auto;align-items:end;gap:40px;}
+.hero-left{max-width:430px;}
+.hero-catch{font-family:var(--serif);font-size:clamp(20px,2.4vw,26px);line-height:1.9;letter-spacing:.08em;color:var(--ink);margin-bottom:26px;}
+.hero-note{color:var(--ink-soft);font-size:14.5px;margin-bottom:34px;}
+.hero-title{text-align:right;}
+.hero-title .ed{font-family:var(--serif);font-size:clamp(20px,2.6vw,30px);letter-spacing:.2em;color:var(--teal-deep);margin-bottom:6px;}
+.hero-title .nm{font-family:var(--serif);font-weight:600;font-size:clamp(76px,14vw,190px);line-height:1;letter-spacing:.08em;}
+.hero-title .nm .grad{background:linear-gradient(120deg,var(--g1),var(--g2) 45%,var(--g3));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.hero-title .dt{font-family:var(--serif);font-size:clamp(18px,2.2vw,26px);letter-spacing:.04em;color:var(--ink);margin-top:18px;font-weight:400;}
+.hero-title .dt .num{font-family:var(--sans);font-weight:300;}
+.hero-title .dt small{font-size:.6em;color:var(--ink-soft);margin:0 2px;}
+.hero-scroll{position:absolute;left:32px;bottom:34px;z-index:2;writing-mode:vertical-rl;font-size:10px;letter-spacing:.4em;color:var(--ink-mute);display:flex;align-items:center;gap:14px;}
+.hero-scroll::after{content:"";width:1px;height:46px;background:linear-gradient(var(--teal),transparent);}
+
+/* quick access */
+.quick{margin-top:-40px;position:relative;z-index:5;}
+.quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.q{background:#fff;border:1px solid var(--line);border-radius:16px;padding:34px 22px;text-align:center;transition:.4s var(--ease);}
+.q:hover{border-color:var(--teal);transform:translateY(-6px);box-shadow:0 20px 40px rgba(34,169,150,.1);}
+.q .qi{width:48px;height:48px;margin:0 auto 16px;stroke:var(--teal);fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;}
+.q .qn{font-family:var(--serif);font-size:17px;letter-spacing:.06em;}
+.q .qe{font-size:10px;letter-spacing:.2em;color:var(--ink-mute);font-weight:600;margin-top:4px;}
+
+/* concept */
+.concept{text-align:center;max-width:720px;margin:0 auto;}
+.concept .big{font-family:var(--serif);font-size:clamp(26px,3.8vw,42px);line-height:1.9;letter-spacing:.08em;margin:8px 0 34px;}
+.concept .big .grad{background:linear-gradient(100deg,var(--g2),var(--g3));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.concept p{color:var(--ink-soft);font-size:15.5px;text-align:justify;}
+.wave-soft{position:absolute;left:0;width:100%;height:340px;z-index:0;opacity:.9;pointer-events:none;}
+
+/* features (tilted cards + soft wave) */
+.feat{position:relative;}
+.feat-row{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:110px;}
+.feat-row:last-child{margin-bottom:0;}
+.feat-row:nth-child(even) .feat-media{order:-1;}
+.feat-media{position:relative;padding:26px;}
+.feat-media .card{aspect-ratio:4/5;background:var(--wash);border:1px solid var(--line);border-radius:8px;position:relative;display:flex;align-items:center;justify-content:center;color:var(--ink-mute);font-size:12px;letter-spacing:.1em;box-shadow:0 26px 50px rgba(34,169,150,.1);}
+.feat-media .card.back{position:absolute;inset:0;transform:rotate(-5deg);opacity:.55;z-index:0;}
+.feat-media .card.mid{position:absolute;inset:0;transform:rotate(3deg) translateY(8px);opacity:.8;z-index:1;}
+.feat-media .card.front{position:relative;z-index:2;transform:rotate(-1deg);}
+.feat-body .no{font-family:var(--serif);font-size:14px;letter-spacing:.2em;color:var(--teal-deep);}
+.feat-body h3{font-family:var(--serif);font-size:clamp(24px,3vw,32px);font-weight:600;letter-spacing:.05em;margin:12px 0 16px;line-height:1.5;}
+.feat-body h3 .en{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.28em;color:var(--ink-mute);margin-top:8px;font-weight:600;}
+.feat-body p{color:var(--ink-soft);font-size:15px;margin-bottom:26px;}
+
+/* pickup */
+.pick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+.pick .thumb{aspect-ratio:4/3;background:var(--wash);border:1px solid var(--line);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--ink-mute);font-size:11px;letter-spacing:.1em;overflow:hidden;position:relative;transition:.4s var(--ease);}
+.pick:hover .thumb{border-color:var(--teal);}
+.pick .cat{font-family:var(--sans);font-size:11px;letter-spacing:.16em;color:var(--teal-deep);font-weight:600;margin:20px 0 8px;}
+.pick h3{font-family:var(--serif);font-size:20px;font-weight:600;letter-spacing:.04em;margin-bottom:10px;}
+.pick p{color:var(--ink-soft);font-size:14px;margin-bottom:16px;}
+
+/* timetable */
+.tt-tabs{display:inline-flex;border:1px solid var(--line);border-radius:100px;padding:5px;margin-bottom:40px;}
+.tt-tab{padding:11px 34px;border:none;background:none;border-radius:100px;font-family:var(--serif);font-size:15px;letter-spacing:.08em;color:var(--ink-soft);cursor:pointer;transition:.3s var(--ease);}
+.tt-tab.active{background:linear-gradient(100deg,var(--g2),var(--g3));color:#fff;}
+.tt-panel{display:none;}
+.tt-panel.active{display:block;animation:fade .6s var(--ease);}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.tt-row{display:grid;grid-template-columns:120px 1fr auto;gap:30px;align-items:baseline;padding:26px 8px;border-bottom:1px solid var(--line);transition:.3s;}
+.tt-row:first-child{border-top:1px solid var(--line);}
+.tt-row:hover{background:var(--line-2);}
+.tt-time{font-family:var(--serif);font-size:20px;letter-spacing:.04em;color:var(--teal-deep);}
+.tt-ev{font-size:16px;font-weight:600;letter-spacing:.03em;}
+.tt-ev small{display:block;color:var(--ink-soft);font-size:13px;font-weight:400;margin-top:3px;}
+.tt-pl{font-size:12px;letter-spacing:.08em;color:var(--ink-mute);white-space:nowrap;}
+
+/* access */
+.access-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.map{aspect-ratio:4/3;background:var(--wash);border:1px solid var(--line);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--ink-mute);font-size:12px;letter-spacing:.1em;}
+.access-info h3{font-family:var(--serif);font-size:24px;font-weight:600;letter-spacing:.05em;margin-bottom:4px;}
+.access-info .addr{color:var(--ink-soft);margin-bottom:30px;font-size:14.5px;}
+.access-info dl{display:grid;grid-template-columns:80px 1fr;}
+.access-info dt,.access-info dd{padding:16px 0;border-top:1px solid var(--line);font-size:15px;}
+.access-info dt{font-family:var(--serif);color:var(--teal-deep);letter-spacing:.08em;}
+.access-info dd{color:var(--ink-soft);}
+.note{margin-top:24px;font-size:13px;color:var(--ink-soft);line-height:1.9;}
+
+/* news */
+.news{max-width:840px;margin:0 auto;}
+.news a{display:grid;grid-template-columns:120px 88px 1fr auto;gap:24px;align-items:center;padding:24px 8px;border-top:1px solid var(--line);transition:.3s var(--ease);}
+.news a:last-child{border-bottom:1px solid var(--line);}
+.news a:hover{background:var(--line-2);padding-left:16px;}
+.news .date{font-family:var(--serif);font-size:15px;color:var(--ink-mute);letter-spacing:.04em;}
+.news .cat{font-size:11px;letter-spacing:.1em;text-align:center;border:1px solid var(--teal);color:var(--teal-deep);border-radius:100px;padding:3px 0;font-weight:600;}
+.news .ttl{font-size:15px;font-weight:600;}
+.news .cx{width:14px;height:14px;stroke:var(--teal);fill:none;stroke-width:1.6;justify-self:end;}
+
+/* faq */
+.faq{max-width:820px;margin:0 auto;border-top:1px solid var(--line);}
+.faq-item{border-bottom:1px solid var(--line);}
+.faq-q{display:flex;align-items:center;gap:20px;width:100%;text-align:left;background:none;border:none;color:var(--ink);cursor:pointer;padding:28px 8px;font-family:var(--serif);font-size:18px;letter-spacing:.04em;}
+.faq-q .qi{font-family:var(--serif);color:var(--teal);font-size:18px;}
+.faq-q .cx{margin-left:auto;width:15px;height:15px;position:relative;flex-shrink:0;}
+.faq-q .cx::before,.faq-q .cx::after{content:"";position:absolute;background:var(--teal);transition:.35s var(--ease);}
+.faq-q .cx::before{top:50%;left:0;right:0;height:1.5px;transform:translateY(-50%);}
+.faq-q .cx::after{left:50%;top:0;bottom:0;width:1.5px;transform:translateX(-50%);}
+.faq-item.open .cx::after{transform:translateX(-50%) scaleY(0);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s var(--ease);}
+.faq-a-in{padding:0 8px 30px 46px;color:var(--ink-soft);font-size:15px;}
+
+/* closing */
+.closing{position:relative;overflow:hidden;text-align:center;padding:150px 0;}
+.closing-flow{position:absolute;inset:0;z-index:0;opacity:.9;}
+.closing-in{position:relative;z-index:1;}
+.closing .ttl{font-family:var(--serif);font-size:clamp(34px,6vw,72px);letter-spacing:.1em;line-height:1.4;margin-bottom:22px;}
+.closing .dt{font-family:var(--serif);letter-spacing:.14em;color:var(--teal-deep);margin-bottom:30px;font-size:16px;}
+.closing p{color:var(--ink-soft);margin-bottom:36px;}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:70px 0 34px;}
+.foot-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:40px;margin-bottom:50px;}
+.foot-brand{max-width:340px;}
+.foot-brand .brand{margin-bottom:18px;}
+.foot-brand p{color:var(--ink-soft);font-size:13.5px;}
+.foot-cols{display:flex;gap:60px;flex-wrap:wrap;}
+.foot-col h5{font-family:var(--serif);font-size:14px;letter-spacing:.08em;margin-bottom:18px;color:var(--ink);}
+.foot-col a{display:block;color:var(--ink-soft);font-size:13.5px;margin-bottom:12px;transition:.2s;letter-spacing:.03em;}
+.foot-col a:hover{color:var(--teal-deep);}
+.foot-bottom{border-top:1px solid var(--line);padding-top:26px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:var(--ink-mute);font-size:12px;letter-spacing:.04em;}
+
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;align-items:start;gap:60px;}
+  .hero-left{order:2;}.hero-title{order:1;text-align:left;}.hero-title .nm{letter-spacing:.04em;}
+  .quick-grid{grid-template-columns:repeat(2,1fr);}
+  .feat-row,.access-grid{grid-template-columns:1fr;gap:36px;}
+  .feat-row:nth-child(even) .feat-media{order:0;}
+  .feat-media{max-width:400px;}
+  .pick-grid{grid-template-columns:1fr;max-width:420px;margin:0 auto;}
+}
+@media(max-width:720px){
+  .section{padding:90px 0;}
+  .wrap{padding:0 24px;}
+  .nav{position:fixed;top:72px;left:0;width:100%;background:#fff;flex-direction:column;align-items:stretch;gap:0;padding:8px 0 20px;clip-path:inset(0 0 100% 0);pointer-events:none;transition:clip-path .34s var(--ease);border-bottom:1px solid var(--line);z-index:999;}
+  .nav.open{clip-path:inset(0 0 0 0);pointer-events:auto;}
+  .nav a{padding:17px 26px;border-bottom:1px solid var(--line-2);letter-spacing:.06em;}
+  .nav a:not(.nav-pill)::after{display:none;}
+  .nav a:nth-last-child(2){border-bottom:none;}
+  .nav-pill{margin:14px 26px 0;text-align:center;}
+  .burger{display:flex;}
+  .hero{min-height:auto;padding:130px 0 70px;}
+  .hero-scroll{display:none;}
+  .tt-row{grid-template-columns:auto 1fr;gap:4px 18px;}
+  .tt-pl{grid-column:2;}
+  .news a{grid-template-columns:auto 1fr;gap:4px 16px;}
+  .news .cat{grid-row:1;grid-column:2;justify-self:start;padding:3px 12px;}
+  .news .ttl{grid-column:1/3;}
+  .news .cx{display:none;}
+  .foot-bottom{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+
+<header id="hd">
+  <div class="wrap bar">
+    <a href="#" class="brand">
+      <svg class="mk" viewBox="0 0 32 32"><defs><linearGradient id="mg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#93e4c8"/><stop offset="1" stop-color="#2aa0c1"/></linearGradient></defs><path d="M6 24 C12 20 12 10 20 8 C24 7 27 9 27 9" fill="none" stroke="url(#mg)" stroke-width="2.4" stroke-linecap="round"/><path d="M5 27 C13 23 14 15 22 12" fill="none" stroke="url(#mg)" stroke-width="1.6" stroke-linecap="round" opacity=".6"/></svg>
+      <span><b>青葉祭</b><small>AOBA FES ・ 74th</small></span>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#concept">テーマ</a>
+      <a href="#feature">見どころ</a>
+      <a href="#pickup">企画</a>
+      <a href="#timetable">タイムテーブル</a>
+      <a href="#access">アクセス</a>
+      <a href="#access" class="nav-pill">来場案内</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="メニュー" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="ov" id="ov"></div>
+
+<!-- Hero -->
+<section class="hero">
+  <svg class="hero-flow" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="flow" x1="0" y1="1" x2="1" y2="0">
+        <stop offset="0" stop-color="#bff0dd"/><stop offset=".5" stop-color="#4fcbb0"/><stop offset="1" stop-color="#2aa0c1"/>
+      </linearGradient>
+    </defs>
+    <g fill="none" stroke="url(#flow)" stroke-linecap="round">
+      <path d="M-50,860 C400,760 620,520 900,360 C1120,235 1320,190 1520,150" stroke-width="2.4" opacity=".9" class="flow-line"/>
+      <path d="M-50,900 C420,800 660,560 940,400 C1160,275 1360,235 1520,205" stroke-width="1.4" opacity=".6" class="flow-line"/>
+      <path d="M-50,930 C440,835 700,600 980,445 C1200,320 1400,285 1520,262" stroke-width="1" opacity=".45" class="flow-line"/>
+      <path d="M-50,820 C380,725 585,485 865,320 C1085,195 1290,150 1520,108" stroke-width="1" opacity=".4" class="flow-line"/>
+      <path d="M-50,970 C470,880 740,650 1020,495 C1240,375 1430,340 1520,322" stroke-width=".8" opacity=".3" class="flow-line"/>
+    </g>
+  </svg>
+  <div class="wrap hero-inner">
+    <div class="hero-grid">
+      <div class="hero-left rv">
+        <p class="hero-catch serif">風が、<br>はじまりを連れてくる。</p>
+        <p class="hero-note">気になった方へ、ふらりと歩き出す。青葉のキャンパスに、二日間だけの風が吹く。</p>
+        <a href="#pickup" class="pill">企画をさがす
+          <svg class="cx" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <div class="hero-title rv" style="--d:.15s">
+        <div class="ed serif">第74回</div>
+        <div class="nm serif"><span class="grad">青葉祭</span></div>
+        <div class="dt serif"><span class="num">2026</span> &nbsp;5.23<small>土</small> — 5.24<small>日</small></div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">SCROLL</div>
+</section>
+
+<!-- Quick access -->
+<div class="quick">
+  <div class="wrap">
+    <div class="quick-grid">
+      <a href="#pickup" class="q rv"><svg class="qi" viewBox="0 0 48 48"><circle cx="21" cy="21" r="12"/><path d="M30 30l9 9"/></svg><div class="qn serif">企画をさがす</div><div class="qe">SEARCH</div></a>
+      <a href="#access" class="q rv" style="--d:.06s"><svg class="qi" viewBox="0 0 48 48"><path d="M24 6c-7 0-12 5-12 12 0 8 12 22 12 22s12-14 12-22c0-7-5-12-12-12z"/><circle cx="24" cy="18" r="4"/></svg><div class="qn serif">会場マップ</div><div class="qe">MAP</div></a>
+      <a href="#timetable" class="q rv" style="--d:.12s"><svg class="qi" viewBox="0 0 48 48"><circle cx="24" cy="24" r="16"/><path d="M24 15v9l7 5"/></svg><div class="qn serif">タイムテーブル</div><div class="qe">SCHEDULE</div></a>
+      <a href="#news" class="q rv" style="--d:.18s"><svg class="qi" viewBox="0 0 48 48"><rect x="10" y="11" width="28" height="26" rx="2"/><path d="M16 19h16M16 25h16M16 31h10"/></svg><div class="qn serif">お知らせ</div><div class="qe">NEWS</div></a>
+    </div>
+  </div>
+</div>
+
+<!-- Concept -->
+<section class="section" id="concept">
+  <div class="wrap">
+    <div class="concept rv">
+      <div class="tag-label" style="justify-content:center;">テーマ</div>
+      <p class="big serif">そよぐ、<br>という<span class="grad">はじまり</span>。</p>
+      <p>風は、目には見えない。けれど、葉が揺れて、髪がなびいて、はじめてその存在に気づく。青葉祭のテーマは「そよぐ」。誰かの小さな挑戦、ふと立ち止まった展示、聞こえてきた歌声——ひとつひとつは静かでも、集まればキャンパス全体を揺らす風になる。予定を決めすぎず、吹かれるままに歩いてほしい。あなたが揺れた場所こそ、今年の青葉祭です。</p>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="section feat" id="feature" style="background:var(--wash);">
+  <svg class="wave-soft" style="top:-1px;" viewBox="0 0 1440 340" preserveAspectRatio="none" aria-hidden="true"><path d="M0,120 C360,40 520,200 760,150 C1020,95 1180,220 1440,150 L1440,0 L0,0 Z" fill="#ffffff"/></svg>
+  <div class="wrap" style="position:relative;z-index:1;">
+    <div class="rv" style="text-align:center;margin-bottom:80px;">
+      <div class="tag-label" style="justify-content:center;">見どころ</div>
+      <h2 class="h-sec serif">風の吹くほうへ。<span class="h-en">FOLLOW THE WIND</span></h2>
+    </div>
+
+    <div class="feat-row rv">
+      <div class="feat-body">
+        <span class="no serif">— 舞台</span>
+        <h3 class="serif">音が、風になる。<span class="en">STAGE</span></h3>
+        <p>軽音、ダンス、有志ライブ、そしてゲスト。中央の芝生に組まれたステージから、二日間ずっと音が流れ続けます。寝転んで聴くのも、青葉祭の作法。</p>
+        <a href="#" class="hair-link">ステージ情報<svg class="cx" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="feat-media">
+        <div class="card back">［ 写真 ］</div><div class="card mid">［ 写真 ］</div><div class="card front">［ ステージ写真 ］</div>
+      </div>
+    </div>
+
+    <div class="feat-row rv">
+      <div class="feat-body">
+        <span class="no serif">— 屋台</span>
+        <h3 class="serif">歩きながら、味わう。<span class="en">FOOD STALLS</span></h3>
+        <p>並木道にずらりと並ぶ、学生たちの屋台。焼きたての匂いに誘われて、つい足を止める。片手に何かを持って歩けば、それだけで祭りの一員です。</p>
+        <a href="#" class="hair-link">模擬店マップ<svg class="cx" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="feat-media">
+        <div class="card back">［ 写真 ］</div><div class="card mid">［ 写真 ］</div><div class="card front">［ 模擬店写真 ］</div>
+      </div>
+    </div>
+
+    <div class="feat-row rv">
+      <div class="feat-body">
+        <span class="no serif">— 学術</span>
+        <h3 class="serif">知が、芽吹く。<span class="en">ACADEMIC</span></h3>
+        <p>研究室の最先端から、サークルの探究まで。ふと覗いた扉の向こうに、知らなかった世界が広がっている。青葉台大学ならではの、学びのみちくさを。</p>
+        <a href="#" class="hair-link">学術企画一覧<svg class="cx" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="feat-media">
+        <div class="card back">［ 写真 ］</div><div class="card mid">［ 写真 ］</div><div class="card front">［ 学術展示写真 ］</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pickup -->
+<section class="section" id="pickup">
+  <div class="wrap">
+    <div class="rv" style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:56px;">
+      <div>
+        <div class="tag-label">注目の企画</div>
+        <h2 class="h-sec serif">今年、揺れる場所。<span class="h-en">FEATURED PROGRAMS</span></h2>
+      </div>
+      <a href="#" class="hair-link">企画一覧を見る<svg class="cx" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="pick-grid">
+      <article class="pick rv">
+        <div class="thumb">［ 写真 ］</div>
+        <div class="cat">学術 ・ 理学部</div>
+        <h3 class="serif">風の博物室</h3>
+        <p>目に見えないものを、どう見せるか。空気と光をめぐる、体験型の小さな展示室。</p>
+        <a href="#" class="hair-link">くわしく<svg class="cx" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
+      </article>
+      <article class="pick rv" style="--d:.08s">
+        <div class="thumb">［ 写真 ］</div>
+        <div class="cat">模擬店 ・ 有志</div>
+        <h3 class="serif">並木の食べ歩き横丁</h3>
+        <p>七つの学部が味で競演。食べ比べながら、青葉の並木道をゆっくり一周。</p>
+        <a href="#" class="hair-link">くわしく<svg class="cx" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
+      </article>
+      <article class="pick rv" style="--d:.16s">
+        <div class="thumb">［ 写真 ］</div>
+        <div class="cat">舞台 ・ 軽音楽部</div>
+        <h3 class="serif">夕風セッション</h3>
+        <p>日が傾く時間だけの、特別なライブ。飛び入り歓迎。芝生に座って、風と一緒に。</p>
+        <a href="#" class="hair-link">くわしく<svg class="cx" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Timetable -->
+<section class="section" id="timetable" style="background:var(--wash);">
+  <div class="wrap">
+    <div class="rv" style="text-align:center;margin-bottom:8px;">
+      <div class="tag-label" style="justify-content:center;">タイムテーブル</div>
+      <h2 class="h-sec serif">二日間の、風向き。<span class="h-en">MAIN STAGE SCHEDULE</span></h2>
+    </div>
+    <div class="rv" style="text-align:center;">
+      <div class="tt-tabs">
+        <button class="tt-tab active" data-day="0">5.23 土</button>
+        <button class="tt-tab" data-day="1">5.24 日</button>
+      </div>
+    </div>
+    <div class="tt-panel active rv" data-day="0">
+      <div class="tt-row"><span class="tt-time serif">10:00</span><span class="tt-ev">開会式<small>実行委員長あいさつ</small></span><span class="tt-pl">中央広場</span></div>
+      <div class="tt-row"><span class="tt-time serif">11:30</span><span class="tt-ev">ダンスサークル合同ステージ<small>全6団体</small></span><span class="tt-pl">メインステージ</span></div>
+      <div class="tt-row"><span class="tt-time serif">13:30</span><span class="tt-ev">お笑いライブ<small>ゲスト出演</small></span><span class="tt-pl">メインステージ</span></div>
+      <div class="tt-row"><span class="tt-time serif">15:30</span><span class="tt-ev">ミス&ミスター青葉<small>予選</small></span><span class="tt-pl">メインステージ</span></div>
+      <div class="tt-row"><span class="tt-time serif">17:30</span><span class="tt-ev">夕風セッション<small>軽音楽部・有志</small></span><span class="tt-pl">中央広場</span></div>
+    </div>
+    <div class="tt-panel rv" data-day="1">
+      <div class="tt-row"><span class="tt-time serif">10:00</span><span class="tt-ev">二日目開始 / 大道芸めぐり<small>学内各所</small></span><span class="tt-pl">学内各所</span></div>
+      <div class="tt-row"><span class="tt-time serif">12:00</span><span class="tt-ev">トークショー<small>ゲスト出演</small></span><span class="tt-pl">記念ホール</span></div>
+      <div class="tt-row"><span class="tt-time serif">14:30</span><span class="tt-ev">ミス&ミスター青葉<small>決勝</small></span><span class="tt-pl">メインステージ</span></div>
+      <div class="tt-row"><span class="tt-time serif">16:30</span><span class="tt-ev">スペシャルライブ<small>ゲストアーティスト</small></span><span class="tt-pl">メインステージ</span></div>
+      <div class="tt-row"><span class="tt-time serif">18:30</span><span class="tt-ev">後夜祭 — 風のあとに<small>フィナーレ</small></span><span class="tt-pl">中央広場</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Access -->
+<section class="section" id="access">
+  <div class="wrap">
+    <div class="rv" style="margin-bottom:60px;">
+      <div class="tag-label">アクセス</div>
+      <h2 class="h-sec serif">来場案内<span class="h-en">HOW TO GET THERE</span></h2>
+    </div>
+    <div class="access-grid">
+      <div class="map rv">［ 会場マップ（画像を差し込み） ］</div>
+      <div class="access-info rv" style="--d:.1s">
+        <h3 class="serif">青葉台大学 若葉キャンパス</h3>
+        <p class="addr">〒000-0000 ◯◯県◯◯市若葉町1-1（架空の住所です）</p>
+        <dl>
+          <dt>電車</dt><dd>「若葉台駅」より徒歩7分（架空駅）</dd>
+          <dt>バス</dt><dd>「青葉台大学前」下車すぐ</dd>
+          <dt>開催</dt><dd>10:00〜18:00（後夜祭は19:30頃まで）</dd>
+          <dt>入場</dt><dd>無料（一部の企画・飲食は有料）</dd>
+        </dl>
+        <p class="note">お車でのご来場はご遠慮ください。ゴミの分別にご協力をお願いします。雨天決行・荒天中止。最新情報は公式SNSでご確認ください。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- News -->
+<section class="section" id="news" style="background:var(--wash);">
+  <div class="wrap">
+    <div class="rv" style="text-align:center;margin-bottom:50px;">
+      <div class="tag-label" style="justify-content:center;">お知らせ</div>
+      <h2 class="h-sec serif">NEWS</h2>
+    </div>
+    <div class="news rv">
+      <a href="#"><span class="date serif">2026.03.01</span><span class="cat">重要</span><span class="ttl">スペシャルゲスト第一弾を発表しました。</span><svg class="cx" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
+      <a href="#"><span class="date serif">2026.02.14</span><span class="cat">企画</span><span class="ttl">出店・企画のエントリー受付を開始しました。</span><svg class="cx" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
+      <a href="#"><span class="date serif">2026.02.01</span><span class="cat">お知らせ</span><span class="ttl">青葉祭2026 公式サイトを公開しました。テーマは「そよぐ」。</span><svg class="cx" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
+      <a href="#"><span class="date serif">2026.01.20</span><span class="cat">募集</span><span class="ttl">実行委員会スタッフを追加募集しています。</span><svg class="cx" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="rv" style="text-align:center;margin-bottom:50px;">
+      <div class="tag-label" style="justify-content:center;">よくある質問</div>
+      <h2 class="h-sec serif">FAQ</h2>
+    </div>
+    <div class="faq rv">
+      <div class="faq-item"><button class="faq-q serif"><span class="qi">問</span>入場にお金はかかりますか？<span class="cx"></span></button><div class="faq-a"><div class="faq-a-in">入場は無料です。どなたでもご来場いただけます。模擬店での飲食や一部の体験企画は有料の場合があります。</div></div></div>
+      <div class="faq-item"><button class="faq-q serif"><span class="qi">問</span>雨天でも開催しますか？<span class="cx"></span></button><div class="faq-a"><div class="faq-a-in">雨天決行です。ただし荒天時は一部プログラムの中止・変更、または全体の中止となる場合があります。判断は公式SNSでお知らせします。</div></div></div>
+      <div class="faq-item"><button class="faq-q serif"><span class="qi">問</span>学外の人や家族も来場できますか？<span class="cx"></span></button><div class="faq-a"><div class="faq-a-in">もちろんです。学生・卒業生・ご家族・地域の方、どなたでも歓迎します。お子さま連れでも楽しめる企画をご用意しています。</div></div></div>
+      <div class="faq-item"><button class="faq-q serif"><span class="qi">問</span>再入場はできますか？<span class="cx"></span></button><div class="faq-a"><div class="faq-a-in">当日中であれば再入場可能です。混雑時は入場制限を行う場合がありますので、あらかじめご了承ください。</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Closing -->
+<section class="closing">
+  <svg class="closing-flow" viewBox="0 0 1440 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <g fill="none" stroke="url(#flow)" stroke-linecap="round">
+      <path d="M-50,420 C400,320 660,150 940,120 C1160,96 1360,150 1520,120" stroke-width="2" opacity=".7"/>
+      <path d="M-50,460 C420,370 700,200 980,175 C1200,155 1400,205 1520,180" stroke-width="1.2" opacity=".5"/>
+      <path d="M-50,390 C380,300 620,140 900,95 C1120,60 1330,110 1520,80" stroke-width=".9" opacity=".38"/>
+    </g>
+  </svg>
+  <div class="wrap closing-in">
+    <div class="dt serif">2026.5.23 SAT — 5.24 SUN</div>
+    <p class="ttl serif rv">吹かれて、<br>会いにきて。</p>
+    <p class="rv">予定はいらない。あなたの寄り道が、今年の青葉祭になる。</p>
+    <a href="#access" class="pill rv">来場案内を見る
+      <svg class="cx" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a href="#" class="brand">
+          <svg class="mk" viewBox="0 0 32 32"><path d="M6 24 C12 20 12 10 20 8 C24 7 27 9 27 9" fill="none" stroke="url(#mg)" stroke-width="2.4" stroke-linecap="round"/><path d="M5 27 C13 23 14 15 22 12" fill="none" stroke="url(#mg)" stroke-width="1.6" stroke-linecap="round" opacity=".6"/></svg>
+          <span><b>青葉祭 2026</b><small>AOBA FES ・ 74th</small></span>
+        </a>
+        <p>青葉台大学 第74回学園祭「青葉祭」公式サイト。今年のテーマは「そよぐ」。</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col"><h5>めぐる</h5><a href="#concept">テーマ</a><a href="#feature">見どころ</a><a href="#pickup">企画</a><a href="#timetable">タイムテーブル</a></div>
+        <div class="foot-col"><h5>ご案内</h5><a href="#access">アクセス</a><a href="#news">お知らせ</a><a href="#faq">よくある質問</a></div>
+        <div class="foot-col"><h5>SNS</h5><a href="#">X（Twitter）</a><a href="#">Instagram</a><a href="#">YouTube</a></div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>主催：青葉祭実行委員会</span>
+      <span>© 2026 AOBA FES ／ これは実在しない架空の学園祭サイトです。</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const burger=document.getElementById('burger'),nav=document.getElementById('nav'),ov=document.getElementById('ov');
+const openN=()=>{nav.classList.add('open');ov.classList.add('open');burger.classList.add('open');document.body.classList.add('lock');burger.setAttribute('aria-expanded','true');};
+const closeN=()=>{nav.classList.remove('open');ov.classList.remove('open');burger.classList.remove('open');document.body.classList.remove('lock');burger.setAttribute('aria-expanded','false');};
+burger.addEventListener('click',()=>burger.classList.contains('open')?closeN():openN());
+ov.addEventListener('click',closeN);
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeN));
+addEventListener('keydown',e=>{if(e.key==='Escape')closeN();});
+addEventListener('resize',()=>{if(innerWidth>720)closeN();});
+const hd=document.getElementById('hd');
+addEventListener('scroll',()=>hd.classList.toggle('scrolled',scrollY>24),{passive:true});
+const rv=document.querySelectorAll('.rv');
+if('IntersectionObserver' in window){const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -60px 0px'});rv.forEach(el=>io.observe(el));}else rv.forEach(el=>el.classList.add('in'));
+document.querySelectorAll('.tt-tab').forEach(t=>t.addEventListener('click',()=>{const d=t.dataset.day;document.querySelectorAll('.tt-tab').forEach(x=>x.classList.remove('active'));t.classList.add('active');document.querySelectorAll('.tt-panel').forEach(p=>p.classList.toggle('active',p.dataset.day===d));}));
+document.querySelectorAll('.faq-item').forEach(item=>{const q=item.querySelector('.faq-q'),a=item.querySelector('.faq-a');q.addEventListener('click',()=>{const o=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>{i.classList.remove('open');i.querySelector('.faq-a').style.maxHeight=null;});if(!o){item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px';}});});
+</script>
+</body>
+</html>

@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!--
+  「宵町める」オフィシャルサイト(v2 アイドルポップ版)
+  ※架空のアーティストのデモサイトです。実在の人物・団体・楽曲・会場とは一切関係ありません。
+  ※公開時: noindex削除 / FormspreeのフォームID設定 / X埋め込みを本物のウィジェットに差し替え
+-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>宵町める OFFICIAL WEB SITE</title>
+<meta name="description" content="宵町める(よいまち・める)のオフィシャルウェブサイト。ライブ・リリース情報、プロフィール、ファンクラブ「あまやどり」のご案内など。">
+<meta name="robots" content="noindex"><!-- デモのため。公開時に削除 -->
+<meta property="og:title" content="宵町める OFFICIAL WEB SITE">
+<meta property="og:description" content="雨の日の、味方です。宵町めるオフィシャルサイト。">
+<meta property="og:type" content="website">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="%23f0417f"/><path d="M16 5c-6.2 0-11 4.5-11 10h22c0-5.5-4.8-10-11-10z" fill="%23ffffff"/><path d="M16 15v9a2.6 2.6 0 0 1-5.2 0" fill="none" stroke="%23ffffff" stroke-width="2.4" stroke-linecap="round"/></svg>'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@300;400;500;600&family=Zen+Maru+Gothic:wght@500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho+B1:wght@700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "宵町める",
+  "alternateName": "Yoimachi Meru",
+  "jobTitle": "Singer",
+  "description": "東京・高円寺発、雨の日がテーマのシンガー。"
+}
+</script>
+<style>
+:root{
+  --pink:#f0417f;
+  --pink-dark:#d92e6b;
+  --pink-pale:#fdeef5;
+  --pink-line:#f5b8d0;
+  --blue:#58b4e6;
+  --yellow:#ffd23e;
+  --ink:#3c3c46;
+  --gray:#8a8a94;
+  --head-h:70px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--head-h) + 10px)}
+body{
+  font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  color:var(--ink);
+  background:#fff;
+  line-height:1.9;
+  font-size:14px;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg,canvas{max-width:100%;vertical-align:middle}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none}
+:focus{outline:none}
+:focus-visible{outline:2px solid var(--pink);outline-offset:3px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+.maru{font-family:"Zen Maru Gothic",sans-serif}
+
+/* ---------- header ---------- */
+.site-head{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:var(--head-h);
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(8px);
+}
+.head-in{max-width:1240px;margin:0 auto;padding:0 22px;height:100%;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:9px}
+.brand-mark{width:34px;height:34px;flex:none}
+.brand-name{font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:21px;letter-spacing:.06em;color:var(--pink);transform:skewX(-6deg);display:inline-block}
+.gnav ul{display:flex;align-items:center;gap:22px}
+.gnav a{font-family:"Jost",sans-serif;font-weight:500;font-size:12.5px;letter-spacing:.12em;color:var(--ink);padding:6px 0;position:relative}
+.gnav a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--pink);transform:scaleX(0);transition:transform .25s}
+.gnav a:hover{color:var(--pink)}
+.gnav a:hover::after{transform:scaleX(1)}
+.head-sns{display:flex;align-items:center;gap:14px;margin-left:6px}
+.head-sns a svg{width:16px;height:16px}
+.head-sns a svg *{fill:var(--pink)}
+.head-sns a:hover svg *{fill:var(--pink-dark)}
+.menu-btn{display:none;width:44px;height:44px;background:none;border:none;cursor:pointer;position:relative;z-index:110}
+.menu-btn span{position:absolute;left:10px;width:24px;height:2.5px;border-radius:2px;background:var(--pink);transition:.3s}
+.menu-btn span:nth-child(1){top:16px}
+.menu-btn span:nth-child(2){top:25px}
+.menu-btn.open span:nth-child(1){top:20px;transform:rotate(45deg)}
+.menu-btn.open span:nth-child(2){top:20px;transform:rotate(-45deg)}
+/* モバイルメニュー: ヘッダー直下から下方向に開く */
+.sp-menu{
+  display:none;
+  position:fixed;top:var(--head-h);left:0;right:0;z-index:99;
+  background:#fff;
+  border-bottom:2px solid var(--pink);
+  clip-path:inset(0 0 100% 0);
+  transition:clip-path .35s ease;
+}
+.sp-menu.open{clip-path:inset(0 0 0 0)}
+.sp-menu ul{padding:8px 24px 24px}
+.sp-menu a{display:block;padding:12px 4px;border-bottom:1px dotted var(--pink-line);font-family:"Jost",sans-serif;font-weight:500;font-size:13.5px;letter-spacing:.16em;color:var(--ink)}
+.sp-menu a small{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--gray);letter-spacing:.08em;margin-left:10px;font-size:11px}
+.sp-menu .sp-sns{display:flex;justify-content:center;gap:26px;padding:18px 0 4px;border-bottom:none}
+.sp-menu .sp-sns svg{width:20px;height:20px}
+.sp-menu .sp-sns svg *{fill:var(--pink)}
+.menu-ovl{position:fixed;inset:0;z-index:98;background:rgba(60,60,70,.35);opacity:0;pointer-events:none;transition:opacity .3s}
+.menu-ovl.show{opacity:1;pointer-events:auto}
+body.menu-open{overflow:hidden}
+
+/* ---------- hero (MV風) ---------- */
+.hero-mv{
+  position:relative;margin-top:var(--head-h);
+  height:clamp(430px,52vw,660px);
+  background:linear-gradient(180deg,#0b1026 0%,#17244c 55%,#28396b 100%);
+  overflow:hidden;
+}
+.hero-mv canvas{position:absolute;inset:0;width:100%;height:100%}
+.hero-moon{
+  position:absolute;top:9%;right:10%;
+  width:clamp(70px,9vw,120px);aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle at 34% 32%,#ffe27a,var(--yellow) 70%);
+  box-shadow:0 0 60px 18px rgba(255,210,62,.35);
+}
+.hero-sky{position:absolute;left:0;right:0;bottom:0;height:26%;width:100%}
+.neon{
+  position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);
+  text-align:center;white-space:nowrap;
+}
+.neon-en{
+  font-family:"Jost",sans-serif;font-weight:500;font-size:clamp(11px,1.4vw,15px);
+  letter-spacing:.5em;color:#ffb7d2;
+  text-shadow:0 0 8px rgba(240,65,127,.9),0 0 22px rgba(240,65,127,.6);
+}
+.neon-ja{
+  font-family:"Zen Maru Gothic",sans-serif;font-weight:900;
+  font-size:clamp(44px,8.5vw,96px);letter-spacing:.1em;line-height:1.25;
+  color:#fff;
+  text-shadow:
+    0 0 10px rgba(255,255,255,.8),
+    0 0 26px rgba(240,65,127,.85),
+    0 0 60px rgba(240,65,127,.55),
+    0 0 90px rgba(88,180,230,.5);
+  animation:flick 7s infinite;
+}
+@keyframes flick{
+  0%,88%,92%,100%{opacity:1}
+  90%{opacity:.75}
+}
+.neon-cap{
+  margin-top:8px;
+  font-family:"Jost",sans-serif;font-weight:400;font-size:clamp(10px,1.2vw,13px);
+  letter-spacing:.34em;color:rgba(255,255,255,.85);
+}
+/* 擬似プレイヤーUI */
+.mv-ctrl{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:64px;height:64px;border-radius:50%;
+  background:rgba(10,12,30,.45);border:1.5px solid rgba(255,255,255,.65);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:opacity .3s;
+}
+.hero-mv:hover .mv-ctrl,.mv-ctrl:focus-visible{opacity:1}
+.mv-ctrl svg{width:20px;height:20px}
+.mv-bar{
+  position:absolute;left:0;right:0;bottom:0;
+  padding:0 18px 12px;display:flex;align-items:center;gap:12px;
+}
+.mv-hearts{color:#ff9ec4;font-size:12px;letter-spacing:4px;flex:none}
+.mv-track{flex:1;height:2.5px;background:rgba(255,255,255,.25);border-radius:2px;overflow:hidden}
+.mv-prog{height:100%;width:0;background:#ff9ec4;animation:prog 32s linear infinite}
+@keyframes prog{to{width:100%}}
+body.mv-paused .mv-prog{animation-play-state:paused}
+body.mv-paused .neon-ja{animation-play-state:paused}
+.mv-label{flex:none;font-family:"Jost",sans-serif;font-weight:400;font-size:10.5px;letter-spacing:.18em;color:rgba(255,255,255,.85)}
+/* キラキラ帯 */
+.spark{
+  position:relative;height:88px;
+  background:linear-gradient(180deg,#ffd9e8 0%,#f9a9cb 100%);
+  overflow:hidden;display:flex;align-items:center;justify-content:center;
+}
+.spark::before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    radial-gradient(rgba(255,255,255,.95) 1.4px,transparent 2px),
+    radial-gradient(rgba(255,255,255,.7) 1px,transparent 1.6px);
+  background-size:56px 40px,34px 26px;
+  background-position:0 0,17px 13px;
+}
+.spark-pill{
+  position:relative;z-index:1;
+  background:#fff;color:var(--pink);
+  font-weight:700;font-size:12.5px;letter-spacing:.06em;
+  padding:11px 26px;border-radius:999px;
+  box-shadow:0 3px 12px rgba(240,65,127,.25);
+  transition:.2s;
+}
+.spark-pill:hover{background:var(--pink);color:#fff}
+
+/* ---------- sections common ---------- */
+.sec{padding:84px 0}
+.sec-tint{background:var(--pink-pale)}
+.sec-h{
+  text-align:center;
+  font-family:"Marcellus",serif;font-weight:400;
+  font-size:clamp(26px,4vw,34px);letter-spacing:.16em;
+  color:var(--pink);
+  margin-bottom:8px;
+}
+.sec-h::after{content:"";display:block;width:36px;height:3px;background:var(--pink);margin:14px auto 0}
+.sec-body{margin-top:44px}
+.btn-v{
+  display:flex;align-items:center;justify-content:center;position:relative;
+  width:min(320px,86%);margin:44px auto 0;
+  border:1px solid var(--pink);border-radius:6px;background:none;cursor:pointer;
+  font-family:"Jost",sans-serif;font-weight:500;font-size:13px;letter-spacing:.2em;color:var(--pink);
+  padding:15px 34px 15px 22px;transition:.2s;
+}
+.btn-v::after{
+  content:"";position:absolute;right:16px;top:50%;
+  width:7px;height:7px;border-top:1.5px solid currentColor;border-right:1.5px solid currentColor;
+  transform:translateY(-50%) rotate(45deg);
+}
+.btn-v:hover{background:var(--pink);color:#fff}
+.rev{opacity:1}
+body.js .rev{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
+body.js .rev.on{opacity:1;transform:none}
+
+/* ---------- news ---------- */
+.news-list{max-width:860px;margin:0 auto;border-top:1px dotted var(--pink-line)}
+.news-item{display:grid;grid-template-columns:158px 1fr;gap:18px;align-items:baseline;padding:17px 6px;border-bottom:1px dotted var(--pink-line)}
+.news-item.is-hidden{display:none}
+.news-date{font-family:"Jost",sans-serif;font-weight:400;font-size:13px;letter-spacing:.05em;color:var(--gray);font-variant-numeric:tabular-nums}
+.news-tt{font-weight:500;font-size:14px}
+.news-tt a:hover{color:var(--pink);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--pink-line)}
+
+/* ---------- profile ---------- */
+.prof-grid{display:grid;grid-template-columns:5fr 6fr;gap:52px;align-items:start;max-width:960px;margin:0 auto}
+.prof-art svg{display:block;border-radius:14px;box-shadow:0 10px 30px rgba(240,65,127,.18);background:#0e1531}
+.prof-cap{margin-top:10px;font-size:11.5px;color:var(--gray);text-align:center}
+.prof-name{font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:32px;letter-spacing:.1em;color:var(--pink)}
+.prof-yomi{font-family:"Jost",sans-serif;font-size:12px;letter-spacing:.3em;color:var(--gray);margin:0 0 20px}
+.prof-dl{border-top:1px solid var(--pink-line)}
+.prof-dl div{display:grid;grid-template-columns:104px 1fr;gap:14px;padding:10px 2px;border-bottom:1px solid var(--pink-line);font-size:13.5px}
+.prof-dl dt{font-weight:700;color:var(--pink)}
+.swatch{display:inline-block;width:11px;height:11px;border-radius:50%;background:var(--pink);margin-right:6px;vertical-align:-1px}
+.prof-bio{margin-top:22px;font-size:13.5px}
+.prof-bio p + p{margin-top:1em}
+
+/* ---------- disco ---------- */
+.disc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+.jk{position:relative;aspect-ratio:1/1;border-radius:10px;overflow:hidden;box-shadow:0 8px 22px rgba(60,60,70,.16)}
+.jk-tt{position:absolute;left:13px;bottom:11px;font-family:"Shippori Mincho B1","Hiragino Mincho ProN",serif;font-weight:700;font-size:14px;letter-spacing:.1em;line-height:1.4}
+.jk-lb{position:absolute;top:11px;left:13px;font-family:"Jost",sans-serif;font-weight:500;font-size:8.5px;letter-spacing:.22em}
+.jk-umb{background:var(--yellow);background-image:repeating-linear-gradient(135deg,transparent 0 13px,rgba(27,27,34,.07) 13px 15px)}
+.jk-umb .jk-art{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.jk-umb svg{width:58%}
+.jk-umb .jk-tt,.jk-umb .jk-lb{color:#1b1b22}
+.jk-yak{background:#101a3b}
+.jk-yak::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.3) 1.1px,transparent 1.4px);background-size:15px 15px}
+.jk-yak .moon{position:absolute;left:18%;top:20%;width:44%;aspect-ratio:1;border-radius:50%;background:var(--yellow)}
+.jk-yak .moon::after{content:"";position:absolute;left:26%;top:-12%;width:88%;height:88%;border-radius:50%;background:#101a3b}
+.jk-yak .jk-tt{color:#fff;writing-mode:vertical-rl;left:auto;right:15px;top:15px;bottom:auto}
+.jk-yak .jk-lb{color:rgba(255,255,255,.7)}
+.jk-utn{background:#fdfcf7}
+.jk-utn::after{content:"";position:absolute;inset:9px;border:1px solid #1b1b22;border-radius:5px;pointer-events:none}
+.jk-utn .v-tt{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);writing-mode:vertical-rl;font-family:"Shippori Mincho B1",serif;font-weight:800;font-size:18cqw;letter-spacing:.14em;line-height:1.22;white-space:nowrap;color:#1b1b22}
+.jk-utn .stamp{position:absolute;right:17px;bottom:17px;width:46px;height:46px;border:2px solid #c93a2b;border-radius:50%;color:#c93a2b;display:flex;align-items:center;justify-content:center;font-family:"Shippori Mincho B1",serif;font-weight:700;font-size:13px;writing-mode:vertical-rl;letter-spacing:.1em;transform:rotate(-8deg);opacity:.85}
+.jk-yoz{background:linear-gradient(160deg,#0a1030 0%,#1c2f6e 68%,#35509e 100%)}
+.jk-yoz .jk-tt{color:#fff}
+.jk-yoz .jk-lb{color:rgba(255,255,255,.7)}
+.jk-yoz .ret{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);width:56%}
+.disc-card{container-type:inline-size}
+.disc-meta{margin-top:14px}
+.disc-type{font-family:"Jost",sans-serif;font-weight:600;font-size:10px;letter-spacing:.2em;color:var(--pink)}
+.disc-tt{font-weight:700;font-size:15.5px;letter-spacing:.04em;margin:1px 0}
+.disc-data{font-size:11.5px;color:var(--gray);line-height:1.7}
+.disc-meta details{margin-top:8px;font-size:12px}
+.disc-meta summary{cursor:pointer;font-weight:700;font-size:11.5px;letter-spacing:.08em;color:var(--pink)}
+.disc-meta summary:hover{color:var(--pink-dark)}
+.disc-meta ol{margin-top:6px;color:var(--gray);border-left:2px solid var(--pink-line);padding-left:12px}
+.disc-note{margin-top:30px;font-size:12px;color:var(--gray);text-align:center}
+
+/* ---------- schedule ---------- */
+.sch-list{max-width:860px;margin:0 auto;display:grid;gap:18px}
+.sch-item{
+  display:flex;gap:22px;align-items:flex-start;
+  background:#fff;border-radius:14px;padding:22px 24px;
+  box-shadow:0 6px 20px rgba(240,65,127,.1);
+}
+.sch-date{
+  flex:none;width:84px;text-align:center;
+  background:var(--pink);color:#fff;border-radius:10px;padding:10px 4px 9px;
+}
+.sch-date .y{display:block;font-family:"Jost",sans-serif;font-weight:400;font-size:10px;letter-spacing:.14em;opacity:.85}
+.sch-date .d{display:block;font-family:"Jost",sans-serif;font-weight:600;font-size:22px;letter-spacing:.02em;line-height:1.25}
+.sch-date .w{display:block;font-family:"Jost",sans-serif;font-weight:500;font-size:10px;letter-spacing:.2em;margin-top:1px}
+.sch-date.hol{background:var(--pink-dark)}
+.sch-body{flex:1;min-width:0}
+.st{display:inline-block;font-weight:700;font-size:10px;letter-spacing:.08em;padding:3px 11px;border-radius:999px;margin-bottom:6px}
+.st-fc{background:var(--pink);color:#fff}
+.st-gen{border:1px solid var(--pink);color:var(--pink)}
+.st-fes{background:var(--blue);color:#fff}
+.sch-tt{font-weight:700;font-size:16.5px;letter-spacing:.03em;line-height:1.55}
+.sch-venue{font-size:13px;font-weight:700;color:var(--pink-dark);margin-top:2px}
+.sch-info{font-size:12px;color:var(--gray);margin-top:4px}
+.sch-note{font-size:11.5px;color:var(--gray);margin-top:4px}
+.sch-tk{flex:none;align-self:center}
+.sch-tk a{
+  display:inline-block;font-family:"Jost",sans-serif;font-weight:500;font-size:11.5px;letter-spacing:.16em;
+  border:1px solid var(--pink);color:var(--pink);border-radius:999px;padding:10px 24px;transition:.2s;white-space:nowrap;
+}
+.sch-tk a:hover{background:var(--pink);color:#fff}
+.sch-foot{margin-top:24px;font-size:12px;color:var(--gray);text-align:center}
+.sch-foot a{color:var(--pink);text-decoration:underline;text-underline-offset:3px}
+
+/* ---------- movie ---------- */
+.mv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.mv-card.is-hidden{display:none}
+.mv-thumb{position:relative;aspect-ratio:16/9;overflow:hidden;display:block;border-radius:8px;box-shadow:0 6px 18px rgba(60,60,70,.16)}
+.mv-thumb .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:rgba(20,15,25,.6);display:flex;align-items:center;justify-content:center;transition:.25s}
+.mv-thumb .play svg{width:15px;height:15px;margin-left:2px}
+.mv-thumb:hover .play{background:var(--pink);transform:translate(-50%,-50%) scale(1.08)}
+.mv-dur{position:absolute;right:8px;bottom:8px;background:rgba(0,0,0,.82);color:#fff;font-family:"Jost",sans-serif;font-weight:500;font-size:10.5px;padding:2px 8px;border-radius:3px;letter-spacing:.06em}
+.mv-a1{background:linear-gradient(160deg,#0a1030,#2a4188)}
+.mv-a1::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.5) 1px,transparent 1.3px);background-size:34px 26px}
+.mv-a1 .mv-word{position:absolute;left:16px;bottom:12px;color:#fff;font-family:"Shippori Mincho B1",serif;font-weight:700;font-size:18px;letter-spacing:.14em}
+.mv-a2{background:#fdfcf7}
+.mv-a2 .mv-word{position:absolute;left:50%;top:25%;transform:translate(-50%,-50%);font-family:"Shippori Mincho B1",serif;font-weight:800;font-size:21px;letter-spacing:.3em;white-space:nowrap;color:#1b1b22}
+.mv-a3{background:#131318}
+.mv-a3::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 85% at 50% -10%,rgba(255,210,62,.8),transparent 62%)}
+.mv-a3 .mv-word{position:absolute;left:16px;bottom:12px;color:#fff;font-family:"Jost",sans-serif;font-weight:500;font-size:11px;letter-spacing:.24em}
+.mv-a4{background:var(--yellow);background-image:repeating-linear-gradient(115deg,transparent 0 16px,rgba(27,27,34,.06) 16px 18px)}
+.mv-a4 .mv-word{position:absolute;left:16px;bottom:12px;color:#1b1b22;font-family:"Shippori Mincho B1",serif;font-weight:800;font-size:18px;letter-spacing:.14em}
+.mv-a5{background:#131318}
+.mv-a5::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 85% at 50% -10%,rgba(88,180,230,.75),transparent 62%)}
+.mv-a5 .mv-word{position:absolute;left:16px;bottom:12px;color:#fff;font-family:"Jost",sans-serif;font-weight:500;font-size:11px;letter-spacing:.24em}
+.mv-a6{background:linear-gradient(160deg,#17244c,#3a5aa8)}
+.mv-a6::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.35) 1.2px,transparent 1.5px);background-size:17px 17px}
+.mv-a6 .mv-word{position:absolute;left:16px;bottom:12px;color:#fff;font-family:"Shippori Mincho B1",serif;font-weight:700;font-size:18px;letter-spacing:.14em}
+.mv-meta{margin-top:11px}
+.mv-tt{font-weight:700;font-size:13.5px}
+.mv-sub{font-family:"Jost",sans-serif;font-size:10.5px;color:var(--gray);letter-spacing:.1em}
+
+/* ---------- goods ---------- */
+.goods-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.goods-card{background:#fff;border-radius:14px;padding:18px 16px 20px;box-shadow:0 6px 20px rgba(240,65,127,.1);text-align:center}
+.goods-art{aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.goods-art svg{width:78%}
+.goods-name{font-weight:700;font-size:13px;margin-top:10px}
+.goods-price{font-family:"Jost",sans-serif;font-weight:500;font-size:12px;color:var(--pink);letter-spacing:.04em}
+.goods-note{margin-top:28px;font-size:12px;color:var(--gray);text-align:center}
+
+/* ---------- fanclub ---------- */
+.fc-sec{background:linear-gradient(135deg,#f0417f 0%,#f973a5 100%);color:#fff;padding:84px 0}
+.fc-sec .sec-h{color:#fff}
+.fc-sec .sec-h::after{background:#fff}
+.fc-lead{text-align:center;max-width:620px;margin:0 auto;font-size:13.5px}
+.fc-name{
+  text-align:center;font-family:"Zen Maru Gothic",sans-serif;font-weight:900;
+  font-size:clamp(34px,6vw,48px);letter-spacing:.18em;margin:26px 0 4px;
+  text-shadow:0 2px 0 rgba(217,46,107,.5);
+}
+.fc-name small{display:block;font-family:"Jost",sans-serif;font-weight:400;font-size:11px;letter-spacing:.34em;margin-top:8px;opacity:.9}
+.fc-price{text-align:center;font-size:13px;margin-top:10px}
+.fc-price b{font-family:"Jost",sans-serif;font-weight:600;font-size:26px;margin:0 4px}
+.fc-list{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:760px;margin:34px auto 0}
+.fc-list li{background:rgba(255,255,255,.96);color:var(--ink);border-radius:12px;padding:18px 20px;display:flex;gap:14px;align-items:baseline}
+.fc-num{font-family:"Jost",sans-serif;font-weight:600;font-size:14px;color:var(--pink);flex:none}
+.fc-bt{font-weight:700;font-size:13.5px;color:var(--pink-dark)}
+.fc-bd{display:block;font-size:12px;color:var(--gray);font-weight:400;margin-top:2px}
+.fc-join{
+  display:block;width:min(320px,86%);margin:36px auto 0;text-align:center;
+  background:#fff;color:var(--pink);font-weight:900;font-size:14px;letter-spacing:.12em;
+  padding:16px;border-radius:999px;box-shadow:0 4px 14px rgba(217,46,107,.35);transition:.2s;
+}
+.fc-join:hover{transform:translateY(-2px)}
+.fc-note{margin-top:14px;font-size:11px;text-align:center;opacity:.85}
+
+/* ---------- X(SNS) ---------- */
+.x-sec .sec-h svg{width:30px;height:30px;vertical-align:-4px}
+.x-sec .sec-h svg *{fill:var(--ink)}
+.x-lead{text-align:center;font-family:"Jost",sans-serif;font-size:12.5px;letter-spacing:.08em;color:var(--gray)}
+.x-embed{
+  max-width:430px;margin:30px auto 0;background:#fff;border:1px solid var(--pink-line);
+  border-radius:14px;overflow:hidden;
+}
+.x-post{padding:18px 20px;border-bottom:1px solid #f6dbe7}
+.x-head{display:flex;gap:10px;align-items:center}
+.x-ava{width:38px;height:38px;border-radius:50%;flex:none}
+.x-nm{font-weight:700;font-size:13px;line-height:1.3}
+.x-id{font-family:"Jost",sans-serif;font-size:11px;color:var(--gray);font-weight:400}
+.x-body{margin-top:8px;font-size:13px;line-height:1.8}
+.x-time{margin-top:8px;font-family:"Jost",sans-serif;font-size:10.5px;color:var(--gray);letter-spacing:.04em}
+.x-more{display:block;text-align:center;padding:13px;font-weight:700;font-size:12.5px;color:var(--pink)}
+.x-more:hover{background:var(--pink-pale)}
+
+/* ---------- contact ---------- */
+.ct-lead{text-align:center;max-width:640px;margin:0 auto;font-size:13.5px}
+.ct-box{max-width:640px;margin:20px auto 0;background:#fff;border:1px solid var(--pink-line);border-radius:10px;padding:16px 20px;font-size:12.5px;color:var(--gray)}
+.ct-box b{color:var(--pink-dark)}
+form{max-width:640px;margin:34px auto 0}
+.form-row{margin-bottom:18px}
+.form-row label{display:block;font-weight:700;font-size:13px;margin-bottom:6px}
+.req{color:#fff;background:var(--pink);font-size:10px;font-weight:700;margin-left:8px;border-radius:3px;padding:2px 7px;vertical-align:1px}
+.opt{color:var(--gray);font-size:10px;font-weight:500;margin-left:8px;border:1px solid #ddd;border-radius:3px;padding:1.5px 7px;vertical-align:1px}
+input[type=text],input[type=email],select,textarea{
+  width:100%;border:1px solid #e6c2d2;background:#fff;padding:12px 15px;
+  font:inherit;font-size:14px;border-radius:9px;-webkit-appearance:none;appearance:none;
+}
+select{background:#fff url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="7"><path d="M1 1l4 4 4-4" stroke="%23f0417f" stroke-width="1.6" fill="none"/></svg>') no-repeat right 15px center}
+textarea{min-height:150px;resize:vertical}
+input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--pink);outline-offset:0;border-color:var(--pink)}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;margin:6px 0 20px;justify-content:center}
+.consent input{width:17px;height:17px;margin-top:3px;accent-color:var(--pink);flex:none}
+.consent a{text-decoration:underline;text-underline-offset:3px;color:var(--pink)}
+.submit-btn{
+  display:block;width:100%;background:var(--pink);color:#fff;border:none;cursor:pointer;
+  font:inherit;font-weight:900;font-size:15px;letter-spacing:.14em;padding:16px;border-radius:999px;transition:.2s;
+}
+.submit-btn:hover{background:var(--pink-dark)}
+.submit-btn:disabled{opacity:.5;cursor:not-allowed}
+.form-msg{display:none;margin-top:14px;padding:13px 16px;font-size:13px;font-weight:700;border-radius:8px}
+.form-msg.ok{display:block;background:#e8f6ee;border:1px solid #35855c;color:#35855c}
+.form-msg.ng{display:block;background:#fdecf2;border:1px solid var(--pink);color:var(--pink-dark)}
+
+/* ---------- footer ---------- */
+.site-foot{padding:66px 0 34px;text-align:center}
+.foot-logo .brand-mark{width:44px;height:44px}
+.foot-logo .brand-name{font-size:30px;display:inline-block;margin-left:8px}
+.foot-sub{font-family:"Jost",sans-serif;font-size:9.5px;letter-spacing:.4em;color:var(--gray);margin-top:6px}
+.foot-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 24px;margin-top:30px}
+.foot-nav a{font-family:"Jost",sans-serif;font-weight:400;font-size:11px;letter-spacing:.16em;color:var(--gray);padding:4px 0}
+.foot-nav a:hover{color:var(--pink)}
+.foot-sns{display:flex;justify-content:center;gap:28px;margin-top:28px}
+.foot-sns a svg{width:21px;height:21px}
+.foot-sns a svg *{fill:var(--pink)}
+.foot-sns a:hover svg *{fill:var(--pink-dark)}
+.foot-letter{margin-top:34px;font-size:11.5px;color:var(--gray);line-height:1.9}
+.foot-letter b{color:var(--ink)}
+.foot-legal{margin-top:26px;font-size:10.5px;color:var(--gray);line-height:2}
+.foot-legal a{text-decoration:underline;text-underline-offset:3px}
+.foot-agency{margin-top:16px;font-family:"Jost",sans-serif;font-size:10px;letter-spacing:.24em;color:#bbb}
+.to-top{
+  position:fixed;right:20px;bottom:20px;z-index:90;
+  width:46px;height:46px;border-radius:50%;border:1px solid var(--pink);background:#fff;color:var(--pink);
+  cursor:pointer;font-family:"Jost",sans-serif;font-weight:600;font-size:15px;
+  opacity:0;pointer-events:none;transition:.3s;box-shadow:0 4px 12px rgba(240,65,127,.2);
+}
+.to-top.show{opacity:1;pointer-events:auto}
+.to-top:hover{background:var(--pink);color:#fff}
+
+/* ---------- responsive ---------- */
+@media(max-width:960px){
+  .gnav,.head-sns{display:none}
+  .menu-btn{display:block}
+  .sp-menu{display:block}
+  .prof-grid{grid-template-columns:1fr;gap:36px}
+  .disc-grid{grid-template-columns:repeat(2,1fr)}
+  .mv-grid{grid-template-columns:1fr;max-width:520px;margin-left:auto;margin-right:auto}
+  .goods-grid{grid-template-columns:repeat(2,1fr)}
+  .fc-list{grid-template-columns:1fr}
+}
+@media(max-width:720px){
+  :root{--head-h:60px}
+  .brand-mark{width:29px;height:29px}
+  .brand-name{font-size:18px}
+  .sec{padding:60px 0}
+  .fc-sec{padding:60px 0}
+  .hero-mv{height:64vw;min-height:320px}
+  .mv-label{display:none}
+  .spark{height:76px}
+  .spark-pill{font-size:11.5px;padding:10px 18px}
+  .news-item{grid-template-columns:1fr;gap:2px;padding:14px 4px}
+  .sch-item{flex-wrap:wrap;gap:14px;padding:18px}
+  .sch-date{width:76px}
+  .sch-tk{width:100%;align-self:flex-start}
+  .sch-tk a{display:block;text-align:center}
+  .goods-grid{gap:14px}
+  .goods-card{padding:12px 10px 16px}
+}
+@media(prefers-reduced-motion:reduce){
+  .neon-ja{animation:none}
+  .mv-prog{animation:none;width:38%}
+  body.js .rev{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ header ============ -->
+<header class="site-head">
+  <div class="head-in">
+    <a class="brand" href="#top" aria-label="宵町める オフィシャルサイト トップへ">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="8" fill="#f0417f"/>
+        <path d="M16 5c-6.2 0-11 4.5-11 10h22c0-5.5-4.8-10-11-10z" fill="#fff"/>
+        <path d="M16 15v9a2.6 2.6 0 0 1-5.2 0" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
+      </svg>
+      <span class="brand-name">宵町める</span>
+    </a>
+    <nav class="gnav" aria-label="メインナビゲーション">
+      <ul>
+        <li><a href="#top">HOME</a></li>
+        <li><a href="#news">NEWS</a></li>
+        <li><a href="#profile">PROFILE</a></li>
+        <li><a href="#disco">DISCO</a></li>
+        <li><a href="#schedule">SCHEDULE</a></li>
+        <li><a href="#movie">MOVIE</a></li>
+        <li><a href="#goods">GOODS</a></li>
+        <li><a href="#fanclub">FANCLUB</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </nav>
+    <div class="head-sns">
+      <a href="#top" aria-label="X(旧Twitter)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L2.5 2h6.4l4.4 5.9L18.9 2zm-1.1 18.1h1.7L7.1 3.8H5.3l12.5 16.3z"/></svg></a>
+      <a href="#top" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.5s-.22-1.56-.9-2.24c-.86-.9-1.82-.91-2.26-.96C16.7 4.07 12 4.07 12 4.07h-.01s-4.7 0-7.84.23c-.44.05-1.4.06-2.26.96C1.21 5.94 1 7.5 1 7.5S.77 9.33.77 11.16v1.71C.77 14.7 1 16.5 1 16.5s.22 1.56.89 2.24c.86.9 1.99.87 2.49.97 1.8.17 7.62.22 7.62.22s4.71-.01 7.85-.23c.44-.05 1.4-.06 2.26-.96.67-.68.89-2.24.89-2.24s.23-1.83.23-3.66v-1.71C23.23 9.33 23 7.5 23 7.5zM9.9 14.95V8.6l6.05 3.19-6.05 3.16z"/></svg></a>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="spMenu" aria-label="メニューを開く">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="menu-ovl" id="menuOvl" aria-hidden="true"></div>
+<nav class="sp-menu" id="spMenu" aria-label="モバイルナビゲーション">
+  <ul>
+    <li><a href="#top">HOME</a></li>
+    <li><a href="#news">NEWS<small>お知らせ</small></a></li>
+    <li><a href="#profile">PROFILE<small>プロフィール</small></a></li>
+    <li><a href="#disco">DISCO<small>ディスコグラフィ</small></a></li>
+    <li><a href="#schedule">SCHEDULE<small>ライブ・イベント</small></a></li>
+    <li><a href="#movie">MOVIE<small>ムービー</small></a></li>
+    <li><a href="#goods">GOODS<small>グッズ</small></a></li>
+    <li><a href="#fanclub">FANCLUB<small>あまやどり</small></a></li>
+    <li><a href="#contact">CONTACT<small>お問い合わせ</small></a></li>
+    <li class="sp-sns">
+      <a href="#top" aria-label="X(旧Twitter)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L2.5 2h6.4l4.4 5.9L18.9 2zm-1.1 18.1h1.7L7.1 3.8H5.3l12.5 16.3z"/></svg></a>
+      <a href="#top" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s0 3.59-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.59 0-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92C2.16 15.6 2.15 15.2 2.15 12s0-3.59.08-4.85C2.38 3.92 3.9 2.38 7.15 2.23 8.41 2.16 8.8 2.2 12 2.2zm0 4.62a5.18 5.18 0 1 0 0 10.36 5.18 5.18 0 0 0 0-10.36zm0 8.54a3.36 3.36 0 1 1 0-6.72 3.36 3.36 0 0 1 0 6.72zm5.4-8.75a1.21 1.21 0 1 0 0-2.42 1.21 1.21 0 0 0 0 2.42z"/></svg></a>
+      <a href="#top" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.5s-.22-1.56-.9-2.24c-.86-.9-1.82-.91-2.26-.96C16.7 4.07 12 4.07 12 4.07h-.01s-4.7 0-7.84.23c-.44.05-1.4.06-2.26.96C1.21 5.94 1 7.5 1 7.5S.77 9.33.77 11.16v1.71C.77 14.7 1 16.5 1 16.5s.22 1.56.89 2.24c.86.9 1.99.87 2.49.97 1.8.17 7.62.22 7.62.22s4.71-.01 7.85-.23c.44-.05 1.4-.06 2.26-.96.67-.68.89-2.24.89-2.24s.23-1.83.23-3.66v-1.71C23.23 9.33 23 7.5 23 7.5zM9.9 14.95V8.6l6.05 3.19-6.05 3.16z"/></svg></a>
+    </li>
+  </ul>
+</nav>
+
+<!-- ============ hero (MV風) ============ -->
+<div id="top"></div>
+<section class="hero-mv" aria-label="メインビジュアル">
+  <canvas id="rainCv" aria-hidden="true"></canvas>
+  <div class="hero-moon" aria-hidden="true"></div>
+  <svg class="hero-sky" viewBox="0 0 1200 160" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <g fill="#0a0e20">
+      <rect x="0" y="70" width="90" height="90"/>
+      <rect x="100" y="40" width="70" height="120"/>
+      <rect x="180" y="95" width="110" height="65"/>
+      <rect x="300" y="55" width="60" height="105"/>
+      <rect x="370" y="85" width="95" height="75"/>
+      <rect x="475" y="30" width="75" height="130"/>
+      <rect x="560" y="75" width="120" height="85"/>
+      <rect x="690" y="50" width="65" height="110"/>
+      <rect x="765" y="90" width="100" height="70"/>
+      <rect x="875" y="45" width="80" height="115"/>
+      <rect x="965" y="80" width="110" height="80"/>
+      <rect x="1085" y="55" width="115" height="105"/>
+    </g>
+    <g fill="#ffd23e" opacity=".75">
+      <rect x="112" y="55" width="6" height="7"/><rect x="130" y="78" width="6" height="7"/>
+      <rect x="318" y="70" width="5" height="6"/><rect x="490" y="48" width="6" height="7"/>
+      <rect x="516" y="72" width="6" height="7"/><rect x="705" y="66" width="5" height="6"/>
+      <rect x="893" y="60" width="6" height="7"/><rect x="918" y="88" width="6" height="7"/>
+      <rect x="1105" y="72" width="6" height="7"/><rect x="600" y="92" width="6" height="7"/>
+    </g>
+  </svg>
+  <div class="neon">
+    <p class="neon-en">YOIMACHI MERU</p>
+    <p class="neon-ja">宵町める</p>
+    <p class="neon-cap">RAINY-POP SINGER FROM KOENJI</p>
+  </div>
+  <button class="mv-ctrl" id="mvCtrl" type="button" aria-label="映像を一時停止">
+    <svg id="icoPause" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.6" height="12" rx="1" fill="#fff"/><rect x="9.4" y="2" width="3.6" height="12" rx="1" fill="#fff"/></svg>
+    <svg id="icoPlay" viewBox="0 0 16 16" aria-hidden="true" style="display:none"><path d="M4 2l10 6-10 6z" fill="#fff"/></svg>
+  </button>
+  <div class="mv-bar" aria-hidden="true">
+    <span class="mv-hearts">&#9825;&#9825;&#9825;</span>
+    <div class="mv-track"><div class="mv-prog"></div></div>
+    <span class="mv-label">M/V「ヨゾラ観測」LOOP</span>
+  </div>
+</section>
+<div class="spark">
+  <a class="spark-pill" href="#schedule">10/10(土)ワンマンライブ「10月の雨はつめたくない」開催決定!</a>
+</div>
+
+<main>
+
+<!-- ============ news ============ -->
+<section class="sec" id="news">
+  <div class="wrap">
+    <h2 class="sec-h">NEWS</h2>
+    <div class="sec-body">
+      <ul class="news-list rev">
+        <li class="news-item">
+          <time class="news-date" datetime="2026-07-17">2026/7/17(Fri)</time>
+          <p class="news-tt"><a href="#news">オフィシャルサイトをリニューアルしました</a></p>
+        </li>
+        <li class="news-item">
+          <time class="news-date" datetime="2026-07-10">2026/7/10(Fri)</time>
+          <p class="news-tt"><a href="#schedule">ワンマンライブ「10月の雨はつめたくない」ファンクラブ先行抽選のご案内</a></p>
+        </li>
+        <li class="news-item">
+          <time class="news-date" datetime="2026-06-29">2026/6/29(Mon)</time>
+          <p class="news-tt"><a href="#news">7/3(金)コミュニティFM「シモキタ・アンテナ」ゲスト出演のお知らせ</a></p>
+        </li>
+        <li class="news-item">
+          <time class="news-date" datetime="2026-06-11">2026/6/11(Thu)</time>
+          <p class="news-tt"><a href="#disco">2nd EP「ヨゾラ観測」本日リリース&amp;生誕祭ワンマンご来場ありがとうございました</a></p>
+        </li>
+        <li class="news-item">
+          <time class="news-date" datetime="2026-05-18">2026/5/18(Mon)</time>
+          <p class="news-tt"><a href="#goods">新作グッズ「あまやどりタオル(2nd)」通販取り扱い開始のお知らせ</a></p>
+        </li>
+        <li class="news-item is-hidden">
+          <time class="news-date" datetime="2026-04-01">2026/4/1(Wed)</time>
+          <p class="news-tt"><a href="#fanclub">ファンクラブ「あまやどり」会員数1,000人突破のお知らせ</a></p>
+        </li>
+        <li class="news-item is-hidden">
+          <time class="news-date" datetime="2026-02-02">2026/2/2(Mon)</time>
+          <p class="news-tt"><a href="#news">音楽誌「クォータリー・アンブレラ」春号 インタビュー掲載のお知らせ</a></p>
+        </li>
+        <li class="news-item is-hidden">
+          <time class="news-date" datetime="2026-01-01">2026/1/1(Thu)</time>
+          <p class="news-tt"><a href="#news">あけましておめでとうございます。今年も雨天決行でまいります</a></p>
+        </li>
+        <li class="news-item is-hidden">
+          <time class="news-date" datetime="2025-12-24">2025/12/24(Wed)</time>
+          <p class="news-tt"><a href="#schedule">クリスマスワンマン「聖夜、みぞれ」満員御礼</a></p>
+        </li>
+      </ul>
+      <button class="btn-v" id="newsMore" type="button">VIEW ALL LIST</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ profile ============ -->
+<section class="sec sec-tint" id="profile">
+  <div class="wrap">
+    <h2 class="sec-h">PROFILE</h2>
+    <div class="sec-body">
+      <div class="prof-grid">
+        <figure class="prof-art rev">
+          <svg viewBox="0 0 400 500" role="img" aria-label="傘をさした宵町めるのイメージイラスト">
+            <defs>
+              <linearGradient id="nightSky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#0d1430"/>
+                <stop offset="1" stop-color="#26355f"/>
+              </linearGradient>
+              <pattern id="rainP" width="16" height="26" patternUnits="userSpaceOnUse" patternTransform="rotate(16)">
+                <line x1="8" y1="2" x2="8" y2="13" stroke="rgba(255,255,255,.32)" stroke-width="2" stroke-linecap="round"/>
+              </pattern>
+            </defs>
+            <rect width="400" height="500" fill="url(#nightSky)"/>
+            <circle cx="316" cy="86" r="58" fill="#ffd23e"/>
+            <rect width="400" height="500" fill="url(#rainP)"/>
+            <rect y="452" width="400" height="48" fill="#0a0f24"/>
+            <ellipse cx="200" cy="462" rx="118" ry="9" fill="#20305e"/>
+            <line x1="182" y1="296" x2="182" y2="420" stroke="#11131c" stroke-width="13"/>
+            <line x1="220" y1="296" x2="220" y2="420" stroke="#11131c" stroke-width="13"/>
+            <path d="M170 414 h24 v28 q18 0 18 14 h-42 q-6 0 -6-6 z" fill="#f0417f" stroke="#11131c" stroke-width="3"/>
+            <path d="M208 414 h24 v28 q18 0 18 14 h-42 q-6 0 -6-6 z" fill="#f0417f" stroke="#11131c" stroke-width="3"/>
+            <line x1="200" y1="208" x2="200" y2="330" stroke="#11131c" stroke-width="7" stroke-linecap="round"/>
+            <path d="M200 330 v14 a17 17 0 0 1 -34 0" fill="none" stroke="#11131c" stroke-width="7" stroke-linecap="round"/>
+            <path d="M74 288
+                     A 140 140 0 0 1 326 288
+                     Q 294.5 271 263 288
+                     Q 231.5 271 200 288
+                     Q 168.5 271 137 288
+                     Q 105.5 271 74 288 Z"
+                  fill="#ffd23e" stroke="#11131c" stroke-width="6" stroke-linejoin="round"/>
+            <line x1="200" y1="185" x2="200" y2="205" stroke="#11131c" stroke-width="6" stroke-linecap="round"/>
+            <circle cx="200" cy="182" r="5" fill="#11131c"/>
+            <path d="M137 288 Q150 212 200 200 M263 288 Q250 212 200 200" fill="none" stroke="rgba(17,19,28,.35)" stroke-width="3"/>
+          </svg>
+          <figcaption class="prof-cap">アーティスト写真(2026年ver.)。※本人は傘の下にいます。</figcaption>
+        </figure>
+        <div class="rev">
+          <h3 class="prof-name">宵町める</h3>
+          <p class="prof-yomi">YOIMACHI MERU</p>
+          <dl class="prof-dl">
+            <div><dt>誕生日</dt><dd>6月11日(くしくも「傘の日」)</dd></div>
+            <div><dt>出身</dt><dd>東京都(高円寺のあたり、と本人は言っている)</dd></div>
+            <div><dt>身長</dt><dd>152cm(傘を含めると180cm)</dd></div>
+            <div><dt>血液型</dt><dd>O型(たぶん)</dd></div>
+            <div><dt>イメージカラー</dt><dd><span class="swatch" aria-hidden="true"></span>あまやどりピンク</dd></div>
+            <div><dt>特技</dt><dd>天気予報の的中(自称的中率87%)、五線譜の早書き</dd></div>
+            <div><dt>好きなもの</dt><dd>長靴、ミルクティー、コインランドリーの匂い、天気図</dd></div>
+            <div><dt>苦手なもの</dt><dd>セミ、晴れの日の遠足、乾燥機の静電気</dd></div>
+          </dl>
+          <div class="prof-bio">
+            <p>2024年6月11日、雨の高円寺・駅前広場にて路上デビュー。観客は3人(うち2人は雨宿り)だった。以来「雨の日の、味方です」を合言葉に、傘で顔を隠したまま都内を中心に活動中。</p>
+            <p>ライブは雨天決行、というより雨天希望。晴れた日の公演では会場にスプリンクラーの持ち込みを要望し、事務所に止められている。楽曲はすべて本人による作詞・作曲。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ disco ============ -->
+<section class="sec" id="disco">
+  <div class="wrap">
+    <h2 class="sec-h">DISCO</h2>
+    <div class="sec-body">
+      <div class="disc-grid">
+
+        <div class="disc-card rev">
+          <div class="jk jk-yoz">
+            <span class="jk-lb">AOJ-0002</span>
+            <svg class="ret" viewBox="0 0 100 100" aria-hidden="true">
+              <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="1"/>
+              <circle cx="50" cy="50" r="2.4" fill="#ffd23e"/>
+              <line x1="50" y1="2" x2="50" y2="22" stroke="rgba(255,255,255,.85)" stroke-width="1"/>
+              <line x1="50" y1="78" x2="50" y2="98" stroke="rgba(255,255,255,.85)" stroke-width="1"/>
+              <line x1="2" y1="50" x2="22" y2="50" stroke="rgba(255,255,255,.85)" stroke-width="1"/>
+              <line x1="78" y1="50" x2="98" y2="50" stroke="rgba(255,255,255,.85)" stroke-width="1"/>
+              <circle cx="24" cy="20" r="1.4" fill="#fff"/><circle cx="80" cy="30" r="1.1" fill="#fff"/>
+              <circle cx="16" cy="66" r="1.2" fill="#fff"/><circle cx="70" cy="80" r="1.5" fill="#fff"/>
+              <circle cx="60" cy="12" r="1" fill="#fff"/><circle cx="34" cy="86" r="1" fill="#fff"/>
+            </svg>
+            <span class="jk-tt">ヨゾラ観測</span>
+          </div>
+          <div class="disc-meta">
+            <p class="disc-type">2ND EP / CD &amp; DIGITAL</p>
+            <h3 class="disc-tt">ヨゾラ観測</h3>
+            <p class="disc-data">2026.06.11 RELEASE<br>AOJ-0002 / ¥2,200(税込)</p>
+            <details>
+              <summary>収録曲(全6曲)</summary>
+              <ol>
+                <li>1. ヨゾラ観測</li>
+                <li>2. 晴雨兼用</li>
+                <li>3. 水たまりステップ</li>
+                <li>4. 月光、コインランドリー</li>
+                <li>5. かえりみち前線</li>
+                <li>6. ヨゾラ観測 (Instrumental)</li>
+              </ol>
+            </details>
+          </div>
+        </div>
+
+        <div class="disc-card rev">
+          <div class="jk jk-utn">
+            <span class="jk-lb">AOJ-0001</span>
+            <span class="v-tt">雨天<br>決行</span>
+            <span class="stamp">宵町</span>
+          </div>
+          <div class="disc-meta">
+            <p class="disc-type">1ST EP / CD &amp; DIGITAL</p>
+            <h3 class="disc-tt">雨天決行</h3>
+            <p class="disc-data">2025.06.11 RELEASE<br>AOJ-0001 / ¥1,980(税込)</p>
+            <details>
+              <summary>収録曲(全5曲)</summary>
+              <ol>
+                <li>1. 雨天決行</li>
+                <li>2. アンブレラ・ステップ (Band Arrange)</li>
+                <li>3. 長靴のマーチ</li>
+                <li>4. 高円寺シェルター</li>
+                <li>5. 雨天決行 -am4:00 demo-</li>
+              </ol>
+            </details>
+          </div>
+        </div>
+
+        <div class="disc-card rev">
+          <div class="jk jk-yak">
+            <span class="jk-lb">DIGITAL</span>
+            <span class="moon" aria-hidden="true"></span>
+            <span class="jk-tt">夜光、にわか雨</span>
+          </div>
+          <div class="disc-meta">
+            <p class="disc-type">DIGITAL SINGLE</p>
+            <h3 class="disc-tt">夜光、にわか雨</h3>
+            <p class="disc-data">2024.12.06 RELEASE<br>各配信サイトにて</p>
+          </div>
+        </div>
+
+        <div class="disc-card rev">
+          <div class="jk jk-umb">
+            <span class="jk-lb">DIGITAL</span>
+            <div class="jk-art" aria-hidden="true">
+              <svg viewBox="0 0 100 100">
+                <path d="M50 12c-19.5 0-35.5 14.2-35.5 32h71c0-17.8-16-32-35.5-32z" fill="#1b1b22"/>
+                <path d="M50 44v34a8 8 0 0 1-16 0" fill="none" stroke="#1b1b22" stroke-width="7" stroke-linecap="round"/>
+                <line x1="50" y1="5" x2="50" y2="13" stroke="#1b1b22" stroke-width="6" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <span class="jk-tt">アンブレラ・ステップ</span>
+          </div>
+          <div class="disc-meta">
+            <p class="disc-type">DIGITAL SINGLE</p>
+            <h3 class="disc-tt">アンブレラ・ステップ</h3>
+            <p class="disc-data">2024.06.11 RELEASE<br>各配信サイトにて</p>
+          </div>
+        </div>
+
+      </div>
+      <p class="disc-note">※CDはライブ会場、公式通販、および一部レコード店にてお取り扱いいただいています。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ schedule ============ -->
+<section class="sec sec-tint" id="schedule">
+  <div class="wrap">
+    <h2 class="sec-h">SCHEDULE</h2>
+    <div class="sec-body">
+      <div class="sch-list">
+
+        <div class="sch-item rev">
+          <div class="sch-date">
+            <span class="y">2026</span>
+            <span class="d">7.26</span>
+            <span class="w">SUN</span>
+          </div>
+          <div class="sch-body">
+            <span class="st st-gen">一般発売中</span>
+            <h3 class="sch-tt">対バンイベント「真夏のあまやどり vol.3」</h3>
+            <p class="sch-venue">東高円寺 雨音堂</p>
+            <p class="sch-info">OPEN 17:00 / START 17:30|前売 ¥3,000 / 当日 ¥3,500(いずれもドリンク代別)</p>
+            <p class="sch-note">※出演順は当日発表となります。</p>
+          </div>
+          <div class="sch-tk"><a href="#contact">TICKET</a></div>
+        </div>
+
+        <div class="sch-item rev">
+          <div class="sch-date hol">
+            <span class="y">2026</span>
+            <span class="d">8.11</span>
+            <span class="w">TUE・祝</span>
+          </div>
+          <div class="sch-body">
+            <span class="st st-fes">フェス出演</span>
+            <h3 class="sch-tt">野外フェス「納涼! びしょ濡れサマー2026」</h3>
+            <p class="sch-venue">多摩川リバーサイド特設ステージ(川崎)</p>
+            <p class="sch-info">出演時間 13:40〜(あまがさステージ)|チケット・詳細はイベント公式サイトをご確認ください</p>
+            <p class="sch-note">※雨天決行(むしろ歓迎)。荒天の場合のみ中止となります。</p>
+          </div>
+          <div class="sch-tk"><a href="#contact">DETAIL</a></div>
+        </div>
+
+        <div class="sch-item rev">
+          <div class="sch-date">
+            <span class="y">2026</span>
+            <span class="d">9.5</span>
+            <span class="w">SAT</span>
+          </div>
+          <div class="sch-body">
+            <span class="st st-gen">一般発売中</span>
+            <h3 class="sch-tt">雨音堂 presents「秋雨前線 2026」</h3>
+            <p class="sch-venue">東高円寺 雨音堂</p>
+            <p class="sch-info">OPEN 17:30 / START 18:00|前売 ¥3,200 / 当日 ¥3,700(いずれもドリンク代別)</p>
+          </div>
+          <div class="sch-tk"><a href="#contact">TICKET</a></div>
+        </div>
+
+        <div class="sch-item rev">
+          <div class="sch-date">
+            <span class="y">2026</span>
+            <span class="d">10.10</span>
+            <span class="w">SAT</span>
+          </div>
+          <div class="sch-body">
+            <span class="st st-fc">FC先行受付中</span>
+            <h3 class="sch-tt">ワンマンライブ「10月の雨はつめたくない」</h3>
+            <p class="sch-venue">代々木ミナモホール</p>
+            <p class="sch-info">OPEN 17:15 / START 18:00|全自由(整理番号付) ¥4,500(ドリンク代別)</p>
+            <p class="sch-note">※FC先行:7/10(金)12:00〜7/27(月)23:59|一般発売:8/22(土)10:00〜<br>※未就学児入場不可。営利目的のチケット転売は固くお断りいたします。</p>
+          </div>
+          <div class="sch-tk"><a href="#fanclub">FC先行はこちら</a></div>
+        </div>
+
+      </div>
+      <p class="sch-foot">終了した公演は<a href="#schedule">アーカイブ</a>をご覧ください。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ movie ============ -->
+<section class="sec" id="movie">
+  <div class="wrap">
+    <h2 class="sec-h">MOVIE</h2>
+    <div class="sec-body">
+      <div class="mv-grid">
+        <div class="mv-card rev">
+          <a class="mv-thumb mv-a1" href="#movie" aria-label="ヨゾラ観測 ミュージックビデオ(準備中)">
+            <span class="mv-word">ヨゾラ観測</span>
+            <span class="play"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 2l11 6-11 6z" fill="#fff"/></svg></span>
+            <span class="mv-dur">3:58</span>
+          </a>
+          <div class="mv-meta">
+            <p class="mv-tt">「ヨゾラ観測」Music Video</p>
+            <p class="mv-sub">2026.06.11 PREMIERE / YouTube</p>
+          </div>
+        </div>
+        <div class="mv-card rev">
+          <a class="mv-thumb mv-a2" href="#movie" aria-label="雨天決行 ミュージックビデオ(準備中)">
+            <span class="mv-word">雨天決行</span>
+            <span class="play"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 2l11 6-11 6z" fill="#fff"/></svg></span>
+            <span class="mv-dur">4:12</span>
+          </a>
+          <div class="mv-meta">
+            <p class="mv-tt">「雨天決行」Music Video</p>
+            <p class="mv-sub">2025.06.11 PREMIERE / YouTube</p>
+          </div>
+        </div>
+        <div class="mv-card rev">
+          <a class="mv-thumb mv-a3" href="#movie" aria-label="アンブレラ・ステップ ライブ映像(準備中)">
+            <span class="mv-word">LIVE 2026.06.11</span>
+            <span class="play"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 2l11 6-11 6z" fill="#fff"/></svg></span>
+            <span class="mv-dur">5:03</span>
+          </a>
+          <div class="mv-meta">
+            <p class="mv-tt">「アンブレラ・ステップ」Live at 生誕祭2026</p>
+            <p class="mv-sub">2026.06.30 UP / YouTube</p>
+          </div>
+        </div>
+        <div class="mv-card is-hidden">
+          <a class="mv-thumb mv-a4" href="#movie" aria-label="晴雨兼用 リリックビデオ(準備中)">
+            <span class="mv-word">晴雨兼用</span>
+            <span class="play"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 2l11 6-11 6z" fill="#fff"/></svg></span>
+            <span class="mv-dur">3:24</span>
+          </a>
+          <div class="mv-meta">
+            <p class="mv-tt">「晴雨兼用」Lyric Video</p>
+            <p class="mv-sub">2026.07.01 UP / YouTube</p>
+          </div>
+        </div>
+        <div class="mv-card is-hidden">
+          <a class="mv-thumb mv-a5" href="#movie" aria-label="高円寺シェルター ライブ映像(準備中)">
+            <span class="mv-word">LIVE 2025.12.24</span>
+            <span class="play"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 2l11 6-11 6z" fill="#fff"/></svg></span>
+            <span class="mv-dur">4:47</span>
+          </a>
+          <div class="mv-meta">
+            <p class="mv-tt">「高円寺シェルター」Live at 聖夜、みぞれ</p>
+            <p class="mv-sub">2026.01.15 UP / YouTube</p>
+          </div>
+        </div>
+        <div class="mv-card is-hidden">
+          <a class="mv-thumb mv-a6" href="#movie" aria-label="水たまりステップ ダンスビデオ(準備中)">
+            <span class="mv-word">水たまりステップ</span>
+            <span class="play"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 2l11 6-11 6z" fill="#fff"/></svg></span>
+            <span class="mv-dur">2:58</span>
+          </a>
+          <div class="mv-meta">
+            <p class="mv-tt">「水たまりステップ」長靴で踊ってみた</p>
+            <p class="mv-sub">2026.06.20 UP / YouTube</p>
+          </div>
+        </div>
+      </div>
+      <button class="btn-v" id="mvMore" type="button">VIEW ALL MOVIE</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ goods ============ -->
+<section class="sec sec-tint" id="goods">
+  <div class="wrap">
+    <h2 class="sec-h">GOODS</h2>
+    <div class="sec-body">
+      <div class="goods-grid">
+
+        <div class="goods-card rev">
+          <div class="goods-art" aria-hidden="true">
+            <svg viewBox="0 0 120 120">
+              <rect x="12" y="34" width="96" height="52" fill="#fff" stroke="#3c3c46" stroke-width="2.5"/>
+              <rect x="12" y="42" width="96" height="7" fill="#f0417f"/>
+              <rect x="12" y="56" width="96" height="7" fill="#f0417f"/>
+              <rect x="12" y="70" width="96" height="7" fill="#f0417f"/>
+              <text x="60" y="98" text-anchor="middle" font-size="9" font-weight="700" fill="#3c3c46" font-family="sans-serif">AMAYADORI</text>
+            </svg>
+          </div>
+          <p class="goods-name">あまやどりタオル(2nd)</p>
+          <p class="goods-price">¥1,800(税込)</p>
+        </div>
+
+        <div class="goods-card rev">
+          <div class="goods-art" aria-hidden="true">
+            <svg viewBox="0 0 120 120">
+              <circle cx="44" cy="52" r="26" fill="#ffd23e" stroke="#3c3c46" stroke-width="2.5"/>
+              <circle cx="76" cy="62" r="26" fill="#f0417f" stroke="#3c3c46" stroke-width="2.5"/>
+              <circle cx="56" cy="80" r="26" fill="#fff" stroke="#3c3c46" stroke-width="2.5"/>
+              <circle cx="36" cy="44" r="6" fill="rgba(255,255,255,.7)"/>
+            </svg>
+          </div>
+          <p class="goods-name">缶バッジ 3種セット</p>
+          <p class="goods-price">¥600(税込)</p>
+        </div>
+
+        <div class="goods-card rev">
+          <div class="goods-art" aria-hidden="true">
+            <svg viewBox="0 0 120 120">
+              <path d="M60 22c-21 0-38 15.2-38 34h76c0-18.8-17-34-38-34z" fill="rgba(240,65,127,.16)" stroke="#3c3c46" stroke-width="2.5"/>
+              <path d="M60 56v34a8.5 8.5 0 0 1-17 0" fill="none" stroke="#3c3c46" stroke-width="4" stroke-linecap="round"/>
+              <line x1="60" y1="14" x2="60" y2="23" stroke="#3c3c46" stroke-width="4" stroke-linecap="round"/>
+              <path d="M35 56 Q42 30 60 24 M85 56 Q78 30 60 24" fill="none" stroke="rgba(60,60,70,.4)" stroke-width="1.6"/>
+            </svg>
+          </div>
+          <p class="goods-name">ビニール傘「本人仕様」</p>
+          <p class="goods-price">¥2,500(税込)</p>
+        </div>
+
+        <div class="goods-card rev">
+          <div class="goods-art" aria-hidden="true">
+            <svg viewBox="0 0 120 120">
+              <path d="M32 22 L48 14 q12 13 24 0 L88 22 L102 42 L86 50 L86 104 L34 104 L34 50 L18 42 Z" fill="#3c3c46"/>
+              <path d="M60 52c-8 0-14.5 5.8-14.5 13h29c0-7.2-6.5-13-14.5-13z" fill="#f0417f"/>
+              <path d="M60 65v12a3.2 3.2 0 0 1-6.4 0" fill="none" stroke="#f0417f" stroke-width="2.6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <p class="goods-name">Tシャツ「雨天決行」(S/M/L/XL)</p>
+          <p class="goods-price">¥3,500(税込)</p>
+        </div>
+
+      </div>
+      <p class="goods-note">※ライブ会場の物販ブース、および公式通販にて販売中です。会場の混雑状況により、お一人さまあたりの購入点数を制限させていただく場合があります。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ fanclub ============ -->
+<section class="fc-sec" id="fanclub">
+  <div class="wrap">
+    <h2 class="sec-h">FANCLUB</h2>
+    <p class="fc-lead">宵町めるオフィシャルファンクラブ。雨がやむまで、ゆっくりしていってください。<br>会員のみなさまのことは「あまやどりさん」とお呼びしています。</p>
+    <p class="fc-name">あまやどり<small>YOIMACHI MERU OFFICIAL FANCLUB</small></p>
+    <p class="fc-price">月額<b>¥550</b>(税込)</p>
+    <ul class="fc-list rev">
+      <li>
+        <span class="fc-num">01</span>
+        <div class="fc-bt">会員限定ブログ「雨の日記」<span class="fc-bd">雨の日にだけ更新されるブログ。晴れが続くと未更新のままです。ご了承ください。</span></div>
+      </li>
+      <li>
+        <span class="fc-num">02</span>
+        <div class="fc-bt">チケット最速先行<span class="fc-bd">ワンマン・主催イベントのチケットを最速でご案内。生誕祭は優先入場つき。</span></div>
+      </li>
+      <li>
+        <span class="fc-num">03</span>
+        <div class="fc-bt">会員限定配信「あまやどりラジオ」<span class="fc-bd">毎月、雨の降りそうな夜にゲリラ配信。アーカイブは月末まで。</span></div>
+      </li>
+      <li>
+        <span class="fc-num">04</span>
+        <div class="fc-bt">デジタル会員証<span class="fc-bd">継続年数で会員証のデザインが変わります(小雨→本降り→土砂降り)。</span></div>
+      </li>
+    </ul>
+    <a class="fc-join" href="#contact">入会のご案内</a>
+    <p class="fc-note">※お支払いはクレジットカード・キャリア決済に対応しています。</p>
+  </div>
+</section>
+
+<!-- ============ X ============ -->
+<section class="sec x-sec" id="x">
+  <div class="wrap">
+    <h2 class="sec-h" aria-label="X(旧Twitter)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L2.5 2h6.4l4.4 5.9L18.9 2zm-1.1 18.1h1.7L7.1 3.8H5.3l12.5 16.3z"/></svg></h2>
+    <p class="x-lead">Posts by @meru_amayadori</p>
+    <!-- 公開時はXの埋め込みウィジェットに差し替え -->
+    <div class="x-embed rev">
+      <article class="x-post">
+        <div class="x-head">
+          <svg class="x-ava" viewBox="0 0 38 38" aria-hidden="true">
+            <circle cx="19" cy="19" r="19" fill="#f0417f"/>
+            <path d="M19 8c-6 0-11 4.2-11 9.5h22C30 12.2 25 8 19 8z" fill="#fff"/>
+            <path d="M19 17.5v8a2.4 2.4 0 0 1-4.8 0" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+          <div>
+            <p class="x-nm">宵町める☂</p>
+            <p class="x-id">@meru_amayadori</p>
+          </div>
+        </div>
+        <p class="x-body">サイトがあたらしくなりました!ピンクです!かわいい!雨の日に見るともっとかわいいらしいです(事務所談)</p>
+        <p class="x-time">11:00 AM · Jul 17, 2026</p>
+      </article>
+      <article class="x-post">
+        <div class="x-head">
+          <svg class="x-ava" viewBox="0 0 38 38" aria-hidden="true">
+            <circle cx="19" cy="19" r="19" fill="#f0417f"/>
+            <path d="M19 8c-6 0-11 4.2-11 9.5h22C30 12.2 25 8 19 8z" fill="#fff"/>
+            <path d="M19 17.5v8a2.4 2.4 0 0 1-4.8 0" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+          <div>
+            <p class="x-nm">宵町める☂</p>
+            <p class="x-id">@meru_amayadori</p>
+          </div>
+        </div>
+        <p class="x-body">10/10ワンマン、FC先行はじまってます。「10月の雨はつめたくない」って信じてる人から先に当たります(うそです。抽選です)</p>
+        <p class="x-time">8:12 PM · Jul 10, 2026</p>
+      </article>
+      <a class="x-more" href="#x">もっと見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ contact ============ -->
+<section class="sec sec-tint" id="contact">
+  <div class="wrap">
+    <h2 class="sec-h">CONTACT</h2>
+    <div class="sec-body">
+      <p class="ct-lead">ライブ・イベントへの出演依頼、メディア取材、楽曲・タイアップのご相談などは、下記フォームよりお願いいたします。マネジメント担当より、3営業日以内を目安にご返信いたします。</p>
+      <div class="ct-box">
+        <b>マネジメント:青写真レコーズ</b>(営業時間 平日 11:00〜18:00)<br>
+        ※ファンレター・プレゼントは、ページ下部に記載の宛先まで郵送にてお送りください(生ものはご遠慮ください。傘は本人が喜びます)。<br>
+        ※チケットやファンクラブに関するお問い合わせは、各ご案内ページ記載の窓口までお願いいたします。
+      </div>
+      <form id="ctForm" class="rev" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+        <div class="form-row">
+          <label for="f-type">ご用件<span class="req">必須</span></label>
+          <select id="f-type" name="ご用件" required>
+            <option value="">選択してください</option>
+            <option>ライブ・イベント出演のご依頼</option>
+            <option>メディア取材・出演のご依頼</option>
+            <option>楽曲・タイアップのご相談</option>
+            <option>ファンレター・プレゼントについて</option>
+            <option>その他</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="f-org">会社名・媒体名<span class="opt">任意</span></label>
+          <input type="text" id="f-org" name="会社名" autocomplete="organization">
+        </div>
+        <div class="form-row">
+          <label for="f-name">お名前<span class="req">必須</span></label>
+          <input type="text" id="f-name" name="お名前" required autocomplete="name">
+        </div>
+        <div class="form-row">
+          <label for="f-mail">メールアドレス<span class="req">必須</span></label>
+          <input type="email" id="f-mail" name="メールアドレス" required autocomplete="email">
+        </div>
+        <div class="form-row">
+          <label for="f-body">お問い合わせ内容<span class="req">必須</span></label>
+          <textarea id="f-body" name="お問い合わせ内容" required></textarea>
+        </div>
+        <label class="consent">
+          <input type="checkbox" id="f-agree" required>
+          <span><a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意の上、送信します。</span>
+        </label>
+        <button class="submit-btn" type="submit">送信する</button>
+        <p class="form-msg" id="formMsg" role="status"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ footer ============ -->
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-logo">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="8" fill="#f0417f"/>
+        <path d="M16 5c-6.2 0-11 4.5-11 10h22c0-5.5-4.8-10-11-10z" fill="#fff"/>
+        <path d="M16 15v9a2.6 2.6 0 0 1-5.2 0" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
+      </svg><span class="brand-name">宵町める</span>
+      <p class="foot-sub">OFFICIAL WEB SITE</p>
+    </div>
+    <nav class="foot-nav" aria-label="フッターナビゲーション">
+      <a href="#top">HOME</a>
+      <a href="#news">NEWS</a>
+      <a href="#profile">PROFILE</a>
+      <a href="#disco">DISCO</a>
+      <a href="#schedule">SCHEDULE</a>
+      <a href="#movie">MOVIE</a>
+      <a href="#goods">GOODS</a>
+      <a href="#fanclub">FANCLUB</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+    <div class="foot-sns">
+      <a href="#top" aria-label="X(旧Twitter)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L2.5 2h6.4l4.4 5.9L18.9 2zm-1.1 18.1h1.7L7.1 3.8H5.3l12.5 16.3z"/></svg></a>
+      <a href="#top" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s0 3.59-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.59 0-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92C2.16 15.6 2.15 15.2 2.15 12s0-3.59.08-4.85C2.38 3.92 3.9 2.38 7.15 2.23 8.41 2.16 8.8 2.2 12 2.2zm0 4.62a5.18 5.18 0 1 0 0 10.36 5.18 5.18 0 0 0 0-10.36zm0 8.54a3.36 3.36 0 1 1 0-6.72 3.36 3.36 0 0 1 0 6.72zm5.4-8.75a1.21 1.21 0 1 0 0-2.42 1.21 1.21 0 0 0 0 2.42z"/></svg></a>
+      <a href="#top" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.5s-.22-1.56-.9-2.24c-.86-.9-1.82-.91-2.26-.96C16.7 4.07 12 4.07 12 4.07h-.01s-4.7 0-7.84.23c-.44.05-1.4.06-2.26.96C1.21 5.94 1 7.5 1 7.5S.77 9.33.77 11.16v1.71C.77 14.7 1 16.5 1 16.5s.22 1.56.89 2.24c.86.9 1.99.87 2.49.97 1.8.17 7.62.22 7.62.22s4.71-.01 7.85-.23c.44-.05 1.4-.06 2.26-.96.67-.68.89-2.24.89-2.24s.23-1.83.23-3.66v-1.71C23.23 9.33 23 7.5 23 7.5zM9.9 14.95V8.6l6.05 3.19-6.05 3.16z"/></svg></a>
+      <a href="#top" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 2h-3.2v13.1a2.75 2.75 0 1 1-2.75-2.75c.26 0 .51.04.75.1V9.2a6 6 0 1 0 5.2 5.94V8.6a7.4 7.4 0 0 0 4.3 1.37V6.75A4.75 4.75 0 0 1 16.6 2z"/></svg></a>
+    </div>
+    <div class="foot-letter">
+      <b>ファンレター宛先</b><br>
+      〒166-0002 東京都杉並区高円寺北3-21-8 アオシャシンビル2F 青写真レコーズ「宵町める」係
+    </div>
+    <div class="foot-legal">
+      当サイトに掲載の画像・文章等の無断転載・無断使用を固くお断りいたします。<br>
+      <a href="privacy.html">プライバシーポリシー</a>&nbsp;&nbsp;© 宵町める / AOJASHIN RECORDS All rights reserved.
+    </div>
+    <p class="foot-agency">AOJASHIN RECORDS</p>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" type="button" aria-label="ページ上部へ戻る">↑</button>
+
+<script>
+document.body.classList.add('js');
+
+// ---------- モバイルメニュー ----------
+(function(){
+  const btn = document.getElementById('menuBtn');
+  const menu = document.getElementById('spMenu');
+  const ovl = document.getElementById('menuOvl');
+  const mq = window.matchMedia('(min-width: 961px)');
+
+  function setMenu(open){
+    btn.classList.toggle('open', open);
+    menu.classList.toggle('open', open);
+    ovl.classList.toggle('show', open);
+    document.body.classList.toggle('menu-open', open);
+    btn.setAttribute('aria-expanded', open);
+    btn.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+  }
+  btn.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
+  ovl.addEventListener('click', () => setMenu(false));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+  mq.addEventListener('change', e => { if (e.matches) setMenu(false); });
+})();
+
+// ---------- ヒーロー: 雨のCanvasアニメーション ----------
+(function(){
+  const cv = document.getElementById('rainCv');
+  const ctx = cv.getContext('2d');
+  const hero = cv.parentElement;
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let drops = [], rafId = null, playing = true;
+
+  function resize(){
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    cv.width = hero.clientWidth * dpr;
+    cv.height = hero.clientHeight * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const n = Math.floor(hero.clientWidth / 9);
+    drops = Array.from({length: n}, () => ({
+      x: Math.random() * hero.clientWidth,
+      y: Math.random() * hero.clientHeight,
+      l: 8 + Math.random() * 16,
+      s: 4 + Math.random() * 7,
+      o: .12 + Math.random() * .3
+    }));
+  }
+
+  function frame(){
+    const w = hero.clientWidth, h = hero.clientHeight;
+    ctx.clearRect(0, 0, w, h);
+    ctx.lineWidth = 1.4;
+    ctx.lineCap = 'round';
+    for (const d of drops){
+      ctx.strokeStyle = 'rgba(255,255,255,' + d.o + ')';
+      ctx.beginPath();
+      ctx.moveTo(d.x, d.y);
+      ctx.lineTo(d.x - d.l * .12, d.y + d.l);
+      ctx.stroke();
+      d.y += d.s;
+      d.x -= d.s * .12;
+      if (d.y > h + 20){ d.y = -20; d.x = Math.random() * (w + 40); }
+    }
+    rafId = requestAnimationFrame(frame);
+  }
+
+  resize();
+  window.addEventListener('resize', resize);
+  if (reduced){
+    // 動きを抑える設定時は静止画1フレームのみ
+    const w = hero.clientWidth, h = hero.clientHeight;
+    ctx.lineWidth = 1.4; ctx.lineCap = 'round';
+    for (const d of drops){
+      ctx.strokeStyle = 'rgba(255,255,255,' + d.o + ')';
+      ctx.beginPath(); ctx.moveTo(d.x, d.y); ctx.lineTo(d.x - d.l * .12, d.y + d.l); ctx.stroke();
+    }
+  } else {
+    frame();
+  }
+
+  // 擬似プレイヤーの再生/一時停止
+  const btn = document.getElementById('mvCtrl');
+  const icoPause = document.getElementById('icoPause');
+  const icoPlay = document.getElementById('icoPlay');
+  btn.addEventListener('click', () => {
+    playing = !playing;
+    document.body.classList.toggle('mv-paused', !playing);
+    icoPause.style.display = playing ? '' : 'none';
+    icoPlay.style.display = playing ? 'none' : '';
+    btn.setAttribute('aria-label', playing ? '映像を一時停止' : '映像を再生');
+    if (reduced) return;
+    if (playing) frame(); else cancelAnimationFrame(rafId);
+  });
+})();
+
+// ---------- VIEW ALL(NEWS / MOVIE) ----------
+(function(){
+  function expander(btnId, itemSel){
+    const btn = document.getElementById(btnId);
+    btn.addEventListener('click', () => {
+      document.querySelectorAll(itemSel).forEach(el => el.classList.remove('is-hidden'));
+      btn.style.display = 'none';
+    });
+  }
+  expander('newsMore', '.news-item.is-hidden');
+  expander('mvMore', '.mv-card.is-hidden');
+})();
+
+// ---------- スクロール連動 ----------
+(function(){
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (en.isIntersecting) { en.target.classList.add('on'); io.unobserve(en.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.rev').forEach(el => io.observe(el));
+
+  const toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', () => {
+    toTop.classList.toggle('show', window.scrollY > 600);
+  }, { passive: true });
+  toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+})();
+
+// ---------- お問い合わせフォーム(Formspree) ----------
+// 公開時: action の YOUR_FORM_ID を Formspree で発行した実IDに差し替えること
+(function(){
+  const form = document.getElementById('ctForm');
+  const msg = document.getElementById('formMsg');
+  const btn = form.querySelector('.submit-btn');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    msg.className = 'form-msg';
+
+    if (!form.reportValidity()) return;
+
+    // フォームID未設定ガード(誤送信防止)
+    if (form.action.includes('YOUR_FORM_ID')) {
+      msg.textContent = '(デモ表示)送信先フォームIDが未設定のため送信できません。公開時に設定されます。';
+      msg.classList.add('ng');
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = '送信中…';
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.reset();
+        msg.textContent = 'お問い合わせを受け付けました。担当より折り返しご連絡いたします。';
+        msg.classList.add('ok');
+      } else { throw new Error(); }
+    } catch {
+      msg.textContent = '送信に失敗しました。お手数ですが、時間をおいて再度お試しください。';
+      msg.classList.add('ng');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = '送信する';
+    }
+  });
+})();
+</script>
+</body>
+</html>

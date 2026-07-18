@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!--
+  「テンキヨホー!」オフィシャルサイト(v3 グループ版)
+  ※架空のアイドルグループのデモサイトです。実在の人物・団体・楽曲・会場とは一切関係ありません。
+  ※公開時: noindex削除 / FormspreeのフォームID設定 / X埋め込みを本物のウィジェットに差し替え
+-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>テンキヨホー! OFFICIAL WEB SITE</title>
+<meta name="description" content="お天気アイドル「テンキヨホー!」のオフィシャルウェブサイト。メンバー、ライブ・リリース情報、ファンクラブ「かんそくたい」のご案内など。">
+<meta name="robots" content="noindex"><!-- デモのため。公開時に削除 -->
+<meta property="og:title" content="テンキヨホー! OFFICIAL WEB SITE">
+<meta property="og:description" content="あしたの天気は、わたしたちが決める!お天気アイドル「テンキヨホー!」オフィシャルサイト。">
+<meta property="og:type" content="website">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="%23f0417f"/><circle cx="21" cy="12" r="6" fill="%23ffd23e"/><g fill="%23ffffff"><circle cx="10" cy="18" r="5"/><circle cx="16" cy="15" r="6.5"/><circle cx="22" cy="19" r="4.5"/><rect x="8" y="17" width="17" height="6" rx="3"/></g></svg>'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@300;400;500;600&family=Zen+Maru+Gothic:wght@500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MusicGroup",
+  "name": "テンキヨホー!",
+  "alternateName": "TENKI-YOHO!",
+  "description": "青写真レコーズ所属、6人組のお天気アイドルグループ。",
+  "member": [
+    {"@type": "Person", "name": "宵町める"},
+    {"@type": "Person", "name": "日向ぽかり"},
+    {"@type": "Person", "name": "雲居ふわの"},
+    {"@type": "Person", "name": "氷雨こんこ"},
+    {"@type": "Person", "name": "鳴海ぴか"},
+    {"@type": "Person", "name": "虹本いろは"}
+  ]
+}
+</script>
+<style>
+:root{
+  --pink:#f0417f;
+  --pink-dark:#d92e6b;
+  --pink-pale:#fdeef5;
+  --pink-line:#f5b8d0;
+  --yellow:#ffd23e;
+  --ink:#3c3c46;
+  --gray:#8a8a94;
+  --head-h:70px;
+  /* メンバーカラー */
+  --c-meru:#f0417f;
+  --c-pokari:#f2a80c;
+  --c-fuwano:#9d6fd6;
+  --c-konko:#4fb7e8;
+  --c-pika:#f0762b;
+  --c-iroha:#3cb96a;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--head-h) + 10px)}
+body{
+  font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  color:var(--ink);
+  background:#fff;
+  line-height:1.9;
+  font-size:14px;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg,canvas{max-width:100%;vertical-align:middle}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none}
+:focus{outline:none}
+:focus-visible{outline:2px solid var(--pink);outline-offset:3px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+
+/* ---------- header ---------- */
+.site-head{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:var(--head-h);
+  background:#fff; /* 半透明だと下の動画が透けて「かぶって」見えるため不透明に */
+  box-shadow:0 1px 0 rgba(240,65,127,.15);
+}
+.head-in{max-width:1240px;margin:0 auto;padding:0 22px;height:100%;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:9px}
+.brand-mark{width:36px;height:36px;flex:none}
+.brand-name{font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:21px;letter-spacing:.02em;color:var(--pink);transform:skewX(-6deg);display:inline-block;white-space:nowrap}
+.gnav ul{display:flex;align-items:center;gap:20px}
+.gnav a{font-family:"Jost",sans-serif;font-weight:500;font-size:12.5px;letter-spacing:.12em;color:var(--ink);padding:6px 0;position:relative}
+.gnav a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--pink);transform:scaleX(0);transition:transform .25s}
+.gnav a:hover{color:var(--pink)}
+.gnav a:hover::after{transform:scaleX(1)}
+.head-sns{display:flex;align-items:center;gap:14px;margin-left:4px}
+.head-sns a svg{width:16px;height:16px}
+.head-sns a svg *{fill:var(--pink)}
+.head-sns a:hover svg *{fill:var(--pink-dark)}
+.menu-btn{display:none;width:44px;height:44px;background:none;border:none;cursor:pointer;position:relative;z-index:110;flex:none}
+.menu-btn span{position:absolute;left:10px;width:24px;height:2.5px;border-radius:2px;background:var(--pink);transition:.3s}
+.menu-btn span:nth-child(1){top:16px}
+.menu-btn span:nth-child(2){top:25px}
+.menu-btn.open span:nth-child(1){top:20px;transform:rotate(45deg)}
+.menu-btn.open span:nth-child(2){top:20px;transform:rotate(-45deg)}
+/* モバイルメニュー: ヘッダー直下から下方向に開く */
+.sp-menu{
+  display:none;
+  position:fixed;top:var(--head-h);left:0;right:0;z-index:99;
+  background:#fff;
+  border-bottom:2px solid var(--pink);
+  clip-path:inset(0 0 100% 0);
+  transition:clip-path .35s ease;
+}
+.sp-menu.open{clip-path:inset(0 0 0 0)}
+.sp-menu ul{padding:8px 24px 24px}
+.sp-menu a{display:block;padding:11px 4px;border-bottom:1px dotted var(--pink-line);font-family:"Jost",sans-serif;font-weight:500;font-size:13.5px;letter-spacing:.16em;color:var(--ink)}
+.sp-menu a small{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--gray);letter-spacing:.08em;margin-left:10px;font-size:11px}
+.sp-menu .sp-sns{display:flex;justify-content:center;gap:26px;padding:18px 0 4px;border-bottom:none}
+.sp-menu .sp-sns svg{width:20px;height:20px}
+.sp-menu .sp-sns svg *{fill:var(--pink)}
+.menu-ovl{position:fixed;inset:0;z-index:98;background:rgba(60,60,70,.35);opacity:0;pointer-events:none;transition:opacity .3s}
+.menu-ovl.show{opacity:1;pointer-events:auto}
+body.menu-open{overflow:hidden}
+
+/* ---------- hero (MV風) ---------- */
+.hero-mv{
+  position:relative;margin-top:var(--head-h);
+  width:100%;
+  aspect-ratio:16/9; /* 動画(16:9)と完全一致させて切り抜きを防ぐ */
+  background:linear-gradient(180deg,#6bbdf2 0%,#a8d9f8 55%,#dff0fd 100%);
+  overflow:hidden;
+}
+/* オープニングムービー */
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+/* 擬似プレイヤーUI */
+.mv-ctrl{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:64px;height:64px;border-radius:50%;
+  background:rgba(60,60,70,.4);border:1.5px solid rgba(255,255,255,.75);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:opacity .3s;
+}
+.hero-mv:hover .mv-ctrl,.mv-ctrl:focus-visible{opacity:1}
+.mv-ctrl svg{width:20px;height:20px}
+.mv-bar{
+  position:absolute;left:0;right:0;bottom:0;
+  padding:0 18px 12px;display:flex;align-items:center;gap:12px;
+}
+.mv-hearts{color:var(--pink);font-size:12px;letter-spacing:4px;flex:none}
+.mv-track{flex:1;height:2.5px;background:rgba(255,255,255,.55);border-radius:2px;overflow:hidden}
+.mv-prog{height:100%;width:0;background:var(--pink);animation:prog 10s linear infinite}
+@keyframes prog{to{width:100%}}
+body.mv-paused .mv-prog{animation-play-state:paused}
+.mv-label{flex:none;font-family:"Jost",sans-serif;font-weight:400;font-size:10.5px;letter-spacing:.16em;color:#fff;text-shadow:0 1px 3px rgba(60,60,70,.5)}
+/* マーキー */
+.marq{background:var(--pink);color:#fff;overflow:hidden}
+.marq-track{display:inline-flex;white-space:nowrap;animation:tick 24s linear infinite;will-change:transform}
+.marq span{display:inline-block;padding:10px 0;font-family:"Zen Maru Gothic",sans-serif;font-weight:700;font-size:12.5px;letter-spacing:.12em}
+.marq b{color:var(--yellow);margin:0 18px;font-weight:700}
+@keyframes tick{to{transform:translateX(-50%)}}
+/* キラキラ帯 */
+.spark{
+  position:relative;height:88px;
+  background:linear-gradient(180deg,#ffd9e8 0%,#f9a9cb 100%);
+  overflow:hidden;display:flex;align-items:center;justify-content:center;
+}
+.spark::before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    radial-gradient(rgba(255,255,255,.95) 1.4px,transparent 2px),
+    radial-gradient(rgba(255,255,255,.7) 1px,transparent 1.6px);
+  background-size:56px 40px,34px 26px;
+  background-position:0 0,17px 13px;
+  animation:twinkle 2.6s ease-in-out infinite alternate;
+}
+@keyframes twinkle{from{opacity:.55}to{opacity:1}}
+.spark-pill{
+  position:relative;z-index:1;
+  background:#fff;color:var(--pink);
+  font-weight:700;font-size:12.5px;letter-spacing:.06em;
+  padding:11px 26px;border-radius:999px;
+  box-shadow:0 3px 12px rgba(240,65,127,.25);
+  transition:.2s;
+}
+.spark-pill:hover{background:var(--pink);color:#fff;transform:scale(1.04)}
+
+/* ---------- sections common ---------- */
+.sec{padding:84px 0}
+.sec-tint{background:var(--pink-pale)}
+.sec-h{
+  text-align:center;
+  font-family:"Marcellus",serif;font-weight:400;
+  font-size:clamp(26px,4vw,34px);letter-spacing:.16em;
+  color:var(--pink);
+  margin-bottom:8px;
+}
+.sec-h::after{content:"";display:block;width:36px;height:3px;background:var(--pink);margin:14px auto 0}
+.sec-body{margin-top:44px}
+.btn-v{
+  display:flex;align-items:center;justify-content:center;position:relative;
+  width:min(320px,86%);margin:44px auto 0;
+  border:1px solid var(--pink);border-radius:6px;background:none;cursor:pointer;
+  font-family:"Jost",sans-serif;font-weight:500;font-size:13px;letter-spacing:.2em;color:var(--pink);
+  padding:15px 34px 15px 22px;transition:.2s;
+}
+.btn-v::after{
+  content:"";position:absolute;right:16px;top:50%;
+  width:7px;height:7px;border-top:1.5px solid currentColor;border-right:1.5px solid currentColor;
+  transform:translateY(-50%) rotate(45deg);
+  transition:right .2s;
+}
+.btn-v:hover{background:var(--pink);color:#fff}
+.btn-v:hover::after{right:12px}
+.rev{opacity:1}
+body.js .rev{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+body.js .rev.on{opacity:1;transform:none}
+/* グリッドの時間差フェード */
+body.js .stagger > .rev:nth-child(2){transition-delay:.09s}
+body.js .stagger > .rev:nth-child(3){transition-delay:.18s}
+body.js .stagger > .rev:nth-child(4){transition-delay:.27s}
+body.js .stagger > .rev:nth-child(5){transition-delay:.36s}
+body.js .stagger > .rev:nth-child(6){transition-delay:.45s}
+
+/* ---------- news ---------- */
+.news-list{max-width:860px;margin:0 auto;border-top:1px dotted var(--pink-line)}
+.news-item{display:grid;grid-template-columns:158px 1fr;gap:18px;align-items:baseline;padding:17px 6px;border-bottom:1px dotted var(--pink-line)}
+.news-item.is-hidden{display:none}
+.news-date{font-family:"Jost",sans-serif;font-weight:400;font-size:13px;letter-spacing:.05em;color:var(--gray);font-variant-numeric:tabular-nums}
+.news-tt{font-weight:500;font-size:14px}
+.news-tt a:hover{color:var(--pink);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--pink-line)}
+
+/* ---------- member ---------- */
+.mem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.mem-card{
+  background:#fff;border-radius:16px;overflow:hidden;
+  box-shadow:0 8px 24px rgba(240,65,127,.12);
+  transition:transform .3s ease,box-shadow .3s ease;
+}
+.mem-card:hover{transform:translateY(-8px) rotate(-.6deg);box-shadow:0 16px 34px rgba(240,65,127,.2)}
+.mem-vis{position:relative;height:190px;background:var(--mcp);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.mem-vis img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.mem-card:hover .mem-vis img{transform:scale(1.05)}
+.mem-role{
+  position:absolute;top:12px;left:12px;
+  background:var(--mc);color:#fff;
+  font-weight:700;font-size:10.5px;letter-spacing:.1em;
+  padding:4px 12px;border-radius:999px;
+}
+.mem-center{
+  position:absolute;top:12px;right:12px;
+  background:#fff;color:var(--mc);border:1px solid var(--mc);
+  font-weight:700;font-size:10px;letter-spacing:.08em;
+  padding:3px 10px;border-radius:999px;
+}
+.mem-info{padding:18px 20px 20px}
+.mem-name{font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:21px;letter-spacing:.06em;color:var(--mc)}
+.mem-yomi{font-family:"Jost",sans-serif;font-size:10.5px;letter-spacing:.26em;color:var(--gray);margin-bottom:10px}
+.mem-dl{border-top:1px dotted var(--pink-line);font-size:12px}
+.mem-dl div{display:grid;grid-template-columns:74px 1fr;gap:10px;padding:6px 0;border-bottom:1px dotted var(--pink-line)}
+.mem-dl dt{font-weight:700;color:var(--gray)}
+.mem-sw{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--mc);margin-right:6px;vertical-align:-1px}
+.mem-catch{margin-top:11px;font-size:12.5px;font-weight:700;color:var(--ink)}
+.mem-note{margin-top:30px;font-size:12px;color:var(--gray);text-align:center}
+
+/* ---------- disco ---------- */
+.disc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+.jk{position:relative;aspect-ratio:1/1;border-radius:10px;overflow:hidden;box-shadow:0 8px 22px rgba(60,60,70,.16);transition:transform .3s ease}
+.disc-card:hover .jk{transform:translateY(-5px) rotate(-1deg)}
+.jk img{width:100%;height:100%;object-fit:cover;display:block}
+.jk-tt{position:absolute;left:13px;bottom:11px;font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:14.5px;letter-spacing:.06em;line-height:1.4}
+.jk-lb{position:absolute;top:11px;left:13px;font-family:"Jost",sans-serif;font-weight:500;font-size:8.5px;letter-spacing:.22em}
+/* 1st Single: アイドルテンキヨホー! */
+.jk-tenki{background:repeating-conic-gradient(from 0deg at 50% 50%,var(--yellow) 0 15deg,#ffe98a 15deg 30deg)}
+.jk-tenki .bang{
+  position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);
+  width:44%;aspect-ratio:1;border-radius:50%;background:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:17cqw;color:var(--pink);
+  box-shadow:0 4px 0 rgba(217,46,107,.35);
+}
+.jk-tenki .jk-tt{color:var(--pink);text-shadow:0 1.5px 0 #fff}
+.jk-tenki .jk-lb{color:#a97b00}
+/* 2nd Single: どしゃぶりダンスホール */
+.jk-dsb{background:#141b3f}
+.jk-dsb::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.3) 1.1px,transparent 1.4px);background-size:15px 15px}
+.jk-dsb .ball{position:absolute;left:50%;top:38%;transform:translate(-50%,-50%);width:40%}
+.jk-dsb .jk-tt{color:#fff}
+.jk-dsb .jk-lb{color:rgba(255,255,255,.7)}
+/* 3rd: 虹、かかりました。 */
+.jk-niji{background:linear-gradient(180deg,#dff0fd 0%,#fff 100%)}
+.jk-niji .arc{position:absolute;left:50%;top:58%;transform:translate(-50%,-50%);width:74%}
+.jk-niji .jk-tt{color:var(--ink)}
+.jk-niji .jk-lb{color:var(--gray)}
+/* 1st Mini Album: 観測史上、最高! */
+.jk-kansoku{background:linear-gradient(160deg,#6bbdf2 0%,#a8d9f8 60%,#ffd9e8 100%)}
+.jk-kansoku .dots{position:absolute;left:50%;top:56%;transform:translateX(-50%);display:flex;gap:7%;width:78%}
+.jk-kansoku .dots i{flex:1;aspect-ratio:1;border-radius:50%;box-shadow:0 3px 6px rgba(60,60,70,.25)}
+.jk-kansoku .al-tt{
+  position:absolute;left:50%;top:32%;transform:translate(-50%,-50%);width:100%;text-align:center;
+  font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:11cqw;letter-spacing:.04em;color:#fff;
+  text-shadow:0 3px 0 var(--pink);white-space:nowrap;
+}
+.jk-kansoku .jk-lb{color:#fff}
+.disc-card{container-type:inline-size}
+.disc-meta{margin-top:14px}
+.disc-type{font-family:"Jost",sans-serif;font-weight:600;font-size:10px;letter-spacing:.2em;color:var(--pink)}
+.disc-tt{font-weight:700;font-size:15.5px;letter-spacing:.04em;margin:1px 0}
+.disc-data{font-size:11.5px;color:var(--gray);line-height:1.7}
+.disc-meta details{margin-top:8px;font-size:12px}
+.disc-meta summary{cursor:pointer;font-weight:700;font-size:11.5px;letter-spacing:.08em;color:var(--pink)}
+.disc-meta summary:hover{color:var(--pink-dark)}
+.disc-meta ol{margin-top:6px;color:var(--gray);border-left:2px solid var(--pink-line);padding-left:12px}
+.disc-note{margin-top:30px;font-size:12px;color:var(--gray);text-align:center}
+
+/* ---------- schedule ---------- */
+.sch-list{max-width:860px;margin:0 auto;display:grid;gap:18px}
+.sch-item{
+  display:flex;gap:22px;align-items:flex-start;
+  background:#fff;border-radius:14px;padding:22px 24px;
+  box-shadow:0 6px 20px rgba(240,65,127,.1);
+  transition:transform .25s ease;
+}
+.sch-item:hover{transform:translateY(-3px)}
+.sch-date{
+  flex:none;width:84px;text-align:center;
+  background:var(--pink);color:#fff;border-radius:10px;padding:10px 4px 9px;
+}
+.sch-date .y{display:block;font-family:"Jost",sans-serif;font-weight:400;font-size:10px;letter-spacing:.14em;opacity:.85}
+.sch-date .d{display:block;font-family:"Jost",sans-serif;font-weight:600;font-size:22px;letter-spacing:.02em;line-height:1.25}
+.sch-date .w{display:block;font-family:"Jost",sans-serif;font-weight:500;font-size:10px;letter-spacing:.2em;margin-top:1px}
+.sch-date.hol{background:var(--pink-dark)}
+.sch-body{flex:1;min-width:0}
+.st{display:inline-block;font-weight:700;font-size:10px;letter-spacing:.08em;padding:3px 11px;border-radius:999px;margin-bottom:6px}
+.st-fc{background:var(--pink);color:#fff}
+.st-gen{border:1px solid var(--pink);color:var(--pink)}
+.st-fes{background:var(--c-konko);color:#fff}
+.sch-tt{font-weight:700;font-size:16.5px;letter-spacing:.03em;line-height:1.55}
+.sch-venue{font-size:13px;font-weight:700;color:var(--pink-dark);margin-top:2px}
+.sch-info{font-size:12px;color:var(--gray);margin-top:4px}
+.sch-note{font-size:11.5px;color:var(--gray);margin-top:4px}
+.sch-tk{flex:none;align-self:center}
+.sch-tk a{
+  display:inline-block;font-family:"Jost",sans-serif;font-weight:500;font-size:11.5px;letter-spacing:.16em;
+  border:1px solid var(--pink);color:var(--pink);border-radius:999px;padding:10px 24px;transition:.2s;white-space:nowrap;
+}
+.sch-tk a:hover{background:var(--pink);color:#fff}
+.sch-foot{margin-top:24px;font-size:12px;color:var(--gray);text-align:center}
+.sch-foot a{color:var(--pink);text-decoration:underline;text-underline-offset:3px}
+
+/* ---------- movie ---------- */
+.mv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.mv-card.is-hidden{display:none}
+.mv-thumb{position:relative;aspect-ratio:16/9;overflow:hidden;display:block;border-radius:8px;box-shadow:0 6px 18px rgba(60,60,70,.16)}
+.mv-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mv-thumb .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:rgba(20,15,25,.6);display:flex;align-items:center;justify-content:center;transition:.25s}
+.mv-thumb .play svg{width:15px;height:15px;margin-left:2px}
+.mv-thumb:hover .play{background:var(--pink);transform:translate(-50%,-50%) scale(1.08)}
+.mv-dur{position:absolute;right:8px;bottom:8px;background:rgba(0,0,0,.82);color:#fff;font-family:"Jost",sans-serif;font-weight:500;font-size:10.5px;padding:2px 8px;border-radius:3px;letter-spacing:.06em}
+.mv-word{position:absolute;left:16px;bottom:12px;font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:17px;letter-spacing:.08em}
+.mv-b1{background:repeating-conic-gradient(from 0deg at 50% 30%,var(--yellow) 0 15deg,#ffe98a 15deg 30deg)}
+.mv-b1 .mv-word{color:var(--pink);text-shadow:0 1.5px 0 #fff}
+.mv-b2{background:#141b3f}
+.mv-b2::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.3) 1px,transparent 1.3px);background-size:14px 14px}
+.mv-b2 .mv-word{color:#fff}
+.mv-b3{background:#131318}
+.mv-b3::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 85% at 50% -10%,rgba(255,210,62,.8),transparent 62%)}
+.mv-b3 .mv-word{color:#fff;font-family:"Jost",sans-serif;font-weight:500;font-size:11px;letter-spacing:.24em}
+.mv-b4{background:linear-gradient(180deg,#dff0fd,#fff)}
+.mv-b4 .mv-word{color:var(--ink)}
+.mv-b4 .arc{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);width:46%}
+.mv-b5{background:#e9e9ee}
+.mv-b5::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 44px,rgba(60,60,70,.08) 44px 45px),repeating-linear-gradient(90deg,transparent 0 44px,rgba(60,60,70,.08) 44px 45px)}
+.mv-b5 .mv-word{color:var(--ink);font-family:"Jost",sans-serif;font-weight:600;font-size:12px;letter-spacing:.24em}
+.mv-b6{background:linear-gradient(135deg,#f0417f 0%,#f973a5 100%)}
+.mv-b6::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.4) 1.2px,transparent 1.6px);background-size:22px 18px}
+.mv-b6 .mv-word{color:#fff}
+.mv-meta{margin-top:11px}
+.mv-tt{font-weight:700;font-size:13.5px}
+.mv-sub{font-family:"Jost",sans-serif;font-size:10.5px;color:var(--gray);letter-spacing:.1em}
+
+/* ---------- goods ---------- */
+.goods-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.goods-card{background:#fff;border-radius:14px;padding:18px 16px 20px;box-shadow:0 6px 20px rgba(240,65,127,.1);text-align:center;transition:transform .25s ease}
+.goods-card:hover{transform:translateY(-5px)}
+.goods-art{aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:8px}
+.goods-art svg{width:78%}
+.goods-art img{width:100%;height:100%;object-fit:cover}
+.goods-name{font-weight:700;font-size:13px;margin-top:10px}
+.goods-price{font-family:"Jost",sans-serif;font-weight:500;font-size:12px;color:var(--pink);letter-spacing:.04em}
+.goods-note{margin-top:28px;font-size:12px;color:var(--gray);text-align:center}
+
+/* ---------- fanclub ---------- */
+.fc-sec{background:linear-gradient(135deg,#f0417f 0%,#f973a5 100%);color:#fff;padding:84px 0}
+.fc-sec .sec-h{color:#fff}
+.fc-sec .sec-h::after{background:#fff}
+.fc-lead{text-align:center;max-width:640px;margin:0 auto;font-size:13.5px}
+.fc-name{
+  text-align:center;font-family:"Zen Maru Gothic",sans-serif;font-weight:900;
+  font-size:clamp(34px,6vw,48px);letter-spacing:.14em;margin:26px 0 4px;
+  text-shadow:0 2px 0 rgba(217,46,107,.5);
+}
+.fc-name small{display:block;font-family:"Jost",sans-serif;font-weight:400;font-size:11px;letter-spacing:.34em;margin-top:8px;opacity:.9}
+.fc-price{text-align:center;font-size:13px;margin-top:10px}
+.fc-price b{font-family:"Jost",sans-serif;font-weight:600;font-size:26px;margin:0 4px}
+.fc-list{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:760px;margin:34px auto 0}
+.fc-list li{background:rgba(255,255,255,.96);color:var(--ink);border-radius:12px;padding:18px 20px;display:flex;gap:14px;align-items:baseline}
+.fc-num{font-family:"Jost",sans-serif;font-weight:600;font-size:14px;color:var(--pink);flex:none}
+.fc-bt{font-weight:700;font-size:13.5px;color:var(--pink-dark)}
+.fc-bd{display:block;font-size:12px;color:var(--gray);font-weight:400;margin-top:2px}
+.fc-join{
+  display:block;width:min(320px,86%);margin:36px auto 0;text-align:center;
+  background:#fff;color:var(--pink);font-weight:900;font-size:14px;letter-spacing:.12em;
+  padding:16px;border-radius:999px;box-shadow:0 4px 14px rgba(217,46,107,.35);transition:.2s;
+}
+.fc-join:hover{transform:translateY(-2px)}
+.fc-note{margin-top:14px;font-size:11px;text-align:center;opacity:.85}
+
+/* ---------- X(SNS) ---------- */
+.x-sec .sec-h svg{width:30px;height:30px;vertical-align:-4px}
+.x-sec .sec-h svg *{fill:var(--ink)}
+.x-lead{text-align:center;font-family:"Jost",sans-serif;font-size:12.5px;letter-spacing:.08em;color:var(--gray)}
+.x-embed{
+  max-width:430px;margin:30px auto 0;background:#fff;border:1px solid var(--pink-line);
+  border-radius:14px;overflow:hidden;
+}
+.x-post{padding:18px 20px;border-bottom:1px solid #f6dbe7}
+.x-head{display:flex;gap:10px;align-items:center}
+.x-ava{width:38px;height:38px;border-radius:50%;flex:none}
+.x-nm{font-weight:700;font-size:13px;line-height:1.3}
+.x-id{font-family:"Jost",sans-serif;font-size:11px;color:var(--gray);font-weight:400}
+.x-body{margin-top:8px;font-size:13px;line-height:1.8}
+.x-time{margin-top:8px;font-family:"Jost",sans-serif;font-size:10.5px;color:var(--gray);letter-spacing:.04em}
+.x-more{display:block;text-align:center;padding:13px;font-weight:700;font-size:12.5px;color:var(--pink)}
+.x-more:hover{background:var(--pink-pale)}
+
+/* ---------- contact ---------- */
+.ct-lead{text-align:center;max-width:640px;margin:0 auto;font-size:13.5px}
+.ct-box{max-width:640px;margin:20px auto 0;background:#fff;border:1px solid var(--pink-line);border-radius:10px;padding:16px 20px;font-size:12.5px;color:var(--gray)}
+.ct-box b{color:var(--pink-dark)}
+form{max-width:640px;margin:34px auto 0}
+.form-row{margin-bottom:18px}
+.form-row label{display:block;font-weight:700;font-size:13px;margin-bottom:6px}
+.req{color:#fff;background:var(--pink);font-size:10px;font-weight:700;margin-left:8px;border-radius:3px;padding:2px 7px;vertical-align:1px}
+.opt{color:var(--gray);font-size:10px;font-weight:500;margin-left:8px;border:1px solid #ddd;border-radius:3px;padding:1.5px 7px;vertical-align:1px}
+input[type=text],input[type=email],select,textarea{
+  width:100%;border:1px solid #e6c2d2;background:#fff;padding:12px 15px;
+  font:inherit;font-size:14px;border-radius:9px;-webkit-appearance:none;appearance:none;
+}
+select{background:#fff url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="7"><path d="M1 1l4 4 4-4" stroke="%23f0417f" stroke-width="1.6" fill="none"/></svg>') no-repeat right 15px center}
+textarea{min-height:150px;resize:vertical}
+input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--pink);outline-offset:0;border-color:var(--pink)}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;margin:6px 0 20px;justify-content:center}
+.consent input{width:17px;height:17px;margin-top:3px;accent-color:var(--pink);flex:none}
+.consent a{text-decoration:underline;text-underline-offset:3px;color:var(--pink)}
+.submit-btn{
+  display:block;width:100%;background:var(--pink);color:#fff;border:none;cursor:pointer;
+  font:inherit;font-weight:900;font-size:15px;letter-spacing:.14em;padding:16px;border-radius:999px;transition:.2s;
+}
+.submit-btn:hover{background:var(--pink-dark)}
+.submit-btn:disabled{opacity:.5;cursor:not-allowed}
+.form-msg{display:none;margin-top:14px;padding:13px 16px;font-size:13px;font-weight:700;border-radius:8px}
+.form-msg.ok{display:block;background:#e8f6ee;border:1px solid #35855c;color:#35855c}
+.form-msg.ng{display:block;background:#fdecf2;border:1px solid var(--pink);color:var(--pink-dark)}
+
+/* ---------- footer ---------- */
+.site-foot{padding:66px 0 34px;text-align:center}
+.foot-logo .brand-mark{width:46px;height:46px}
+.foot-logo .brand-name{font-size:30px;display:inline-block;margin-left:8px}
+.foot-sub{font-family:"Jost",sans-serif;font-size:9.5px;letter-spacing:.4em;color:var(--gray);margin-top:6px}
+.foot-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 24px;margin-top:30px}
+.foot-nav a{font-family:"Jost",sans-serif;font-weight:400;font-size:11px;letter-spacing:.16em;color:var(--gray);padding:4px 0}
+.foot-nav a:hover{color:var(--pink)}
+.foot-sns{display:flex;justify-content:center;gap:28px;margin-top:28px}
+.foot-sns a svg{width:21px;height:21px;transition:transform .2s}
+.foot-sns a svg *{fill:var(--pink)}
+.foot-sns a:hover svg{transform:translateY(-3px)}
+.foot-letter{margin-top:34px;font-size:11.5px;color:var(--gray);line-height:1.9}
+.foot-letter b{color:var(--ink)}
+.foot-legal{margin-top:26px;font-size:10.5px;color:var(--gray);line-height:2}
+.foot-legal a{text-decoration:underline;text-underline-offset:3px}
+.foot-agency{margin-top:16px;font-family:"Jost",sans-serif;font-size:10px;letter-spacing:.24em;color:#bbb}
+.to-top{
+  position:fixed;right:20px;bottom:20px;z-index:90;
+  width:46px;height:46px;border-radius:50%;border:1px solid var(--pink);background:#fff;color:var(--pink);
+  cursor:pointer;font-family:"Jost",sans-serif;font-weight:600;font-size:15px;
+  opacity:0;pointer-events:none;transition:.3s;box-shadow:0 4px 12px rgba(240,65,127,.2);
+}
+.to-top.show{opacity:1;pointer-events:auto}
+.to-top:hover{background:var(--pink);color:#fff}
+
+/* ---------- responsive ---------- */
+@media(max-width:960px){
+  .gnav,.head-sns{display:none}
+  .menu-btn{display:block}
+  .sp-menu{display:block}
+  .mem-grid{grid-template-columns:repeat(2,1fr);gap:18px}
+  .disc-grid{grid-template-columns:repeat(2,1fr)}
+  .mv-grid{grid-template-columns:1fr;max-width:520px;margin-left:auto;margin-right:auto}
+  .goods-grid{grid-template-columns:repeat(2,1fr)}
+  .fc-list{grid-template-columns:1fr}
+}
+@media(max-width:720px){
+  :root{--head-h:60px}
+  .brand-mark{width:30px;height:30px}
+  .brand-name{font-size:16.5px}
+  .sec{padding:60px 0}
+  .fc-sec{padding:60px 0}
+  .mv-label{display:none}
+  .spark{height:76px}
+  .spark-pill{font-size:11.5px;padding:10px 18px}
+  .news-item{grid-template-columns:1fr;gap:2px;padding:14px 4px}
+  .mem-grid{grid-template-columns:1fr;max-width:400px;margin-left:auto;margin-right:auto}
+  .mem-vis{height:150px}
+  .sch-item{flex-wrap:wrap;gap:14px;padding:18px}
+  .sch-date{width:76px}
+  .sch-tk{width:100%;align-self:flex-start}
+  .sch-tk a{display:block;text-align:center}
+  .goods-grid{gap:14px}
+  .goods-card{padding:12px 10px 16px}
+}
+@media(prefers-reduced-motion:reduce){
+  .spark::before,.marq-track{animation:none}
+  .mv-prog{animation:none;width:38%}
+  body.js .rev{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ header ============ -->
+<header class="site-head">
+  <div class="head-in">
+    <a class="brand" href="#top" aria-label="テンキヨホー! オフィシャルサイト トップへ">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="8" fill="#f0417f"/>
+        <circle cx="21" cy="12" r="6" fill="#ffd23e"/>
+        <g fill="#fff">
+          <circle cx="10" cy="18" r="5"/>
+          <circle cx="16" cy="15" r="6.5"/>
+          <circle cx="22" cy="19" r="4.5"/>
+          <rect x="8" y="17" width="17" height="6" rx="3"/>
+        </g>
+      </svg>
+      <span class="brand-name">テンキヨホー!</span>
+    </a>
+    <nav class="gnav" aria-label="メインナビゲーション">
+      <ul>
+        <li><a href="#top">HOME</a></li>
+        <li><a href="#news">NEWS</a></li>
+        <li><a href="#member">MEMBER</a></li>
+        <li><a href="#disco">DISCO</a></li>
+        <li><a href="#schedule">SCHEDULE</a></li>
+        <li><a href="#movie">MOVIE</a></li>
+        <li><a href="#goods">GOODS</a></li>
+        <li><a href="#fanclub">FANCLUB</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </nav>
+    <div class="head-sns">
+      <a href="#top" aria-label="X(旧Twitter)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L2.5 2h6.4l4.4 5.9L18.9 2zm-1.1 18.1h1.7L7.1 3.8H5.3l12.5 16.3z"/></svg></a>
+      <a href="#top" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.5s-.22-1.56-.9-2.24c-.86-.9-1.82-.91-2.26-.96C16.7 4.07 12 4.07 12 4.07h-.01s-4.7 0-7.84.23c-.44.05-1.4.06-2.26.96C1.21 5.94 1 7.5 1 7.5S.77 9.33.77 11.16v1.71C.77 14.7 1 16.5 1 16.5s.22 1.56.89 2.24c.86.9 1.99.87 2.49.97 1.8.17 7.62.22 7.62.22s4.71-.01 7.85-.23c.44-.05 1.4-.06 2.26-.96.67-.68.89-2.24.89-2.24s.23-1.83.23-3.66v-1.71C23.23 9.33 23 7.5 23 7.5zM9.9 14.95V8.6l6.05 3.19-6.05 3.16z"/></svg></a>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="spMenu" aria-label="メニューを開く">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="menu-ovl" id="menuOvl" aria-hidden="true"></div>
+<nav class="sp-menu" id="spMenu" aria-label="モバイルナビゲーション">
+  <ul>
+    <li><a href="#top">HOME</a></li>
+    <li><a href="#news">NEWS<small>お知らせ</small></a></li>
+    <li><a href="#member">MEMBER<small>メンバー</small></a></li>
+    <li><a href="#disco">DISCO<small>ディスコグラフィ</small></a></li>
+    <li><a href="#schedule">SCHEDULE<small>ライブ・イベント</small></a></li>
+    <li><a href="#movie">MOVIE<small>ムービー</small></a></li>
+    <li><a href="#goods">GOODS<small>グッズ</small></a></li>
+    <li><a href="#fanclub">FANCLUB<small>かんそくたい</small></a></li>
+    <li><a href="#contact">CONTACT<small>お問い合わせ</small></a></li>
+    <li class="sp-sns">
+      <a href="#top" aria-label="X(旧Twitter)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L2.5 2h6.4l4.4 5.9L18.9 2zm-1.1 18.1h1.7L7.1 3.8H5.3l12.5 16.3z"/></svg></a>
+      <a href="#top" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s0 3.59-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.59 0-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92C2.16 15.6 2.15 15.2 2.15 12s0-3.59.08-4.85C2.38 3.92 3.9 2.38 7.15 2.23 8.41 2.16 8.8 2.2 12 2.2zm0 4.62a5.18 5.18 0 1 0 0 10.36 5.18 5.18 0 0 0 0-10.36zm0 8.54a3.36 3.36 0 1 1 0-6.72 3.36 3.36 0 0 1 0 6.72zm5.4-8.75a1.21 1.21 0 1 0 0-2.42 1.21 1.21 0 0 0 0 2.42z"/></svg></a>
+      <a href="#top" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.5s-.22-1.56-.9-2.24c-.86-.9-1.82-.91-2.26-.96C16.7 4.07 12 4.07 12 4.07h-.01s-4.7 0-7.84.23c-.44.05-1.4.06-2.26.96C1.21 5.94 1 7.5 1 7.5S.77 9.33.77 11.16v1.71C.77 14.7 1 16.5 1 16.5s.22 1.56.89 2.24c.86.9 1.99.87 2.49.97 1.8.17 7.62.22 7.62.22s4.71-.01 7.85-.23c.44-.05 1.4-.06 2.26-.96.67-.68.89-2.24.89-2.24s.23-1.83.23-3.66v-1.71C23.23 9.33 23 7.5 23 7.5zM9.9 14.95V8.6l6.05 3.19-6.05 3.16z"/></svg></a>
+    </li>
+  </ul>
+</nav>
+
+<!-- ============ hero (MV風) ============ -->
+<div id="top"></div>
+<section class="hero-mv" aria-label="メインビジュアル">
+  <video class="hero-video" id="heroVideo" src="opening.mp4" muted loop playsinline preload="auto" aria-label="テンキヨホー! オープニングムービー"></video>
+  <button class="mv-ctrl" id="mvCtrl" type="button" aria-label="映像を一時停止">
+    <svg id="icoPause" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.6" height="12" rx="1" fill="#fff"/><rect x="9.4" y="2" width="3.6" height="12" rx="1" fill="#fff"/></svg>
+    <svg id="icoPlay" viewBox="0 0 16 16" aria-hidden="true" style="display:none"><path d="M4 2l10 6-10 6z" fill="#fff"/></svg>
+  </button>
+  <div class="mv-bar" aria-hidden="true">
+    <span class="mv-hearts">&#9825;&#9825;&#9825;</span>
+    <div class="mv-track"><div class="mv-prog"></div></div>
+    <span class="mv-label">OPENING MOVIE / LOOP</span>
+  </div>
+</section>
+<div class="marq" aria-hidden="true">
+  <div class="marq-track">
+    <span>テンキヨホー!<b>&#10047;</b>あしたの天気は、わたしたちが決める!<b>&#10047;</b>1st MINI ALBUM「観測史上、最高!」発売中<b>&#10047;</b>10/10(土)ワンマンライブ 開催決定<b>&#10047;</b></span>
+    <span>テンキヨホー!<b>&#10047;</b>あしたの天気は、わたしたちが決める!<b>&#10047;</b>1st MINI ALBUM「観測史上、最高!」発売中<b>&#10047;</b>10/10(土)ワンマンライブ 開催決定<b>&#10047;</b></span>
+  </div>
+</div>
+<div class="spark">
+  <a class="spark-pill" href="#schedule">10/10(土)ワンマンライブ「10月の雨はつめたくない」開催決定!</a>
+</div>
+
+<main>
+
+<!-- ============ news ============ -->
+<section class="sec" id="news">
+  <div class="wrap">
+    <h2 class="sec-h">NEWS</h2>
+    <div class="sec-body">
+      <ul class="news-list rev">
+        <li class="news-item">
+          <time class="news-date" datetime="2026-07-17">2026/7/17(Fri)</time>
+          <p class="news-tt"><a href="#news">オフィシャルサイトをリニューアルしました</a></p>
+        </li>
+        <li class="news-item">
+          <time class="news-date" datetime="2026-07-10">2026/7/10(Fri)</time>
+          <p class="news-tt"><a href="#schedule">ワンマンライブ「10月の雨はつめたくない」ファンクラブ先行抽選のご案内</a></p>
+        </li>
+        <li class="news-item">
+          <time class="news-date" datetime="2026-07-01">2026/7/1(Wed)</time>
+          <p class="news-tt"><a href="#disco">1stミニアルバム「観測史上、最高!」本日リリース!</a></p>
+        </li>
+        <li class="news-item">
+          <time class="news-date" datetime="2026-06-11">2026/6/11(Thu)</time>
+          <p class="news-tt"><a href="#news">宵町める生誕祭「めるの日2026」満員御礼。ご来場ありがとうございました</a></p>
+        </li>
+        <li class="news-item">
+          <time class="news-date" datetime="2026-05-18">2026/5/18(Mon)</time>
+          <p class="news-tt"><a href="#goods">新作グッズ「ウェザーペンライト(6色切替)」通販取り扱い開始のお知らせ</a></p>
+        </li>
+        <li class="news-item is-hidden">
+          <time class="news-date" datetime="2026-04-01">2026/4/1(Wed)</time>
+          <p class="news-tt"><a href="#fanclub">ファンクラブ「かんそくたい」隊員数2,000人突破のお知らせ</a></p>
+        </li>
+        <li class="news-item is-hidden">
+          <time class="news-date" datetime="2026-02-02">2026/2/2(Mon)</time>
+          <p class="news-tt"><a href="#news">音楽誌「クォータリー・アンブレラ」春号 メンバー全員インタビュー掲載のお知らせ</a></p>
+        </li>
+        <li class="news-item is-hidden">
+          <time class="news-date" datetime="2026-01-20">2026/1/20(Tue)</time>
+          <p class="news-tt"><a href="#disco">2ndシングル「どしゃぶりダンスホール」本日リリース!</a></p>
+        </li>
+        <li class="news-item is-hidden">
+          <time class="news-date" datetime="2025-12-24">2025/12/24(Wed)</time>
+          <p class="news-tt"><a href="#schedule">クリスマスライブ「聖夜、みぞれ」満員御礼</a></p>
+        </li>
+      </ul>
+      <button class="btn-v" id="newsMore" type="button">VIEW ALL LIST</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ member ============ -->
+<section class="sec sec-tint" id="member">
+  <div class="wrap">
+    <h2 class="sec-h">MEMBER</h2>
+    <div class="sec-body">
+      <div class="mem-grid stagger">
+
+        <div class="mem-card rev" style="--mc:var(--c-meru);--mcp:#fde7f0">
+          <div class="mem-vis">
+            <img src="member-01-meru.jpg" alt="宵町めるのアーティスト写真" loading="lazy" width="1200" height="675">
+            <span class="mem-role">雨担当</span>
+            <span class="mem-center">&#9733; CENTER</span>
+          </div>
+          <div class="mem-info">
+            <h3 class="mem-name">宵町める</h3>
+            <p class="mem-yomi">YOIMACHI MERU</p>
+            <dl class="mem-dl">
+              <div><dt>誕生日</dt><dd>6月11日(傘の日)</dd></div>
+              <div><dt>カラー</dt><dd><span class="mem-sw" aria-hidden="true"></span>あまやどりピンク</dd></div>
+            </dl>
+            <p class="mem-catch">「雨の日の、味方です。」</p>
+          </div>
+        </div>
+
+        <div class="mem-card rev" style="--mc:var(--c-pokari);--mcp:#fdf3da">
+          <div class="mem-vis">
+            <img src="member-02-pokari.jpg" alt="日向ぽかりのアーティスト写真" loading="lazy" width="1200" height="675">
+            <span class="mem-role">晴れ担当</span>
+          </div>
+          <div class="mem-info">
+            <h3 class="mem-name">日向ぽかり</h3>
+            <p class="mem-yomi">HINATA POKARI</p>
+            <dl class="mem-dl">
+              <div><dt>誕生日</dt><dd>8月1日</dd></div>
+              <div><dt>カラー</dt><dd><span class="mem-sw" aria-hidden="true"></span>ひなたイエロー</dd></div>
+            </dl>
+            <p class="mem-catch">「今日も元気に光合成!」</p>
+          </div>
+        </div>
+
+        <div class="mem-card rev" style="--mc:var(--c-fuwano);--mcp:#f1e9fa">
+          <div class="mem-vis">
+            <img src="member-03-fuwano.jpg" alt="雲居ふわののアーティスト写真" loading="lazy" width="1200" height="675">
+            <span class="mem-role">くもり担当</span>
+          </div>
+          <div class="mem-info">
+            <h3 class="mem-name">雲居ふわの</h3>
+            <p class="mem-yomi">KUMOI FUWANO</p>
+            <dl class="mem-dl">
+              <div><dt>誕生日</dt><dd>10月15日</dd></div>
+              <div><dt>カラー</dt><dd><span class="mem-sw" aria-hidden="true"></span>ゆうぐもパープル</dd></div>
+            </dl>
+            <p class="mem-catch">「くもりの日って、おふとんの匂いがしませんか。」</p>
+          </div>
+        </div>
+
+        <div class="mem-card rev" style="--mc:var(--c-konko);--mcp:#e5f4fc">
+          <div class="mem-vis">
+            <img src="member-04-konko.jpg" alt="氷雨こんこのアーティスト写真" loading="lazy" width="1200" height="675">
+            <span class="mem-role">ゆき担当</span>
+          </div>
+          <div class="mem-info">
+            <h3 class="mem-name">氷雨こんこ</h3>
+            <p class="mem-yomi">HISAME KONKO</p>
+            <dl class="mem-dl">
+              <div><dt>誕生日</dt><dd>1月20日(大寒)</dd></div>
+              <div><dt>カラー</dt><dd><span class="mem-sw" aria-hidden="true"></span>こなゆきブルー</dd></div>
+            </dl>
+            <p class="mem-catch">「とけないうちに、すきって言って。」</p>
+          </div>
+        </div>
+
+        <div class="mem-card rev" style="--mc:var(--c-pika);--mcp:#fdeadd">
+          <div class="mem-vis">
+            <img src="member-05-pika.jpg" alt="鳴海ぴかのアーティスト写真" loading="lazy" width="1200" height="675">
+            <span class="mem-role">かみなり担当</span>
+          </div>
+          <div class="mem-info">
+            <h3 class="mem-name">鳴海ぴか</h3>
+            <p class="mem-yomi">NARUMI PIKA</p>
+            <dl class="mem-dl">
+              <div><dt>誕生日</dt><dd>9月9日</dd></div>
+              <div><dt>カラー</dt><dd><span class="mem-sw" aria-hidden="true"></span>いなずまオレンジ</dd></div>
+            </dl>
+            <p class="mem-catch">「ごろごろするのが得意です(雷も、おうちでも)。」</p>
+          </div>
+        </div>
+
+        <div class="mem-card rev" style="--mc:var(--c-iroha);--mcp:#e4f6ec">
+          <div class="mem-vis">
+            <img src="member-06-iroha.jpg" alt="虹本いろはのアーティスト写真" loading="lazy" width="1200" height="675">
+            <span class="mem-role">にじ担当</span>
+          </div>
+          <div class="mem-info">
+            <h3 class="mem-name">虹本いろは</h3>
+            <p class="mem-yomi">NIJIMOTO IROHA</p>
+            <dl class="mem-dl">
+              <div><dt>誕生日</dt><dd>4月14日</dd></div>
+              <div><dt>カラー</dt><dd><span class="mem-sw" aria-hidden="true"></span>あまあがりグリーン</dd></div>
+            </dl>
+            <p class="mem-catch">「7色ぜんぶ、わたしの色!」</p>
+          </div>
+        </div>
+
+      </div>
+      <p class="mem-note">テンキヨホー!は、2025年結成・青写真レコーズ所属の6人組「お天気アイドル」。<br>ライブの日の天気は、その日の「担当」が責任を持ちます(持てるとは言っていません)。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ disco ============ -->
+<section class="sec" id="disco">
+  <div class="wrap">
+    <h2 class="sec-h">DISCO</h2>
+    <div class="sec-body">
+      <div class="disc-grid stagger">
+
+        <div class="disc-card rev">
+          <div class="jk">
+            <img src="jk-04-kansoku.jpg" alt="1stミニアルバム「観測史上、最高!」ジャケット" loading="lazy" width="900" height="900">
+          </div>
+          <div class="disc-meta">
+            <p class="disc-type">1ST MINI ALBUM / CD &amp; DIGITAL</p>
+            <h3 class="disc-tt">観測史上、最高!</h3>
+            <p class="disc-data">2026.07.01 RELEASE<br>AOJ-0201 / ¥2,750(税込)</p>
+            <details>
+              <summary>収録曲(全8曲)</summary>
+              <ol>
+                <li>1. 観測史上、最高!</li>
+                <li>2. アイドルテンキヨホー! (Album Mix)</li>
+                <li>3. どしゃぶりダンスホール</li>
+                <li>4. 虹、かかりました。</li>
+                <li>5. ひなたぼっこレボリューション</li>
+                <li>6. ゆきどけディスコ</li>
+                <li>7. かみなりビリビリ</li>
+                <li>8. また、あした天気になあれ</li>
+              </ol>
+            </details>
+          </div>
+        </div>
+
+        <div class="disc-card rev">
+          <div class="jk">
+            <img src="jk-03-niji.jpg" alt="3rdシングル「虹、かかりました。」ジャケット" loading="lazy" width="900" height="900">
+          </div>
+          <div class="disc-meta">
+            <p class="disc-type">3RD SINGLE / DIGITAL</p>
+            <h3 class="disc-tt">虹、かかりました。</h3>
+            <p class="disc-data">2026.04.22 RELEASE<br>各配信サイトにて</p>
+          </div>
+        </div>
+
+        <div class="disc-card rev">
+          <div class="jk">
+            <img src="jk-02-doshaburi.jpg" alt="2ndシングル「どしゃぶりダンスホール」ジャケット" loading="lazy" width="900" height="900">
+          </div>
+          <div class="disc-meta">
+            <p class="disc-type">2ND SINGLE / CD &amp; DIGITAL</p>
+            <h3 class="disc-tt">どしゃぶりダンスホール</h3>
+            <p class="disc-data">2026.01.20 RELEASE<br>AOJ-0102 / ¥1,200(税込)</p>
+            <details>
+              <summary>収録曲(全3曲)</summary>
+              <ol>
+                <li>1. どしゃぶりダンスホール</li>
+                <li>2. 長靴のマーチ(テンキヨホー! ver.)</li>
+                <li>3. どしゃぶりダンスホール (Instrumental)</li>
+              </ol>
+            </details>
+          </div>
+        </div>
+
+        <div class="disc-card rev">
+          <div class="jk">
+            <img src="jk-01-tenkiyoho.jpg" alt="1stシングル「アイドルテンキヨホー!」ジャケット" loading="lazy" width="900" height="900">
+          </div>
+          <div class="disc-meta">
+            <p class="disc-type">1ST SINGLE / CD &amp; DIGITAL</p>
+            <h3 class="disc-tt">アイドルテンキヨホー!</h3>
+            <p class="disc-data">2025.08.08 RELEASE<br>AOJ-0101 / ¥1,100(税込)</p>
+            <details>
+              <summary>収録曲(全3曲)</summary>
+              <ol>
+                <li>1. アイドルテンキヨホー!</li>
+                <li>2. はじめましての傘</li>
+                <li>3. アイドルテンキヨホー! (Instrumental)</li>
+              </ol>
+            </details>
+          </div>
+        </div>
+
+      </div>
+      <p class="disc-note">※CDはライブ会場、公式通販、および一部レコード店にてお取り扱いいただいています。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ schedule ============ -->
+<section class="sec sec-tint" id="schedule">
+  <div class="wrap">
+    <h2 class="sec-h">SCHEDULE</h2>
+    <div class="sec-body">
+      <div class="sch-list">
+
+        <div class="sch-item rev">
+          <div class="sch-date">
+            <span class="y">2026</span>
+            <span class="d">7.26</span>
+            <span class="w">SUN</span>
+          </div>
+          <div class="sch-body">
+            <span class="st st-gen">一般発売中</span>
+            <h3 class="sch-tt">対バンイベント「真夏のあまやどり vol.3」</h3>
+            <p class="sch-venue">東高円寺 雨音堂</p>
+            <p class="sch-info">OPEN 17:00 / START 17:30|前売 ¥3,000 / 当日 ¥3,500(いずれもドリンク代別)</p>
+            <p class="sch-note">※出演順は当日発表となります。</p>
+          </div>
+          <div class="sch-tk"><a href="#contact">TICKET</a></div>
+        </div>
+
+        <div class="sch-item rev">
+          <div class="sch-date hol">
+            <span class="y">2026</span>
+            <span class="d">8.11</span>
+            <span class="w">TUE・祝</span>
+          </div>
+          <div class="sch-body">
+            <span class="st st-fes">フェス出演</span>
+            <h3 class="sch-tt">野外フェス「納涼! びしょ濡れサマー2026」</h3>
+            <p class="sch-venue">多摩川リバーサイド特設ステージ(川崎)</p>
+            <p class="sch-info">出演時間 13:40〜(あまがさステージ)|チケット・詳細はイベント公式サイトをご確認ください</p>
+            <p class="sch-note">※雨天決行(むしろ歓迎)。荒天の場合のみ中止となります。</p>
+          </div>
+          <div class="sch-tk"><a href="#contact">DETAIL</a></div>
+        </div>
+
+        <div class="sch-item rev">
+          <div class="sch-date">
+            <span class="y">2026</span>
+            <span class="d">9.5</span>
+            <span class="w">SAT</span>
+          </div>
+          <div class="sch-body">
+            <span class="st st-gen">一般発売中</span>
+            <h3 class="sch-tt">雨音堂 presents「秋雨前線 2026」</h3>
+            <p class="sch-venue">東高円寺 雨音堂</p>
+            <p class="sch-info">OPEN 17:30 / START 18:00|前売 ¥3,200 / 当日 ¥3,700(いずれもドリンク代別)</p>
+          </div>
+          <div class="sch-tk"><a href="#contact">TICKET</a></div>
+        </div>
+
+        <div class="sch-item rev">
+          <div class="sch-date">
+            <span class="y">2026</span>
+            <span class="d">10.10</span>
+            <span class="w">SAT</span>
+          </div>
+          <div class="sch-body">
+            <span class="st st-fc">FC先行受付中</span>
+            <h3 class="sch-tt">ワンマンライブ「10月の雨はつめたくない」</h3>
+            <p class="sch-venue">代々木ミナモホール</p>
+            <p class="sch-info">OPEN 17:15 / START 18:00|全自由(整理番号付) ¥4,500(ドリンク代別)</p>
+            <p class="sch-note">※FC先行:7/10(金)12:00〜7/27(月)23:59|一般発売:8/22(土)10:00〜<br>※未就学児入場不可。営利目的のチケット転売は固くお断りいたします。</p>
+          </div>
+          <div class="sch-tk"><a href="#fanclub">FC先行はこちら</a></div>
+        </div>
+
+      </div>
+      <p class="sch-foot">終了した公演は<a href="#schedule">アーカイブ</a>をご覧ください。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ movie ============ -->
+<section class="sec" id="movie">
+  <div class="wrap">
+    <h2 class="sec-h">MOVIE</h2>
+    <div class="sec-body">
+      <div class="mv-grid stagger">
+        <div class="mv-card rev">
+          <a class="mv-thumb" href="#movie" aria-label="アイドルテンキヨホー! ミュージックビデオ(準備中)">
+            <img src="mv-01.jpg" alt="" loading="lazy" width="1280" height="720">
+            <span class="play"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 2l11 6-11 6z" fill="#fff"/></svg></span>
+            <span class="mv-dur">3:42</span>
+          </a>
+          <div class="mv-meta">
+            <p class="mv-tt">「アイドルテンキヨホー!」Music Video</p>
+            <p class="mv-sub">2025.08.08 PREMIERE / YouTube</p>
+          </div>
+        </div>
+        <div class="mv-card rev">
+          <a class="mv-thumb" href="#movie" aria-label="どしゃぶりダンスホール ミュージックビデオ(準備中)">
+            <img src="mv-02.jpg" alt="" loading="lazy" width="1280" height="720">
+            <span class="play"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 2l11 6-11 6z" fill="#fff"/></svg></span>
+            <span class="mv-dur">3:58</span>
+          </a>
+          <div class="mv-meta">
+            <p class="mv-tt">「どしゃぶりダンスホール」Music Video</p>
+            <p class="mv-sub">2026.01.20 PREMIERE / YouTube</p>
+          </div>
+        </div>
+        <div class="mv-card rev">
+          <a class="mv-thumb" href="#movie" aria-label="観測史上、最高! ライブ映像(準備中)">
+            <img src="mv-03.jpg" alt="" loading="lazy" width="1280" height="720">
+            <span class="play"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 2l11 6-11 6z" fill="#fff"/></svg></span>
+            <span class="mv-dur">5:03</span>
+          </a>
+          <div class="mv-meta">
+            <p class="mv-tt">「観測史上、最高!」Live at めるの日2026</p>
+            <p class="mv-sub">2026.06.30 UP / YouTube</p>
+          </div>
+        </div>
+        <div class="mv-card is-hidden">
+          <a class="mv-thumb" href="#movie" aria-label="虹、かかりました。 ミュージックビデオ(準備中)">
+            <img src="mv-04.jpg" alt="" loading="lazy" width="1280" height="720">
+            <span class="play"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 2l11 6-11 6z" fill="#fff"/></svg></span>
+            <span class="mv-dur">4:05</span>
+          </a>
+          <div class="mv-meta">
+            <p class="mv-tt">「虹、かかりました。」Music Video</p>
+            <p class="mv-sub">2026.04.22 PREMIERE / YouTube</p>
+          </div>
+        </div>
+        <div class="mv-card is-hidden">
+          <a class="mv-thumb" href="#movie" aria-label="どしゃぶりダンスホール ダンスプラクティス(準備中)">
+            <img src="mv-05.jpg" alt="" loading="lazy" width="1280" height="720">
+            <span class="play"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 2l11 6-11 6z" fill="#fff"/></svg></span>
+            <span class="mv-dur">4:01</span>
+          </a>
+          <div class="mv-meta">
+            <p class="mv-tt">「どしゃぶりダンスホール」Dance Practice</p>
+            <p class="mv-sub">2026.02.14 UP / YouTube</p>
+          </div>
+        </div>
+        <div class="mv-card is-hidden">
+          <a class="mv-thumb" href="#movie" aria-label="メンバー自己紹介リレー(準備中)">
+            <img src="mv-06.jpg" alt="" loading="lazy" width="1280" height="720">
+            <span class="play"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 2l11 6-11 6z" fill="#fff"/></svg></span>
+            <span class="mv-dur">8:24</span>
+          </a>
+          <div class="mv-meta">
+            <p class="mv-tt">メンバー自己紹介リレー(6人ノーカット)</p>
+            <p class="mv-sub">2026.07.17 UP / YouTube</p>
+          </div>
+        </div>
+      </div>
+      <button class="btn-v" id="mvMore" type="button">VIEW ALL MOVIE</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ goods ============ -->
+<section class="sec sec-tint" id="goods">
+  <div class="wrap">
+    <h2 class="sec-h">GOODS</h2>
+    <div class="sec-body">
+      <div class="goods-grid stagger">
+
+        <div class="goods-card rev">
+          <div class="goods-art">
+            <img src="goods-01-penlight.jpg" alt="ウェザーペンライトの商品写真" loading="lazy" width="900" height="900">
+          </div>
+          <p class="goods-name">ウェザーペンライト(6色切替)</p>
+          <p class="goods-price">¥2,800(税込)</p>
+        </div>
+
+        <div class="goods-card rev">
+          <div class="goods-art">
+            <img src="goods-02-towel.jpg" alt="推しメンタオルの商品写真" loading="lazy" width="900" height="900">
+          </div>
+          <p class="goods-name">推しメンタオル(全6種)</p>
+          <p class="goods-price">各¥1,800(税込)</p>
+        </div>
+
+        <div class="goods-card rev">
+          <div class="goods-art">
+            <img src="goods-03-badge.jpg" alt="缶バッジ全6種+シークレットの商品写真" loading="lazy" width="900" height="900">
+          </div>
+          <p class="goods-name">缶バッジ(全6種+シークレット)</p>
+          <p class="goods-price">¥400(税込・ランダム)</p>
+        </div>
+
+        <div class="goods-card rev">
+          <div class="goods-art">
+            <img src="goods-04-tshirt.jpg" alt="Tシャツ「観測史上、最高!」の商品写真" loading="lazy" width="900" height="900">
+          </div>
+          <p class="goods-name">Tシャツ「観測史上、最高!」(S/M/L/XL)</p>
+          <p class="goods-price">¥3,500(税込)</p>
+        </div>
+
+      </div>
+      <p class="goods-note">※ライブ会場の物販ブース、および公式通販にて販売中です。会場の混雑状況により、お一人さまあたりの購入点数を制限させていただく場合があります。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ fanclub ============ -->
+<section class="fc-sec" id="fanclub">
+  <div class="wrap">
+    <h2 class="sec-h">FANCLUB</h2>
+    <p class="fc-lead">テンキヨホー!オフィシャルファンクラブ。入会すると、あなたも今日から観測メンバー。<br>会員のみなさまのことは「かんそくたいさん」とお呼びしています。</p>
+    <p class="fc-name">かんそくたい<small>TENKI-YOHO! OFFICIAL FANCLUB</small></p>
+    <p class="fc-price">月額<b>¥550</b>(税込)</p>
+    <ul class="fc-list stagger rev">
+      <li>
+        <span class="fc-num">01</span>
+        <div class="fc-bt">会員限定ブログ「観測日誌」<span class="fc-bd">メンバーが交代で毎日更新。くもりの日はふわのの担当率が異常に高いです。</span></div>
+      </li>
+      <li>
+        <span class="fc-num">02</span>
+        <div class="fc-bt">チケット最速先行<span class="fc-bd">ワンマン・主催イベントのチケットを最速でご案内。生誕祭は優先入場つき。</span></div>
+      </li>
+      <li>
+        <span class="fc-num">03</span>
+        <div class="fc-bt">会員限定配信「かんそくたいミーティング」<span class="fc-bd">月1回、6人そろってのゆるゆる配信。アーカイブは月末まで。</span></div>
+      </li>
+      <li>
+        <span class="fc-num">04</span>
+        <div class="fc-bt">デジタル隊員証<span class="fc-bd">継続で階級が上がります(隊員→班長→隊長)。隊長には特に何の権限もありません。</span></div>
+      </li>
+    </ul>
+    <a class="fc-join" href="#contact">入会のご案内</a>
+    <p class="fc-note">※お支払いはクレジットカード・キャリア決済に対応しています。</p>
+  </div>
+</section>
+
+<!-- ============ X ============ -->
+<section class="sec x-sec" id="x">
+  <div class="wrap">
+    <h2 class="sec-h" aria-label="X(旧Twitter)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L2.5 2h6.4l4.4 5.9L18.9 2zm-1.1 18.1h1.7L7.1 3.8H5.3l12.5 16.3z"/></svg></h2>
+    <p class="x-lead">Posts by @tenkiyoho_staff</p>
+    <!-- 公開時はXの埋め込みウィジェットに差し替え -->
+    <div class="x-embed rev">
+      <article class="x-post">
+        <div class="x-head">
+          <svg class="x-ava" viewBox="0 0 38 38" aria-hidden="true">
+            <circle cx="19" cy="19" r="19" fill="#f0417f"/>
+            <circle cx="25" cy="14" r="6" fill="#ffd23e"/>
+            <g fill="#fff">
+              <circle cx="12" cy="22" r="5"/>
+              <circle cx="18" cy="19" r="6.5"/>
+              <circle cx="25" cy="23" r="4.5"/>
+              <rect x="10" y="21" width="18" height="6" rx="3"/>
+            </g>
+          </svg>
+          <div>
+            <p class="x-nm">テンキヨホー!【公式】</p>
+            <p class="x-id">@tenkiyoho_staff</p>
+          </div>
+        </div>
+        <p class="x-body">【スタッフ】オフィシャルサイトをリニューアルしました!メンバー紹介のアイコンは、それぞれの担当天気になっています。推しの天気、ぜひ見つけてください</p>
+        <p class="x-time">11:00 AM · Jul 17, 2026</p>
+      </article>
+      <article class="x-post">
+        <div class="x-head">
+          <svg class="x-ava" viewBox="0 0 38 38" aria-hidden="true">
+            <circle cx="19" cy="19" r="19" fill="#f0417f"/>
+            <circle cx="25" cy="14" r="6" fill="#ffd23e"/>
+            <g fill="#fff">
+              <circle cx="12" cy="22" r="5"/>
+              <circle cx="18" cy="19" r="6.5"/>
+              <circle cx="25" cy="23" r="4.5"/>
+              <rect x="10" y="21" width="18" height="6" rx="3"/>
+            </g>
+          </svg>
+          <div>
+            <p class="x-nm">テンキヨホー!【公式】</p>
+            <p class="x-id">@tenkiyoho_staff</p>
+          </div>
+        </div>
+        <p class="x-body">【スタッフ】10/10ワンマン、FC先行受付中です。める「10月の雨はつめたくない、って信じてる人から先に当たります」(※抽選です)</p>
+        <p class="x-time">8:12 PM · Jul 10, 2026</p>
+      </article>
+      <a class="x-more" href="#x">もっと見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ contact ============ -->
+<section class="sec sec-tint" id="contact">
+  <div class="wrap">
+    <h2 class="sec-h">CONTACT</h2>
+    <div class="sec-body">
+      <p class="ct-lead">ライブ・イベントへの出演依頼、メディア取材、楽曲・タイアップのご相談などは、下記フォームよりお願いいたします。マネジメント担当より、3営業日以内を目安にご返信いたします。</p>
+      <div class="ct-box">
+        <b>マネジメント:青写真レコーズ</b>(営業時間 平日 11:00〜18:00)<br>
+        ※ファンレター・プレゼントは、ページ下部に記載の宛先まで郵送にてお送りください(生ものはご遠慮ください)。<br>
+        ※チケットやファンクラブに関するお問い合わせは、各ご案内ページ記載の窓口までお願いいたします。
+      </div>
+      <form id="ctForm" class="rev" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+        <div class="form-row">
+          <label for="f-type">ご用件<span class="req">必須</span></label>
+          <select id="f-type" name="ご用件" required>
+            <option value="">選択してください</option>
+            <option>ライブ・イベント出演のご依頼</option>
+            <option>メディア取材・出演のご依頼</option>
+            <option>楽曲・タイアップのご相談</option>
+            <option>ファンレター・プレゼントについて</option>
+            <option>その他</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="f-org">会社名・媒体名<span class="opt">任意</span></label>
+          <input type="text" id="f-org" name="会社名" autocomplete="organization">
+        </div>
+        <div class="form-row">
+          <label for="f-name">お名前<span class="req">必須</span></label>
+          <input type="text" id="f-name" name="お名前" required autocomplete="name">
+        </div>
+        <div class="form-row">
+          <label for="f-mail">メールアドレス<span class="req">必須</span></label>
+          <input type="email" id="f-mail" name="メールアドレス" required autocomplete="email">
+        </div>
+        <div class="form-row">
+          <label for="f-body">お問い合わせ内容<span class="req">必須</span></label>
+          <textarea id="f-body" name="お問い合わせ内容" required></textarea>
+        </div>
+        <label class="consent">
+          <input type="checkbox" id="f-agree" required>
+          <span><a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意の上、送信します。</span>
+        </label>
+        <button class="submit-btn" type="submit">送信する</button>
+        <p class="form-msg" id="formMsg" role="status"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ footer ============ -->
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-logo">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="8" fill="#f0417f"/>
+        <circle cx="21" cy="12" r="6" fill="#ffd23e"/>
+        <g fill="#fff">
+          <circle cx="10" cy="18" r="5"/>
+          <circle cx="16" cy="15" r="6.5"/>
+          <circle cx="22" cy="19" r="4.5"/>
+          <rect x="8" y="17" width="17" height="6" rx="3"/>
+        </g>
+      </svg><span class="brand-name">テンキヨホー!</span>
+      <p class="foot-sub">OFFICIAL WEB SITE</p>
+    </div>
+    <nav class="foot-nav" aria-label="フッターナビゲーション">
+      <a href="#top">HOME</a>
+      <a href="#news">NEWS</a>
+      <a href="#member">MEMBER</a>
+      <a href="#disco">DISCO</a>
+      <a href="#schedule">SCHEDULE</a>
+      <a href="#movie">MOVIE</a>
+      <a href="#goods">GOODS</a>
+      <a href="#fanclub">FANCLUB</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+    <div class="foot-sns">
+      <a href="#top" aria-label="X(旧Twitter)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L2.5 2h6.4l4.4 5.9L18.9 2zm-1.1 18.1h1.7L7.1 3.8H5.3l12.5 16.3z"/></svg></a>
+      <a href="#top" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s0 3.59-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.59 0-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92C2.16 15.6 2.15 15.2 2.15 12s0-3.59.08-4.85C2.38 3.92 3.9 2.38 7.15 2.23 8.41 2.16 8.8 2.2 12 2.2zm0 4.62a5.18 5.18 0 1 0 0 10.36 5.18 5.18 0 0 0 0-10.36zm0 8.54a3.36 3.36 0 1 1 0-6.72 3.36 3.36 0 0 1 0 6.72zm5.4-8.75a1.21 1.21 0 1 0 0-2.42 1.21 1.21 0 0 0 0 2.42z"/></svg></a>
+      <a href="#top" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.5s-.22-1.56-.9-2.24c-.86-.9-1.82-.91-2.26-.96C16.7 4.07 12 4.07 12 4.07h-.01s-4.7 0-7.84.23c-.44.05-1.4.06-2.26.96C1.21 5.94 1 7.5 1 7.5S.77 9.33.77 11.16v1.71C.77 14.7 1 16.5 1 16.5s.22 1.56.89 2.24c.86.9 1.99.87 2.49.97 1.8.17 7.62.22 7.62.22s4.71-.01 7.85-.23c.44-.05 1.4-.06 2.26-.96.67-.68.89-2.24.89-2.24s.23-1.83.23-3.66v-1.71C23.23 9.33 23 7.5 23 7.5zM9.9 14.95V8.6l6.05 3.19-6.05 3.16z"/></svg></a>
+      <a href="#top" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 2h-3.2v13.1a2.75 2.75 0 1 1-2.75-2.75c.26 0 .51.04.75.1V9.2a6 6 0 1 0 5.2 5.94V8.6a7.4 7.4 0 0 0 4.3 1.37V6.75A4.75 4.75 0 0 1 16.6 2z"/></svg></a>
+    </div>
+    <div class="foot-letter">
+      <b>ファンレター宛先</b><br>
+      〒166-0002 東京都杉並区高円寺北3-21-8 アオシャシンビル2F 青写真レコーズ「テンキヨホー!」係
+    </div>
+    <div class="foot-legal">
+      当サイトに掲載の画像・文章等の無断転載・無断使用を固くお断りいたします。<br>
+      <a href="privacy.html">プライバシーポリシー</a>&nbsp;&nbsp;© TENKI-YOHO! / AOJASHIN RECORDS All rights reserved.
+    </div>
+    <p class="foot-agency">AOJASHIN RECORDS</p>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" type="button" aria-label="ページ上部へ戻る">↑</button>
+
+<script>
+document.body.classList.add('js');
+
+// ---------- モバイルメニュー ----------
+(function(){
+  const btn = document.getElementById('menuBtn');
+  const menu = document.getElementById('spMenu');
+  const ovl = document.getElementById('menuOvl');
+  const mq = window.matchMedia('(min-width: 961px)');
+
+  function setMenu(open){
+    btn.classList.toggle('open', open);
+    menu.classList.toggle('open', open);
+    ovl.classList.toggle('show', open);
+    document.body.classList.toggle('menu-open', open);
+    btn.setAttribute('aria-expanded', open);
+    btn.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+  }
+  btn.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
+  ovl.addEventListener('click', () => setMenu(false));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+  mq.addEventListener('change', e => { if (e.matches) setMenu(false); });
+})();
+
+// ---------- オープニングムービー ----------
+(function(){
+  const video = document.getElementById('heroVideo');
+  const btn = document.getElementById('mvCtrl');
+  const icoPause = document.getElementById('icoPause');
+  const icoPlay = document.getElementById('icoPlay');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let playing = !reduced;
+
+  function setUI(){
+    document.body.classList.toggle('mv-paused', !playing);
+    icoPause.style.display = playing ? '' : 'none';
+    icoPlay.style.display = playing ? 'none' : '';
+    btn.setAttribute('aria-label', playing ? '映像を一時停止' : '映像を再生');
+  }
+  setUI();
+  if (!reduced) video.play().catch(() => { playing = false; setUI(); });
+
+  btn.addEventListener('click', () => {
+    playing = !playing;
+    if (playing) video.play().catch(() => {}); else video.pause();
+    setUI();
+  });
+})();
+
+// ---------- VIEW ALL(NEWS / MOVIE) ----------
+(function(){
+  function expander(btnId, itemSel){
+    const btn = document.getElementById(btnId);
+    btn.addEventListener('click', () => {
+      document.querySelectorAll(itemSel).forEach(el => el.classList.remove('is-hidden'));
+      btn.style.display = 'none';
+    });
+  }
+  expander('newsMore', '.news-item.is-hidden');
+  expander('mvMore', '.mv-card.is-hidden');
+})();
+
+// ---------- スクロール連動 ----------
+(function(){
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (en.isIntersecting) { en.target.classList.add('on'); io.unobserve(en.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.rev').forEach(el => io.observe(el));
+
+  const toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', () => {
+    toTop.classList.toggle('show', window.scrollY > 600);
+  }, { passive: true });
+  toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+})();
+
+// ---------- お問い合わせフォーム(Formspree) ----------
+// 公開時: action の YOUR_FORM_ID を Formspree で発行した実IDに差し替えること
+(function(){
+  const form = document.getElementById('ctForm');
+  const msg = document.getElementById('formMsg');
+  const btn = form.querySelector('.submit-btn');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    msg.className = 'form-msg';
+
+    if (!form.reportValidity()) return;
+
+    // フォームID未設定ガード(誤送信防止)
+    if (form.action.includes('YOUR_FORM_ID')) {
+      msg.textContent = '(デモ表示)送信先フォームIDが未設定のため送信できません。公開時に設定されます。';
+      msg.classList.add('ng');
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = '送信中…';
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.reset();
+        msg.textContent = 'お問い合わせを受け付けました。担当より折り返しご連絡いたします。';
+        msg.classList.add('ok');
+      } else { throw new Error(); }
+    } catch {
+      msg.textContent = '送信に失敗しました。お手数ですが、時間をおいて再度お試しください。';
+      msg.classList.add('ng');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = '送信する';
+    }
+  });
+})();
+</script>
+</body>
+</html>

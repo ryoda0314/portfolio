@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>株式会社アクシスワークス | 技術で、はたらくをなめらかに。</title>
+<meta name="description" content="株式会社アクシスワークスは、DXコンサルティング・業務システム開発・クラウド運用で中堅・中小企業の成長を伴走支援します。">
+<link rel="icon" type="image/png" href="axis-works-lp-assets-v2/favicon.png">
+<!-- OGP -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="株式会社アクシスワークス | 技術で、はたらくをなめらかに。">
+<meta property="og:description" content="DX・システム開発・クラウド運用で、中堅・中小企業の成長を伴走支援します。">
+<meta property="og:image" content="axis-works-lp-assets-v2/ogp.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{
+  --primary:#1a3a6b;
+  --primary-light:#2b5a9e;
+  --accent:#f5a623;
+  --text:#333;
+  --text-light:#666;
+  --bg-light:#f7f9fc;
+  --border:#e4e8ee;
+  --white:#fff;
+  --max:1120px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans","Meiryo",sans-serif;
+  color:var(--text);
+  line-height:1.8;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+.container{max-width:var(--max);margin:0 auto;padding:0 24px;}
+.section{padding:88px 0;}
+.section-alt{background:var(--bg-light);}
+.section-head{text-align:center;margin-bottom:56px;}
+.section-head .en{
+  display:block;color:var(--accent);font-size:14px;font-weight:700;
+  letter-spacing:.15em;text-transform:uppercase;margin-bottom:12px;
+}
+.section-head h2{font-size:32px;color:var(--primary);font-weight:700;letter-spacing:.04em;}
+.section-head p{color:var(--text-light);margin-top:16px;}
+.btn{
+  display:inline-block;padding:15px 40px;border-radius:4px;font-weight:700;
+  font-size:15px;letter-spacing:.05em;transition:.25s;cursor:pointer;border:none;
+}
+.btn-primary{background:var(--accent);color:var(--white);box-shadow:0 6px 18px rgba(245,166,35,.3);}
+.btn-primary:hover{background:#e0951a;transform:translateY(-2px);}
+.btn-outline{background:transparent;color:var(--white);border:2px solid rgba(255,255,255,.7);}
+.btn-outline:hover{background:rgba(255,255,255,.15);}
+
+/* Header */
+header{
+  position:fixed;top:0;left:0;width:100%;z-index:1000;
+  background:rgba(255,255,255,.96);box-shadow:0 1px 12px rgba(0,0,0,.06);
+  transition:.3s;
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;}
+.logo{font-size:22px;font-weight:700;color:var(--primary);letter-spacing:.02em;}
+.logo span{color:var(--accent);}
+.nav-links{display:flex;gap:34px;align-items:center;}
+.nav-links a{font-size:15px;font-weight:500;transition:.2s;}
+.nav-links a:hover{color:var(--primary-light);}
+.nav-cta{background:var(--primary);color:var(--white)!important;padding:10px 24px;border-radius:4px;}
+.nav-cta:hover{background:var(--primary-light);}
+.menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;z-index:1002;}
+.menu-toggle:focus{outline:none;}
+.menu-toggle:focus-visible{outline:2px solid var(--primary-light);outline-offset:3px;border-radius:6px;}
+.menu-toggle span{width:26px;height:2px;background:var(--primary);border-radius:2px;transition:transform .3s,opacity .2s;transform-origin:center;}
+.menu-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.menu-toggle.open span:nth-child(2){opacity:0;}
+.menu-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+/* 背景オーバーレイ */
+.nav-overlay{
+  position:fixed;inset:0;background:rgba(17,28,46,.5);z-index:998;
+  opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s;
+}
+.nav-overlay.open{opacity:1;visibility:visible;}
+body.menu-open{overflow:hidden;}
+
+/* Hero */
+.hero{
+  position:relative;min-height:640px;display:flex;align-items:center;
+  background:
+    linear-gradient(105deg,rgba(13,27,50,.88) 0%,rgba(20,44,84,.72) 42%,rgba(20,44,84,.30) 100%),
+    url('axis-works-lp-assets-v2/hero.jpg') center/cover no-repeat;
+  color:var(--white);overflow:hidden;padding-top:72px;
+}
+.hero-inner{position:relative;z-index:2;max-width:640px;}
+.hero h1{font-size:44px;line-height:1.4;font-weight:700;letter-spacing:.02em;margin-bottom:24px;}
+.hero p{font-size:18px;opacity:.92;margin-bottom:36px;}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;}
+
+/* Stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center;}
+.stat .num{font-size:44px;font-weight:700;color:var(--primary);line-height:1;}
+.stat .num span{font-size:22px;}
+.stat .label{color:var(--text-light);margin-top:10px;font-size:14px;}
+
+/* Services */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+.card{
+  background:var(--white);border:1px solid var(--border);border-radius:10px;
+  overflow:hidden;transition:.3s;
+}
+.card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(26,58,107,.12);border-color:transparent;}
+.card:hover .card-img img{transform:scale(1.05);}
+.card-img{height:190px;overflow:hidden;}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:.5s;}
+.card-body{padding:32px;}
+.card h3{font-size:20px;color:var(--primary);margin-bottom:14px;}
+.card p{color:var(--text-light);font-size:15px;}
+
+/* Features / About */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.about-text h2{font-size:30px;color:var(--primary);margin-bottom:24px;line-height:1.5;}
+.about-text p{color:var(--text-light);margin-bottom:20px;}
+.about-list{list-style:none;margin-top:24px;}
+.about-list li{padding-left:30px;position:relative;margin-bottom:14px;}
+.about-list li::before{
+  content:"✓";position:absolute;left:0;color:var(--accent);font-weight:700;
+}
+.about-img{
+  border-radius:12px;width:100%;height:100%;min-height:380px;
+  object-fit:cover;box-shadow:0 20px 50px rgba(26,58,107,.15);
+}
+
+/* Steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+.step{text-align:center;position:relative;}
+.step .no{
+  width:56px;height:56px;border-radius:50%;background:var(--primary);color:var(--white);
+  font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;
+  margin:0 auto 18px;
+}
+.step h4{font-size:17px;color:var(--primary);margin-bottom:10px;}
+.step p{font-size:14px;color:var(--text-light);}
+
+/* CTA */
+.cta{
+  background:linear-gradient(120deg,var(--primary) 0%,var(--primary-light) 100%);
+  color:var(--white);text-align:center;padding:80px 0;
+}
+.cta h2{font-size:30px;margin-bottom:16px;}
+.cta p{opacity:.9;margin-bottom:32px;}
+
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;}
+.contact-info h3{font-size:20px;color:var(--primary);margin-bottom:20px;}
+.contact-info dl{display:grid;grid-template-columns:90px 1fr;gap:14px 16px;font-size:15px;}
+.contact-info dt{color:var(--text-light);font-weight:700;}
+.form-group{margin-bottom:20px;}
+.form-group label{display:block;font-size:14px;font-weight:700;margin-bottom:8px;}
+.form-group label .req{color:#e04b4b;font-size:12px;margin-left:6px;}
+.form-group input,.form-group textarea{
+  width:100%;padding:13px 16px;border:1px solid var(--border);border-radius:6px;
+  font-size:15px;font-family:inherit;transition:.2s;
+}
+.form-group input:focus,.form-group textarea:focus{
+  outline:none;border-color:var(--primary-light);box-shadow:0 0 0 3px rgba(43,90,158,.12);
+}
+.form-group textarea{resize:vertical;min-height:120px;}
+.form-consent{display:flex;align-items:flex-start;gap:10px;font-size:14px;margin-bottom:22px;cursor:pointer;}
+.form-consent input{margin-top:4px;width:16px;height:16px;flex-shrink:0;accent-color:var(--primary);}
+.form-consent a{color:var(--primary-light);text-decoration:underline;}
+.form-status{margin-top:16px;font-size:14px;line-height:1.7;display:none;padding:14px 16px;border-radius:6px;}
+.form-status.success{display:block;background:#e8f5ec;color:#1e7a3d;border:1px solid #b6e0c2;}
+.form-status.error{display:block;background:#fdecec;color:#c0392b;border:1px solid #f3c1bd;}
+#submitBtn:disabled{opacity:.6;cursor:not-allowed;transform:none;}
+
+/* Footer */
+footer{background:#111c2e;color:#aab4c4;padding:56px 0 28px;font-size:14px;}
+.footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:40px;margin-bottom:40px;}
+.footer-brand .logo{color:var(--white);margin-bottom:14px;}
+.footer-brand p{max-width:320px;line-height:1.9;}
+.footer-cols{display:flex;gap:64px;flex-wrap:wrap;}
+.footer-col h5{color:var(--white);font-size:15px;margin-bottom:16px;}
+.footer-col a{display:block;margin-bottom:10px;transition:.2s;}
+.footer-col a:hover{color:var(--white);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;text-align:center;font-size:13px;}
+
+/* Responsive */
+@media(max-width:900px){
+  .about-grid,.contact-grid{grid-template-columns:1fr;gap:40px;}
+  .stats,.steps{grid-template-columns:repeat(2,1fr);gap:36px 24px;}
+  .cards{grid-template-columns:1fr;}
+}
+@media(max-width:720px){
+  .section{padding:64px 0;}
+  .nav-links{
+    position:fixed;top:72px;left:0;width:100%;background:var(--white);
+    flex-direction:column;align-items:stretch;gap:0;padding:8px 0 20px;
+    box-shadow:0 12px 24px rgba(0,0,0,.12);z-index:999;
+    clip-path:inset(0 0 100% 0);pointer-events:none;
+    transition:clip-path .32s cubic-bezier(.4,0,.2,1);
+  }
+  .nav-links.open{clip-path:inset(0 0 0 0);pointer-events:auto;}
+  .nav-links a{padding:17px 24px;width:100%;font-size:16px;border-bottom:1px solid var(--border);}
+  .nav-links a:nth-last-child(2){border-bottom:none;}
+  .nav-links a.nav-cta{width:auto;margin:16px 24px 0;text-align:center;padding:15px 24px;border-radius:6px;border-bottom:none;}
+  .menu-toggle{display:flex;}
+  .hero{min-height:auto;padding:110px 0 64px;}
+  .hero h1{font-size:28px;line-height:1.45;margin-bottom:20px;}
+  .hero p{font-size:15px;margin-bottom:30px;}
+  .br-sp{display:none;}
+  .hero-btns{flex-direction:column;gap:12px;}
+  .hero-btns .btn{width:100%;text-align:center;padding:15px 20px;}
+  .section-head h2{font-size:26px;}
+  .stat .num{font-size:34px;}
+  .stat .num span{font-size:17px;}
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="container nav">
+    <a href="#" class="logo"><img src="axis-works-lp-assets-v2/logo.svg" alt="株式会社アクシスワークス" height="44"></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#services">サービス</a>
+      <a href="#about">私たちについて</a>
+      <a href="#flow">ご利用の流れ</a>
+      <a href="#contact">お問い合わせ</a>
+      <a href="#contact" class="nav-cta">無料相談</a>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container hero-inner">
+    <h1>技術で、<br>はたらくをなめらかに。</h1>
+    <p>株式会社アクシスワークスは、DX・システム開発・クラウド運用で<br class="br-sp">中堅・中小企業の「現場が変わる」を伴走支援します。</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn btn-primary">無料で相談する</a>
+      <a href="#services" class="btn btn-outline">サービスを見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="section">
+  <div class="container">
+    <div class="stats">
+      <div class="stat"><div class="num">15<span>年</span></div><div class="label">事業運営の実績</div></div>
+      <div class="stat"><div class="num">500<span>社+</span></div><div class="label">導入企業数</div></div>
+      <div class="stat"><div class="num">98<span>%</span></div><div class="label">顧客満足度</div></div>
+      <div class="stat"><div class="num">128<span>名</span></div><div class="label">専門スタッフ</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="section section-alt" id="services">
+  <div class="container">
+    <div class="section-head">
+      <span class="en">Services</span>
+      <h2>私たちのサービス</h2>
+      <p>お客様の課題に合わせて、最適なソリューションをご提供します。</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-img"><img src="axis-works-lp-assets-v2/service-01.jpg" alt="DXコンサルティングの打ち合わせ"></div>
+        <div class="card-body">
+          <h3>DXコンサルティング</h3>
+          <p>業務の可視化から改善計画の立案、ツール選定まで。現場を止めずに進めるDXを設計します。</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="axis-works-lp-assets-v2/service-02.jpg" alt="業務システム開発の様子"></div>
+        <div class="card-body">
+          <h3>業務システム開発</h3>
+          <p>基幹システムから業務Webアプリまで。使う人の目線で、現場になじむシステムを開発します。</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="axis-works-lp-assets-v2/service-03.jpg" alt="クラウド運用・監視の様子"></div>
+        <div class="card-body">
+          <h3>クラウド運用・保守</h3>
+          <p>「AXIS Cloud Care」で24時間365日の監視・運用を代行。導入後も安定稼働を支え続けます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="section" id="about">
+  <div class="container about-grid">
+    <div class="about-text">
+      <h2>お客様の「成長」に、<br>とことん向き合う。</h2>
+      <p>私たちは単なる開発ベンダーではなく、お客様のビジネスパートナーであることを大切にしています。課題の本質を見極め、成果につながる提案を追求します。</p>
+      <ul class="about-list">
+        <li>豊富な実績に基づく確かな提案力</li>
+        <li>各分野の専門家によるチーム体制</li>
+        <li>導入から運用までワンストップで対応</li>
+        <li>お客様に寄り添う伴走型サポート</li>
+      </ul>
+    </div>
+    <img class="about-img" src="axis-works-lp-assets-v2/about.jpg" alt="ホワイトボードを囲んで打ち合わせをするアクシスワークスのチーム">
+  </div>
+</section>
+
+<!-- Flow -->
+<section class="section section-alt" id="flow">
+  <div class="container">
+    <div class="section-head">
+      <span class="en">Flow</span>
+      <h2>ご利用の流れ</h2>
+      <p>お問い合わせから導入まで、スムーズに進行します。</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="no">1</div><h4>お問い合わせ</h4><p>フォームまたはお電話でお気軽にご連絡ください。</p></div>
+      <div class="step"><div class="no">2</div><h4>ヒアリング</h4><p>課題やご要望を丁寧にお伺いします。</p></div>
+      <div class="step"><div class="no">3</div><h4>ご提案・お見積り</h4><p>最適なプランをご提案いたします。</p></div>
+      <div class="step"><div class="no">4</div><h4>導入・サポート</h4><p>導入後も継続的にサポートします。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="container">
+    <h2>まずはお気軽にご相談ください</h2>
+    <p>専門スタッフが、貴社の課題に合わせたご提案をいたします。</p>
+    <a href="#contact" class="btn btn-primary">無料相談を申し込む</a>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-head">
+      <span class="en">Contact</span>
+      <h2>お問い合わせ</h2>
+      <p>下記フォームまたはお電話にてお問い合わせください。</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>会社情報</h3>
+        <dl>
+          <dt>会社名</dt><dd>株式会社アクシスワークス</dd>
+          <dt>所在地</dt><dd>〒101-0051<br>東京都千代田区神田神保町2-10-5 アクシスビル7F</dd>
+          <dt>TEL</dt><dd>03-6273-2580（平日 9:00〜18:00）</dd>
+          <dt>Email</dt><dd>contact@axisworks.co.jp</dd>
+        </dl>
+      </div>
+      <form class="contact-form" id="contactForm"
+            action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="form-group">
+          <label>お名前<span class="req">必須</span></label>
+          <input type="text" name="name" required placeholder="山田 太郎">
+        </div>
+        <div class="form-group">
+          <label>メールアドレス<span class="req">必須</span></label>
+          <input type="email" name="email" required placeholder="example@company.co.jp">
+        </div>
+        <div class="form-group">
+          <label>会社名</label>
+          <input type="text" name="company" placeholder="株式会社〇〇">
+        </div>
+        <div class="form-group">
+          <label>お問い合わせ内容<span class="req">必須</span></label>
+          <textarea name="message" required placeholder="ご相談内容をご記入ください"></textarea>
+        </div>
+        <label class="form-consent">
+          <input type="checkbox" name="consent" required>
+          <span><a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意する<span class="req">必須</span></span>
+        </label>
+        <button type="submit" class="btn btn-primary" id="submitBtn" style="width:100%;">送信する</button>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="axis-works-lp-assets-v2/logo-white.svg" alt="株式会社アクシスワークス" height="48" style="margin-bottom:14px;">
+        <p>技術で、はたらくをなめらかに。DX・システム開発・クラウド運用で、中堅・中小企業の成長を伴走支援します。</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h5>サービス</h5>
+          <a href="#services">DXコンサルティング</a>
+          <a href="#services">業務システム開発</a>
+          <a href="#services">クラウド運用・保守</a>
+        </div>
+        <div class="footer-col">
+          <h5>会社情報</h5>
+          <a href="#about">私たちについて</a>
+          <a href="#flow">ご利用の流れ</a>
+          <a href="#contact">お問い合わせ</a>
+          <a href="privacy.html">プライバシーポリシー</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 AXIS WORKS Inc. All Rights Reserved.</div>
+  </div>
+</footer>
+
+<script>
+// モバイルメニュー
+const toggle=document.getElementById('menuToggle');
+const links=document.getElementById('navLinks');
+const overlay=document.getElementById('navOverlay');
+
+function openMenu(){
+  links.classList.add('open');
+  overlay.classList.add('open');
+  toggle.classList.add('open');
+  document.body.classList.add('menu-open');
+  toggle.setAttribute('aria-expanded','true');
+  toggle.setAttribute('aria-label','メニューを閉じる');
+}
+function closeMenu(){
+  links.classList.remove('open');
+  overlay.classList.remove('open');
+  toggle.classList.remove('open');
+  document.body.classList.remove('menu-open');
+  toggle.setAttribute('aria-expanded','false');
+  toggle.setAttribute('aria-label','メニューを開く');
+}
+toggle.addEventListener('click',()=>{
+  toggle.classList.contains('open')?closeMenu():openMenu();
+});
+overlay.addEventListener('click',closeMenu);
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+// Escキーで閉じる／PC幅に戻ったらリセット
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
+window.addEventListener('resize',()=>{if(window.innerWidth>720)closeMenu();});
+
+// お問い合わせフォーム送信（Formspree連携）
+// ▼ 公開前に action の YOUR_FORM_ID を、取得した Formspree のフォームIDに置き換えてください
+//   （https://formspree.io/ で無料登録 → フォーム作成 → エンドポイントを貼付）
+const form=document.getElementById('contactForm');
+const statusEl=document.getElementById('formStatus');
+const submitBtn=document.getElementById('submitBtn');
+
+form.addEventListener('submit',async(e)=>{
+  e.preventDefault();
+  statusEl.className='form-status';
+  statusEl.textContent='';
+
+  // 未設定（デモ）時は誤送信を防ぐガード
+  if(form.action.includes('YOUR_FORM_ID')){
+    statusEl.classList.add('error');
+    statusEl.textContent='※ フォームの送信先が未設定です（公開前に Formspree のIDを設定してください）。';
+    return;
+  }
+
+  submitBtn.disabled=true;
+  submitBtn.textContent='送信中…';
+  try{
+    const res=await fetch(form.action,{
+      method:'POST',
+      body:new FormData(form),
+      headers:{'Accept':'application/json'}
+    });
+    if(res.ok){
+      form.reset();
+      statusEl.classList.add('success');
+      statusEl.textContent='お問い合わせありがとうございます。担当者より2営業日以内にご連絡いたします。';
+    }else{
+      throw new Error('送信に失敗しました');
+    }
+  }catch(err){
+    statusEl.classList.add('error');
+    statusEl.textContent='送信に失敗しました。お手数ですが、お電話（03-6273-2580）でお問い合わせください。';
+  }finally{
+    submitBtn.disabled=false;
+    submitBtn.textContent='送信する';
+  }
+});
+</script>
+</body>
+</html>
