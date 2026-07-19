@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!--
+  架空の音楽配信サービス「アメオト」のデモページです。
+  実在の音楽ストリーミングサービスとは一切関係ありません。音源は試聴用のデモクリップ(全曲共通)です。
+  ルーティング: なし=ホーム / ?artist={key} / ?album={key} / ?playlist={key} / ?page=library|search
+-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>アメオト</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="16" fill="%234fd1e0"/><path d="M13 8v12.5a3.5 3.5 0 1 1-2-3.15V8z" fill="%23121216"/><path d="M13 8l9-2v10.5a3.5 3.5 0 1 1-2-3.15V9.6l-7 1.6z" fill="%23121216"/></svg>'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#121216;
+  --panel:#1b1b21;
+  --panel2:#232329;
+  --text:#ffffff;
+  --sub:#a2a2ae;
+  --accent:#4fd1e0;
+  --line:#2c2c34;
+  --player-h:76px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;color:var(--text);background:var(--bg);line-height:1.7;font-size:14px;padding-bottom:var(--player-h)}
+img,svg{max-width:100%;vertical-align:middle}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+:focus{outline:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+[hidden]{display:none !important}
+
+.layout{display:flex;min-height:calc(100vh - var(--player-h))}
+
+/* sidebar */
+.sidebar{
+  flex:none;width:222px;background:#0c0c10;padding:18px 12px;
+  position:sticky;top:0;height:calc(100vh - var(--player-h));overflow-y:auto;
+}
+.sidebar::-webkit-scrollbar{width:8px}
+.sidebar::-webkit-scrollbar-thumb{background:#2c2c34;border-radius:8px}
+.sb-brand{display:flex;align-items:center;gap:9px;padding:4px 10px 16px}
+.sb-brand svg{width:30px;height:30px;flex:none}
+.sb-brand b{font-weight:900;font-size:17px}
+.sb-brand small{display:block;font-size:8.5px;color:var(--sub);letter-spacing:.1em;line-height:1.2}
+.sb-item{display:flex;align-items:center;gap:14px;width:100%;padding:9px 12px;border-radius:8px;background:none;border:none;color:var(--sub);font-size:13.5px;font-weight:700;text-align:left}
+.sb-item svg{width:19px;height:19px;flex:none}
+.sb-item:hover{color:#fff}
+.sb-item.on{color:#fff;background:var(--panel2)}
+.sb-sec{font-size:10.5px;font-weight:700;color:#6d6d78;letter-spacing:.14em;padding:16px 12px 6px;border-top:1px solid var(--line);margin-top:12px}
+.sb-art{display:flex;align-items:center;gap:11px;padding:7px 12px;border-radius:8px;font-size:13px;color:var(--sub)}
+.sb-art:hover{color:#fff;background:var(--panel2)}
+.sb-art .ava{width:26px;height:26px;font-size:11px}
+.sb-art span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sb-note{font-size:9.5px;color:#6d6d78;padding:16px 12px 0;line-height:1.9}
+.sb-note a{text-decoration:underline}
+
+/* main */
+.main{flex:1;min-width:0;padding-bottom:30px}
+.inner{padding:0 26px}
+
+/* 汎用: アバター/カバー */
+.ava{border-radius:50%;overflow:hidden;flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900}
+.ava img{width:100%;height:100%;object-fit:cover}
+.cv{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.92);font-weight:900}
+
+/* home */
+.greet{font-weight:900;font-size:24px;padding-top:26px}
+.greet small{display:block;font-weight:500;font-size:12px;color:var(--sub)}
+.sec-tt{font-weight:900;font-size:17px;margin:28px 0 12px}
+.sec-tt small{font-weight:500;font-size:11px;color:var(--sub);margin-left:10px}
+.al-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.al-card{background:var(--panel);border-radius:12px;padding:14px;transition:background .2s;display:block;position:relative}
+.al-card:hover{background:var(--panel2)}
+.al-img{aspect-ratio:1/1;border-radius:8px;overflow:hidden;margin-bottom:10px}
+.al-img img{width:100%;height:100%;object-fit:cover}
+.al-tt{font-weight:700;font-size:13px;line-height:1.45;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.al-meta{font-size:11.5px;color:var(--sub);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.al-new{position:absolute;top:22px;left:22px;background:var(--accent);color:#0c0c10;font-size:9.5px;font-weight:900;letter-spacing:.1em;border-radius:99px;padding:2px 9px}
+.art-row{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.art-card{background:var(--panel);border-radius:12px;padding:18px 14px;text-align:center;transition:background .2s;display:block}
+.art-card:hover{background:var(--panel2)}
+.art-card .ava{width:110px;height:110px;margin:0 auto 12px;font-size:38px;box-shadow:0 8px 26px rgba(0,0,0,.45)}
+.art-nm{font-weight:700;font-size:13.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.art-meta{font-size:11px;color:var(--sub)}
+
+/* artist page */
+.a-hero{position:relative;height:250px;overflow:hidden}
+.a-hero img{width:100%;height:100%;object-fit:cover;object-position:center 30%;opacity:.55}
+.a-hero .grad{width:100%;height:100%}
+.a-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,var(--bg))}
+.a-head{position:relative;margin-top:-86px;padding:0 26px}
+.a-badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--accent);font-weight:700}
+.a-badge svg{width:14px;height:14px}
+.a-name{font-weight:900;font-size:clamp(30px,5vw,46px);line-height:1.25;text-shadow:0 2px 14px rgba(0,0,0,.5)}
+.a-meta{font-size:12.5px;color:var(--sub)}
+.a-actions{display:flex;align-items:center;gap:12px;margin:18px 26px 6px}
+.play-big{
+  display:flex;align-items:center;gap:9px;
+  background:var(--accent);color:#0c0c10;border:none;border-radius:99px;padding:11px 26px;font-weight:900;font-size:14px;
+}
+.play-big:hover{filter:brightness(1.1)}
+.play-big svg{width:15px;height:15px}
+.follow-btn{background:none;border:1.5px solid var(--sub);color:#fff;border-radius:99px;padding:9px 22px;font-weight:700;font-size:12.5px}
+.follow-btn:hover{border-color:#fff}
+.follow-btn.on{border-color:var(--accent);color:var(--accent)}
+
+/* track rows */
+.trk{display:grid;grid-template-columns:28px 44px 1fr auto auto auto;gap:12px;align-items:center;padding:7px 10px;border-radius:8px}
+.trk:hover{background:var(--panel2)}
+.trk.playing{background:var(--panel2)}
+.trk-no{font-size:13px;color:var(--sub);text-align:right;font-variant-numeric:tabular-nums}
+.trk-img{width:44px;height:44px;border-radius:6px;overflow:hidden}
+.trk-img img{width:100%;height:100%;object-fit:cover}
+.trk-tt{font-weight:700;font-size:14px;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.trk.playing .trk-tt{color:var(--accent)}
+.trk-al{font-size:11.5px;color:var(--sub);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.trk-plays{font-size:12px;color:var(--sub);font-variant-numeric:tabular-nums}
+.fav{background:none;border:none;color:#5a5a66;font-size:15px;padding:4px}
+.fav.on{color:var(--accent)}
+.trk-dur{font-size:12.5px;color:var(--sub);font-variant-numeric:tabular-nums;min-width:38px;text-align:right}
+.eq{display:inline-flex;gap:2px;align-items:flex-end;height:14px;width:16px}
+.eq i{width:3px;background:var(--accent);animation:eq .9s ease-in-out infinite}
+.eq i:nth-child(2){animation-delay:.25s}
+.eq i:nth-child(3){animation-delay:.5s}
+@keyframes eq{0%,100%{height:4px}50%{height:14px}}
+
+/* album/playlist page */
+.alb-head{display:flex;gap:22px;align-items:flex-end;padding-top:30px;flex-wrap:wrap}
+.alb-cover{width:190px;height:190px;border-radius:10px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.5);flex:none}
+.alb-cover img{width:100%;height:100%;object-fit:cover}
+.alb-type{font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--sub)}
+.alb-tt{font-weight:900;font-size:clamp(24px,4vw,38px);line-height:1.3}
+.alb-meta{font-size:12.5px;color:var(--sub);margin-top:6px}
+.alb-meta b{color:#fff}
+.alb-meta a{color:#fff;font-weight:700}
+.alb-meta a:hover{text-decoration:underline}
+.about{background:var(--panel);border-radius:12px;padding:18px 22px;font-size:13px;color:var(--sub);max-width:680px}
+.about b{color:#fff}
+
+/* library / search */
+.page-tt{font-weight:900;font-size:22px;padding-top:26px}
+.search-box{margin-top:16px;max-width:420px}
+.search-box input{width:100%;background:var(--panel2);border:1px solid var(--line);border-radius:99px;padding:11px 18px;font:inherit;font-size:14px;color:#fff}
+.search-box input::placeholder{color:#6d6d78}
+.empty-note{background:var(--panel);border-radius:12px;padding:30px 20px;text-align:center;color:var(--sub);font-size:13px;margin-top:16px}
+.back-lk{display:inline-block;margin-top:20px;font-size:12px;color:var(--sub);cursor:pointer}
+.back-lk:hover{color:#fff;text-decoration:underline}
+
+/* player bar */
+.pbar{
+  position:fixed;left:0;right:0;bottom:0;height:var(--player-h);z-index:100;
+  background:#0c0c10;border-top:1px solid var(--line);
+  display:flex;align-items:center;gap:16px;padding:0 18px;
+}
+.pb-img{width:50px;height:50px;border-radius:6px;overflow:hidden;flex:none;background:var(--panel2)}
+.pb-img img{width:100%;height:100%;object-fit:cover}
+.pb-info{min-width:0;width:210px}
+.pb-tt{font-weight:700;font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pb-ar{font-size:11px;color:var(--sub);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pb-btn{width:40px;height:40px;border-radius:50%;background:#fff;color:#0c0c10;border:none;display:flex;align-items:center;justify-content:center;flex:none}
+.pb-btn svg{width:16px;height:16px}
+.pb-btn:hover{transform:scale(1.05)}
+.pb-mid{flex:1;display:flex;align-items:center;gap:10px;min-width:0}
+.pb-time{font-size:11px;color:var(--sub);font-variant-numeric:tabular-nums;flex:none}
+.pb-track{flex:1;height:5px;background:var(--panel2);border-radius:99px;cursor:pointer;position:relative}
+.pb-fill{height:100%;width:0;background:var(--accent);border-radius:99px}
+.pb-tag{flex:none;font-size:9px;letter-spacing:.16em;color:var(--accent);border:1px solid var(--accent);border-radius:99px;padding:2px 9px;font-weight:700}
+.pb-note{flex:none;font-size:10px;color:#6d6d78}
+
+@media(max-width:1000px){
+  .sidebar{display:none}
+  .al-grid,.art-row{grid-template-columns:repeat(2,1fr)}
+  .trk-plays{display:none}
+  .pb-note{display:none}
+  .pb-info{width:130px}
+}
+</style>
+</head>
+<body>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sb-brand" href="ameoto.html">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="16" fill="#4fd1e0"/>
+        <path d="M13 8v12.5a3.5 3.5 0 1 1-2-3.15V8z" fill="#121216"/>
+        <path d="M13 8l9-2v10.5a3.5 3.5 0 1 1-2-3.15V9.6l-7 1.6z" fill="#121216"/>
+      </svg>
+      <span><b>アメオト</b><small>AmeOto(架空)|音楽を、降らせよう。</small></span>
+    </a>
+    <a class="sb-item" data-nav="home" href="ameoto.html">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v11h6v-7h4v7h6V10L12 3z" fill="currentColor"/></svg>ホーム
+    </a>
+    <a class="sb-item" data-nav="search" href="ameoto.html?page=search">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 14h-.8l-.3-.3a6.5 6.5 0 1 0-.7.7l.3.3v.8l5 5 1.5-1.5zm-6 0a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z" fill="currentColor"/></svg>検索
+    </a>
+    <a class="sb-item" data-nav="library" href="ameoto.html?page=library">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.9-9.5-9C1 8.5 3 5.5 6 5.5c1.8 0 3.2 1 4 2.2.8-1.2 2.2-2.2 4-2.2 3 0 5 3 3.5 6.5-2 4.1-9.5 9-9.5 9z" fill="currentColor"/></svg>お気に入り
+    </a>
+    <p class="sb-sec">フォロー中</p>
+    <div id="sbFollow"></div>
+    <p class="sb-note">アメオトは架空の音楽配信サービスです。音源は試聴用デモクリップ(全曲共通)です。<br>© AMEOTO (fictional)<br><a href="index.html">テンキヨホー! 公式サイト</a></p>
+  </aside>
+
+  <main class="main">
+    <div id="homeView" hidden><div class="inner" id="homeBody"></div></div>
+    <div id="artistView" hidden></div>
+    <div id="albumView" hidden><div class="inner" id="albumBody"></div></div>
+    <div id="plView" hidden><div class="inner" id="plBody"></div></div>
+    <div id="libView" hidden>
+      <div class="inner">
+        <h1 class="page-tt">♡ お気に入り</h1>
+        <p style="font-size:12px;color:var(--sub)">ハートを付けた曲がここに集まります(このブラウザ内に保存)。</p>
+        <div id="libList" style="margin-top:16px"></div>
+      </div>
+    </div>
+    <div id="searchView" hidden>
+      <div class="inner">
+        <h1 class="page-tt">検索</h1>
+        <div class="search-box"><input type="text" id="q" placeholder="曲名・アーティストで検索" autocomplete="off"></div>
+        <div id="qList" style="margin-top:18px"></div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- プレイヤーバー -->
+<div class="pbar">
+  <div class="pb-img" id="pbImg"></div>
+  <div class="pb-info">
+    <p class="pb-tt" id="pbTt">試聴する曲を選んでください</p>
+    <p class="pb-ar" id="pbAr">アメオト(架空)</p>
+  </div>
+  <button class="pb-btn" id="pbBtn" type="button" aria-label="再生/一時停止">
+    <svg id="pbPlay" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="#0c0c10"/></svg>
+    <svg id="pbPause" viewBox="0 0 16 16" aria-hidden="true" hidden><rect x="3.4" y="2.5" width="3.4" height="11" rx="1" fill="#0c0c10"/><rect x="9.2" y="2.5" width="3.4" height="11" rx="1" fill="#0c0c10"/></svg>
+  </button>
+  <div class="pb-mid">
+    <span class="pb-time" id="pbCur">0:00</span>
+    <div class="pb-track" id="pbTrack"><div class="pb-fill" id="pbFill"></div></div>
+    <span class="pb-time" id="pbDur">0:10</span>
+  </div>
+  <span class="pb-tag">PREVIEW</span>
+  <span class="pb-note">※試聴は冒頭クリップのみ(デモ・全曲共通音源)</span>
+</div>
+<audio id="audio" src="preview.m4a" preload="auto"></audio>
+
+<script>
+/* ================= データ ================= */
+const TENKI_MARK = '<svg viewBox="0 0 42 42" aria-hidden="true"><circle cx="21" cy="21" r="21" fill="#f0417f"/><circle cx="27" cy="15" r="6.5" fill="#ffd23e"/><g fill="#fff"><circle cx="13" cy="24" r="5.5"/><circle cx="20" cy="21" r="7"/><circle cx="28" cy="25" r="5"/><rect x="11" y="23" width="20" height="7" rx="3.5"/></g></svg>';
+
+const ARTISTS = {
+  tenkiyoho: {
+    name: 'テンキヨホー!', listeners: 48213, badge: true, banner: 'mv-02.jpg', mark: true, color: '#f0417f',
+    about: '2025年結成・青写真レコーズ所属の6人組「お天気アイドル」。メンバー全員が天気の「担当」を持ち、合言葉は「あしたの天気は、わたしたちが決める!」。(架空のアーティストです)',
+    albums: ['kansoku', 'niji', 'doshaburi', 'tenkiyoho'],
+    popular: [['niji', 0], ['tenkiyoho', 0], ['doshaburi', 0], ['kansoku', 0], ['kansoku', 7]]
+  },
+  amane: {
+    name: '雨音ソラ', listeners: 12408, color: '#3b6ea8', glyph: 'ソ', img: 'artist-amane.jpg', banner: 'artist-amane.jpg',
+    about: 'シンガーソングライター。テンキヨホー!の全楽曲の作詞・作曲を手がける。自身の作品は「雨の日の部屋で録った音」がコンセプト。(架空のアーティストです)',
+    albums: ['kosame'],
+    popular: [['kosame', 0], ['kosame', 1], ['kosame', 2]]
+  },
+  kasamura: {
+    name: '傘村シネマ楽団', listeners: 3521, color: '#6a4fa3', glyph: '傘', img: 'artist-kasamura.jpg', banner: 'artist-kasamura.jpg',
+    about: '映像音楽を専門とする8人組アンサンブル。TVアニメ「あまがさ探偵団」の劇伴を担当。(架空のアーティストです)',
+    albums: ['amagasa'],
+    popular: [['amagasa', 1], ['amagasa', 0], ['amagasa', 2]]
+  },
+  djdosha: {
+    name: 'DJ ドシャブリ', listeners: 8930, color: '#f0762b', glyph: 'D', img: 'artist-djdosha.jpg', banner: 'artist-djdosha.jpg',
+    about: '雨音のフィールドレコーディングをサンプリングするトラックメイカー。傘がなくても踊れば濡れない、が信条。(架空のアーティストです)',
+    albums: ['remix'],
+    popular: [['remix', 0], ['remix', 1]]
+  }
+};
+const ALBUMS = {
+  kansoku: { artist: 'tenkiyoho', title: '観測史上、最高!', type: 'ミニアルバム', year: 2026, img: 'jk-04-kansoku.jpg',
+    tracks: [
+      { t: '観測史上、最高!', d: '4:12', plays: 512040 },
+      { t: 'アイドルテンキヨホー! (Album Mix)', d: '3:45', plays: 198332 },
+      { t: 'どしゃぶりダンスホール', d: '3:58', plays: 240118 },
+      { t: '虹、かかりました。', d: '4:05', plays: 289704 },
+      { t: 'ひなたぼっこレボリューション', d: '3:21', plays: 176590 },
+      { t: 'ゆきどけディスコ', d: '3:36', plays: 154277 },
+      { t: 'かみなりビリビリ', d: '2:58', plays: 168903 },
+      { t: 'また、あした天気になあれ', d: '4:48', plays: 301220 }
+    ] },
+  niji: { artist: 'tenkiyoho', title: '虹、かかりました。', type: 'シングル', year: 2026, img: 'jk-03-niji.jpg',
+    tracks: [
+      { t: '虹、かかりました。', d: '4:05', plays: 1204882 },
+      { t: '虹、かかりました。 (Instrumental)', d: '4:05', plays: 88213 }
+    ] },
+  doshaburi: { artist: 'tenkiyoho', title: 'どしゃぶりダンスホール', type: 'シングル', year: 2026, img: 'jk-02-doshaburi.jpg',
+    tracks: [
+      { t: 'どしゃぶりダンスホール', d: '3:58', plays: 845300 },
+      { t: '長靴のマーチ (テンキヨホー! ver.)', d: '3:12', plays: 232109 },
+      { t: 'どしゃぶりダンスホール (Instrumental)', d: '3:58', plays: 61042 }
+    ] },
+  tenkiyoho: { artist: 'tenkiyoho', title: 'アイドルテンキヨホー!', type: 'シングル', year: 2025, img: 'jk-01-tenkiyoho.jpg',
+    tracks: [
+      { t: 'アイドルテンキヨホー!', d: '3:42', plays: 982110 },
+      { t: 'はじめましての傘', d: '4:22', plays: 310457 },
+      { t: 'アイドルテンキヨホー! (Instrumental)', d: '3:42', plays: 54980 }
+    ] },
+  kosame: { artist: 'amane', title: '小雨とコーヒー', type: 'EP', year: 2026, img: 'jk-05-kosame.jpg',
+    tracks: [
+      { t: '小雨とコーヒー', d: '3:51', plays: 98442 },
+      { t: '夜のすきま', d: '4:20', plays: 45210 },
+      { t: '置き傘のブルース', d: '3:33', plays: 30125 }
+    ] },
+  amagasa: { artist: 'kasamura', title: 'TVアニメ「あまがさ探偵団」オリジナル・サウンドトラック(先行配信)', type: 'EP', year: 2026, img: 'jk-06-amagasa.jpg',
+    tracks: [
+      { t: '探偵は雨に濡れない (メインテーマ)', d: '2:44', plays: 41220 },
+      { t: 'アメツバメ (TVサイズ)', d: '1:32', plays: 128530, a: 'テンキヨホー!' },
+      { t: '事件は月曜日の朝に', d: '3:05', plays: 18904 }
+    ] },
+  remix: { artist: 'djdosha', title: 'どしゃぶりダンスホール (DJ ドシャブリ Remix)', type: 'シングル', year: 2026, img: 'jk-07-remix.jpg',
+    tracks: [
+      { t: 'どしゃぶりダンスホール (DJ ドシャブリ Remix)', d: '5:12', plays: 152077, a: 'テンキヨホー!, DJ ドシャブリ' },
+      { t: 'どしゃぶりダンスホール (DJ ドシャブリ Extended Rain Mix)', d: '6:40', plays: 48311, a: 'テンキヨホー!, DJ ドシャブリ' }
+    ] }
+};
+const PLAYLISTS = {
+  rainy: { title: '雨の日の観測所', desc: '窓の外がにぎやかな日に。アメオト公式プレイリスト。', grad: ['#274a72', '#101722'], glyph: '☔',
+    tracks: [['kosame', 0], ['doshaburi', 0], ['amagasa', 0], ['kosame', 2], ['kansoku', 7], ['remix', 0]] },
+  sunny: { title: '快晴、待ち合わせ', desc: '洗濯物がよく乾く日のためのプレイリスト。', grad: ['#d99a2b', '#7a4a10'], glyph: '☀',
+    tracks: [['tenkiyoho', 0], ['kansoku', 4], ['kansoku', 0], ['amagasa', 1], ['niji', 0]] }
+};
+const HOME_NEW = ['amagasa', 'remix', 'kosame', 'kansoku'];
+
+/* ================= ユーティリティ ================= */
+const $ = id => document.getElementById(id);
+function esc(s){ return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+function num(n){ return n.toLocaleString(); }
+function jGet(k, fb){ try { return JSON.parse(localStorage.getItem(k)) ?? fb; } catch { return fb; } }
+function jSet(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch {} }
+function trkId(al, i){ return al + '-' + i; }
+function getFavs(){ return jGet('amo_fav', {}); }
+function isFav(id){ return !!getFavs()[id]; }
+function toggleFav(id){ const f = getFavs(); if (f[id]) delete f[id]; else f[id] = 1; jSet('amo_fav', f); }
+function getFollows(){ return jGet('amo_follow', { tenkiyoho: 1 }); }
+function trackArtistName(al, i){ return ALBUMS[al].tracks[i].a || ARTISTS[ALBUMS[al].artist].name; }
+
+/* カバー/アバター */
+function coverHtml(al, fz){
+  const a = ALBUMS[al];
+  if (a.img) return `<img src="${a.img}" alt="" loading="lazy">`;
+  return `<span class="cv" style="background:linear-gradient(135deg,${a.grad[0]},${a.grad[1]});font-size:${fz || 20}px">${a.glyph}</span>`;
+}
+function artistAva(k, size){
+  const a = ARTISTS[k];
+  if (a.mark) return `<span class="ava" style="width:${size}px;height:${size}px">${TENKI_MARK}</span>`;
+  if (a.img) return `<span class="ava" style="width:${size}px;height:${size}px"><img src="${a.img}" alt="" loading="lazy"></span>`;
+  return `<span class="ava" style="width:${size}px;height:${size}px;background:linear-gradient(135deg,${a.color},#16161c);font-size:${Math.round(size * .4)}px">${esc(a.glyph)}</span>`;
+}
+
+/* ================= プレイヤー ================= */
+const audio = $('audio');
+let current = null;
+function fmt(s){ s = Math.floor(s || 0); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); }
+function paintPlayBtn(){
+  const playing = current && !audio.paused;
+  $('pbPlay').hidden = playing;
+  $('pbPause').hidden = !playing;
+  document.querySelectorAll('.trk').forEach(r => {
+    const isCur = r.dataset.tid === current;
+    r.classList.toggle('playing', isCur);
+    const eq = r.querySelector('.eq');
+    if (eq) eq.querySelectorAll('i').forEach(b => b.style.animationPlayState = (isCur && playing) ? 'running' : 'paused');
+  });
+}
+function playTrack(al, i){
+  const tr = ALBUMS[al].tracks[i];
+  current = trkId(al, i);
+  $('pbImg').innerHTML = coverHtml(al, 22);
+  $('pbTt').textContent = tr.t;
+  $('pbAr').textContent = trackArtistName(al, i) + '・' + ALBUMS[al].title;
+  const hist = jGet('amo_hist', []).filter(x => trkId(x[0], x[1]) !== current);
+  hist.unshift([al, i]);
+  jSet('amo_hist', hist.slice(0, 8));
+  audio.currentTime = 0;
+  audio.play().catch(() => {});
+  renderRoute(false);
+}
+$('pbBtn').addEventListener('click', () => {
+  if (!current){ playTrack('niji', 0); return; }
+  if (audio.paused) audio.play().catch(() => {}); else audio.pause();
+});
+audio.addEventListener('timeupdate', () => {
+  const d = audio.duration || 10;
+  $('pbCur').textContent = fmt(audio.currentTime);
+  $('pbDur').textContent = fmt(d);
+  $('pbFill').style.width = (audio.currentTime / d * 100) + '%';
+});
+audio.addEventListener('play', paintPlayBtn);
+audio.addEventListener('pause', paintPlayBtn);
+audio.addEventListener('ended', paintPlayBtn);
+$('pbTrack').addEventListener('click', e => {
+  if (!current) return;
+  const r = $('pbTrack').getBoundingClientRect();
+  audio.currentTime = (e.clientX - r.left) / r.width * (audio.duration || 10);
+});
+
+/* ================= 行 ================= */
+function trackRow(al, i, opts){
+  const tr = ALBUMS[al].tracks[i];
+  const id = trkId(al, i);
+  const showImg = !opts || opts.img !== false;
+  const no = opts && opts.no !== undefined ? opts.no : i + 1;
+  return `
+    <div class="trk" data-tid="${id}" data-al="${al}" data-i="${i}">
+      <span class="trk-no">${current === id ? '<span class="eq"><i></i><i></i><i></i></span>' : no}</span>
+      ${showImg ? `<span class="trk-img">${coverHtml(al, 18)}</span>` : '<span></span>'}
+      <span style="min-width:0">
+        <p class="trk-tt">${esc(tr.t)}</p>
+        <p class="trk-al">${esc(trackArtistName(al, i))}${showImg ? '・' + esc(ALBUMS[al].title) : ''}</p>
+      </span>
+      <span class="trk-plays">${num(tr.plays)}</span>
+      <button class="fav ${isFav(id) ? 'on' : ''}" data-fav="${id}" type="button" aria-label="お気に入り">♥</button>
+      <span class="trk-dur">${tr.d}</span>
+    </div>`;
+}
+document.addEventListener('click', e => {
+  const fav = e.target.closest('[data-fav]');
+  if (fav){
+    toggleFav(fav.dataset.fav);
+    fav.classList.toggle('on');
+    if (new URLSearchParams(location.search).get('page') === 'library') renderRoute(false);
+    return;
+  }
+  const row = e.target.closest('.trk');
+  if (row) playTrack(row.dataset.al, +row.dataset.i);
+});
+
+function albumCard(k, isNew){
+  const a = ALBUMS[k];
+  return `
+    <a class="al-card" href="ameoto.html?album=${k}">
+      ${isNew ? '<span class="al-new">NEW</span>' : ''}
+      <span class="al-img">${coverHtml(k, 54)}</span>
+      <p class="al-tt">${esc(a.title)}</p>
+      <p class="al-meta">${a.year}年・${a.type}・${esc(ARTISTS[a.artist].name)}</p>
+    </a>`;
+}
+
+/* ================= サイドバー・ナビ ================= */
+function renderSbFollow(){
+  const f = getFollows();
+  $('sbFollow').innerHTML = Object.keys(ARTISTS).filter(k => f[k]).map(k =>
+    `<a class="sb-art" href="ameoto.html?artist=${k}">${artistAva(k, 26)}<span>${esc(ARTISTS[k].name)}</span></a>`
+  ).join('') || '<p style="font-size:11px;color:#6d6d78;padding:6px 12px">フォロー中のアーティストはいません</p>';
+}
+function paintNav(key){
+  document.querySelectorAll('[data-nav]').forEach(el => el.classList.toggle('on', el.dataset.nav === key));
+}
+
+/* ================= ビュー ================= */
+function greeting(){
+  const h = new Date().getHours();
+  return h < 5 ? 'おそくまで観測おつかれさまです' : h < 11 ? 'おはようございます' : h < 18 ? 'こんにちは' : 'こんばんは';
+}
+function renderHome(){
+  document.title = 'アメオト';
+  $('homeView').hidden = false;
+  paintNav('home');
+  const hist = jGet('amo_hist', []).filter(([al, i]) => ALBUMS[al] && ALBUMS[al].tracks[i]);
+  $('homeBody').innerHTML = `
+    <h1 class="greet">${greeting()}<small>今日も、よい音を。</small></h1>
+    ${hist.length ? `<h2 class="sec-tt">最近再生した曲</h2>${hist.slice(0, 5).map(([al, i], n) => trackRow(al, i, { no: n + 1 })).join('')}` : ''}
+    <h2 class="sec-tt">新着リリース</h2>
+    <div class="al-grid">${HOME_NEW.map((k, n) => albumCard(k, n < 2)).join('')}</div>
+    <h2 class="sec-tt">人気のアーティスト</h2>
+    <div class="art-row">
+      ${Object.keys(ARTISTS).map(k => `
+        <a class="art-card" href="ameoto.html?artist=${k}">
+          ${artistAva(k, 110)}
+          <p class="art-nm">${esc(ARTISTS[k].name)}</p>
+          <p class="art-meta">アーティスト・月間リスナー ${num(ARTISTS[k].listeners)}人</p>
+        </a>`).join('')}
+    </div>
+    <h2 class="sec-tt">アメオト公式プレイリスト</h2>
+    <div class="al-grid">
+      ${Object.keys(PLAYLISTS).map(k => {
+        const p = PLAYLISTS[k];
+        return `
+        <a class="al-card" href="ameoto.html?playlist=${k}">
+          <span class="al-img"><span class="cv" style="background:linear-gradient(135deg,${p.grad[0]},${p.grad[1]});font-size:54px">${p.glyph}</span></span>
+          <p class="al-tt">${esc(p.title)}</p>
+          <p class="al-meta">プレイリスト・${p.tracks.length}曲</p>
+        </a>`;
+      }).join('')}
+    </div>`;
+}
+function renderArtist(k){
+  const a = ARTISTS[k];
+  document.title = a.name + ' - アメオト';
+  paintNav(null);
+  const followed = !!getFollows()[k];
+  $('artistView').hidden = false;
+  $('artistView').innerHTML = `
+    <div class="a-hero">${a.banner ? `<img src="${a.banner}" alt="">` : `<div class="grad" style="background:linear-gradient(135deg,${a.color},#131318)"></div>`}</div>
+    <div class="a-head">
+      ${a.badge ? '<p class="a-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#4fd1e0"/><path d="M7.5 12.5l3 3 6-6.5" stroke="#0c0c10" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg>認証済みアーティスト</p>' : ''}
+      <h1 class="a-name">${esc(a.name)}</h1>
+      <p class="a-meta">月間リスナー ${num(a.listeners)}人</p>
+    </div>
+    <div class="a-actions">
+      <button class="play-big" id="playAll" type="button">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 2l11 6-11 6z" fill="#0c0c10"/></svg>人気曲を試聴
+      </button>
+      <button class="follow-btn ${followed ? 'on' : ''}" id="followBtn" type="button">${followed ? 'フォロー中 ✓' : 'フォローする'}</button>
+    </div>
+    <div class="inner">
+      <h2 class="sec-tt">人気曲</h2>
+      ${a.popular.map(([al, i], n) => trackRow(al, i, { no: n + 1 })).join('')}
+      <h2 class="sec-tt">ディスコグラフィ</h2>
+      <div class="al-grid">${a.albums.map(al => albumCard(al)).join('')}</div>
+      <h2 class="sec-tt">アーティストについて</h2>
+      <div class="about"><b>${esc(a.name)}</b>${esc('は、' + a.about)}</div>
+      <a class="back-lk" href="ameoto.html">← ホームへ戻る</a>
+    </div>`;
+  $('playAll').addEventListener('click', () => playTrack(a.popular[0][0], a.popular[0][1]));
+  $('followBtn').addEventListener('click', () => {
+    const f = getFollows();
+    if (f[k]) delete f[k]; else f[k] = 1;
+    jSet('amo_follow', f);
+    renderSbFollow();
+    renderRoute(false);
+  });
+}
+function renderAlbum(k){
+  const al = ALBUMS[k];
+  const art = ARTISTS[al.artist];
+  document.title = al.title + ' - アメオト';
+  $('albumView').hidden = false;
+  paintNav(null);
+  $('albumBody').innerHTML = `
+    <div class="alb-head">
+      <span class="alb-cover">${coverHtml(k, 72)}</span>
+      <div>
+        <p class="alb-type">${esc(al.type.toUpperCase())}</p>
+        <h1 class="alb-tt">${esc(al.title)}</h1>
+        <p class="alb-meta"><a href="ameoto.html?artist=${al.artist}">${esc(art.name)}</a>・${al.year}年・${al.tracks.length}曲</p>
+        <button class="play-big" style="margin:14px 0 0" id="playFirst" type="button">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 2l11 6-11 6z" fill="#0c0c10"/></svg>試聴する
+        </button>
+      </div>
+    </div>
+    <h2 class="sec-tt" style="margin-top:24px">収録曲</h2>
+    ${al.tracks.map((_, i) => trackRow(k, i, { img: false })).join('')}
+    <a class="back-lk" href="ameoto.html?artist=${al.artist}">← ${esc(art.name)}のページへ戻る</a>`;
+  $('playFirst').addEventListener('click', () => playTrack(k, 0));
+}
+function renderPlaylist(k){
+  const p = PLAYLISTS[k];
+  document.title = p.title + ' - アメオト';
+  $('plView').hidden = false;
+  paintNav(null);
+  $('plBody').innerHTML = `
+    <div class="alb-head">
+      <span class="alb-cover"><span class="cv" style="background:linear-gradient(135deg,${p.grad[0]},${p.grad[1]});font-size:72px">${p.glyph}</span></span>
+      <div>
+        <p class="alb-type">公式プレイリスト</p>
+        <h1 class="alb-tt">${esc(p.title)}</h1>
+        <p class="alb-meta">${esc(p.desc)}・<b>${p.tracks.length}曲</b></p>
+        <button class="play-big" style="margin:14px 0 0" id="playPl" type="button">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 2l11 6-11 6z" fill="#0c0c10"/></svg>試聴する
+        </button>
+      </div>
+    </div>
+    <h2 class="sec-tt" style="margin-top:24px">収録曲</h2>
+    ${p.tracks.map(([al, i], n) => trackRow(al, i, { no: n + 1 })).join('')}
+    <a class="back-lk" href="ameoto.html">← ホームへ戻る</a>`;
+  $('playPl').addEventListener('click', () => playTrack(p.tracks[0][0], p.tracks[0][1]));
+}
+function renderLibrary(){
+  document.title = 'お気に入り - アメオト';
+  $('libView').hidden = false;
+  paintNav('library');
+  const favs = Object.keys(getFavs());
+  $('libList').innerHTML = favs.length
+    ? favs.map((id, n) => {
+        const al = id.slice(0, id.lastIndexOf('-'));
+        const i = +id.slice(id.lastIndexOf('-') + 1);
+        return ALBUMS[al] && ALBUMS[al].tracks[i] ? trackRow(al, i, { no: n + 1 }) : '';
+      }).join('')
+    : '<div class="empty-note">まだお気に入りがありません。<br>曲の ♥ を押すと、ここに降りつもります。</div>';
+}
+function renderSearch(){
+  document.title = '検索 - アメオト';
+  $('searchView').hidden = false;
+  paintNav('search');
+  const all = [];
+  Object.keys(ALBUMS).forEach(k => ALBUMS[k].tracks.forEach((tr, i) => all.push([k, i, tr.t + ' ' + trackArtistName(k, i)])));
+  function paint(q){
+    const hits = q ? all.filter(([,, t]) => t.toLowerCase().includes(q.toLowerCase())) : [];
+    $('qList').innerHTML = q
+      ? (hits.length
+          ? hits.map(([k, i], n) => trackRow(k, i, { no: n + 1 })).join('')
+          : '<div class="empty-note">「' + esc(q) + '」に一致する曲は見つかりませんでした。</div>')
+      : '<div class="empty-note">曲名・アーティスト名を入力してください。「天気」「傘」「雨音」あたりがよくヒットします。</div>';
+  }
+  paint($('q').value.trim());
+  $('q').oninput = () => paint($('q').value.trim());
+}
+
+/* ================= ルーター ================= */
+function renderRoute(scroll){
+  ['homeView', 'artistView', 'albumView', 'plView', 'libView', 'searchView'].forEach(id => $(id).hidden = true);
+  const p = new URLSearchParams(location.search);
+  const art = p.get('artist'), alb = p.get('album'), pl = p.get('playlist'), page = p.get('page');
+  if (art && ARTISTS[art]) renderArtist(art);
+  else if (alb && ALBUMS[alb]) renderAlbum(alb);
+  else if (pl && PLAYLISTS[pl]) renderPlaylist(pl);
+  else if (page === 'library') renderLibrary();
+  else if (page === 'search') renderSearch();
+  else renderHome();
+  paintPlayBtn();
+  if (scroll !== false) window.scrollTo(0, 0);
+}
+renderSbFollow();
+renderRoute();
+</script>
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- 架空のアイドルグループ「テンキヨホー!」のデモサイト用ページです。映像はデモ用のループクリップです。 -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MOVIE|テンキヨホー! OFFICIAL WEB SITE</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="%23f0417f"/><circle cx="21" cy="12" r="6" fill="%23ffd23e"/><g fill="%23ffffff"><circle cx="10" cy="18" r="5"/><circle cx="16" cy="15" r="6.5"/><circle cx="22" cy="19" r="4.5"/><rect x="8" y="17" width="17" height="6" rx="3"/></g></svg>'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Zen+Maru+Gothic:wght@700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#f0417f;
+  --pink-dark:#d92e6b;
+  --pink-pale:#fdeef5;
+  --hair:#f4e3eb;
+  --ink:#3c3c46;
+  --gray:#8a8a94;
+  --head-h:64px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;color:var(--ink);background:#fff;line-height:1.85;font-size:14px}
+img,svg,video{max-width:100%;vertical-align:middle}
+a{color:inherit;text-decoration:none}
+:focus{outline:none}
+:focus-visible{outline:2px solid var(--pink);outline-offset:3px}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+
+/* header */
+.site-head{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--head-h);background:#fff;box-shadow:0 1px 0 rgba(240,65,127,.15)}
+.head-in{max-width:1240px;margin:0 auto;padding:0 22px;height:100%;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brand{display:flex;align-items:center;gap:9px}
+.brand-mark{width:30px;height:30px;flex:none}
+.brand-name{font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:18px;color:var(--pink);transform:skewX(-6deg);display:inline-block;white-space:nowrap}
+.back{font-family:"Jost",sans-serif;font-weight:500;font-size:11px;letter-spacing:.16em;border:1px solid var(--pink);color:var(--pink);padding:8px 18px;border-radius:999px;transition:.2s;white-space:nowrap}
+.back:hover{background:var(--pink);color:#fff}
+
+/* player stage */
+.stage{margin-top:var(--head-h);background:#101014;padding:26px 20px 30px}
+.stage-in{max-width:960px;margin:0 auto}
+.player{position:relative;aspect-ratio:16/9;background:#000;border-radius:10px;overflow:hidden}
+.player video{width:100%;height:100%;display:block;background:#000}
+.demo-tag{
+  position:absolute;top:12px;right:12px;z-index:2;
+  background:rgba(0,0,0,.6);color:#fff;font-family:"Jost",sans-serif;font-weight:500;
+  font-size:9.5px;letter-spacing:.18em;padding:4px 12px;border-radius:999px;pointer-events:none;
+}
+
+/* meta */
+.meta{padding:26px 0 8px}
+.v-title{font-weight:900;font-size:clamp(17px,2.6vw,21px);letter-spacing:.03em;line-height:1.6}
+.v-sub{font-family:"Jost",sans-serif;font-size:11.5px;letter-spacing:.12em;color:var(--gray);margin-top:4px}
+.v-desc{
+  margin-top:16px;background:var(--pink-pale);border-radius:14px;padding:18px 22px;font-size:13px;
+}
+.v-desc b{color:var(--pink-dark)}
+.v-credit{margin-top:10px;font-size:12px;color:var(--gray);border-top:1px solid var(--hair);padding-top:10px}
+.v-lyric{margin-top:10px;font-family:"Zen Maru Gothic",sans-serif;font-weight:700;font-size:13.5px;color:var(--pink-dark)}
+.v-note{font-size:10.5px;color:var(--gray);margin-top:12px}
+
+/* related */
+.rel-tt{font-family:"Jost",sans-serif;font-weight:600;font-size:13px;letter-spacing:.24em;color:var(--pink);margin:34px 0 16px;padding-bottom:10px;border-bottom:2px solid var(--pink)}
+.rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.rel-card{display:block}
+.rel-thumb{position:relative;aspect-ratio:16/9;border-radius:10px;overflow:hidden;box-shadow:0 5px 16px rgba(60,60,70,.15)}
+.rel-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .35s}
+.rel-card:hover .rel-thumb img{transform:scale(1.05)}
+.rel-thumb .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:38px;height:38px;border-radius:50%;background:rgba(20,15,25,.6);display:flex;align-items:center;justify-content:center;transition:.25s}
+.rel-thumb .play svg{width:12px;height:12px;margin-left:2px}
+.rel-card:hover .play{background:var(--pink)}
+.rel-name{font-weight:700;font-size:12.5px;margin-top:9px;line-height:1.55}
+.rel-date{font-family:"Jost",sans-serif;font-size:10px;color:var(--gray);letter-spacing:.1em}
+
+/* footer */
+.site-foot{margin-top:50px;padding:26px 20px;text-align:center;border-top:1px solid var(--hair)}
+.foot-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;margin-bottom:14px}
+.foot-nav a{font-family:"Jost",sans-serif;font-weight:400;font-size:11px;letter-spacing:.16em;color:var(--gray)}
+.foot-nav a:hover{color:var(--pink)}
+.foot-legal{font-size:10.5px;color:var(--gray);line-height:2}
+.foot-legal a{text-decoration:underline;text-underline-offset:3px}
+
+@media(max-width:720px){
+  .brand-name{font-size:16px}
+  .stage{padding:14px 0 18px}
+  .player{border-radius:0}
+  .rel-grid{grid-template-columns:repeat(2,1fr);gap:14px}
+  .meta{padding:20px 0 6px}
+}
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="head-in">
+    <a class="brand" href="index.html">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="8" fill="#f0417f"/>
+        <circle cx="21" cy="12" r="6" fill="#ffd23e"/>
+        <g fill="#fff">
+          <circle cx="10" cy="18" r="5"/>
+          <circle cx="16" cy="15" r="6.5"/>
+          <circle cx="22" cy="19" r="4.5"/>
+          <rect x="8" y="17" width="17" height="6" rx="3"/>
+        </g>
+      </svg>
+      <span class="brand-name">テンキヨホー!</span>
+    </a>
+    <a class="back" href="index.html#movie">← MOVIE一覧へ</a>
+  </div>
+</header>
+
+<div class="stage">
+  <div class="stage-in">
+    <div class="player">
+      <span class="demo-tag" id="demoTag">DEMO LOOP</span>
+      <video id="player" controls autoplay muted loop playsinline preload="auto" poster=""></video>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+  <div class="meta">
+    <h1 class="v-title" id="vTitle"></h1>
+    <p class="v-sub" id="vSub"></p>
+    <div class="v-desc">
+      <p id="vDesc"></p>
+      <p class="v-lyric" id="vLyric" hidden></p>
+      <p class="v-credit" id="vCredit"></p>
+      <p class="v-note">※デモサイトのため、映像はループクリップ(またはショート版)を再生しています。実際の楽曲・映像は存在しません。</p>
+    </div>
+  </div>
+
+  <h2 class="rel-tt">NEXT MOVIE</h2>
+  <div class="rel-grid" id="relGrid"></div>
+</main>
+
+<footer class="site-foot">
+  <nav class="foot-nav" aria-label="フッターナビゲーション">
+    <a href="index.html">HOME</a>
+    <a href="index.html#movie">MOVIE</a>
+    <a href="index.html#disco">DISCO</a>
+    <a href="index.html#schedule">SCHEDULE</a>
+    <a href="index.html#contact">CONTACT</a>
+  </nav>
+  <p class="foot-legal">
+    当サイトは架空のアイドルグループのデモサイトです。掲載の人物画像・映像はAIによる生成物であり、実在の人物ではありません。<br>
+    <a href="privacy.html">プライバシーポリシー</a>&nbsp;&nbsp;© TENKI-YOHO! / AOJASHIN RECORDS All rights reserved.
+  </p>
+</footer>
+
+<script>
+const VIDEOS = {
+  tenkiyoho: {
+    file: 'opening.mp4', thumb: 'mv-01.jpg', tag: 'SHORT VER.',
+    title: '「アイドルテンキヨホー!」Music Video (Short Ver.)',
+    sub: '2025.08.08 PREMIERE|1ST SINGLE',
+    desc: 'デビューシングル「アイドルテンキヨホー!」のミュージックビデオ。快晴の屋上で、6人のはじまりの合図を撮りました。撮影当日の降水確率は90%でしたが、なぜか晴れました(める、いわく「不本意」)。',
+    lyric: '♪ ハレ! ハレ! テンキヨホー! あしたの空は わたしが決める!',
+    credit: '作詞・作曲:雨音ソラ / 編曲:青写真サウンド部|監督:海野スコール / 振付:ワイパー先生(すべて架空)'
+  },
+  doshaburi: {
+    file: 'vid-doshaburi.mp4', thumb: 'mv-02.jpg', tag: 'DEMO LOOP',
+    title: '「どしゃぶりダンスホール」Music Video',
+    sub: '2026.01.20 PREMIERE|2ND SINGLE',
+    desc: '本物の雨のなかで撮影したダンスパフォーマンスビデオ。ミラーボールに反射する雨粒がテーマです。全員風邪をひきませんでした(奇跡)。',
+    lyric: '♪ どしゃぶりでも おどりたいの ミラーボールは 雨のつぶ',
+    credit: '作詞・作曲:雨音ソラ / 編曲:青写真サウンド部|監督:海野スコール|照明:カミナリ照明(すべて架空)'
+  },
+  live: {
+    file: 'vid-live.mp4', thumb: 'mv-03.jpg', tag: 'DEMO LOOP',
+    title: '「観測史上、最高!」Live at めるの日2026',
+    sub: '2026.06.30 UP|LIVE VIDEO',
+    desc: '2026年6月11日、東高円寺 雨音堂で行われた宵町める生誕祭「めるの日2026」より、1stミニアルバムのリード曲をお届けします。ペンライトの6色が揃う瞬間は、何度見てもいいものです。',
+    lyric: null,
+    credit: '撮影・編集:かんそくたい撮影班(架空)|音声:雨音堂PAチーム(架空)'
+  },
+  niji: {
+    file: 'vid-niji.mp4', thumb: 'mv-04.jpg', tag: 'DEMO LOOP',
+    title: '「虹、かかりました。」Music Video',
+    sub: '2026.04.22 PREMIERE|3RD SINGLE',
+    desc: '雨上がりの屋上で撮影したミュージックビデオ。本物の虹を待って撮影が3回延期になりました。最終日、いろはが誰よりも先に虹を見つけました(特技)。',
+    lyric: '♪ 泣いたぶんだけ 空はやさしい 虹、かかりました。',
+    credit: '作詞・作曲:雨音ソラ / 編曲:青写真サウンド部|監督:海野スコール(すべて架空)'
+  },
+  practice: {
+    file: 'vid-practice.mp4', thumb: 'mv-05.jpg', tag: 'DEMO LOOP',
+    title: '「どしゃぶりダンスホール」Dance Practice',
+    sub: '2026.02.14 UP|DANCE PRACTICE',
+    desc: 'いつものレッスン室での一発撮りダンスプラクティス。ふわのは撮影直前まで床で寝ていましたが、本番はいちばんキレていました。サビ前の傘を開く振り(エア)に注目です。',
+    lyric: null,
+    credit: '振付:ワイパー先生(架空)|撮影:マネージャー(スマホ)'
+  },
+  relay: {
+    file: 'vid-relay.mp4', thumb: 'mv-06.jpg', tag: 'DEMO LOOP',
+    title: 'メンバー自己紹介リレー(6人ノーカット)',
+    sub: '2026.07.17 UP|VARIETY',
+    desc: 'サイトリニューアル記念、6人ノーカットの自己紹介リレー。ぴかが2回噛みましたが、本人の希望によりそのまま使用しています。こんこの「むり、です。」も収録。',
+    lyric: null,
+    credit: '企画:青写真レコーズ宣伝部(架空)'
+  }
+};
+const ORDER = ['tenkiyoho', 'doshaburi', 'live', 'niji', 'practice', 'relay'];
+
+const $ = id => document.getElementById(id);
+function esc(s){ return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+const params = new URLSearchParams(location.search);
+const key = VIDEOS[params.get('v')] ? params.get('v') : 'tenkiyoho';
+const v = VIDEOS[key];
+
+document.title = v.title + '|テンキヨホー! OFFICIAL WEB SITE';
+const player = $('player');
+player.src = v.file;
+player.poster = v.thumb;
+$('demoTag').textContent = v.tag;
+$('vTitle').textContent = v.title;
+$('vSub').textContent = v.sub;
+$('vDesc').textContent = v.desc;
+if (v.lyric){ $('vLyric').hidden = false; $('vLyric').textContent = v.lyric; }
+$('vCredit').textContent = v.credit;
+
+$('relGrid').innerHTML = ORDER.filter(k => k !== key).map(k => {
+  const r = VIDEOS[k];
+  return `
+    <a class="rel-card" href="watch.html?v=${k}">
+      <span class="rel-thumb">
+        <img src="${r.thumb}" alt="" loading="lazy" width="1280" height="720">
+        <span class="play"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 2l11 6-11 6z" fill="#fff"/></svg></span>
+      </span>
+      <span class="rel-name">${esc(r.title)}</span>
+      <span class="rel-date">${esc(r.sub)}</span>
+    </a>`;
+}).join('');
+</script>
+</body>
+</html>
