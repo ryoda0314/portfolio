@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- 架空のアイドルグループ「テンキヨホー!」のデモサイト用ページです。会員機能はブラウザ内デモです。 -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>会員マイページ|ファンクラブ「かんそくたい」</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="%23f0417f"/><circle cx="21" cy="12" r="6" fill="%23ffd23e"/><g fill="%23ffffff"><circle cx="10" cy="18" r="5"/><circle cx="16" cy="15" r="6.5"/><circle cx="22" cy="19" r="4.5"/><rect x="8" y="17" width="17" height="6" rx="3"/></g></svg>'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Zen+Maru+Gothic:wght@700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#f0417f;
+  --pink-dark:#d92e6b;
+  --pink-pale:#fdeef5;
+  --pink-line:#f5b8d0;
+  --sky:#4fb7e8;
+  --yellow:#ffd23e;
+  --ink:#3c3c46;
+  --gray:#8a8a94;
+  --head-h:64px;
+  --c-meru:#f0417f; --c-pokari:#f2a80c; --c-fuwano:#9d6fd6;
+  --c-konko:#4fb7e8; --c-pika:#f0762b; --c-iroha:#3cb96a;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;color:var(--ink);background:var(--pink-pale);line-height:1.85;font-size:14px}
+img,svg{max-width:100%;vertical-align:middle}
+a{color:inherit;text-decoration:none}
+:focus{outline:none}
+:focus-visible{outline:2px solid var(--pink);outline-offset:3px}
+.wrap{max-width:680px;margin:0 auto;padding:0 20px}
+[hidden]{display:none !important}
+
+/* header */
+.site-head{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--head-h);background:#fff;box-shadow:0 1px 0 rgba(240,65,127,.15)}
+.head-in{max-width:1240px;margin:0 auto;padding:0 22px;height:100%;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brand{display:flex;align-items:center;gap:9px}
+.brand-mark{width:30px;height:30px;flex:none}
+.brand-name{font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:18px;color:var(--pink);transform:skewX(-6deg);display:inline-block;white-space:nowrap}
+.back{font-family:"Jost",sans-serif;font-weight:500;font-size:11px;letter-spacing:.16em;border:1px solid var(--pink);color:var(--pink);padding:8px 18px;border-radius:999px;transition:.2s;white-space:nowrap}
+.back:hover{background:var(--pink);color:#fff}
+
+main{padding:calc(var(--head-h) + 34px) 0 70px}
+.page-tt{text-align:center;font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:22px;color:var(--pink-dark);letter-spacing:.08em}
+.page-sub{text-align:center;font-size:12px;color:var(--gray);margin-top:2px}
+
+.card{background:#fff;border-radius:16px;box-shadow:0 8px 24px rgba(240,65,127,.12);padding:24px 26px;margin-top:18px}
+.card-tt{font-weight:900;font-size:15px;color:var(--pink-dark);letter-spacing:.04em;display:flex;align-items:baseline;gap:10px}
+.card-tt small{font-family:"Jost",sans-serif;font-weight:500;font-size:10px;letter-spacing:.2em;color:var(--gray)}
+.hint{font-size:11.5px;color:var(--gray)}
+
+/* 隊員証 */
+.mcard{
+  border-radius:18px;overflow:hidden;margin-top:14px;
+  background:linear-gradient(135deg,#6bbdf2 0%,#a8d9f8 55%,#dff0fd 100%);
+  box-shadow:0 14px 34px rgba(79,183,232,.35);color:#fff;position:relative;
+}
+.mcard::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.5) 1.2px,transparent 1.6px);background-size:30px 24px}
+.mc-head{position:relative;display:flex;align-items:center;gap:10px;padding:16px 20px 8px}
+.mc-head svg{width:34px;height:34px}
+.mc-head b{font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:16px;text-shadow:0 2px 0 rgba(240,65,127,.5)}
+.mc-head small{display:block;font-family:"Jost",sans-serif;font-size:8.5px;letter-spacing:.24em;opacity:.95}
+.mc-body{position:relative;padding:8px 20px 14px}
+.mc-name{font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:22px;text-shadow:0 2px 0 rgba(60,60,70,.25)}
+.mc-name small{font-size:12px;font-weight:700;margin-left:4px}
+.mc-dl{margin-top:8px;font-size:11.5px;line-height:2;text-shadow:0 1px 2px rgba(60,60,70,.25)}
+.mc-dl b{font-family:"Jost",sans-serif;font-weight:600;font-size:13px}
+.mc-oshi{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.92);color:var(--ink);border-radius:999px;padding:3px 12px;font-size:11px;font-weight:700}
+.mc-oshi i{width:10px;height:10px;border-radius:50%}
+.mc-foot{position:relative;background:rgba(255,255,255,.92);color:var(--gray);font-size:9.5px;padding:8px 20px;text-align:center}
+
+/* 先行 */
+.sk-status{border:1px solid #f4e3eb;border-radius:12px;padding:16px 18px;margin-top:12px;background:var(--pink-pale)}
+.sk-status b{color:var(--pink-dark)}
+.sk-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid #f4e3eb;font-size:13px}
+.sk-row select{font:inherit;padding:7px 10px;border:1.5px solid var(--pink-line);border-radius:8px;background:#fff}
+.pill-btn{display:block;width:100%;margin-top:14px;background:var(--pink);color:#fff;border:none;border-radius:999px;padding:13px;font:inherit;font-weight:900;font-size:14px;letter-spacing:.06em;cursor:pointer;transition:.2s;text-align:center}
+.pill-btn:hover{background:var(--pink-dark)}
+.ghost-btn{display:block;width:100%;margin-top:10px;background:#fff;color:var(--pink);border:1.5px solid var(--pink);border-radius:999px;padding:10px;font:inherit;font-weight:700;font-size:12.5px;cursor:pointer;text-align:center}
+.danger-btn{background:none;border:none;color:var(--gray);font:inherit;font-size:11.5px;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.danger-btn:hover{color:var(--pink-dark)}
+
+/* ブログ */
+.blog{border:1px solid var(--pink-line);border-radius:12px;margin-top:12px;overflow:hidden;background:#fff}
+.blog summary{padding:13px 40px 13px 16px;cursor:pointer;list-style:none;position:relative}
+.blog summary::-webkit-details-marker{display:none}
+.blog summary::after{content:"";position:absolute;right:18px;top:22px;width:8px;height:8px;border-right:1.5px solid var(--pink);border-bottom:1.5px solid var(--pink);transform:rotate(45deg);transition:transform .3s}
+.blog[open] summary::after{transform:rotate(225deg)}
+.bg-meta{display:flex;align-items:center;gap:8px;font-size:10.5px;color:var(--gray)}
+.bg-who{display:inline-flex;align-items:center;gap:5px;font-weight:700;color:var(--ink)}
+.bg-who i{width:9px;height:9px;border-radius:50%}
+.bg-tt{font-weight:700;font-size:13.5px;margin-top:2px}
+.blog p.body{padding:0 16px 14px;font-size:13px;color:var(--ink)}
+.lock-note{font-size:10.5px;color:var(--gray);margin-top:8px}
+
+/* 壁紙 */
+.wp-row{display:flex;gap:16px;align-items:center;margin-top:12px;flex-wrap:wrap}
+.wp-thumb{width:130px;border-radius:10px;overflow:hidden;border:1px solid var(--pink-line);flex:none}
+.wp-info{flex:1;min-width:200px;font-size:12.5px;color:var(--gray)}
+
+/* 設定 */
+.set-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #f4e3eb;font-size:13px}
+.set-row:last-child{border-bottom:none}
+.set-row select{font:inherit;padding:7px 10px;border:1.5px solid var(--pink-line);border-radius:8px;background:#fff}
+.mini-btn{background:var(--pink);color:#fff;border:none;border-radius:999px;padding:7px 18px;font:inherit;font-weight:700;font-size:12px;cursor:pointer}
+.mini-btn:hover{background:var(--pink-dark)}
+.ok-note{display:none;font-size:11.5px;color:#1d9e55;font-weight:700;margin-top:6px}
+.ok-note.show{display:block}
+
+/* ゲート */
+.gate{max-width:480px;margin:30px auto 0;text-align:center}
+.gate-card{background:#fff;border-radius:16px;box-shadow:0 8px 24px rgba(240,65,127,.12);padding:34px 28px}
+.gate-tt{font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:17px;color:var(--pink-dark)}
+.gate-bd{font-size:13px;color:var(--gray);margin-top:8px}
+
+.foot-note{text-align:center;font-size:10.5px;color:var(--gray);margin-top:26px}
+.foot-note a{color:var(--pink);text-decoration:underline}
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="head-in">
+    <a class="brand" href="index.html">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="8" fill="#f0417f"/>
+        <circle cx="21" cy="12" r="6" fill="#ffd23e"/>
+        <g fill="#fff">
+          <circle cx="10" cy="18" r="5"/>
+          <circle cx="16" cy="15" r="6.5"/>
+          <circle cx="22" cy="19" r="4.5"/>
+          <rect x="8" y="17" width="17" height="6" rx="3"/>
+        </g>
+      </svg>
+      <span class="brand-name">テンキヨホー!</span>
+    </a>
+    <a class="back" href="index.html#fanclub">← 公式サイトへ</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <!-- 非会員ゲート -->
+    <div class="gate" id="gateView" hidden>
+      <h1 class="page-tt">会員マイページ</h1>
+      <div class="gate-card">
+        <p class="gate-tt">ここから先は、かんそくたい隊員専用です</p>
+        <p class="gate-bd">ファンクラブ「かんそくたい」(月額¥550)に入会すると、会員限定ブログ・チケット最速先行・毎月の壁紙などがご利用いただけます。</p>
+        <a class="pill-btn" href="fc-join.html">入会手続きへすすむ(約3分)</a>
+        <a class="ghost-btn" href="fanclub.html">特典のくわしい案内を見る</a>
+      </div>
+    </div>
+
+    <!-- 会員ビュー -->
+    <div id="memberView" hidden>
+      <h1 class="page-tt">かんそくたい マイページ</h1>
+      <p class="page-sub" id="welcome"></p>
+
+      <div class="mcard" id="mcard"></div>
+
+      <!-- FC先行 -->
+      <div class="card">
+        <p class="card-tt">チケット最速先行<small>FC PRESALE</small></p>
+        <div id="skBody"></div>
+      </div>
+
+      <!-- 観測日誌 -->
+      <div class="card">
+        <p class="card-tt">会員限定ブログ「観測日誌」<small>OBSERVATION DIARY</small></p>
+        <details class="blog">
+          <summary>
+            <span class="bg-meta"><span class="bg-who"><i style="background:var(--c-meru)"></i>宵町める</span>2026.07.19(日)</span>
+            <p class="bg-tt">雨の日の傘のたたみ方</p>
+          </summary>
+          <p class="body">今日の東京は晴れでした。悔しいので傘の手入れをしていました。ビニール傘は使ったあとに開いて陰干しすると長持ちします。骨のところを拭くのがコツです。あと、10月のワンマンのFC先行、このマイページから申し込めるようになったみたいです。技術ってすごい。よろしくね。</p>
+        </details>
+        <details class="blog">
+          <summary>
+            <span class="bg-meta"><span class="bg-who"><i style="background:var(--c-pika)"></i>鳴海ぴか</span>2026.07.18(土)</span>
+            <p class="bg-tt">筋トレしました(3分)</p>
+          </summary>
+          <p class="body">レッスンのあとに筋トレをはじめました!継続は力なり!今日は3分やりました。明日は4分やります。たぶん。ところで雷が鳴ると腹筋に力が入るので、雷雨の日はトレーニング日和です。これ、豆知識です。</p>
+        </details>
+        <details class="blog">
+          <summary>
+            <span class="bg-meta"><span class="bg-who"><i style="background:var(--c-fuwano)"></i>雲居ふわの</span>2026.07.16(木)</span>
+            <p class="bg-tt">(タイトルを考えているあいだに眠くなった)</p>
+          </summary>
+          <p class="body">ねむい。以上です。……だと短すぎるとスタッフさんに言われたので、今日見たいちばんいい雲の話をします。夕方の入道雲が、わたあめを3段重ねたみたいな形でした。写真を撮ろうとしたら崩れました。雲は生ものです。おやすみなさい。</p>
+        </details>
+        <p class="lock-note">※更新は不定期です(雨の日は増えます)。</p>
+      </div>
+
+      <!-- ミーティング -->
+      <div class="card">
+        <p class="card-tt">かんそくたいミーティング<small>MONTHLY LIVE</small></p>
+        <div class="sk-row"><span>次回配信</span><b>7/31(金)21:00〜(雨が降りそうなら早まります)</b></div>
+        <div class="sk-row" style="border-bottom:none"><span>アーカイブ:6月号(6/26配信)</span><button class="mini-btn" id="archBtn" type="button">視聴する</button></div>
+        <p class="ok-note" id="archNote">(デモ)アーカイブプレイヤーは公開時に実装されます。6月号は「ぴかの筋トレ講座(初回で終了)」でした。</p>
+      </div>
+
+      <!-- 壁紙 -->
+      <div class="card">
+        <p class="card-tt">今月のお天気壁紙<small>JULY 2026</small></p>
+        <div class="wp-row">
+          <div class="wp-thumb"><img src="member-01-meru.jpg" alt="7月の壁紙プレビュー(宵町める)" width="1200" height="675"></div>
+          <div class="wp-info">
+            7月の担当は<b style="color:var(--c-meru)">雨:宵町める</b>。梅雨明けを見送る顔をしています。<br>
+            <a class="mini-btn" style="display:inline-block;margin-top:8px;text-decoration:none" href="member-01-meru.jpg" download="tenkiyoho_wallpaper_2026-07_meru.jpg">壁紙をダウンロード</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 会員情報・設定 -->
+      <div class="card">
+        <p class="card-tt">会員情報・設定<small>SETTINGS</small></p>
+        <div class="set-row"><span>隊員No.</span><b id="setNo"></b></div>
+        <div class="set-row"><span>ランク</span><b>隊員(そらいろ)|継続1年で班長に昇格</b></div>
+        <div class="set-row"><span>入会日</span><b id="setSince"></b></div>
+        <div class="set-row"><span>お支払い方法</span><b id="setPay"></b></div>
+        <div class="set-row">
+          <label for="oshiSel">推しメンバー</label>
+          <span style="display:flex;gap:8px;align-items:center">
+            <select id="oshiSel"></select>
+            <button class="mini-btn" id="oshiBtn" type="button">変更</button>
+          </span>
+        </div>
+        <p class="ok-note" id="oshiNote">推しメンバーを変更しました。隊員証にも反映されています。</p>
+        <div style="text-align:center;margin-top:16px">
+          <button class="danger-btn" id="quitBtn" type="button">退会する(デモをリセット)</button>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="foot-note">当サイトは架空のアイドルグループのデモサイトです。会員情報はこのブラウザ内にのみ保存されます。<br><a href="index.html">テンキヨホー! 公式サイト</a>|<a href="privacy.html">プライバシーポリシー</a></p>
+  </div>
+</main>
+
+<script>
+const MEMBERS = [
+  { key: 'meru', name: '宵町める', color: '#f0417f' },
+  { key: 'pokari', name: '日向ぽかり', color: '#f2a80c' },
+  { key: 'fuwano', name: '雲居ふわの', color: '#9d6fd6' },
+  { key: 'konko', name: '氷雨こんこ', color: '#4fb7e8' },
+  { key: 'pika', name: '鳴海ぴか', color: '#f0762b' },
+  { key: 'iroha', name: '虹本いろは', color: '#3cb96a' },
+  { key: 'box', name: 'box(全員推し)', color: 'linear-gradient(135deg,#f0417f,#f2a80c,#3cb96a,#4fb7e8)' }
+];
+const $ = id => document.getElementById(id);
+function esc(s){ return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+function loadMember(){ try { return JSON.parse(localStorage.getItem('fc_member') || 'null'); } catch { return null; } }
+function saveMember(m){ try { localStorage.setItem('fc_member', JSON.stringify(m)); } catch {} }
+function loadEntry(){ try { return JSON.parse(localStorage.getItem('fc_entry') || 'null'); } catch { return null; } }
+function saveEntry(e){ try { if (e) localStorage.setItem('fc_entry', JSON.stringify(e)); else localStorage.removeItem('fc_entry'); } catch {} }
+
+/* ---------- 隊員証 ---------- */
+function renderCard(m){
+  const oshi = MEMBERS.find(x => x.key === m.oshiKey) || MEMBERS[6];
+  $('mcard').innerHTML = `
+    <div class="mc-head">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="8" fill="#f0417f"/>
+        <circle cx="21" cy="12" r="6" fill="#ffd23e"/>
+        <g fill="#fff">
+          <circle cx="10" cy="18" r="5"/>
+          <circle cx="16" cy="15" r="6.5"/>
+          <circle cx="22" cy="19" r="4.5"/>
+          <rect x="8" y="17" width="17" height="6" rx="3"/>
+        </g>
+      </svg>
+      <span><b>かんそくたい</b><small>TENKI-YOHO! OFFICIAL FANCLUB</small></span>
+    </div>
+    <div class="mc-body">
+      <p class="mc-name">${esc(m.name)}<small>さん</small></p>
+      <p class="mc-dl">
+        隊員No. <b>${esc(m.no)}</b>|ランク:隊員(そらいろ)<br>
+        入会日 ${esc(m.since)}|お支払い:${esc(m.pay)}<br>
+        <span class="mc-oshi"><i style="background:${oshi.color}"></i>推し:${esc(m.oshiName)}</span>
+      </p>
+    </div>
+    <div class="mc-foot">これは架空のファンクラブのデモ隊員証です。会場での提示ごっこにお使いください。</div>`;
+}
+
+/* ---------- FC先行 ---------- */
+function renderSenko(){
+  const entry = loadEntry();
+  if (entry){
+    $('skBody').innerHTML = `
+      <div class="sk-status">
+        <b>✓ 申込済み</b>|受付番号 <b>${esc(entry.no)}</b><br>
+        <span style="font-size:12px">ワンマンライブ「10月の雨はつめたくない」|${entry.qty}枚|申込日 ${esc(entry.date)}</span><br>
+        <span style="font-size:12px;color:var(--gray)">抽選結果は 7/30(木) にこのページとメールでお知らせします。当選を祈って、てるてる坊主は逆さに吊るしてください(雨乞い)。</span>
+      </div>
+      <button class="ghost-btn" id="skCancel" type="button">申込を取り消す(受付期間内のみ)</button>`;
+    $('skCancel').addEventListener('click', () => { saveEntry(null); renderSenko(); });
+  } else {
+    $('skBody').innerHTML = `
+      <div class="sk-row" style="border-top:1px solid #f4e3eb;margin-top:10px"><span>対象公演</span><b>10/10(土)「10月の雨はつめたくない」</b></div>
+      <div class="sk-row"><span>受付期間</span><b>7/10(金)12:00 〜 7/27(月)23:59</b></div>
+      <div class="sk-row"><span>券種</span><span>全自由(整理番号付) ¥4,500+手数料</span></div>
+      <div class="sk-row">
+        <label for="skQty">申込枚数(2枚まで)</label>
+        <select id="skQty"><option value="1">1枚</option><option value="2">2枚</option></select>
+      </div>
+      <button class="pill-btn" id="skApply" type="button">FC先行に申し込む(抽選・デモ)</button>
+      <p class="hint" style="margin-top:8px">※先着ではありません。期間内のお申し込みはすべて平等に抽選されます。</p>`;
+    $('skApply').addEventListener('click', () => {
+      const now = new Date();
+      saveEntry({
+        qty: +$('skQty').value,
+        no: 'KAN-2026-' + String(Math.floor(Math.random() * 9000) + 1000),
+        date: now.getFullYear() + '.' + String(now.getMonth() + 1).padStart(2, '0') + '.' + String(now.getDate()).padStart(2, '0')
+      });
+      renderSenko();
+    });
+  }
+}
+
+/* ---------- 起動 ---------- */
+const member = loadMember();
+if (!member){
+  $('gateView').hidden = false;
+} else {
+  $('memberView').hidden = false;
+  $('welcome').textContent = 'おかえりなさい、' + member.name + 'さん。今日もよい観測を。';
+  renderCard(member);
+  renderSenko();
+
+  // 設定
+  $('setNo').textContent = member.no;
+  $('setSince').textContent = member.since;
+  $('setPay').textContent = member.pay;
+  $('oshiSel').innerHTML = MEMBERS.map(m => `<option value="${m.key}" ${m.key === member.oshiKey ? 'selected' : ''}>${esc(m.name)}</option>`).join('');
+  $('oshiBtn').addEventListener('click', () => {
+    const key = $('oshiSel').value;
+    const oshi = MEMBERS.find(m => m.key === key);
+    member.oshiKey = key;
+    member.oshiName = oshi.name;
+    saveMember(member);
+    renderCard(member);
+    $('oshiNote').classList.add('show');
+    setTimeout(() => $('oshiNote').classList.remove('show'), 2500);
+  });
+
+  $('archBtn').addEventListener('click', () => $('archNote').classList.add('show'));
+  $('quitBtn').addEventListener('click', () => {
+    try { localStorage.removeItem('fc_member'); localStorage.removeItem('fc_entry'); } catch {}
+    location.href = 'fanclub.html';
+  });
+}
+</script>
+</body>
+</html>

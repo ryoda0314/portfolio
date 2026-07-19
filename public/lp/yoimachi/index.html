@@ -107,7 +107,7 @@ ul,ol{list-style:none}
 }
 .sp-menu.open{clip-path:inset(0 0 0 0)}
 .sp-menu ul{padding:8px 24px 24px}
-.sp-menu a{display:block;padding:11px 4px;border-bottom:1px dotted var(--pink-line);font-family:"Jost",sans-serif;font-weight:500;font-size:13.5px;letter-spacing:.16em;color:var(--ink)}
+.sp-menu a{display:block;padding:11px 4px;border-bottom:1px solid #f4e3eb;font-family:"Jost",sans-serif;font-weight:500;font-size:13.5px;letter-spacing:.16em;color:var(--ink)}
 .sp-menu a small{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--gray);letter-spacing:.08em;margin-left:10px;font-size:11px}
 .sp-menu .sp-sns{display:flex;justify-content:center;gap:26px;padding:18px 0 4px;border-bottom:none}
 .sp-menu .sp-sns svg{width:20px;height:20px}
@@ -216,12 +216,18 @@ body.js .stagger > .rev:nth-child(5){transition-delay:.36s}
 body.js .stagger > .rev:nth-child(6){transition-delay:.45s}
 
 /* ---------- news ---------- */
-.news-list{max-width:860px;margin:0 auto;border-top:1px dotted var(--pink-line)}
-.news-item{display:grid;grid-template-columns:158px 1fr;gap:18px;align-items:baseline;padding:17px 6px;border-bottom:1px dotted var(--pink-line)}
+.news-list{max-width:860px;margin:0 auto;border-top:1px solid #f4e3eb}
+.news-item{border-bottom:1px solid #f4e3eb}
 .news-item.is-hidden{display:none}
+.news-head{display:grid;grid-template-columns:158px 1fr 18px;gap:18px;align-items:baseline;width:100%;padding:17px 6px;background:none;border:none;cursor:pointer;font:inherit;text-align:left}
 .news-date{font-family:"Jost",sans-serif;font-weight:400;font-size:13px;letter-spacing:.05em;color:var(--gray);font-variant-numeric:tabular-nums}
 .news-tt{font-weight:500;font-size:14px}
-.news-tt a:hover{color:var(--pink);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--pink-line)}
+.news-head:hover .news-tt{color:var(--pink)}
+.news-chev{align-self:center;justify-self:end;width:8px;height:8px;border-right:1.5px solid var(--pink);border-bottom:1.5px solid var(--pink);transform:rotate(45deg);transition:transform .3s}
+.news-item.open .news-chev{transform:rotate(225deg)}
+.news-body{overflow:hidden;max-height:0;transition:max-height .35s ease}
+.news-item.open .news-body{max-height:240px}
+.news-body p{padding:0 30px 16px 182px;font-size:13px;color:var(--gray)}
 
 /* ---------- member ---------- */
 .mem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
@@ -249,8 +255,8 @@ body.js .stagger > .rev:nth-child(6){transition-delay:.45s}
 .mem-info{padding:18px 20px 20px}
 .mem-name{font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:21px;letter-spacing:.06em;color:var(--mc)}
 .mem-yomi{font-family:"Jost",sans-serif;font-size:10.5px;letter-spacing:.26em;color:var(--gray);margin-bottom:10px}
-.mem-dl{border-top:1px dotted var(--pink-line);font-size:12px}
-.mem-dl div{display:grid;grid-template-columns:74px 1fr;gap:10px;padding:6px 0;border-bottom:1px dotted var(--pink-line)}
+.mem-dl{border-top:1px solid #f4e3eb;font-size:12px}
+.mem-dl div{display:grid;grid-template-columns:74px 1fr;gap:10px;padding:6px 0;border-bottom:1px solid #f4e3eb}
 .mem-dl dt{font-weight:700;color:var(--gray)}
 .mem-sw{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--mc);margin-right:6px;vertical-align:-1px}
 .mem-catch{margin-top:11px;font-size:12.5px;font-weight:700;color:var(--ink)}
@@ -482,6 +488,91 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
 .to-top.show{opacity:1;pointer-events:auto}
 .to-top:hover{background:var(--pink);color:#fff}
 
+/* ---------- splash ---------- */
+.splash{
+  position:fixed;inset:0;z-index:300;
+  background:linear-gradient(135deg,#f0417f 0%,#f973a5 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;
+  transition:opacity .5s ease,visibility .5s ease;
+}
+.splash.hide{opacity:0;visibility:hidden}
+.splash svg{width:64px;height:64px;animation:spBob 1s ease-in-out infinite alternate}
+.splash p{color:#fff;font-family:"Jost",sans-serif;font-weight:600;font-size:13px;letter-spacing:.4em}
+@keyframes spBob{from{transform:translateY(-7px)}to{transform:translateY(7px)}}
+
+/* ---------- nav active ---------- */
+.gnav a.active{color:var(--pink)}
+.gnav a.active::after{transform:scaleX(1)}
+
+/* ---------- about ---------- */
+.sec-sky{background:#eef7fd}
+.about-lead{max-width:700px;margin:0 auto;text-align:center;font-size:14px}
+.about-lead p + p{margin-top:1em}
+.tl{position:relative;max-width:680px;margin:44px auto 0}
+.tl::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;background:var(--pink-line)}
+.tl-item{position:relative;padding:0 0 24px 36px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:"";position:absolute;left:3px;top:5px;width:9px;height:9px;border-radius:50%;background:#fff;border:3px solid var(--pink)}
+.tl-date{font-family:"Jost",sans-serif;font-weight:600;font-size:12px;letter-spacing:.08em;color:var(--pink)}
+.tl-tt{font-weight:700;font-size:14.5px}
+.tl-bd{font-size:12.5px;color:var(--gray)}
+
+/* ---------- member more / modal ---------- */
+.mem-card{cursor:pointer}
+.mem-more{display:inline-block;margin-top:12px;font:inherit;font-weight:700;font-size:12px;color:var(--mc);background:none;border:none;cursor:pointer;padding:0;letter-spacing:.04em}
+.mem-card:hover .mem-more{text-decoration:underline;text-underline-offset:3px}
+.mem-modal-ovl{position:fixed;inset:0;z-index:150;background:rgba(60,60,70,.5);display:none;align-items:center;justify-content:center;padding:18px}
+.mem-modal-ovl.show{display:flex}
+.mem-modal{background:#fff;border-radius:18px;max-width:640px;width:100%;max-height:88vh;overflow-y:auto;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.25)}
+.mm-close{position:absolute;top:12px;right:12px;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.92);border:1px solid var(--pink-line);color:var(--pink);font-size:17px;line-height:1;cursor:pointer;z-index:2}
+.mm-close:hover{background:var(--pink);color:#fff}
+.mm-photo{height:280px;background:var(--mcp,#fdeef5);overflow:hidden}
+.mm-photo img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.mm-body{padding:20px 26px 26px}
+.mm-role{display:inline-block;background:var(--mc,var(--pink));color:#fff;font-weight:700;font-size:10.5px;letter-spacing:.1em;padding:4px 12px;border-radius:999px}
+.mm-center{display:inline-block;margin-left:8px;border:1px solid var(--mc,var(--pink));color:var(--mc,var(--pink));font-weight:700;font-size:10px;padding:3px 10px;border-radius:999px}
+.mm-name{font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:26px;letter-spacing:.06em;color:var(--mc,var(--pink));margin-top:10px}
+.mm-yomi{font-family:"Jost",sans-serif;font-size:11px;letter-spacing:.26em;color:var(--gray);margin-bottom:14px}
+.mm-dl{border-top:1px solid #f4e3eb;font-size:13px}
+.mm-dl div{display:grid;grid-template-columns:98px 1fr;gap:12px;padding:8px 0;border-bottom:1px solid #f4e3eb}
+.mm-dl dt{font-weight:700;color:var(--gray)}
+.mm-catch{margin-top:14px;font-weight:700;font-size:14.5px}
+.mm-qa{margin-top:14px;background:#fdf1f6;border-radius:12px;padding:14px 16px;font-size:12.5px;display:grid;gap:10px}
+.mm-qa .q{font-weight:700;color:var(--pink-dark)}
+body.modal-open{overflow:hidden}
+
+/* ---------- schedule past ---------- */
+#pastList{margin-top:18px}
+#pastList.is-hidden{display:none}
+.sch-item.past{opacity:.82}
+.sch-date.pd{background:#a9a3ad}
+.st-end{background:#8a8a94;color:#fff}
+.st-full{border:1px solid var(--pink-dark);color:var(--pink-dark);margin-left:6px}
+
+/* ---------- fc rank ---------- */
+.fc-rank{max-width:620px;margin:26px auto 0;background:rgba(255,255,255,.96);color:var(--ink);border-radius:12px;overflow:hidden;font-size:12.5px}
+.fr-row{display:grid;grid-template-columns:86px 108px 1fr;gap:10px;padding:10px 18px;border-bottom:1px solid #f4e3eb;align-items:baseline}
+.fr-row:last-child{border-bottom:none}
+.fr-head{background:var(--pink-pale);font-weight:700;color:var(--pink-dark)}
+.fr-row span:first-child{font-weight:700}
+
+/* ---------- disc links ---------- */
+.disc-links{display:flex;gap:14px;margin-top:6px}
+.disc-links a{font-size:11px;font-weight:700;color:var(--pink)}
+.disc-links a:hover{text-decoration:underline;text-underline-offset:3px}
+
+/* ---------- faq ---------- */
+.faq-list{max-width:760px;margin:0 auto;display:grid;gap:12px}
+.faq-item{background:#fff;border-radius:12px;box-shadow:0 4px 14px rgba(240,65,127,.08);overflow:hidden}
+.faq-q{display:flex;gap:10px;align-items:baseline;width:100%;background:none;border:none;cursor:pointer;padding:16px 46px 16px 18px;font:inherit;font-weight:700;font-size:13.5px;text-align:left;position:relative}
+.faq-q::before{content:"Q.";flex:none;font-family:"Jost",sans-serif;font-weight:600;color:var(--pink)}
+.faq-q::after{content:"";position:absolute;right:20px;top:50%;width:8px;height:8px;border-right:1.5px solid var(--pink);border-bottom:1.5px solid var(--pink);transform:translateY(-70%) rotate(45deg);transition:transform .3s}
+.faq-item.open .faq-q::after{transform:translateY(-30%) rotate(225deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-item.open .faq-a{max-height:260px}
+.faq-a p{padding:0 18px 16px 46px;font-size:13px;color:var(--gray)}
+.faq-a b{color:var(--pink-dark)}
+
 /* ---------- responsive ---------- */
 @media(max-width:960px){
   .gnav,.head-sns{display:none}
@@ -502,7 +593,11 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
   .mv-label{display:none}
   .spark{height:76px}
   .spark-pill{font-size:11.5px;padding:10px 18px}
-  .news-item{grid-template-columns:1fr;gap:2px;padding:14px 4px}
+  .news-head{grid-template-columns:1fr 18px;gap:2px 10px;padding:14px 4px}
+  .news-date{grid-column:1}
+  .news-tt{grid-column:1}
+  .news-chev{grid-column:2;grid-row:1 / span 2}
+  .news-body p{padding:0 8px 14px 4px}
   .mem-grid{grid-template-columns:1fr;max-width:400px;margin-left:auto;margin-right:auto}
   .mem-vis{height:150px}
   .sch-item{flex-wrap:wrap;gap:14px;padding:18px}
@@ -511,8 +606,13 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
   .sch-tk a{display:block;text-align:center}
   .goods-grid{gap:14px}
   .goods-card{padding:12px 10px 16px}
+  .mm-photo{height:200px}
+  .mm-body{padding:16px 18px 20px}
+  .news-body p{padding:0 8px 14px 4px}
+  .fr-row{grid-template-columns:64px 92px 1fr;padding:10px 12px}
 }
 @media(prefers-reduced-motion:reduce){
+  .splash{display:none}
   .spark::before,.marq-track{animation:none}
   .mv-prog{animation:none;width:38%}
   body.js .rev{opacity:1;transform:none;transition:none}
@@ -521,6 +621,21 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
 </style>
 </head>
 <body>
+
+<!-- ============ splash ============ -->
+<div class="splash" id="splash" aria-hidden="true">
+  <svg viewBox="0 0 32 32">
+    <rect width="32" height="32" rx="8" fill="#fff"/>
+    <circle cx="21" cy="12" r="6" fill="#ffd23e"/>
+    <g fill="#f0417f">
+      <circle cx="10" cy="18" r="5"/>
+      <circle cx="16" cy="15" r="6.5"/>
+      <circle cx="22" cy="19" r="4.5"/>
+      <rect x="8" y="17" width="17" height="6" rx="3"/>
+    </g>
+  </svg>
+  <p>TENKI-YOHO!</p>
+</div>
 
 <!-- ============ header ============ -->
 <header class="site-head">
@@ -542,6 +657,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
       <ul>
         <li><a href="#top">HOME</a></li>
         <li><a href="#news">NEWS</a></li>
+        <li><a href="#about">ABOUT</a></li>
         <li><a href="#member">MEMBER</a></li>
         <li><a href="#disco">DISCO</a></li>
         <li><a href="#schedule">SCHEDULE</a></li>
@@ -566,6 +682,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
   <ul>
     <li><a href="#top">HOME</a></li>
     <li><a href="#news">NEWS<small>お知らせ</small></a></li>
+    <li><a href="#about">ABOUT<small>テンキヨホー!とは</small></a></li>
     <li><a href="#member">MEMBER<small>メンバー</small></a></li>
     <li><a href="#disco">DISCO<small>ディスコグラフィ</small></a></li>
     <li><a href="#schedule">SCHEDULE<small>ライブ・イベント</small></a></li>
@@ -614,43 +731,137 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
     <div class="sec-body">
       <ul class="news-list rev">
         <li class="news-item">
-          <time class="news-date" datetime="2026-07-17">2026/7/17(Fri)</time>
-          <p class="news-tt"><a href="#news">オフィシャルサイトをリニューアルしました</a></p>
+          <button class="news-head" type="button" aria-expanded="false">
+            <time class="news-date" datetime="2026-07-19">2026/7/19(Sun)</time>
+            <span class="news-tt">メンバー紹介ページを拡充しました</span>
+            <span class="news-chev" aria-hidden="true"></span>
+          </button>
+          <div class="news-body"><p>各メンバーの詳細プロフィール(身長・出身・趣味・特技・好きな天気)とQ&amp;Aを追加しました。MEMBERのカードをタップするとご覧いただけます。推しの「好きな天気」もぜひチェックしてください。</p></div>
         </li>
         <li class="news-item">
-          <time class="news-date" datetime="2026-07-10">2026/7/10(Fri)</time>
-          <p class="news-tt"><a href="#schedule">ワンマンライブ「10月の雨はつめたくない」ファンクラブ先行抽選のご案内</a></p>
+          <button class="news-head" type="button" aria-expanded="false">
+            <time class="news-date" datetime="2026-07-17">2026/7/17(Fri)</time>
+            <span class="news-tt">オフィシャルサイトをリニューアルしました</span>
+            <span class="news-chev" aria-hidden="true"></span>
+          </button>
+          <div class="news-body"><p>テンキヨホー!のオフィシャルサイトをリニューアルしました。最新情報は本サイトのNEWSと公式Xでお知らせしていきます。今後ともよろしくお願いいたします。</p></div>
         </li>
         <li class="news-item">
-          <time class="news-date" datetime="2026-07-01">2026/7/1(Wed)</time>
-          <p class="news-tt"><a href="#disco">1stミニアルバム「観測史上、最高!」本日リリース!</a></p>
+          <button class="news-head" type="button" aria-expanded="false">
+            <time class="news-date" datetime="2026-07-10">2026/7/10(Fri)</time>
+            <span class="news-tt">ワンマンライブ「10月の雨はつめたくない」ファンクラブ先行抽選のご案内</span>
+            <span class="news-chev" aria-hidden="true"></span>
+          </button>
+          <div class="news-body"><p>10/10(土)代々木ミナモホール公演のFC先行抽選を受付中です。受付期間は7/27(月)23:59まで。お申し込みはファンクラブ「かんそくたい」会員ページからお願いいたします。</p></div>
         </li>
         <li class="news-item">
-          <time class="news-date" datetime="2026-06-11">2026/6/11(Thu)</time>
-          <p class="news-tt"><a href="#news">宵町める生誕祭「めるの日2026」満員御礼。ご来場ありがとうございました</a></p>
+          <button class="news-head" type="button" aria-expanded="false">
+            <time class="news-date" datetime="2026-07-01">2026/7/1(Wed)</time>
+            <span class="news-tt">1stミニアルバム「観測史上、最高!」本日リリース!</span>
+            <span class="news-chev" aria-hidden="true"></span>
+          </button>
+          <div class="news-body"><p>全8曲入り。初回仕様にはメンバートレカ(全6種)からランダムで1枚封入。ライブ会場・公式通販・一部レコード店にてお求めいただけます。各配信サイトでも配信中です。</p></div>
         </li>
         <li class="news-item">
-          <time class="news-date" datetime="2026-05-18">2026/5/18(Mon)</time>
-          <p class="news-tt"><a href="#goods">新作グッズ「ウェザーペンライト(6色切替)」通販取り扱い開始のお知らせ</a></p>
+          <button class="news-head" type="button" aria-expanded="false">
+            <time class="news-date" datetime="2026-06-11">2026/6/11(Thu)</time>
+            <span class="news-tt">宵町める生誕祭「めるの日2026」満員御礼。ご来場ありがとうございました</span>
+            <span class="news-chev" aria-hidden="true"></span>
+          </button>
+          <div class="news-body"><p>6/11(木)東高円寺 雨音堂にて開催した生誕祭ワンマン、満員御礼にて終演いたしました。当日の「観測史上、最高!」のライブ映像をMOVIEにて公開中です。</p></div>
         </li>
         <li class="news-item is-hidden">
-          <time class="news-date" datetime="2026-04-01">2026/4/1(Wed)</time>
-          <p class="news-tt"><a href="#fanclub">ファンクラブ「かんそくたい」隊員数2,000人突破のお知らせ</a></p>
+          <button class="news-head" type="button" aria-expanded="false">
+            <time class="news-date" datetime="2026-05-18">2026/5/18(Mon)</time>
+            <span class="news-tt">新作グッズ「ウェザーペンライト(6色切替)」通販取り扱い開始のお知らせ</span>
+            <span class="news-chev" aria-hidden="true"></span>
+          </button>
+          <div class="news-body"><p>メンバーカラー6色に切り替えられるウェザーペンライトほか、新作グッズの通販を開始しました。ラインナップはGOODSをご覧ください。</p></div>
         </li>
         <li class="news-item is-hidden">
-          <time class="news-date" datetime="2026-02-02">2026/2/2(Mon)</time>
-          <p class="news-tt"><a href="#news">音楽誌「クォータリー・アンブレラ」春号 メンバー全員インタビュー掲載のお知らせ</a></p>
+          <button class="news-head" type="button" aria-expanded="false">
+            <time class="news-date" datetime="2026-04-01">2026/4/1(Wed)</time>
+            <span class="news-tt">ファンクラブ「かんそくたい」隊員数2,000人突破のお知らせ</span>
+            <span class="news-chev" aria-hidden="true"></span>
+          </button>
+          <div class="news-body"><p>いつも観測ありがとうございます。隊員数2,000人を記念して、会員限定配信「かんそくたいミーティング」の拡大版を実施予定です。エイプリルフールですが、本当です。</p></div>
         </li>
         <li class="news-item is-hidden">
-          <time class="news-date" datetime="2026-01-20">2026/1/20(Tue)</time>
-          <p class="news-tt"><a href="#disco">2ndシングル「どしゃぶりダンスホール」本日リリース!</a></p>
+          <button class="news-head" type="button" aria-expanded="false">
+            <time class="news-date" datetime="2026-02-02">2026/2/2(Mon)</time>
+            <span class="news-tt">音楽誌「クォータリー・アンブレラ」春号 メンバー全員インタビュー掲載のお知らせ</span>
+            <span class="news-chev" aria-hidden="true"></span>
+          </button>
+          <div class="news-body"><p>結成からの歩みと、10月のワンマンへの意気込みを6人全員で語っています。全国の書店・オンラインにて発売中です。</p></div>
         </li>
         <li class="news-item is-hidden">
-          <time class="news-date" datetime="2025-12-24">2025/12/24(Wed)</time>
-          <p class="news-tt"><a href="#schedule">クリスマスライブ「聖夜、みぞれ」満員御礼</a></p>
+          <button class="news-head" type="button" aria-expanded="false">
+            <time class="news-date" datetime="2026-01-20">2026/1/20(Tue)</time>
+            <span class="news-tt">2ndシングル「どしゃぶりダンスホール」本日リリース!</span>
+            <span class="news-chev" aria-hidden="true"></span>
+          </button>
+          <div class="news-body"><p>カップリングには「長靴のマーチ(テンキヨホー! ver.)」を収録。ミュージックビデオとダンスプラクティス映像をMOVIEにて公開中です。</p></div>
+        </li>
+        <li class="news-item is-hidden">
+          <button class="news-head" type="button" aria-expanded="false">
+            <time class="news-date" datetime="2025-12-24">2025/12/24(Wed)</time>
+            <span class="news-tt">クリスマスライブ「聖夜、みぞれ」満員御礼</span>
+            <span class="news-chev" aria-hidden="true"></span>
+          </button>
+          <div class="news-body"><p>ご来場ありがとうございました。アンコールの「また、あした天気になあれ」で降った紙吹雪(みぞれ)は、スタッフが3日かけて仕込みました。</p></div>
         </li>
       </ul>
       <button class="btn-v" id="newsMore" type="button">VIEW ALL LIST</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ about ============ -->
+<section class="sec sec-sky" id="about">
+  <div class="wrap">
+    <h2 class="sec-h">ABOUT</h2>
+    <div class="sec-body">
+      <div class="about-lead rev">
+        <p>テンキヨホー!は、2025年結成・青写真レコーズ所属の6人組「お天気アイドル」。<br>メンバー全員が天気の「担当」を持ち、あしたの天気を(気持ちだけ)決めています。</p>
+        <p>合言葉は<b>「あしたの天気は、わたしたちが決める!」</b>。<br>ライブは雨天決行、むしろ歓迎。どんな天気の日も、あなたの今日を晴れにします。</p>
+      </div>
+      <div class="tl rev">
+        <div class="tl-item">
+          <p class="tl-date">2025.06</p>
+          <p class="tl-tt">高円寺の喫茶「アメマチ」にて結成</p>
+          <p class="tl-bd">雨宿りに集まった6人が意気投合。その場でグループ名が決まる(所要時間8分)。</p>
+        </div>
+        <div class="tl-item">
+          <p class="tl-date">2025.08.08</p>
+          <p class="tl-tt">1stシングル「アイドルテンキヨホー!」でデビュー</p>
+          <p class="tl-bd">デビューライブは東高円寺 雨音堂。当日の降水確率は90%(大歓声)。</p>
+        </div>
+        <div class="tl-item">
+          <p class="tl-date">2025.12.24</p>
+          <p class="tl-tt">クリスマスワンマン「聖夜、みぞれ」満員御礼</p>
+          <p class="tl-bd">初のソールドアウト公演。</p>
+        </div>
+        <div class="tl-item">
+          <p class="tl-date">2026.01.20</p>
+          <p class="tl-tt">2ndシングル「どしゃぶりダンスホール」リリース</p>
+          <p class="tl-bd">MVは本物の雨のなかで撮影。全員風邪をひかなかった(奇跡)。</p>
+        </div>
+        <div class="tl-item">
+          <p class="tl-date">2026.04.22</p>
+          <p class="tl-tt">3rdシングル「虹、かかりました。」配信リリース</p>
+          <p class="tl-bd">配信チャートで自己最高位を記録。</p>
+        </div>
+        <div class="tl-item">
+          <p class="tl-date">2026.07.01</p>
+          <p class="tl-tt">1stミニアルバム「観測史上、最高!」リリース</p>
+          <p class="tl-bd">これまでの全シングルと新曲4曲を収録した、いまのテンキヨホー!の全部入り。</p>
+        </div>
+        <div class="tl-item">
+          <p class="tl-date">2026.10.10</p>
+          <p class="tl-tt">ワンマンライブ「10月の雨はつめたくない」開催決定</p>
+          <p class="tl-bd">グループ史上最大キャパの代々木ミナモホールにて。FC先行受付中。</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -662,7 +873,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
     <div class="sec-body">
       <div class="mem-grid stagger">
 
-        <div class="mem-card rev" style="--mc:var(--c-meru);--mcp:#fde7f0">
+        <div class="mem-card rev" data-member="meru" style="--mc:var(--c-meru);--mcp:#fde7f0">
           <div class="mem-vis">
             <img src="member-01-meru.jpg" alt="宵町めるのアーティスト写真" loading="lazy" width="1200" height="675">
             <span class="mem-role">雨担当</span>
@@ -676,10 +887,11 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
               <div><dt>カラー</dt><dd><span class="mem-sw" aria-hidden="true"></span>あまやどりピンク</dd></div>
             </dl>
             <p class="mem-catch">「雨の日の、味方です。」</p>
+            <button class="mem-more" type="button">くわしく見る ▸</button>
           </div>
         </div>
 
-        <div class="mem-card rev" style="--mc:var(--c-pokari);--mcp:#fdf3da">
+        <div class="mem-card rev" data-member="pokari" style="--mc:var(--c-pokari);--mcp:#fdf3da">
           <div class="mem-vis">
             <img src="member-02-pokari.jpg" alt="日向ぽかりのアーティスト写真" loading="lazy" width="1200" height="675">
             <span class="mem-role">晴れ担当</span>
@@ -692,10 +904,11 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
               <div><dt>カラー</dt><dd><span class="mem-sw" aria-hidden="true"></span>ひなたイエロー</dd></div>
             </dl>
             <p class="mem-catch">「今日も元気に光合成!」</p>
+            <button class="mem-more" type="button">くわしく見る ▸</button>
           </div>
         </div>
 
-        <div class="mem-card rev" style="--mc:var(--c-fuwano);--mcp:#f1e9fa">
+        <div class="mem-card rev" data-member="fuwano" style="--mc:var(--c-fuwano);--mcp:#f1e9fa">
           <div class="mem-vis">
             <img src="member-03-fuwano.jpg" alt="雲居ふわののアーティスト写真" loading="lazy" width="1200" height="675">
             <span class="mem-role">くもり担当</span>
@@ -708,10 +921,11 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
               <div><dt>カラー</dt><dd><span class="mem-sw" aria-hidden="true"></span>ゆうぐもパープル</dd></div>
             </dl>
             <p class="mem-catch">「くもりの日って、おふとんの匂いがしませんか。」</p>
+            <button class="mem-more" type="button">くわしく見る ▸</button>
           </div>
         </div>
 
-        <div class="mem-card rev" style="--mc:var(--c-konko);--mcp:#e5f4fc">
+        <div class="mem-card rev" data-member="konko" style="--mc:var(--c-konko);--mcp:#e5f4fc">
           <div class="mem-vis">
             <img src="member-04-konko.jpg" alt="氷雨こんこのアーティスト写真" loading="lazy" width="1200" height="675">
             <span class="mem-role">ゆき担当</span>
@@ -724,10 +938,11 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
               <div><dt>カラー</dt><dd><span class="mem-sw" aria-hidden="true"></span>こなゆきブルー</dd></div>
             </dl>
             <p class="mem-catch">「とけないうちに、すきって言って。」</p>
+            <button class="mem-more" type="button">くわしく見る ▸</button>
           </div>
         </div>
 
-        <div class="mem-card rev" style="--mc:var(--c-pika);--mcp:#fdeadd">
+        <div class="mem-card rev" data-member="pika" style="--mc:var(--c-pika);--mcp:#fdeadd">
           <div class="mem-vis">
             <img src="member-05-pika.jpg" alt="鳴海ぴかのアーティスト写真" loading="lazy" width="1200" height="675">
             <span class="mem-role">かみなり担当</span>
@@ -740,10 +955,11 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
               <div><dt>カラー</dt><dd><span class="mem-sw" aria-hidden="true"></span>いなずまオレンジ</dd></div>
             </dl>
             <p class="mem-catch">「ごろごろするのが得意です(雷も、おうちでも)。」</p>
+            <button class="mem-more" type="button">くわしく見る ▸</button>
           </div>
         </div>
 
-        <div class="mem-card rev" style="--mc:var(--c-iroha);--mcp:#e4f6ec">
+        <div class="mem-card rev" data-member="iroha" style="--mc:var(--c-iroha);--mcp:#e4f6ec">
           <div class="mem-vis">
             <img src="member-06-iroha.jpg" alt="虹本いろはのアーティスト写真" loading="lazy" width="1200" height="675">
             <span class="mem-role">にじ担当</span>
@@ -756,6 +972,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
               <div><dt>カラー</dt><dd><span class="mem-sw" aria-hidden="true"></span>あまあがりグリーン</dd></div>
             </dl>
             <p class="mem-catch">「7色ぜんぶ、わたしの色!」</p>
+            <button class="mem-more" type="button">くわしく見る ▸</button>
           </div>
         </div>
 
@@ -780,6 +997,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
             <p class="disc-type">1ST MINI ALBUM / CD &amp; DIGITAL</p>
             <h3 class="disc-tt">観測史上、最高!</h3>
             <p class="disc-data">2026.07.01 RELEASE<br>AOJ-0201 / ¥2,750(税込)</p>
+            <p class="disc-links"><a href="#disco">▸ 配信で聴く</a><a href="#movie">▸ ライブ映像を見る</a></p>
             <details>
               <summary>収録曲(全8曲)</summary>
               <ol>
@@ -804,6 +1022,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
             <p class="disc-type">3RD SINGLE / DIGITAL</p>
             <h3 class="disc-tt">虹、かかりました。</h3>
             <p class="disc-data">2026.04.22 RELEASE<br>各配信サイトにて</p>
+            <p class="disc-links"><a href="#disco">▸ 配信で聴く</a><a href="#movie">▸ MVを見る</a></p>
           </div>
         </div>
 
@@ -815,6 +1034,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
             <p class="disc-type">2ND SINGLE / CD &amp; DIGITAL</p>
             <h3 class="disc-tt">どしゃぶりダンスホール</h3>
             <p class="disc-data">2026.01.20 RELEASE<br>AOJ-0102 / ¥1,200(税込)</p>
+            <p class="disc-links"><a href="#disco">▸ 配信で聴く</a><a href="#movie">▸ MVを見る</a></p>
             <details>
               <summary>収録曲(全3曲)</summary>
               <ol>
@@ -834,6 +1054,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
             <p class="disc-type">1ST SINGLE / CD &amp; DIGITAL</p>
             <h3 class="disc-tt">アイドルテンキヨホー!</h3>
             <p class="disc-data">2025.08.08 RELEASE<br>AOJ-0101 / ¥1,100(税込)</p>
+            <p class="disc-links"><a href="#disco">▸ 配信で聴く</a><a href="#movie">▸ MVを見る</a></p>
             <details>
               <summary>収録曲(全3曲)</summary>
               <ol>
@@ -871,7 +1092,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
             <p class="sch-info">OPEN 17:00 / START 17:30|前売 ¥3,000 / 当日 ¥3,500(いずれもドリンク代別)</p>
             <p class="sch-note">※出演順は当日発表となります。</p>
           </div>
-          <div class="sch-tk"><a href="#contact">TICKET</a></div>
+          <div class="sch-tk"><a href="ticket.html">TICKET</a></div>
         </div>
 
         <div class="sch-item rev">
@@ -887,7 +1108,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
             <p class="sch-info">出演時間 13:40〜(あまがさステージ)|チケット・詳細はイベント公式サイトをご確認ください</p>
             <p class="sch-note">※雨天決行(むしろ歓迎)。荒天の場合のみ中止となります。</p>
           </div>
-          <div class="sch-tk"><a href="#contact">DETAIL</a></div>
+          <div class="sch-tk"><a href="ticket.html">DETAIL</a></div>
         </div>
 
         <div class="sch-item rev">
@@ -902,7 +1123,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
             <p class="sch-venue">東高円寺 雨音堂</p>
             <p class="sch-info">OPEN 17:30 / START 18:00|前売 ¥3,200 / 当日 ¥3,700(いずれもドリンク代別)</p>
           </div>
-          <div class="sch-tk"><a href="#contact">TICKET</a></div>
+          <div class="sch-tk"><a href="ticket.html">TICKET</a></div>
         </div>
 
         <div class="sch-item rev">
@@ -918,11 +1139,55 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
             <p class="sch-info">OPEN 17:15 / START 18:00|全自由(整理番号付) ¥4,500(ドリンク代別)</p>
             <p class="sch-note">※FC先行:7/10(金)12:00〜7/27(月)23:59|一般発売:8/22(土)10:00〜<br>※未就学児入場不可。営利目的のチケット転売は固くお断りいたします。</p>
           </div>
-          <div class="sch-tk"><a href="#fanclub">FC先行はこちら</a></div>
+          <div class="sch-tk"><a href="fanclub.html">FC先行はこちら</a></div>
         </div>
 
       </div>
-      <p class="sch-foot">終了した公演は<a href="#schedule">アーカイブ</a>をご覧ください。</p>
+
+      <div class="sch-list is-hidden" id="pastList">
+        <div class="sch-item past">
+          <div class="sch-date pd">
+            <span class="y">2026</span>
+            <span class="d">6.11</span>
+            <span class="w">THU</span>
+          </div>
+          <div class="sch-body">
+            <span class="st st-end">終了</span><span class="st st-full">満員御礼</span>
+            <h3 class="sch-tt">宵町める生誕祭「めるの日2026」</h3>
+            <p class="sch-venue">東高円寺 雨音堂</p>
+            <p class="sch-info">ライブ映像をMOVIEにて公開中です</p>
+          </div>
+        </div>
+        <div class="sch-item past">
+          <div class="sch-date pd">
+            <span class="y">2026</span>
+            <span class="d">5.5</span>
+            <span class="w">TUE・祝</span>
+          </div>
+          <div class="sch-body">
+            <span class="st st-end">終了</span>
+            <h3 class="sch-tt">「アメマチこども天気まつり」</h3>
+            <p class="sch-venue">高円寺 アメマチ商店街 特設ステージ</p>
+            <p class="sch-info">観覧無料の野外ミニライブでした。傘の折り紙、たくさん作りました</p>
+          </div>
+        </div>
+        <div class="sch-item past">
+          <div class="sch-date pd">
+            <span class="y">2026</span>
+            <span class="d">3.20</span>
+            <span class="w">FRI・祝</span>
+          </div>
+          <div class="sch-body">
+            <span class="st st-end">終了</span>
+            <h3 class="sch-tt">主催イベント「春のかんそく祭 vol.1」</h3>
+            <p class="sch-venue">新代田ライトハウス</p>
+            <p class="sch-info">対バン形式の初主催イベント</p>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn-v" id="pastBtn" type="button">PAST EVENTS</button>
+      <p class="sch-foot">※各公演、終演後に特典会(チェキ会)を予定しています。参加方法は当日の物販ブースにてご案内します。</p>
     </div>
   </div>
 </section>
@@ -1046,6 +1311,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
 
       </div>
       <p class="goods-note">※ライブ会場の物販ブース、および公式通販にて販売中です。会場の混雑状況により、お一人さまあたりの購入点数を制限させていただく場合があります。</p>
+      <a class="btn-v" href="goods.html">GOODS &amp; ONLINE STORE</a>
     </div>
   </div>
 </section>
@@ -1075,7 +1341,14 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
         <div class="fc-bt">デジタル隊員証<span class="fc-bd">継続で階級が上がります(隊員→班長→隊長)。隊長には特に何の権限もありません。</span></div>
       </li>
     </ul>
-    <a class="fc-join" href="#contact">入会のご案内</a>
+    <div class="fc-rank rev">
+      <div class="fr-row fr-head"><span>ランク</span><span>条件</span><span>デジタル隊員証</span></div>
+      <div class="fr-row"><span>隊員</span><span>入会時〜</span><span>そらいろ</span></div>
+      <div class="fr-row"><span>班長</span><span>継続1年〜</span><span>ぎんいろ</span></div>
+      <div class="fr-row"><span>隊長</span><span>継続3年〜</span><span>きんいろ(生誕祭の乾杯係に任命されます)</span></div>
+    </div>
+    <a class="fc-join" href="fanclub.html">入会のご案内</a>
+    <p class="fc-note"><a href="fc-mypage.html" style="color:#fff;text-decoration:underline;text-underline-offset:3px;font-weight:700">会員の方はこちら(マイページ)</a></p>
     <p class="fc-note">※お支払いはクレジットカード・キャリア決済に対応しています。</p>
   </div>
 </section>
@@ -1087,6 +1360,26 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
     <p class="x-lead">Posts by @tenkiyoho_staff</p>
     <!-- 公開時はXの埋め込みウィジェットに差し替え -->
     <div class="x-embed rev">
+      <article class="x-post">
+        <div class="x-head">
+          <svg class="x-ava" viewBox="0 0 38 38" aria-hidden="true">
+            <circle cx="19" cy="19" r="19" fill="#f0417f"/>
+            <circle cx="25" cy="14" r="6" fill="#ffd23e"/>
+            <g fill="#fff">
+              <circle cx="12" cy="22" r="5"/>
+              <circle cx="18" cy="19" r="6.5"/>
+              <circle cx="25" cy="23" r="4.5"/>
+              <rect x="10" y="21" width="18" height="6" rx="3"/>
+            </g>
+          </svg>
+          <div>
+            <p class="x-nm">テンキヨホー!【公式】</p>
+            <p class="x-id">@tenkiyoho_staff</p>
+          </div>
+        </div>
+        <p class="x-body">【スタッフ】メンバー紹介ページがパワーアップしました。プロフィールとQ&amp;A、増えてます。ふわのの回答は3回寝落ちしながら書いてもらいました</p>
+        <p class="x-time">0:30 PM · Jul 19, 2026</p>
+      </article>
       <article class="x-post">
         <div class="x-head">
           <svg class="x-ava" viewBox="0 0 38 38" aria-hidden="true">
@@ -1128,6 +1421,41 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
         <p class="x-time">8:12 PM · Jul 10, 2026</p>
       </article>
       <a class="x-more" href="#x">もっと見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ faq ============ -->
+<section class="sec sec-sky" id="faq">
+  <div class="wrap">
+    <h2 class="sec-h">FAQ</h2>
+    <div class="sec-body">
+      <div class="faq-list stagger">
+        <div class="faq-item rev">
+          <button class="faq-q" type="button" aria-expanded="false">はじめてライブに行きます。なにか必要ですか?</button>
+          <div class="faq-a"><p><b>A.</b> チケットと元気があれば大丈夫です。ペンライトはお持ちでなくても楽しめますし、会場の物販でも販売しています(ウェザーペンライト推奨)。服装は自由です。雨の日は長靴のお客さまが多めです。くわしくは<a href="beginners.html" style="color:var(--pink);text-decoration:underline;text-underline-offset:3px">はじめての方へ</a>をご覧ください。</p></div>
+        </div>
+        <div class="faq-item rev">
+          <button class="faq-q" type="button" aria-expanded="false">特典会(チェキ会)ってなんですか?</button>
+          <div class="faq-a"><p><b>A.</b> 終演後に開催している、メンバーと1対1でチェキ撮影やお話ができる時間です。参加券は当日の物販ブースで販売します。はじめての方は「はじめてです」と言ってもらえたら、メンバーがぜんぶリードします。</p></div>
+        </div>
+        <div class="faq-item rev">
+          <button class="faq-q" type="button" aria-expanded="false">推しメンの決め方がわかりません。</button>
+          <div class="faq-a"><p><b>A.</b> 「今日の天気」で決める方が多いです。雨の日に来ためるさん推しの方、晴れの日のぽかりさん推しの方…という具合です。決められない場合は、box推し(全員推し)という道もあります。</p></div>
+        </div>
+        <div class="faq-item rev">
+          <button class="faq-q" type="button" aria-expanded="false">雨の日の公演は中止になりますか?</button>
+          <div class="faq-a"><p><b>A.</b> 雨天決行です。むしろ本領発揮です。台風などの荒天時のみ、公式Xと本サイトのNEWSでお知らせします。</p></div>
+        </div>
+        <div class="faq-item rev">
+          <button class="faq-q" type="button" aria-expanded="false">ライブ中の撮影・録音はできますか?</button>
+          <div class="faq-a"><p><b>A.</b> 公演によって異なります。撮影可能な公演では入場時にご案内します。動画の撮影・録音は全公演で禁止です。</p></div>
+        </div>
+        <div class="faq-item rev">
+          <button class="faq-q" type="button" aria-expanded="false">ファンレターはどこに送ればいいですか?</button>
+          <div class="faq-a"><p><b>A.</b> ページ下部に記載の宛先までお願いします。メンバー全員、ちゃんと読んでいます(ふわのは読みながら寝ることがありますが、読んでいます)。</p></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1184,6 +1512,22 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
 
 </main>
 
+<!-- ============ member modal ============ -->
+<div class="mem-modal-ovl" id="memOvl" role="dialog" aria-modal="true" aria-label="メンバー詳細">
+  <div class="mem-modal" id="memModal">
+    <button class="mm-close" id="mmClose" type="button" aria-label="閉じる">×</button>
+    <div class="mm-photo"><img id="mmImg" src="" alt=""></div>
+    <div class="mm-body">
+      <span class="mm-role" id="mmRole"></span><span class="mm-center" id="mmCenter" style="display:none">★ CENTER</span>
+      <h3 class="mm-name" id="mmName"></h3>
+      <p class="mm-yomi" id="mmYomi"></p>
+      <dl class="mm-dl" id="mmDl"></dl>
+      <p class="mm-catch" id="mmCatch"></p>
+      <div class="mm-qa" id="mmQa"></div>
+    </div>
+  </div>
+</div>
+
 <!-- ============ footer ============ -->
 <footer class="site-foot">
   <div class="wrap">
@@ -1203,6 +1547,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
     <nav class="foot-nav" aria-label="フッターナビゲーション">
       <a href="#top">HOME</a>
       <a href="#news">NEWS</a>
+      <a href="#about">ABOUT</a>
       <a href="#member">MEMBER</a>
       <a href="#disco">DISCO</a>
       <a href="#schedule">SCHEDULE</a>
@@ -1222,8 +1567,9 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
       〒166-0002 東京都杉並区高円寺北3-21-8 アオシャシンビル2F 青写真レコーズ「テンキヨホー!」係
     </div>
     <div class="foot-legal">
+      当サイトは架空のアイドルグループのデモサイトです。掲載の人物画像・動画はAIによる生成物であり、実在の人物ではありません。<br>
       当サイトに掲載の画像・文章等の無断転載・無断使用を固くお断りいたします。<br>
-      <a href="privacy.html">プライバシーポリシー</a>&nbsp;&nbsp;© TENKI-YOHO! / AOJASHIN RECORDS All rights reserved.
+      <a href="beginners.html">はじめての方へ</a>&nbsp;&nbsp;<a href="ticket.html">チケットのご案内</a>&nbsp;&nbsp;<a href="goods.html">グッズ・通販</a>&nbsp;&nbsp;<a href="fanclub.html">FANCLUB入会案内</a>&nbsp;&nbsp;<a href="privacy.html">プライバシーポリシー</a>&nbsp;&nbsp;© TENKI-YOHO! / AOJASHIN RECORDS All rights reserved.
     </div>
     <p class="foot-agency">AOJASHIN RECORDS</p>
   </div>
@@ -1308,6 +1654,148 @@ document.body.classList.add('js');
     toTop.classList.toggle('show', window.scrollY > 600);
   }, { passive: true });
   toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+})();
+
+// ---------- スプラッシュ ----------
+(function(){
+  const sp = document.getElementById('splash');
+  const hide = () => sp.classList.add('hide');
+  window.addEventListener('load', () => setTimeout(hide, 500));
+  setTimeout(hide, 2500); // 読み込みが遅い場合の保険
+})();
+
+// ---------- ナビのスクロール連動ハイライト ----------
+(function(){
+  const links = new Map();
+  document.querySelectorAll('.gnav a[href^="#"]').forEach(a => {
+    const id = a.getAttribute('href').slice(1);
+    if (id && id !== 'top') links.set(id, a);
+  });
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (!en.isIntersecting) return;
+      links.forEach(a => a.classList.remove('active'));
+      const a = links.get(en.target.id);
+      if (a) a.classList.add('active');
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  links.forEach((_, id) => {
+    const sec = document.getElementById(id);
+    if (sec) io.observe(sec);
+  });
+})();
+
+// ---------- NEWS / FAQ アコーディオン ----------
+(function(){
+  function accordion(headSel){
+    document.querySelectorAll(headSel).forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const open = item.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open);
+      });
+    });
+  }
+  accordion('.news-head');
+  accordion('.faq-q');
+})();
+
+// ---------- 終了公演の表示切り替え ----------
+(function(){
+  const btn = document.getElementById('pastBtn');
+  const list = document.getElementById('pastList');
+  btn.addEventListener('click', () => {
+    const hidden = list.classList.toggle('is-hidden');
+    btn.textContent = hidden ? 'PAST EVENTS' : 'CLOSE';
+  });
+})();
+
+// ---------- メンバー詳細モーダル ----------
+(function(){
+  const MEMBERS = {
+    meru: {
+      img: 'member-01-meru.jpg', mc: '#f0417f', mcp: '#fde7f0',
+      role: '雨担当', center: true, name: '宵町める', yomi: 'YOIMACHI MERU',
+      dl: [['誕生日','6月11日(傘の日)'],['身長','152cm'],['出身','東京都'],['カラー','あまやどりピンク'],['趣味','傘集め(ビニール傘限定)、天気図をながめる'],['特技','雨の匂いで降り始めがわかる'],['好きな天気','小雨(音がいちばんいいので)']],
+      catch: '「雨の日の、味方です。」',
+      qa: [['最近うれしかったことは?','梅雨入りが平年より3日早かったことです。'],['メンバーからひとこと','ぽかり「めるちゃんの傘、いつも入れてくれてありがとう!」']]
+    },
+    pokari: {
+      img: 'member-02-pokari.jpg', mc: '#f2a80c', mcp: '#fdf3da',
+      role: '晴れ担当', center: false, name: '日向ぽかり', yomi: 'HINATA POKARI',
+      dl: [['誕生日','8月1日'],['身長','155cm'],['出身','神奈川県'],['カラー','ひなたイエロー'],['趣味','朝さんぽ、日焼け止めあつめ'],['特技','ひなたなら3秒で寝られる'],['好きな天気','快晴(雲ひとつないやつ)']],
+      catch: '「今日も元気に光合成!」',
+      qa: [['雨の日はどうしてる?','めるちゃんの傘に入れてもらいます!'],['メンバーからひとこと','める「太陽みたいな子です。まぶしい。」']]
+    },
+    fuwano: {
+      img: 'member-03-fuwano.jpg', mc: '#9d6fd6', mcp: '#f1e9fa',
+      role: 'くもり担当', center: false, name: '雲居ふわの', yomi: 'KUMOI FUWANO',
+      dl: [['誕生日','10月15日'],['身長','158cm'],['出身','京都府'],['カラー','ゆうぐもパープル'],['趣味','おふとん、雲の観察(にゅうどう雲派)'],['特技','二度寝からの三度寝'],['好きな天気','厚めのくもり(おふとん日和)']],
+      catch: '「くもりの日って、おふとんの匂いがしませんか。」',
+      qa: [['朝、起きられますか?','くもりの日は、湿度で起きられます。'],['メンバーからひとこと','ぴか「レッスン室でも寝てる。逆にすごい。」']]
+    },
+    konko: {
+      img: 'member-04-konko.jpg', mc: '#4fb7e8', mcp: '#e5f4fc',
+      role: 'ゆき担当', center: false, name: '氷雨こんこ', yomi: 'HISAME KONKO',
+      dl: [['誕生日','1月20日(大寒)'],['身長','150cm'],['出身','北海道'],['カラー','こなゆきブルー'],['趣味','かき氷(冬でも食べる)、編みもの'],['特技','雪の結晶の種類あて'],['好きな天気','粉雪(まちの音がなくなるのがすき)']],
+      catch: '「とけないうちに、すきって言って。」',
+      qa: [['夏は大丈夫ですか?','むり、です。楽屋の冷房は18度にしてもらっています。'],['メンバーからひとこと','いろは「たまに雪みたいにしずかにいなくなる」']]
+    },
+    pika: {
+      img: 'member-05-pika.jpg', mc: '#f0762b', mcp: '#fdeadd',
+      role: 'かみなり担当', center: false, name: '鳴海ぴか', yomi: 'NARUMI PIKA',
+      dl: [['誕生日','9月9日'],['身長','160cm'],['出身','大阪府'],['カラー','いなずまオレンジ'],['趣味','ドラム、筋トレ(気が向いた日だけ)'],['特技','30mダッシュ(グループ最速)'],['好きな天気','雷雨(テンション上がる)']],
+      catch: '「ごろごろするのが得意です(雷も、おうちでも)。」',
+      qa: [['雷、こわくないですか?','こわい人のぶんまで、うちが鳴っときます!'],['メンバーからひとこと','こんこ「うるさい(すき)」']]
+    },
+    iroha: {
+      img: 'member-06-iroha.jpg', mc: '#3cb96a', mcp: '#e4f6ec',
+      role: 'にじ担当', center: false, name: '虹本いろは', yomi: 'NIJIMOTO IROHA',
+      dl: [['誕生日','4月14日'],['身長','156cm'],['出身','沖縄県'],['カラー','あまあがりグリーン'],['趣味','色えんぴつ(72色持ってる)、虹の写真'],['特技','虹をだれより先に見つける'],['好きな天気','雨上がりの晴れ']],
+      catch: '「7色ぜんぶ、わたしの色!」',
+      qa: [['虹を見つけるコツは?','雨のあと、太陽に背中を向けること。あとは運です。'],['メンバーからひとこと','ふわの「気づいたら空の写真が3000枚おくられてくる」']]
+    }
+  };
+
+  const ovl = document.getElementById('memOvl');
+  const modal = document.getElementById('memModal');
+  const closeBtn = document.getElementById('mmClose');
+  let lastFocus = null;
+
+  function esc(s){ return s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+  function open(key){
+    const d = MEMBERS[key];
+    if (!d) return;
+    modal.style.setProperty('--mc', d.mc);
+    modal.style.setProperty('--mcp', d.mcp);
+    document.getElementById('mmImg').src = d.img;
+    document.getElementById('mmImg').alt = d.name + 'のアーティスト写真';
+    document.getElementById('mmRole').textContent = d.role;
+    document.getElementById('mmCenter').style.display = d.center ? '' : 'none';
+    document.getElementById('mmName').textContent = d.name;
+    document.getElementById('mmYomi').textContent = d.yomi;
+    document.getElementById('mmDl').innerHTML = d.dl.map(r => '<div><dt>' + esc(r[0]) + '</dt><dd>' + esc(r[1]) + '</dd></div>').join('');
+    document.getElementById('mmCatch').textContent = d.catch;
+    document.getElementById('mmQa').innerHTML = d.qa.map(r => '<div><p class="q">Q. ' + esc(r[0]) + '</p><p>A. ' + esc(r[1]) + '</p></div>').join('');
+    lastFocus = document.activeElement;
+    ovl.classList.add('show');
+    document.body.classList.add('modal-open');
+    modal.scrollTop = 0;
+    closeBtn.focus();
+  }
+  function close(){
+    ovl.classList.remove('show');
+    document.body.classList.remove('modal-open');
+    if (lastFocus) lastFocus.focus();
+  }
+
+  document.querySelectorAll('.mem-card[data-member]').forEach(card => {
+    card.addEventListener('click', () => open(card.dataset.member));
+  });
+  closeBtn.addEventListener('click', e => { e.stopPropagation(); close(); });
+  ovl.addEventListener('click', e => { if (e.target === ovl) close(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && ovl.classList.contains('show')) close(); });
 })();
 
 // ---------- お問い合わせフォーム(Formspree) ----------

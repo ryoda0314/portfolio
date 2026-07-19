@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- 架空のアイドルグループ「テンキヨホー!」のデモサイト用ページです。実在の団体とは関係ありません。 -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>はじめての方へ|テンキヨホー! OFFICIAL WEB SITE</title>
+<meta name="description" content="テンキヨホー!のライブがはじめての方向けガイド。当日の流れ、持ち物、特典会(チェキ会)の楽しみ方をご紹介します。">
+<meta name="robots" content="noindex">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="%23f0417f"/><circle cx="21" cy="12" r="6" fill="%23ffd23e"/><g fill="%23ffffff"><circle cx="10" cy="18" r="5"/><circle cx="16" cy="15" r="6.5"/><circle cx="22" cy="19" r="4.5"/><rect x="8" y="17" width="17" height="6" rx="3"/></g></svg>'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@400;500;600&family=Zen+Maru+Gothic:wght@700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#f0417f;
+  --pink-dark:#d92e6b;
+  --pink-pale:#fdeef5;
+  --pink-line:#f5b8d0;
+  --sky:#4fb7e8;
+  --yellow:#ffd23e;
+  --ink:#3c3c46;
+  --gray:#8a8a94;
+  --head-h:64px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;color:var(--ink);background:#fff;line-height:1.9;font-size:14px;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%;vertical-align:middle}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none}
+:focus{outline:none}
+:focus-visible{outline:2px solid var(--pink);outline-offset:3px}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px}
+
+/* header */
+.site-head{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--head-h);background:#fff;box-shadow:0 1px 0 rgba(240,65,127,.15)}
+.head-in{max-width:1240px;margin:0 auto;padding:0 22px;height:100%;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brand{display:flex;align-items:center;gap:9px}
+.brand-mark{width:30px;height:30px;flex:none}
+.brand-name{font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:18px;letter-spacing:.02em;color:var(--pink);transform:skewX(-6deg);display:inline-block;white-space:nowrap}
+.back{font-family:"Jost",sans-serif;font-weight:500;font-size:11px;letter-spacing:.16em;border:1px solid var(--pink);color:var(--pink);padding:8px 18px;border-radius:999px;transition:.2s;white-space:nowrap}
+.back:hover{background:var(--pink);color:#fff}
+
+/* page hero */
+.page-hero{
+  margin-top:var(--head-h);
+  background:linear-gradient(180deg,#6bbdf2 0%,#a8d9f8 70%,#dff0fd 100%);
+  color:#fff;text-align:center;padding:64px 24px 58px;position:relative;overflow:hidden;
+}
+.page-hero::before{
+  content:"";position:absolute;inset:0;
+  background-image:radial-gradient(rgba(255,255,255,.5) 1.4px,transparent 2px);
+  background-size:38px 30px;
+}
+.ph-en{position:relative;font-family:"Jost",sans-serif;font-weight:600;font-size:12px;letter-spacing:.4em;text-shadow:0 1px 0 rgba(60,60,70,.2)}
+.ph-name{position:relative;font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:clamp(28px,6vw,42px);letter-spacing:.12em;margin:8px 0 4px;text-shadow:0 3px 0 var(--pink)}
+.ph-tt{position:relative;font-weight:700;font-size:14px;letter-spacing:.08em;text-shadow:0 1px 2px rgba(60,60,70,.25)}
+.crumb{background:var(--pink-pale);font-size:11px;color:var(--gray);padding:9px 0}
+.crumb .wrap a{color:var(--pink)}
+.crumb .wrap a:hover{text-decoration:underline}
+
+/* sections */
+.sec{padding:64px 0}
+.sec-h{text-align:center;font-family:"Marcellus",serif;font-weight:400;font-size:clamp(22px,3.4vw,28px);letter-spacing:.16em;color:var(--pink);margin-bottom:8px}
+.sec-h::after{content:"";display:block;width:32px;height:3px;background:var(--pink);margin:12px auto 0}
+.sec-sub{text-align:center;font-size:12px;color:var(--gray);letter-spacing:.2em;margin-bottom:34px}
+.sec-tint{background:var(--pink-pale)}
+.sec-sky{background:#eef7fd}
+.lead{text-align:center;max-width:640px;margin:0 auto;font-size:14px}
+
+/* 当日の流れ */
+.flow{max-width:640px;margin:34px auto 0;position:relative}
+.flow::before{content:"";position:absolute;left:21px;top:10px;bottom:10px;width:2px;background:var(--pink-line)}
+.flow-item{position:relative;display:flex;gap:18px;padding-bottom:22px}
+.flow-item:last-child{padding-bottom:0}
+.flow-num{flex:none;width:44px;height:44px;border-radius:50%;background:var(--pink);color:#fff;font-family:"Jost",sans-serif;font-weight:600;font-size:17px;display:flex;align-items:center;justify-content:center;position:relative;z-index:1}
+.flow-body{background:#fff;border:1px solid var(--pink-line);border-radius:12px;padding:14px 18px;flex:1}
+.flow-tt{font-weight:700;font-size:14.5px}
+.flow-bd{font-size:12.5px;color:var(--gray);margin-top:2px}
+
+/* 持ち物 */
+.check-list{max-width:560px;margin:34px auto 0;background:#fff;border-radius:14px;box-shadow:0 6px 20px rgba(240,65,127,.1);padding:22px 26px}
+.check-list li{position:relative;padding:8px 0 8px 32px;border-bottom:1px solid #f4e3eb;font-size:13.5px}
+.check-list li:last-child{border-bottom:none}
+.check-list li::before{
+  content:"";position:absolute;left:2px;top:14px;width:16px;height:16px;
+  border:2px solid var(--pink);border-radius:4px;
+}
+.check-list li::after{
+  content:"";position:absolute;left:7px;top:16px;width:7px;height:11px;
+  border-right:2.5px solid var(--pink);border-bottom:2.5px solid var(--pink);
+  transform:rotate(40deg);
+}
+.check-list li small{display:block;color:var(--gray);font-size:11.5px}
+
+/* チェキガイド */
+.cheki-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+.cheki{background:#fff;border-radius:14px;box-shadow:0 6px 20px rgba(240,65,127,.1);padding:22px 20px;text-align:center}
+.cheki-num{width:40px;height:40px;border-radius:50%;background:var(--sky);color:#fff;font-family:"Jost",sans-serif;font-weight:600;font-size:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px}
+.cheki-tt{font-weight:700;font-size:13.5px}
+.cheki-bd{font-size:12px;color:var(--gray);margin-top:4px}
+.cheki-note{text-align:center;font-size:12px;color:var(--gray);margin-top:18px}
+
+/* コール */
+.call-box{max-width:560px;margin:34px auto 0;background:#fff;border:1px solid #f4e3eb;border-radius:16px;box-shadow:0 6px 20px rgba(240,65,127,.08);padding:26px 26px;text-align:center}
+.call-word{font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:clamp(26px,5vw,36px);color:var(--pink);letter-spacing:.14em;text-shadow:0 2px 0 var(--pink-pale)}
+.call-bd{font-size:13px;color:var(--gray);margin-top:8px}
+
+/* マナー */
+.manner-list{max-width:640px;margin:34px auto 0;background:#fff;border:1px solid var(--pink-line);border-radius:12px;padding:20px 24px}
+.manner-list li{position:relative;padding:5px 0 5px 18px;font-size:12.5px;color:var(--gray)}
+.manner-list li::before{content:"※";position:absolute;left:0;color:var(--pink)}
+
+/* CTA */
+.cta-sec{background:linear-gradient(135deg,#f0417f 0%,#f973a5 100%);color:#fff;text-align:center;padding:56px 24px}
+.cta-tt{font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:clamp(19px,3.4vw,24px);letter-spacing:.1em}
+.cta-btn{
+  display:block;width:min(340px,86%);margin:24px auto 0;text-align:center;
+  background:#fff;color:var(--pink);font-weight:900;font-size:15px;letter-spacing:.12em;
+  padding:17px;border-radius:999px;box-shadow:0 4px 14px rgba(217,46,107,.35);transition:.2s;
+}
+.cta-btn:hover{transform:translateY(-2px)}
+
+/* footer */
+.site-foot{padding:40px 24px 28px;text-align:center}
+.foot-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;margin-bottom:20px}
+.foot-nav a{font-family:"Jost",sans-serif;font-weight:400;font-size:11px;letter-spacing:.16em;color:var(--gray)}
+.foot-nav a:hover{color:var(--pink)}
+.foot-legal{font-size:10.5px;color:var(--gray);line-height:2}
+.foot-legal a{text-decoration:underline;text-underline-offset:3px}
+
+@media(max-width:720px){
+  .brand-name{font-size:16px}
+  .sec{padding:48px 0}
+  .cheki-steps{grid-template-columns:1fr;max-width:400px;margin-left:auto;margin-right:auto}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="head-in">
+    <a class="brand" href="index.html">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="8" fill="#f0417f"/>
+        <circle cx="21" cy="12" r="6" fill="#ffd23e"/>
+        <g fill="#fff">
+          <circle cx="10" cy="18" r="5"/>
+          <circle cx="16" cy="15" r="6.5"/>
+          <circle cx="22" cy="19" r="4.5"/>
+          <rect x="8" y="17" width="17" height="6" rx="3"/>
+        </g>
+      </svg>
+      <span class="brand-name">テンキヨホー!</span>
+    </a>
+    <a class="back" href="index.html">← BACK TO TOP</a>
+  </div>
+</header>
+
+<div class="page-hero">
+  <p class="ph-en">LIVE GUIDE FOR BEGINNERS</p>
+  <p class="ph-name">はじめての方へ</p>
+  <p class="ph-tt">ようこそ。きょうの天気は、もう気にしなくて大丈夫です。</p>
+</div>
+<div class="crumb"><div class="wrap"><a href="index.html">HOME</a> › はじめての方へ</div></div>
+
+<main>
+
+<section class="sec">
+  <div class="wrap">
+    <h2 class="sec-h">FLOW</h2>
+    <p class="sec-sub">ライブ当日の流れ</p>
+    <div class="flow">
+      <div class="flow-item">
+        <div class="flow-num">1</div>
+        <div class="flow-body">
+          <p class="flow-tt">チケットを用意する</p>
+          <p class="flow-bd">買い方は<a href="ticket.html" style="color:var(--pink);text-decoration:underline;text-underline-offset:3px">チケットのご案内</a>へ。各公演の販売状況は<a href="index.html#schedule" style="color:var(--pink)">SCHEDULE</a>をご覧ください。FC先行はファンクラブ「かんそくたい」会員が対象です。</p>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">2</div>
+        <div class="flow-body">
+          <p class="flow-tt">開場時間に会場へ</p>
+          <p class="flow-bd">整理番号順のご入場です。開場の10分前までにお越しいただくとスムーズです。ドリンク代(600円)は入場時に現金でお支払いください。</p>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">3</div>
+        <div class="flow-body">
+          <p class="flow-tt">ライブ本編(約60〜90分)</p>
+          <p class="flow-bd">立ち位置は自由です。うしろの方でゆっくり見るのも、前方で跳ねるのも歓迎。ペンライトの色を推しに合わせるとメンバーが見つけてくれます。</p>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">4</div>
+        <div class="flow-body">
+          <p class="flow-tt">特典会(チェキ会)</p>
+          <p class="flow-bd">終演後、メンバーと1対1で話せる時間です。参加は自由。詳しくは下のガイドをどうぞ。</p>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">5</div>
+        <div class="flow-body">
+          <p class="flow-tt">おうちに帰るまでが観測です</p>
+          <p class="flow-bd">お気をつけてお帰りください。帰り道の空を見上げたら、それはもう立派なかんそくたいです。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-tint">
+  <div class="wrap">
+    <h2 class="sec-h">ITEMS</h2>
+    <p class="sec-sub">もちものチェック</p>
+    <ul class="check-list">
+      <li>チケット(電子チケットは事前にログイン確認を)</li>
+      <li>ドリンク代 600円<small>現金でのご用意がスムーズです</small></li>
+      <li>ペンライト(任意)<small>6色切替のウェザーペンライトが便利です。会場でも買えます</small></li>
+      <li>チェキ代(任意)<small>特典会に参加する場合。1枚1,500円です</small></li>
+      <li>雨具(ご自由に)<small>降っても濡れないのは、たぶん心だけです</small></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <h2 class="sec-h">CHEKI</h2>
+    <p class="sec-sub">特典会(チェキ会)ガイド</p>
+    <p class="lead">「気になるけど、こわい」という方がいちばん多いやつです。だいじょうぶ、3ステップです。</p>
+    <div class="cheki-steps">
+      <div class="cheki">
+        <div class="cheki-num">1</div>
+        <p class="cheki-tt">物販ブースで券を買う</p>
+        <p class="cheki-bd">チェキ券(1枚1,500円)を購入して、推しメンバーの列へ。どの列が誰かはスタッフがご案内します。</p>
+      </div>
+      <div class="cheki">
+        <div class="cheki-num">2</div>
+        <p class="cheki-tt">いっしょに撮る</p>
+        <p class="cheki-bd">ポーズはメンバーにおまかせでOK。「はじめてです」と言うと、メンバーがぜんぶリードしてくれます。</p>
+      </div>
+      <div class="cheki">
+        <div class="cheki-num">3</div>
+        <p class="cheki-tt">ちょっと話す</p>
+        <p class="cheki-bd">サインを書いてもらいながら、ひとことふたこと。今日の感想だけで十分伝わります。</p>
+      </div>
+    </div>
+    <p class="cheki-note">※チェキはその場でお渡しします。世界に1枚だけの天気の記録です。</p>
+  </div>
+</section>
+
+<section class="sec sec-sky">
+  <div class="wrap">
+    <h2 class="sec-h">CALL</h2>
+    <p class="sec-sub">コールについて</p>
+    <div class="call-box">
+      <p class="call-word">「ヨホー!」</p>
+      <p class="call-bd">覚えるのはこれだけで大丈夫です。メンバーが「テンキ?」と聞いたら「ヨホー!」と返してください。<br>あとは自由です。手拍子だけでも、見ているだけでも、ちゃんと届いています。</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <h2 class="sec-h">MANNERS</h2>
+    <p class="sec-sub">おねがい</p>
+    <ul class="manner-list">
+      <li>ライブ中の動画撮影・録音は全公演で禁止です。写真撮影の可否は公演ごとにご案内します。</li>
+      <li>リフト・モッシュ・ダイブなど、まわりの方の観測をさまたげる行為はご遠慮ください。</li>
+      <li>チケットの営利目的の転売は固くお断りします。転売チケットではご入場いただけません。</li>
+      <li>体調がすぐれないときは、無理せずスタッフにお声がけください。</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<div class="cta-sec">
+  <p class="cta-tt">それでは、会場でお会いしましょう。</p>
+  <a class="cta-btn" href="index.html#schedule">出演スケジュールを見る</a>
+</div>
+
+<footer class="site-foot">
+  <nav class="foot-nav" aria-label="フッターナビゲーション">
+    <a href="index.html">HOME</a>
+    <a href="index.html#member">MEMBER</a>
+    <a href="index.html#schedule">SCHEDULE</a>
+    <a href="ticket.html">チケットのご案内</a>
+    <a href="fanclub.html">FANCLUB入会案内</a>
+    <a href="index.html#contact">CONTACT</a>
+  </nav>
+  <p class="foot-legal">
+    当サイトは架空のアイドルグループのデモサイトです。<br>
+    <a href="privacy.html">プライバシーポリシー</a>&nbsp;&nbsp;© TENKI-YOHO! / AOJASHIN RECORDS All rights reserved.
+  </p>
+</footer>
+
+</body>
+</html>

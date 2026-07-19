@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- 架空のアイドルグループ「テンキヨホー!」のデモサイト用ページです。入会・決済は実際には行われません。 -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>入会手続き|ファンクラブ「かんそくたい」</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="%23f0417f"/><circle cx="21" cy="12" r="6" fill="%23ffd23e"/><g fill="%23ffffff"><circle cx="10" cy="18" r="5"/><circle cx="16" cy="15" r="6.5"/><circle cx="22" cy="19" r="4.5"/><rect x="8" y="17" width="17" height="6" rx="3"/></g></svg>'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Zen+Maru+Gothic:wght@700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#f0417f;
+  --pink-dark:#d92e6b;
+  --pink-pale:#fdeef5;
+  --pink-line:#f5b8d0;
+  --sky:#4fb7e8;
+  --yellow:#ffd23e;
+  --ink:#3c3c46;
+  --gray:#8a8a94;
+  --head-h:64px;
+  --c-meru:#f0417f; --c-pokari:#f2a80c; --c-fuwano:#9d6fd6;
+  --c-konko:#4fb7e8; --c-pika:#f0762b; --c-iroha:#3cb96a;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;color:var(--ink);background:var(--pink-pale);line-height:1.85;font-size:14px}
+img,svg{max-width:100%;vertical-align:middle}
+a{color:inherit;text-decoration:none}
+:focus{outline:none}
+:focus-visible{outline:2px solid var(--pink);outline-offset:3px}
+.wrap{max-width:640px;margin:0 auto;padding:0 20px}
+[hidden]{display:none !important}
+
+/* header */
+.site-head{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--head-h);background:#fff;box-shadow:0 1px 0 rgba(240,65,127,.15)}
+.head-in{max-width:1240px;margin:0 auto;padding:0 22px;height:100%;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brand{display:flex;align-items:center;gap:9px}
+.brand-mark{width:30px;height:30px;flex:none}
+.brand-name{font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:18px;color:var(--pink);transform:skewX(-6deg);display:inline-block;white-space:nowrap}
+.back{font-family:"Jost",sans-serif;font-weight:500;font-size:11px;letter-spacing:.16em;border:1px solid var(--pink);color:var(--pink);padding:8px 18px;border-radius:999px;transition:.2s;white-space:nowrap}
+.back:hover{background:var(--pink);color:#fff}
+
+main{padding:calc(var(--head-h) + 34px) 0 70px}
+.page-tt{text-align:center;font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:22px;color:var(--pink-dark);letter-spacing:.08em}
+.page-sub{text-align:center;font-size:12px;color:var(--gray);margin-top:2px}
+
+/* stepper */
+.stepper{display:flex;max-width:480px;margin:22px auto 0}
+.stp{flex:1;text-align:center;position:relative;font-size:11px;color:var(--gray);padding-top:30px}
+.stp::before{content:attr(data-n);position:absolute;top:0;left:50%;transform:translateX(-50%);width:26px;height:26px;border-radius:50%;background:#e3cdd7;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:12px}
+.stp::after{content:"";position:absolute;top:12px;left:calc(50% + 16px);width:calc(100% - 32px);height:2px;background:#e3cdd7}
+.stp:last-child::after{display:none}
+.stp.on{color:var(--pink);font-weight:700}
+.stp.on::before{background:var(--pink)}
+.stp.done::before{background:var(--pink-dark)}
+
+/* card */
+.card{background:#fff;border-radius:16px;box-shadow:0 8px 24px rgba(240,65,127,.12);padding:26px 26px;margin-top:18px}
+.f-row{margin-bottom:16px}
+.f-row label.tt{display:block;font-weight:700;font-size:13px;margin-bottom:6px}
+.req{color:#fff;background:var(--pink);font-size:10px;font-weight:700;margin-left:8px;border-radius:3px;padding:2px 7px;vertical-align:1px}
+input[type=text],input[type=email],select{
+  width:100%;border:1px solid #e6c2d2;background:#fff;padding:11px 14px;
+  font:inherit;font-size:14px;border-radius:9px;-webkit-appearance:none;appearance:none;
+}
+input:focus-visible,select:focus-visible{outline:2px solid var(--pink);outline-offset:0;border-color:var(--pink)}
+.birth-row{display:grid;grid-template-columns:2fr 1fr 1fr;gap:8px}
+.hint{font-size:11.5px;color:var(--gray);margin-top:4px}
+.code-note{background:var(--pink-pale);border-radius:8px;padding:10px 14px;font-size:12px;color:var(--pink-dark);margin-top:10px}
+/* 推しメン */
+.oshi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.oshi{position:relative}
+.oshi input{position:absolute;opacity:0;pointer-events:none}
+.oshi span{
+  display:flex;align-items:center;gap:8px;
+  border:1.5px solid #e6c2d2;border-radius:10px;padding:10px 12px;
+  font-size:12.5px;font-weight:700;cursor:pointer;transition:.15s;background:#fff;
+}
+.oshi i{width:12px;height:12px;border-radius:50%;background:var(--oc);flex:none}
+.oshi input:checked + span{border-color:var(--oc);background:color-mix(in srgb, var(--oc) 10%, #fff);color:var(--ink)}
+.oshi input:focus-visible + span{outline:2px solid var(--pink)}
+/* 支払 */
+.pay-opt{display:flex;flex-direction:column;gap:8px}
+.pay-opt label{display:flex;gap:10px;align-items:center;border:1.5px solid #e6c2d2;border-radius:10px;padding:12px 14px;font-size:13px;cursor:pointer}
+.pay-opt input{width:17px;height:17px;accent-color:var(--pink)}
+.sum-row{display:flex;justify-content:space-between;padding:8px 0;border-top:1px solid #f4e3eb;font-size:13px}
+.sum-row b{color:var(--pink-dark)}
+.agree{display:flex;gap:9px;align-items:flex-start;font-size:12.5px;margin-top:12px}
+.agree input{width:17px;height:17px;margin-top:3px;accent-color:var(--pink)}
+.agree a{color:var(--pink);text-decoration:underline}
+.err{display:none;background:#fdecf2;border:1px solid var(--pink-line);color:var(--pink-dark);font-size:12px;border-radius:8px;padding:9px 13px;margin-top:10px;font-weight:700}
+.err.show{display:block}
+.next-btn{display:block;width:100%;margin-top:16px;background:var(--pink);color:#fff;border:none;border-radius:999px;padding:14px;font:inherit;font-weight:900;font-size:14.5px;letter-spacing:.08em;cursor:pointer;transition:.2s}
+.next-btn:hover{background:var(--pink-dark)}
+.prev-btn{display:block;width:100%;margin-top:10px;background:#fff;color:var(--pink);border:1.5px solid var(--pink);border-radius:999px;padding:11px;font:inherit;font-weight:700;font-size:12.5px;cursor:pointer}
+.demo-note{text-align:center;font-size:10.5px;color:var(--gray);margin-top:10px}
+
+/* 隊員証 */
+.done-tt{text-align:center;font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:19px;color:var(--pink-dark)}
+.mcard{
+  max-width:420px;margin:18px auto 0;border-radius:18px;overflow:hidden;
+  background:linear-gradient(135deg,#6bbdf2 0%,#a8d9f8 55%,#dff0fd 100%);
+  box-shadow:0 14px 34px rgba(79,183,232,.35);color:#fff;position:relative;
+}
+.mcard::before{
+  content:"";position:absolute;inset:0;
+  background-image:radial-gradient(rgba(255,255,255,.5) 1.2px,transparent 1.6px);
+  background-size:30px 24px;
+}
+.mc-head{position:relative;display:flex;align-items:center;gap:10px;padding:16px 20px 8px}
+.mc-head svg{width:34px;height:34px}
+.mc-head b{font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:16px;text-shadow:0 2px 0 rgba(240,65,127,.5)}
+.mc-head small{display:block;font-family:"Jost",sans-serif;font-size:8.5px;letter-spacing:.24em;opacity:.95}
+.mc-body{position:relative;padding:8px 20px 14px}
+.mc-name{font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:22px;text-shadow:0 2px 0 rgba(60,60,70,.25)}
+.mc-name small{font-size:12px;font-weight:700;margin-left:4px}
+.mc-dl{margin-top:8px;font-size:11.5px;line-height:2;text-shadow:0 1px 2px rgba(60,60,70,.25)}
+.mc-dl b{font-family:"Jost",sans-serif;font-weight:600;font-size:13px}
+.mc-oshi{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.92);color:var(--ink);border-radius:999px;padding:3px 12px;font-size:11px;font-weight:700}
+.mc-oshi i{width:10px;height:10px;border-radius:50%;background:var(--oc)}
+.mc-foot{position:relative;background:rgba(255,255,255,.92);color:var(--gray);font-size:9.5px;padding:8px 20px;text-align:center}
+.done-actions{max-width:420px;margin:18px auto 0}
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="head-in">
+    <a class="brand" href="index.html">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="8" fill="#f0417f"/>
+        <circle cx="21" cy="12" r="6" fill="#ffd23e"/>
+        <g fill="#fff">
+          <circle cx="10" cy="18" r="5"/>
+          <circle cx="16" cy="15" r="6.5"/>
+          <circle cx="22" cy="19" r="4.5"/>
+          <rect x="8" y="17" width="17" height="6" rx="3"/>
+        </g>
+      </svg>
+      <span class="brand-name">テンキヨホー!</span>
+    </a>
+    <a class="back" href="fanclub.html">← 入会案内へ戻る</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <h1 class="page-tt">「かんそくたい」入会手続き</h1>
+    <p class="page-sub">月額¥550(税込)/ 所要約3分 ※デモのため実際の登録・決済は行われません</p>
+
+    <div class="stepper" id="stepper" aria-hidden="true">
+      <div class="stp" data-n="1">メール確認</div>
+      <div class="stp" data-n="2">会員情報</div>
+      <div class="stp" data-n="3">お支払い</div>
+    </div>
+
+    <!-- STEP 1 -->
+    <div class="card" id="step1" hidden>
+      <div class="f-row">
+        <label class="tt" for="jEmail">メールアドレス<span class="req">必須</span></label>
+        <input type="email" id="jEmail" placeholder="example@amayadori.jp" autocomplete="email">
+        <p class="hint">確認コードをお送りします(デモのため自動で入力されます)。</p>
+      </div>
+      <div class="f-row" id="codeRow" hidden>
+        <label class="tt" for="jCode">確認コード</label>
+        <input type="text" id="jCode" readonly>
+        <p class="code-note" id="codeNote"></p>
+      </div>
+      <p class="err" id="err1"></p>
+      <button class="next-btn" id="sendCode" type="button">確認コードを送信する</button>
+      <button class="next-btn" id="toStep2" type="button" hidden>会員情報の入力へ</button>
+      <p class="demo-note">※メールは実際には送信されません。</p>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="card" id="step2" hidden>
+      <div class="f-row">
+        <label class="tt" for="jName">お名前(ニックネーム可)<span class="req">必須</span></label>
+        <input type="text" id="jName" placeholder="あまやどり 太郎" maxlength="20">
+        <p class="hint">隊員証に印字されます(あとから変更できます)。</p>
+      </div>
+      <div class="f-row">
+        <label class="tt">生年月日<span class="req">必須</span></label>
+        <div class="birth-row">
+          <select id="jYear" aria-label="年"></select>
+          <select id="jMonth" aria-label="月"></select>
+          <select id="jDay" aria-label="日"></select>
+        </div>
+        <p class="hint">バースデーメールのお届けに使用します。</p>
+      </div>
+      <div class="f-row">
+        <label class="tt">推しメンバー<span class="req">必須</span></label>
+        <div class="oshi-grid" id="oshiGrid"></div>
+        <p class="hint">迷ったら「box(全員推し)」でOK。あとから何度でも変更できます。</p>
+      </div>
+      <label class="agree"><input type="checkbox" id="jAgree"><span><a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>と会員規約(デモ)に同意します</span></label>
+      <p class="err" id="err2"></p>
+      <button class="next-btn" id="toStep3" type="button">お支払い方法の選択へ</button>
+      <button class="prev-btn" id="backStep1" type="button">← 戻る</button>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="card" id="step3" hidden>
+      <div class="f-row">
+        <label class="tt">お支払い方法<span class="req">必須</span></label>
+        <div class="pay-opt">
+          <label><input type="radio" name="jPay" value="クレジットカード" checked><span>クレジットカード(毎月自動更新)</span></label>
+          <label><input type="radio" name="jPay" value="キャリア決済"><span>キャリア決済(毎月自動更新)</span></label>
+        </div>
+      </div>
+      <div class="sum-row"><span>月会費</span><b>¥550(税込)</b></div>
+      <div class="sum-row"><span>入会金・年会費</span><b>¥0</b></div>
+      <div class="sum-row"><span>本日のお支払い</span><b>¥550(デモのため請求されません)</b></div>
+      <p class="err" id="err3"></p>
+      <button class="next-btn" id="confirmJoin" type="button">入会を確定する(デモ)</button>
+      <button class="prev-btn" id="backStep2" type="button">← 戻る</button>
+    </div>
+
+    <!-- DONE -->
+    <div id="stepDone" hidden>
+      <p class="done-tt">ようこそ、かんそくたいへ!</p>
+      <div class="mcard" id="mcard"></div>
+      <div class="done-actions">
+        <a class="next-btn" href="fc-mypage.html" style="text-align:center;text-decoration:none;display:block">会員マイページへすすむ</a>
+        <a class="prev-btn" href="index.html#fanclub" style="text-align:center;text-decoration:none;display:block">公式サイトへ戻る</a>
+        <button class="prev-btn" id="resetBtn" type="button">退会する(デモをリセット)</button>
+        <p class="demo-note">隊員証はこのブラウザに保存されました。次回このページを開くと表示されます。</p>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<script>
+const MEMBERS = [
+  { key: 'meru', name: '宵町める', color: 'var(--c-meru)' },
+  { key: 'pokari', name: '日向ぽかり', color: 'var(--c-pokari)' },
+  { key: 'fuwano', name: '雲居ふわの', color: 'var(--c-fuwano)' },
+  { key: 'konko', name: '氷雨こんこ', color: 'var(--c-konko)' },
+  { key: 'pika', name: '鳴海ぴか', color: 'var(--c-pika)' },
+  { key: 'iroha', name: '虹本いろは', color: 'var(--c-iroha)' },
+  { key: 'box', name: 'box(全員推し)', color: 'linear-gradient(135deg,#f0417f,#f2a80c,#3cb96a,#4fb7e8)' }
+];
+const $ = id => document.getElementById(id);
+function esc(s){ return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+/* ---------- ステップ制御 ---------- */
+const steps = [$('step1'), $('step2'), $('step3'), $('stepDone')];
+function showStep(n){
+  steps.forEach((el, i) => el.hidden = i !== n - 1);
+  document.querySelectorAll('#stepper .stp').forEach((el, i) => {
+    el.classList.toggle('on', i === n - 1);
+    el.classList.toggle('done', i < n - 1);
+  });
+  $('stepper').style.display = n === 4 ? 'none' : '';
+  window.scrollTo(0, 0);
+}
+
+/* ---------- STEP1: メール確認 ---------- */
+$('sendCode').addEventListener('click', () => {
+  const em = $('jEmail').value.trim();
+  const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em);
+  const err = $('err1');
+  if (!ok){ err.textContent = 'メールアドレスの形式をご確認ください。'; err.classList.add('show'); return; }
+  err.classList.remove('show');
+  const code = String(Math.floor(Math.random() * 900000) + 100000);
+  $('codeRow').hidden = false;
+  $('jCode').value = code;
+  $('codeNote').textContent = '(デモ)' + em + ' 宛に送信された確認コード ' + code + ' を自動入力しました。';
+  $('sendCode').hidden = true;
+  $('toStep2').hidden = false;
+});
+$('toStep2').addEventListener('click', () => showStep(2));
+$('backStep1').addEventListener('click', () => showStep(1));
+$('backStep2').addEventListener('click', () => showStep(2));
+
+/* ---------- STEP2: 会員情報 ---------- */
+(function initBirth(){
+  const y = $('jYear'), m = $('jMonth'), d = $('jDay');
+  y.innerHTML = '<option value="">年</option>' + Array.from({length: 80}, (_, i) => { const v = 2012 - i; return `<option>${v}</option>`; }).join('');
+  m.innerHTML = '<option value="">月</option>' + Array.from({length: 12}, (_, i) => `<option>${i + 1}</option>`).join('');
+  d.innerHTML = '<option value="">日</option>' + Array.from({length: 31}, (_, i) => `<option>${i + 1}</option>`).join('');
+})();
+$('oshiGrid').innerHTML = MEMBERS.map((mb, i) => `
+  <label class="oshi" style="--oc:${mb.color.startsWith('linear') ? '#f0417f' : mb.color}">
+    <input type="radio" name="oshi" value="${mb.key}" ${mb.key === 'box' ? '' : ''}>
+    <span><i style="background:${mb.color}"></i>${esc(mb.name)}</span>
+  </label>`).join('');
+
+$('toStep3').addEventListener('click', () => {
+  const err = $('err2');
+  const name = $('jName').value.trim();
+  const birthOk = $('jYear').value && $('jMonth').value && $('jDay').value;
+  const oshi = document.querySelector('input[name="oshi"]:checked');
+  if (!name){ err.textContent = 'お名前(ニックネーム)を入力してください。'; err.classList.add('show'); return; }
+  if (!birthOk){ err.textContent = '生年月日を選択してください。'; err.classList.add('show'); return; }
+  if (!oshi){ err.textContent = '推しメンバーを選択してください(boxもあります)。'; err.classList.add('show'); return; }
+  if (!$('jAgree').checked){ err.textContent = 'プライバシーポリシー・会員規約への同意が必要です。'; err.classList.add('show'); return; }
+  err.classList.remove('show');
+  showStep(3);
+});
+
+/* ---------- STEP3: 確定 → 隊員証 ---------- */
+function loadMember(){ try { return JSON.parse(localStorage.getItem('fc_member') || 'null'); } catch { return null; } }
+function saveMember(m){ try { localStorage.setItem('fc_member', JSON.stringify(m)); } catch {} }
+
+$('confirmJoin').addEventListener('click', () => {
+  const oshiKey = document.querySelector('input[name="oshi"]:checked').value;
+  const oshi = MEMBERS.find(m => m.key === oshiKey);
+  const now = new Date();
+  const member = {
+    name: $('jName').value.trim(),
+    oshiKey,
+    oshiName: oshi.name,
+    no: String(2000 + Math.floor(Math.random() * 999)).padStart(4, '0'),
+    since: now.getFullYear() + '.' + String(now.getMonth() + 1).padStart(2, '0') + '.' + String(now.getDate()).padStart(2, '0'),
+    pay: document.querySelector('input[name="jPay"]:checked').value
+  };
+  saveMember(member);
+  renderCard(member);
+  showStep(4);
+});
+
+/* ---------- 隊員証 ---------- */
+function renderCard(m){
+  const oshi = MEMBERS.find(x => x.key === m.oshiKey) || MEMBERS[6];
+  $('mcard').innerHTML = `
+    <div class="mc-head">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="8" fill="#f0417f"/>
+        <circle cx="21" cy="12" r="6" fill="#ffd23e"/>
+        <g fill="#fff">
+          <circle cx="10" cy="18" r="5"/>
+          <circle cx="16" cy="15" r="6.5"/>
+          <circle cx="22" cy="19" r="4.5"/>
+          <rect x="8" y="17" width="17" height="6" rx="3"/>
+        </g>
+      </svg>
+      <span><b>かんそくたい</b><small>TENKI-YOHO! OFFICIAL FANCLUB</small></span>
+    </div>
+    <div class="mc-body">
+      <p class="mc-name">${esc(m.name)}<small>さん</small></p>
+      <p class="mc-dl">
+        隊員No. <b>${esc(m.no)}</b>|ランク:隊員(そらいろ)<br>
+        入会日 ${esc(m.since)}|お支払い:${esc(m.pay)}<br>
+        <span class="mc-oshi"><i style="background:${oshi.color}"></i>推し:${esc(m.oshiName)}</span>
+      </p>
+    </div>
+    <div class="mc-foot">これは架空のファンクラブのデモ隊員証です。継続1年で「班長(ぎんいろ)」に昇格します(たぶん)。</div>`;
+}
+
+/* ---------- リセット ---------- */
+$('resetBtn').addEventListener('click', () => {
+  try { localStorage.removeItem('fc_member'); } catch {}
+  $('jEmail').value = ''; $('jName').value = '';
+  $('codeRow').hidden = true; $('sendCode').hidden = false; $('toStep2').hidden = true;
+  showStep(1);
+});
+
+/* ---------- 起動: 既存会員なら隊員証を表示 ---------- */
+const existing = loadMember();
+if (existing){ renderCard(existing); showStep(4); } else { showStep(1); }
+</script>
+</body>
+</html>

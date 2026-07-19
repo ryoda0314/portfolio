@@ -155,9 +155,9 @@ const source: LpCategorySource[] = [
         "yoimachi",
         l("テンキヨホー! Official Site", "Tenki-Yohō! Official Site", "텐키요호! Official Site"),
         l(
-          "お天気アイドルグループの公式サイト。メンバー・ライブ・グッズ・ファンクラブ案内まで。",
-          "Official site for a weather-themed idol group, covering members, live shows, merch, and fan club information.",
-          "날씨 아이돌 그룹의 공식 사이트. 멤버, 라이브, 굿즈, 팬클럽 안내까지."
+          "お天気アイドルグループの公式サイト。トップに加えて、チケット・グッズ通販・ファンクラブ入会/マイページ・初心者ガイドまで、全10ページのマルチページ構成。",
+          "Official site for a weather-themed idol group. Beyond the top page, it's a full ten-page build — ticketing, merch store, fan club sign-up and member page, and a beginner's guide.",
+          "날씨 아이돌 그룹의 공식 사이트. 메인 페이지에 더해 티켓, 굿즈 스토어, 팬클럽 가입/마이페이지, 입문 가이드까지 총 10페이지의 멀티 페이지 구성."
         )
       ),
     ],

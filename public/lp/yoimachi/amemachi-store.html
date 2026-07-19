@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!--
+  架空の公式通販サイト「アメマチストア」のデモページです。
+  実在のECサービス・決済サービスとは一切関係ありません。商品の購入・決済はできません。
+-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TENKI-YOHO! OFFICIAL GOODS|アメマチストア</title>
+<meta name="description" content="アメマチストアはアメマチ商店街の公式通販(架空)。テンキヨホー!のオフィシャルグッズを取り扱い中。">
+<meta name="robots" content="noindex">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="%231b1b20"/><path d="M10 12h12l2 14H8z" fill="%23ffffff"/><path d="M12 12a4 4 0 0 1 8 0" fill="none" stroke="%23ffffff" stroke-width="2"/><circle cx="16" cy="19" r="3" fill="%23f0417f"/></svg>'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1b1b20;
+  --green:#f0417f;   /* アクセント(公式サイトと同じピンク) */
+  --sage:#fbdce9;
+  --amber:#ffd23e;
+  --bg:#fafafa;
+  --card:#ffffff;
+  --line:#e9e7ec;
+  --gray:#8b8b94;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;color:var(--ink);background:var(--bg);line-height:1.85;font-size:14px}
+img,svg{max-width:100%;vertical-align:middle}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+:focus{outline:none}
+:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+.wrap{max-width:1020px;margin:0 auto;padding:0 22px}
+[hidden]{display:none !important}
+.en{font-family:"Jost",sans-serif}
+
+/* header */
+.top-head{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.th-in{max-width:1020px;margin:0 auto;padding:14px 22px;display:flex;align-items:center;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;cursor:pointer}
+.brand-mark{width:34px;height:34px}
+.brand-txt b{font-family:"Jost",sans-serif;font-weight:700;font-size:17px;letter-spacing:.18em;color:var(--ink)}
+.brand-txt small{display:block;font-size:9px;color:var(--gray);letter-spacing:.14em;line-height:1.3}
+.th-right{margin-left:auto}
+.cart-btn{position:relative;display:flex;align-items:center;gap:9px;background:var(--ink);color:#fff;border:none;border-radius:999px;padding:10px 20px;font-family:"Jost",sans-serif;font-weight:600;font-size:12px;letter-spacing:.14em;cursor:pointer;transition:.2s}
+.cart-btn:hover{background:var(--green)}
+.cart-n{background:var(--amber);color:var(--ink);border-radius:999px;font-size:11px;font-weight:700;min-width:19px;height:19px;display:flex;align-items:center;justify-content:center;padding:0 5px;transition:transform .2s}
+.cart-n.pop{transform:scale(1.35)}
+
+/* announcement bar */
+.notice-bar{background:var(--green);color:#fff;text-align:center;font-size:11.5px;font-weight:500;letter-spacing:.12em;padding:8px 16px}
+
+/* hero */
+.hero{padding:58px 0 20px}
+.hero-kick{font-family:"Jost",sans-serif;font-weight:600;font-size:11px;letter-spacing:.42em;color:var(--green)}
+.hero-tt{font-weight:900;font-size:clamp(32px,5.6vw,52px);letter-spacing:.05em;line-height:1.35;margin-top:10px}
+.hero-sub{font-size:13px;color:var(--gray);margin-top:8px}
+
+/* filters */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:30px 0 26px}
+.flt{font-family:"Jost",sans-serif;font-weight:600;font-size:11.5px;letter-spacing:.16em;border:1.5px solid var(--ink);background:none;color:var(--ink);border-radius:999px;padding:8px 20px;cursor:pointer;transition:.18s}
+.flt:hover{background:var(--sage);border-color:var(--sage)}
+.flt.on{background:var(--ink);color:#fff}
+
+/* products */
+.pd-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px 26px}
+.pd{display:flex;flex-direction:column}
+.pd-img{position:relative;aspect-ratio:1/1;border-radius:16px;overflow:hidden;background:#fff;border:1px solid var(--line)}
+.pd-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s ease}
+.pd:hover .pd-img img{transform:scale(1.05)}
+.pd-badge{position:absolute;top:12px;left:12px;font-family:"Jost",sans-serif;font-weight:600;font-size:9.5px;letter-spacing:.2em;background:var(--ink);color:#fff;border-radius:999px;padding:4px 12px}
+.pd-badge.new{background:var(--amber);color:var(--ink)}
+.pd-body{padding:13px 2px 0;display:flex;flex-direction:column;flex:1}
+.pd-cat{font-family:"Jost",sans-serif;font-weight:600;font-size:9.5px;letter-spacing:.26em;color:var(--green)}
+.pd-name{font-weight:700;font-size:13.5px;line-height:1.55;margin-top:2px}
+.pd-price{font-family:"Jost",sans-serif;font-weight:600;font-size:15px;letter-spacing:.04em;margin:3px 0 10px}
+.pd-price small{font-size:10px;color:var(--gray);font-weight:400;letter-spacing:.06em}
+.pd-variant select{width:100%;font:inherit;font-size:12.5px;padding:8px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;margin-bottom:9px;-webkit-appearance:none;appearance:none}
+.add-btn{margin-top:auto;background:var(--ink);color:#fff;border:none;border-radius:999px;padding:12px;font:inherit;font-weight:700;font-size:12.5px;letter-spacing:.1em;cursor:pointer;transition:.2s}
+.add-btn:hover{background:var(--green)}
+.add-btn.added{background:var(--amber);color:var(--ink)}
+
+/* info strip */
+.shop-info{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:52px}
+.si{border-top:2px solid var(--ink);padding-top:12px}
+.si b{font-family:"Jost",sans-serif;font-weight:600;font-size:10.5px;letter-spacing:.24em;color:var(--ink)}
+.si p{font-size:12px;color:var(--gray);margin-top:4px}
+
+/* cart */
+.page-tt{font-family:"Jost",sans-serif;font-weight:700;font-size:24px;letter-spacing:.2em;margin-top:44px}
+.page-sub{font-size:12px;color:var(--gray);margin-bottom:22px}
+.cart-list{border-top:1.5px solid var(--ink)}
+.cart-row{display:flex;gap:16px;align-items:center;padding:18px 2px;border-bottom:1px solid var(--line)}
+.cart-thumb{flex:none;width:72px;height:72px;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#fff}
+.cart-thumb img{width:100%;height:100%;object-fit:cover}
+.cart-info{flex:1;min-width:0}
+.cart-name{font-weight:700;font-size:13px;line-height:1.5}
+.cart-var{font-size:11px;color:var(--gray)}
+.cart-qty select{font:inherit;font-size:12.5px;padding:6px 10px;border:1.5px solid var(--line);border-radius:8px;background:#fff}
+.cart-price{flex:none;font-family:"Jost",sans-serif;font-weight:600;font-size:14px;min-width:78px;text-align:right}
+.cart-del{flex:none;background:none;border:none;color:var(--gray);font-size:11px;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.cart-del:hover{color:var(--ink)}
+.cart-total{max-width:420px;margin-left:auto;margin-top:20px}
+.ct-row{display:flex;justify-content:space-between;padding:6px 0;font-size:13px}
+.ct-row.total{border-top:1.5px solid var(--ink);margin-top:8px;padding-top:12px;font-weight:900;font-size:15px}
+.ct-row.total b{font-family:"Jost",sans-serif;font-size:20px}
+.ship-bar{height:6px;background:var(--line);border-radius:99px;overflow:hidden;margin:10px 0 4px}
+.ship-fill{height:100%;background:var(--green);border-radius:99px;transition:width .4s ease}
+.ship-note{font-size:11.5px;color:#d92e6b;font-weight:700}
+.checkout-btn{display:block;width:100%;margin-top:16px;background:var(--ink);color:#fff;border:none;border-radius:999px;padding:15px;font:inherit;font-weight:900;font-size:14px;letter-spacing:.1em;cursor:pointer;transition:.2s}
+.checkout-btn:hover{background:var(--green)}
+.empty{border:1px solid var(--line);background:#fff;border-radius:16px;padding:44px 20px;text-align:center;color:var(--gray);font-size:13px}
+.back-lk{display:inline-block;margin-top:20px;font-family:"Jost",sans-serif;font-weight:600;font-size:11px;letter-spacing:.2em;color:var(--ink);cursor:pointer;border-bottom:1.5px solid var(--ink);padding-bottom:2px}
+.back-lk:hover{color:var(--green);border-color:var(--green)}
+
+/* done */
+.done-card{max-width:480px;margin:50px auto 0;text-align:center}
+.done-mk{width:58px;height:58px;border-radius:50%;background:var(--green);color:#fff;font-size:24px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.done-tt{font-weight:900;font-size:19px;letter-spacing:.06em}
+.done-no{font-family:"Jost",sans-serif;font-weight:600;font-size:14px;letter-spacing:.1em;margin-top:10px}
+.done-no b{font-size:17px}
+.done-bd{font-size:12.5px;color:var(--gray);margin-top:12px}
+
+/* footer */
+.foot{background:var(--ink);color:#a9a9b2;margin-top:70px;padding:30px 22px 22px;font-size:11px}
+.foot::before{content:"";display:block;height:4px;margin:-30px -22px 26px;background:var(--green)}
+.foot-in{max-width:1020px;margin:0 auto}
+.foot-brand{font-family:"Jost",sans-serif;font-weight:700;font-size:15px;letter-spacing:.22em;color:#fff;margin-bottom:10px}
+.foot-links{display:flex;flex-wrap:wrap;gap:6px 20px;margin-bottom:14px}
+.foot-links a:hover{color:#fff;text-decoration:underline}
+.foot-note{border-top:1px solid #33443a;padding-top:12px;line-height:2}
+.foot-note b{color:var(--amber)}
+
+@media(max-width:820px){.pd-grid{grid-template-columns:repeat(2,1fr);gap:22px 16px}.shop-info{grid-template-columns:1fr}}
+@media(max-width:560px){
+  .brand-txt b{font-size:14px;letter-spacing:.12em}
+  .hero{padding:40px 0 10px}
+  .pd-grid{gap:20px 12px}
+  .cart-row{flex-wrap:wrap}
+  .cart-total{max-width:none}
+}
+</style>
+</head>
+<body>
+
+<header class="top-head">
+  <div class="th-in">
+    <a class="brand" data-view="shop" aria-label="アメマチストア トップ">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="7" fill="#1b1b20"/>
+        <path d="M10 12h12l2 14H8z" fill="#ffffff"/>
+        <path d="M12 12a4 4 0 0 1 8 0" fill="none" stroke="#ffffff" stroke-width="2"/>
+        <circle cx="16" cy="19" r="3" fill="#f0417f"/>
+      </svg>
+      <span class="brand-txt"><b>AMEMACHI STORE</b><small>アメマチストア|推しの天気を、おうちに。</small></span>
+    </a>
+    <div class="th-right">
+      <button class="cart-btn" type="button" data-view="cart">
+        CART<span class="cart-n" id="cartN">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="notice-bar">¥5,000以上のご注文で送料無料</div>
+
+<div class="wrap">
+
+  <!-- ======== 商品一覧 ======== -->
+  <div id="viewShop">
+    <div class="hero">
+      <p class="hero-kick">OFFICIAL ONLINE STORE</p>
+      <h1 class="hero-tt">推しの天気を、<br>おうちに。</h1>
+      <p class="hero-sub">テンキヨホー! オフィシャルグッズの公式通販(架空)。ライブ会場の人気アイテムをそのままお届けします。</p>
+    </div>
+    <div class="filters" id="filters" role="group" aria-label="カテゴリで絞り込み">
+      <button class="flt on" data-cat="all" type="button">ALL</button>
+      <button class="flt" data-cat="goods" type="button">GOODS</button>
+      <button class="flt" data-cat="apparel" type="button">APPAREL</button>
+      <button class="flt" data-cat="cd" type="button">CD</button>
+    </div>
+    <div class="pd-grid" id="pdGrid"></div>
+    <div class="shop-info">
+      <div class="si"><b>SHIPPING</b><p>ご注文から3〜5営業日で発送。¥5,000以上で送料無料(通常¥600)。</p></div>
+      <div class="si"><b>PAYMENT</b><p>クレジットカード・コンビニ払い・キャリア決済に対応(すべて架空です)。</p></div>
+      <div class="si"><b>NOTE</b><p>会場限定品(生誕祭グッズ等)は通販では取り扱いがありません。</p></div>
+    </div>
+  </div>
+
+  <!-- ======== カート ======== -->
+  <div id="viewCart" hidden>
+    <h1 class="page-tt">CART</h1>
+    <p class="page-sub">内容をご確認のうえ、レジへお進みください。</p>
+    <div id="cartBody"></div>
+    <a class="back-lk" data-view="shop">← CONTINUE SHOPPING</a>
+  </div>
+
+  <!-- ======== 注文完了 ======== -->
+  <div id="viewDone" hidden>
+    <div class="done-card">
+      <div class="done-mk">✓</div>
+      <p class="done-tt">ご注文ありがとうございました!</p>
+      <p class="done-no">ORDER NO. <b id="orderNo"></b></p>
+      <p class="done-no">TOTAL <b id="orderTotal"></b></p>
+      <p class="done-bd">確認メールをお送りしました(架空)。商品は3〜5営業日で発送されます(架空のため届きませんが、心はお届け済みです)。</p>
+    </div>
+    <div style="text-align:center"><a class="back-lk" data-view="shop">← CONTINUE SHOPPING</a></div>
+  </div>
+
+</div>
+
+<footer class="foot">
+  <div class="foot-in">
+    <p class="foot-brand">AMEMACHI STORE</p>
+    <div class="foot-links">
+      <a href="#" onclick="return false">アメマチストアについて</a>
+      <a href="#" onclick="return false">特定商取引法に基づく表記</a>
+      <a href="goods.html">グッズのご案内(公式サイト)</a>
+      <a href="index.html">テンキヨホー! 公式サイト</a>
+    </div>
+    <p class="foot-note">
+      <b>アメマチストアは架空の通販サービスです。</b>実在のECサービス・決済サービスとは一切関係ありません。本ページでの「注文」はデモ表示であり、実際の発送・お支払いは発生しません。<br>
+      © AMEMACHI STORE (fictional service) / このページは架空のアイドルグループ「テンキヨホー!」のデモサイトの一部です。
+    </p>
+  </div>
+</footer>
+
+<script>
+const PRODUCTS = [
+  { id: 'penlight', cat: 'goods', name: 'ウェザーペンライト(6色切替)', price: 2800, img: 'goods-01-penlight.jpg', badge: 'BEST' },
+  { id: 'towel', cat: 'goods', name: '推しメンタオル', price: 1800, img: 'goods-02-towel.jpg',
+    variants: ['める(ピンク)', 'ぽかり(イエロー)', 'ふわの(パープル)', 'こんこ(ブルー)', 'ぴか(オレンジ)', 'いろは(グリーン)'] },
+  { id: 'badge', cat: 'goods', name: '缶バッジ(全6種+シークレット)', price: 400, img: 'goods-03-badge.jpg', badge: 'NEW' },
+  { id: 'tshirt', cat: 'apparel', name: 'Tシャツ「観測史上、最高!」', price: 3500, img: 'goods-04-tshirt.jpg',
+    variants: ['Sサイズ', 'Mサイズ', 'Lサイズ', 'XLサイズ'] },
+  { id: 'cd-kansoku', cat: 'cd', name: '1stミニアルバム「観測史上、最高!」', price: 2750, img: 'jk-04-kansoku.jpg', badge: 'NEW' },
+  { id: 'cd-doshaburi', cat: 'cd', name: '2ndシングル「どしゃぶりダンスホール」', price: 1200, img: 'jk-02-doshaburi.jpg' }
+];
+const CATS = { goods: 'GOODS', apparel: 'APPAREL', cd: 'CD' };
+const SHIP = 600, FREE_OVER = 5000;
+
+const $ = id => document.getElementById(id);
+const yen = n => '¥' + n.toLocaleString();
+function esc(s){ return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+/* ---------- カート(localStorage) ---------- */
+function loadCart(){ try { return JSON.parse(localStorage.getItem('ams_cart') || '[]'); } catch { return []; } }
+function saveCart(c){ try { localStorage.setItem('ams_cart', JSON.stringify(c)); } catch {} paintCartN(); }
+function cartCount(){ return loadCart().reduce((s, r) => s + r.qty, 0); }
+function paintCartN(pop){
+  const el = $('cartN');
+  el.textContent = cartCount();
+  if (pop){ el.classList.add('pop'); setTimeout(() => el.classList.remove('pop'), 250); }
+}
+
+/* ---------- ビュー切り替え ---------- */
+const VIEWS = { shop: $('viewShop'), cart: $('viewCart'), done: $('viewDone') };
+function show(v){
+  Object.values(VIEWS).forEach(el => el.hidden = true);
+  VIEWS[v].hidden = false;
+  if (v === 'cart') renderCart();
+  window.scrollTo(0, 0);
+}
+document.addEventListener('click', e => {
+  const t = e.target.closest('[data-view]');
+  if (t) show(t.dataset.view);
+});
+
+/* ---------- 商品一覧・フィルター ---------- */
+let currentCat = 'all';
+function renderShop(){
+  const list = PRODUCTS.filter(p => currentCat === 'all' || p.cat === currentCat);
+  $('pdGrid').innerHTML = list.map(p => `
+    <div class="pd">
+      <div class="pd-img">
+        <img src="${p.img}" alt="${esc(p.name)}" loading="lazy" width="900" height="900">
+        ${p.badge ? `<span class="pd-badge ${p.badge === 'NEW' ? 'new' : ''}">${p.badge}</span>` : ''}
+      </div>
+      <div class="pd-body">
+        <p class="pd-cat">${CATS[p.cat]}</p>
+        <p class="pd-name">${esc(p.name)}</p>
+        <p class="pd-price">${yen(p.price)} <small>税込</small></p>
+        ${p.variants ? `<div class="pd-variant"><select data-var="${p.id}" aria-label="種類を選択">${p.variants.map(v => `<option>${esc(v)}</option>`).join('')}</select></div>` : ''}
+        <button class="add-btn" type="button" data-add="${p.id}">カートに入れる</button>
+      </div>
+    </div>`).join('');
+}
+$('filters').addEventListener('click', e => {
+  const btn = e.target.closest('.flt');
+  if (!btn) return;
+  currentCat = btn.dataset.cat;
+  document.querySelectorAll('.flt').forEach(b => b.classList.toggle('on', b === btn));
+  renderShop();
+});
+document.addEventListener('click', e => {
+  const btn = e.target.closest('[data-add]');
+  if (!btn) return;
+  const p = PRODUCTS.find(x => x.id === btn.dataset.add);
+  const sel = document.querySelector(`select[data-var="${p.id}"]`);
+  const variant = sel ? sel.value : null;
+  const cart = loadCart();
+  const hit = cart.find(r => r.id === p.id && r.variant === variant);
+  if (hit) hit.qty = Math.min(hit.qty + 1, 9); else cart.push({ id: p.id, variant, qty: 1 });
+  saveCart(cart);
+  paintCartN(true);
+  btn.classList.add('added');
+  btn.textContent = '✓ ADDED';
+  setTimeout(() => { btn.classList.remove('added'); btn.textContent = 'カートに入れる'; }, 1100);
+});
+
+/* ---------- カート表示 ---------- */
+function totals(cart){
+  const sub = cart.reduce((s, r) => s + PRODUCTS.find(p => p.id === r.id).price * r.qty, 0);
+  const ship = sub === 0 ? 0 : (sub >= FREE_OVER ? 0 : SHIP);
+  return { sub, ship, total: sub + ship };
+}
+function renderCart(){
+  const cart = loadCart();
+  if (!cart.length){
+    $('cartBody').innerHTML = '<div class="empty">カートは空です。<br>雨の日のお買い物も、アメマチストアなら濡れません。</div>';
+    return;
+  }
+  const t = totals(cart);
+  const pct = Math.min(100, Math.round(t.sub / FREE_OVER * 100));
+  $('cartBody').innerHTML = `
+    <div class="cart-list">
+      ${cart.map((r, i) => {
+        const p = PRODUCTS.find(x => x.id === r.id);
+        return `
+        <div class="cart-row">
+          <div class="cart-thumb"><img src="${p.img}" alt=""></div>
+          <div class="cart-info">
+            <p class="cart-name">${esc(p.name)}</p>
+            ${r.variant ? `<p class="cart-var">${esc(r.variant)}</p>` : ''}
+          </div>
+          <span class="cart-qty"><select data-qty="${i}" aria-label="数量">${[1,2,3,4,5,6,7,8,9].map(n => `<option ${n === r.qty ? 'selected' : ''}>${n}</option>`).join('')}</select></span>
+          <span class="cart-price">${yen(p.price * r.qty)}</span>
+          <button class="cart-del" type="button" data-del="${i}">削除</button>
+        </div>`;
+      }).join('')}
+    </div>
+    <div class="cart-total">
+      <div class="ct-row"><span>商品小計</span><span>${yen(t.sub)}</span></div>
+      <div class="ct-row"><span>送料</span><span>${t.ship === 0 ? 'FREE' : yen(t.ship)}</span></div>
+      <div class="ship-bar"><div class="ship-fill" style="width:${pct}%"></div></div>
+      <p class="ship-note">${t.ship === 0 ? '✓ 送料無料です' : 'あと' + yen(FREE_OVER - t.sub) + 'で送料無料。缶バッジ、どうですか。'}</p>
+      <div class="ct-row total"><span>合計</span><b>${yen(t.total)}</b></div>
+      <button class="checkout-btn" type="button" id="checkout">レジへ進む(デモ注文を確定)</button>
+    </div>`;
+  document.querySelectorAll('[data-qty]').forEach(sel => sel.addEventListener('change', e => {
+    const c = loadCart(); c[+e.target.dataset.qty].qty = +e.target.value; saveCart(c); renderCart();
+  }));
+  document.querySelectorAll('[data-del]').forEach(btn => btn.addEventListener('click', e => {
+    const c = loadCart(); c.splice(+e.target.dataset.del, 1); saveCart(c); renderCart();
+  }));
+  $('checkout').addEventListener('click', () => {
+    const tt = totals(loadCart());
+    $('orderNo').textContent = 'AMS-2026-' + String(Math.floor(Math.random() * 900000) + 100000);
+    $('orderTotal').textContent = yen(tt.total);
+    saveCart([]);
+    show('done');
+  });
+}
+
+renderShop();
+paintCartN();
+</script>
+</body>
+</html>

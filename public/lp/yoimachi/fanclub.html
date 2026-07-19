@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- 架空のアイドルグループ「テンキヨホー!」のデモサイト用ページです。実在の団体とは関係ありません。 -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ファンクラブ「かんそくたい」入会のご案内|テンキヨホー! OFFICIAL WEB SITE</title>
+<meta name="description" content="テンキヨホー!オフィシャルファンクラブ「かんそくたい」の入会案内。会員特典、料金、入会方法のご紹介。">
+<meta name="robots" content="noindex">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="%23f0417f"/><circle cx="21" cy="12" r="6" fill="%23ffd23e"/><g fill="%23ffffff"><circle cx="10" cy="18" r="5"/><circle cx="16" cy="15" r="6.5"/><circle cx="22" cy="19" r="4.5"/><rect x="8" y="17" width="17" height="6" rx="3"/></g></svg>'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@400;500;600&family=Zen+Maru+Gothic:wght@700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#f0417f;
+  --pink-dark:#d92e6b;
+  --pink-pale:#fdeef5;
+  --pink-line:#f5b8d0;
+  --yellow:#ffd23e;
+  --ink:#3c3c46;
+  --gray:#8a8a94;
+  --head-h:64px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;color:var(--ink);background:#fff;line-height:1.9;font-size:14px;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%;vertical-align:middle}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none}
+:focus{outline:none}
+:focus-visible{outline:2px solid var(--pink);outline-offset:3px}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px}
+
+/* header */
+.site-head{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--head-h);background:#fff;box-shadow:0 1px 0 rgba(240,65,127,.15)}
+.head-in{max-width:1240px;margin:0 auto;padding:0 22px;height:100%;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brand{display:flex;align-items:center;gap:9px}
+.brand-mark{width:30px;height:30px;flex:none}
+.brand-name{font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:18px;letter-spacing:.02em;color:var(--pink);transform:skewX(-6deg);display:inline-block;white-space:nowrap}
+.back{font-family:"Jost",sans-serif;font-weight:500;font-size:11px;letter-spacing:.16em;border:1px solid var(--pink);color:var(--pink);padding:8px 18px;border-radius:999px;transition:.2s;white-space:nowrap}
+.back:hover{background:var(--pink);color:#fff}
+
+/* page hero */
+.page-hero{
+  margin-top:var(--head-h);
+  background:linear-gradient(135deg,#f0417f 0%,#f973a5 100%);
+  color:#fff;text-align:center;padding:64px 24px 58px;position:relative;overflow:hidden;
+}
+.page-hero::before{
+  content:"";position:absolute;inset:0;
+  background-image:radial-gradient(rgba(255,255,255,.35) 1.4px,transparent 2px);
+  background-size:34px 26px;
+}
+.ph-en{position:relative;font-family:"Jost",sans-serif;font-weight:600;font-size:12px;letter-spacing:.4em;opacity:.9}
+.ph-name{position:relative;font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:clamp(34px,7vw,52px);letter-spacing:.14em;margin:8px 0 4px;text-shadow:0 2px 0 rgba(217,46,107,.5)}
+.ph-tt{position:relative;font-weight:700;font-size:15px;letter-spacing:.1em}
+.crumb{background:var(--pink-pale);font-size:11px;color:var(--gray);padding:9px 0}
+.crumb .wrap a{color:var(--pink)}
+.crumb .wrap a:hover{text-decoration:underline}
+
+/* sections */
+.sec{padding:64px 0}
+.sec-h{text-align:center;font-family:"Marcellus",serif;font-weight:400;font-size:clamp(22px,3.4vw,28px);letter-spacing:.16em;color:var(--pink);margin-bottom:8px}
+.sec-h::after{content:"";display:block;width:32px;height:3px;background:var(--pink);margin:12px auto 0}
+.sec-sub{text-align:center;font-size:12px;color:var(--gray);letter-spacing:.2em;margin-bottom:34px}
+.sec-tint{background:var(--pink-pale)}
+.lead{text-align:center;max-width:640px;margin:0 auto 8px;font-size:14px}
+
+/* 特典 */
+.ben-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:34px}
+.ben-card{background:#fff;border:1px solid var(--pink-line);border-radius:14px;padding:20px 22px}
+.ben-num{font-family:"Jost",sans-serif;font-weight:600;font-size:13px;color:var(--pink)}
+.ben-tt{font-weight:700;font-size:15px;margin:2px 0 4px}
+.ben-bd{font-size:12.5px;color:var(--gray)}
+
+/* 料金 */
+.price-box{max-width:560px;margin:34px auto 0;background:#fff;border-radius:16px;box-shadow:0 8px 24px rgba(240,65,127,.12);padding:30px 28px;text-align:center}
+.price-main{font-size:14px}
+.price-main b{font-family:"Jost",sans-serif;font-weight:600;font-size:44px;color:var(--pink);margin:0 6px;letter-spacing:.02em}
+.price-note{font-size:12px;color:var(--gray);margin-top:4px}
+.pay-chips{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:16px}
+.pay-chips span{border:1px solid var(--pink-line);color:var(--gray);font-size:11.5px;padding:5px 14px;border-radius:999px}
+
+/* ステップ */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+.step{background:#fff;border-radius:14px;box-shadow:0 6px 20px rgba(240,65,127,.1);padding:24px 20px;text-align:center;position:relative}
+.step-num{width:44px;height:44px;border-radius:50%;background:var(--pink);color:#fff;font-family:"Jost",sans-serif;font-weight:600;font-size:18px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.step-tt{font-weight:700;font-size:14px}
+.step-bd{font-size:12px;color:var(--gray);margin-top:4px}
+.steps-note{text-align:center;font-size:12px;color:var(--gray);margin-top:18px}
+
+/* ランク */
+.fc-rank{max-width:620px;margin:34px auto 0;background:#fff;border:1px solid var(--pink-line);border-radius:12px;overflow:hidden;font-size:12.5px}
+.fr-row{display:grid;grid-template-columns:86px 108px 1fr;gap:10px;padding:10px 18px;border-bottom:1px solid #f4e3eb;align-items:baseline}
+.fr-row:last-child{border-bottom:none}
+.fr-head{background:var(--pink-pale);font-weight:700;color:var(--pink-dark)}
+.fr-row span:first-child{font-weight:700}
+
+/* 注意事項 */
+.note-list{max-width:640px;margin:34px auto 0;background:#fff;border:1px solid var(--pink-line);border-radius:12px;padding:20px 24px}
+.note-list li{position:relative;padding:5px 0 5px 18px;font-size:12.5px;color:var(--gray)}
+.note-list li::before{content:"※";position:absolute;left:0;color:var(--pink)}
+
+/* FAQ */
+.faq-list{max-width:720px;margin:34px auto 0;display:grid;gap:12px}
+.faq-item{background:#fff;border-radius:12px;box-shadow:0 4px 14px rgba(240,65,127,.08);overflow:hidden}
+.faq-q{display:flex;gap:10px;align-items:baseline;width:100%;background:none;border:none;cursor:pointer;padding:16px 46px 16px 18px;font:inherit;font-weight:700;font-size:13.5px;text-align:left;position:relative}
+.faq-q::before{content:"Q.";flex:none;font-family:"Jost",sans-serif;font-weight:600;color:var(--pink)}
+.faq-q::after{content:"";position:absolute;right:20px;top:50%;width:8px;height:8px;border-right:1.5px solid var(--pink);border-bottom:1.5px solid var(--pink);transform:translateY(-70%) rotate(45deg);transition:transform .3s}
+.faq-item.open .faq-q::after{transform:translateY(-30%) rotate(225deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-item.open .faq-a{max-height:240px}
+.faq-a p{padding:0 18px 16px 46px;font-size:13px;color:var(--gray)}
+.faq-a b{color:var(--pink-dark)}
+
+/* CTA */
+.cta-sec{background:linear-gradient(135deg,#f0417f 0%,#f973a5 100%);color:#fff;text-align:center;padding:56px 24px}
+.cta-tt{font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:clamp(19px,3.4vw,24px);letter-spacing:.1em}
+.cta-btn{
+  display:block;width:min(340px,86%);margin:24px auto 0;text-align:center;
+  background:#fff;color:var(--pink);font:inherit;font-weight:900;font-size:15px;letter-spacing:.12em;
+  padding:17px;border-radius:999px;border:none;cursor:pointer;
+  box-shadow:0 4px 14px rgba(217,46,107,.35);transition:.2s;
+}
+.cta-btn:hover{transform:translateY(-2px)}
+.cta-msg{display:none;margin:16px auto 0;max-width:420px;background:rgba(255,255,255,.92);color:var(--pink-dark);border-radius:10px;padding:12px 16px;font-size:12.5px;font-weight:700}
+.cta-msg.show{display:block}
+.cta-note{margin-top:14px;font-size:11px;opacity:.85}
+
+/* footer */
+.site-foot{padding:40px 24px 28px;text-align:center}
+.foot-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;margin-bottom:20px}
+.foot-nav a{font-family:"Jost",sans-serif;font-weight:400;font-size:11px;letter-spacing:.16em;color:var(--gray)}
+.foot-nav a:hover{color:var(--pink)}
+.foot-legal{font-size:10.5px;color:var(--gray);line-height:2}
+.foot-legal a{text-decoration:underline;text-underline-offset:3px}
+
+@media(max-width:720px){
+  .brand-name{font-size:16px}
+  .sec{padding:48px 0}
+  .ben-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr;max-width:400px;margin-left:auto;margin-right:auto}
+  .fr-row{grid-template-columns:64px 92px 1fr;padding:10px 12px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="head-in">
+    <a class="brand" href="index.html">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="8" fill="#f0417f"/>
+        <circle cx="21" cy="12" r="6" fill="#ffd23e"/>
+        <g fill="#fff">
+          <circle cx="10" cy="18" r="5"/>
+          <circle cx="16" cy="15" r="6.5"/>
+          <circle cx="22" cy="19" r="4.5"/>
+          <rect x="8" y="17" width="17" height="6" rx="3"/>
+        </g>
+      </svg>
+      <span class="brand-name">テンキヨホー!</span>
+    </a>
+    <a class="back" href="index.html">← BACK TO TOP</a>
+  </div>
+</header>
+
+<div class="page-hero">
+  <p class="ph-en">TENKI-YOHO! OFFICIAL FANCLUB</p>
+  <p class="ph-name">かんそくたい</p>
+  <p class="ph-tt">入会のご案内</p>
+</div>
+<div class="crumb"><div class="wrap"><a href="index.html">HOME</a> › <a href="index.html#fanclub">FANCLUB</a> › 入会のご案内</div></div>
+
+<main>
+
+<section class="sec">
+  <div class="wrap">
+    <h2 class="sec-h">BENEFITS</h2>
+    <p class="sec-sub">会員特典</p>
+    <p class="lead">入会すると、あなたも今日から観測メンバー。<br>テンキヨホー!のいちばん近くで、6人の毎日を観測できます。</p>
+    <div class="ben-grid">
+      <div class="ben-card">
+        <p class="ben-num">01</p>
+        <p class="ben-tt">会員限定ブログ「観測日誌」</p>
+        <p class="ben-bd">メンバーが交代で毎日更新。写真多め、誤字もそのまま。くもりの日はふわのの担当率が異常に高いです。</p>
+      </div>
+      <div class="ben-card">
+        <p class="ben-num">02</p>
+        <p class="ben-tt">チケット最速先行</p>
+        <p class="ben-bd">ワンマン・主催イベントのチケットを一般発売より早くご案内。生誕祭は優先入場つきです。</p>
+      </div>
+      <div class="ben-card">
+        <p class="ben-num">03</p>
+        <p class="ben-tt">会員限定配信「かんそくたいミーティング」</p>
+        <p class="ben-bd">月1回、6人そろってのゆるゆる配信。アーカイブは月末まで。たまに重大発表があるので油断できません。</p>
+      </div>
+      <div class="ben-card">
+        <p class="ben-num">04</p>
+        <p class="ben-tt">デジタル隊員証</p>
+        <p class="ben-bd">スマホで表示できる会員証。継続すると階級が上がります(下記のランク表をご覧ください)。</p>
+      </div>
+      <div class="ben-card">
+        <p class="ben-num">05</p>
+        <p class="ben-tt">毎月のお天気壁紙</p>
+        <p class="ben-bd">その月の「担当天気」メンバーの撮り下ろし壁紙を毎月1日に配信します。</p>
+      </div>
+      <div class="ben-card">
+        <p class="ben-num">06</p>
+        <p class="ben-tt">バースデーメール</p>
+        <p class="ben-bd">あなたの誕生日に、推しメンバー(登録制)からお祝いメールが届きます。当日の天気つき。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-tint">
+  <div class="wrap">
+    <h2 class="sec-h">PRICE</h2>
+    <p class="sec-sub">料金・お支払い方法</p>
+    <div class="price-box">
+      <p class="price-main">月額<b>¥550</b>(税込)</p>
+      <p class="price-note">入会金・年会費はありません。いつでも退会できます。</p>
+      <div class="pay-chips">
+        <span>クレジットカード</span>
+        <span>キャリア決済</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <h2 class="sec-h">HOW TO JOIN</h2>
+    <p class="sec-sub">入会までの3ステップ</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <p class="step-tt">メールアドレス登録</p>
+        <p class="step-bd">入会フォームにメールアドレスを入力し、届いた確認メールのリンクを開きます。</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <p class="step-tt">会員情報の入力</p>
+        <p class="step-bd">お名前・生年月日・推しメンバー(あとから変更可)を登録します。</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <p class="step-tt">お支払いで入会完了</p>
+        <p class="step-bd">決済が完了すると、その場でデジタル隊員証が発行されます。所要3分。</p>
+      </div>
+    </div>
+    <p class="steps-note">※推しメンバーを決められない場合は「box(全員)」も選べます。</p>
+  </div>
+</section>
+
+<section class="sec sec-tint">
+  <div class="wrap">
+    <h2 class="sec-h">RANK</h2>
+    <p class="sec-sub">隊員ランク</p>
+    <div class="fc-rank">
+      <div class="fr-row fr-head"><span>ランク</span><span>条件</span><span>デジタル隊員証</span></div>
+      <div class="fr-row"><span>隊員</span><span>入会時〜</span><span>そらいろ</span></div>
+      <div class="fr-row"><span>班長</span><span>継続1年〜</span><span>ぎんいろ</span></div>
+      <div class="fr-row"><span>隊長</span><span>継続3年〜</span><span>きんいろ(生誕祭の乾杯係に任命されます)</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <h2 class="sec-h">FAQ</h2>
+    <p class="sec-sub">入会に関するよくある質問</p>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">学生でも入会できますか?</button>
+        <div class="faq-a"><p><b>A.</b> ご入会いただけます。未成年の方は保護者の同意のうえでお申し込みください。</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">推しメンバーはあとから変えられますか?</button>
+        <div class="faq-a"><p><b>A.</b> マイページからいつでも変更できます。変更回数の制限はありませんが、メンバーには変更履歴は見えないのでご安心ください。</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">機種変更したら隊員証はどうなりますか?</button>
+        <div class="faq-a"><p><b>A.</b> 新しい端末で会員ページにログインすれば、そのまま表示できます。ランクも引き継がれます。</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">退会したいときは?</button>
+        <div class="faq-a"><p><b>A.</b> マイページからいつでも手続きできます。月の途中で退会した場合、日割りの返金はありません。またいつでも観測に戻ってきてください。</p></div>
+      </div>
+    </div>
+    <ul class="note-list">
+      <li>会員資格の譲渡・貸与はできません。</li>
+      <li>チケット先行は抽選です。当選をお約束するものではありません。</li>
+      <li>特典の内容は予告なく変更になる場合があります。</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<div class="cta-sec">
+  <p class="cta-tt">それでは、よい観測を。</p>
+  <a class="cta-btn" href="fc-join.html" style="display:block;text-decoration:none">入会手続きへすすむ</a>
+  <p class="cta-note"><a href="fc-mypage.html" style="color:#fff;text-decoration:underline;text-underline-offset:3px">すでに会員の方はこちら(マイページ)</a></p>
+  <p class="cta-note">※お支払いはクレジットカード・キャリア決済に対応しています。</p>
+</div>
+
+<footer class="site-foot">
+  <nav class="foot-nav" aria-label="フッターナビゲーション">
+    <a href="index.html">HOME</a>
+    <a href="index.html#member">MEMBER</a>
+    <a href="index.html#schedule">SCHEDULE</a>
+    <a href="ticket.html">チケットのご案内</a>
+    <a href="beginners.html">はじめての方へ</a>
+    <a href="index.html#contact">CONTACT</a>
+  </nav>
+  <p class="foot-legal">
+    当サイトは架空のアイドルグループのデモサイトです。<br>
+    <a href="privacy.html">プライバシーポリシー</a>&nbsp;&nbsp;© TENKI-YOHO! / AOJASHIN RECORDS All rights reserved.
+  </p>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const open = item.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+});
+</script>
+</body>
+</html>

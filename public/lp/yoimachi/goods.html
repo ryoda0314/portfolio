@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- 架空のアイドルグループ「テンキヨホー!」のデモサイト用ページです。実在の団体・通販サービスとは関係ありません。 -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>グッズ・通販のご案内|テンキヨホー! OFFICIAL WEB SITE</title>
+<meta name="description" content="テンキヨホー!のオフィシャルグッズのご案内。商品ラインナップ、会場物販、公式通販「アメマチストア」について。">
+<meta name="robots" content="noindex">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="%23f0417f"/><circle cx="21" cy="12" r="6" fill="%23ffd23e"/><g fill="%23ffffff"><circle cx="10" cy="18" r="5"/><circle cx="16" cy="15" r="6.5"/><circle cx="22" cy="19" r="4.5"/><rect x="8" y="17" width="17" height="6" rx="3"/></g></svg>'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@400;500;600&family=Zen+Maru+Gothic:wght@700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#f0417f;
+  --pink-dark:#d92e6b;
+  --pink-pale:#fdeef5;
+  --pink-line:#f5b8d0;
+  --green:#3cb96a;
+  --yellow:#ffd23e;
+  --ink:#3c3c46;
+  --gray:#8a8a94;
+  --head-h:64px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;color:var(--ink);background:#fff;line-height:1.9;font-size:14px;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%;vertical-align:middle}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none}
+:focus{outline:none}
+:focus-visible{outline:2px solid var(--pink);outline-offset:3px}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px}
+
+/* header */
+.site-head{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--head-h);background:#fff;box-shadow:0 1px 0 rgba(240,65,127,.15)}
+.head-in{max-width:1240px;margin:0 auto;padding:0 22px;height:100%;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brand{display:flex;align-items:center;gap:9px}
+.brand-mark{width:30px;height:30px;flex:none}
+.brand-name{font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:18px;letter-spacing:.02em;color:var(--pink);transform:skewX(-6deg);display:inline-block;white-space:nowrap}
+.back{font-family:"Jost",sans-serif;font-weight:500;font-size:11px;letter-spacing:.16em;border:1px solid var(--pink);color:var(--pink);padding:8px 18px;border-radius:999px;transition:.2s;white-space:nowrap}
+.back:hover{background:var(--pink);color:#fff}
+
+/* page hero */
+.page-hero{
+  margin-top:var(--head-h);
+  background:linear-gradient(135deg,#3cb96a 0%,#7fd4a0 100%);
+  color:#fff;text-align:center;padding:64px 24px 58px;position:relative;overflow:hidden;
+}
+.page-hero::before{
+  content:"";position:absolute;inset:0;
+  background-image:radial-gradient(rgba(255,255,255,.4) 1.4px,transparent 2px);
+  background-size:34px 26px;
+}
+.ph-en{position:relative;font-family:"Jost",sans-serif;font-weight:600;font-size:12px;letter-spacing:.4em;opacity:.9}
+.ph-name{position:relative;font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:clamp(28px,6vw,42px);letter-spacing:.12em;margin:8px 0 4px;text-shadow:0 3px 0 rgba(40,110,70,.45)}
+.ph-tt{position:relative;font-weight:700;font-size:14px;letter-spacing:.08em}
+.crumb{background:var(--pink-pale);font-size:11px;color:var(--gray);padding:9px 0}
+.crumb .wrap a{color:var(--pink)}
+.crumb .wrap a:hover{text-decoration:underline}
+
+/* sections */
+.sec{padding:64px 0}
+.sec-h{text-align:center;font-family:"Marcellus",serif;font-weight:400;font-size:clamp(22px,3.4vw,28px);letter-spacing:.16em;color:var(--pink);margin-bottom:8px}
+.sec-h::after{content:"";display:block;width:32px;height:3px;background:var(--pink);margin:12px auto 0}
+.sec-sub{text-align:center;font-size:12px;color:var(--gray);letter-spacing:.2em;margin-bottom:34px}
+.sec-tint{background:var(--pink-pale)}
+.lead{text-align:center;max-width:640px;margin:0 auto;font-size:14px}
+
+/* 商品 */
+.gd-list{display:grid;gap:22px;margin-top:34px}
+.gd-item{display:grid;grid-template-columns:220px 1fr;gap:24px;background:#fff;border-radius:16px;box-shadow:0 6px 20px rgba(240,65,127,.1);padding:22px;align-items:center}
+.gd-img{border-radius:12px;overflow:hidden;aspect-ratio:1/1}
+.gd-img img{width:100%;height:100%;object-fit:cover;display:block}
+.gd-tags{display:flex;gap:6px;margin-bottom:6px}
+.gd-tag{font-weight:700;font-size:10px;letter-spacing:.06em;padding:3px 10px;border-radius:999px}
+.gd-tag.venue{background:var(--pink);color:#fff}
+.gd-tag.online{background:var(--green);color:#fff}
+.gd-tag.random{border:1px solid var(--pink);color:var(--pink)}
+.gd-tt{font-weight:700;font-size:16px}
+.gd-price{font-family:"Jost",sans-serif;font-weight:600;font-size:14px;color:var(--pink);margin:2px 0 8px}
+.gd-bd{font-size:12.5px;color:var(--gray)}
+.gd-spec{font-size:11.5px;color:var(--gray);margin-top:8px;border-top:1px solid #f4e3eb;padding-top:8px}
+.gd-spec b{color:var(--ink)}
+
+/* 販売案内 */
+.sale-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px}
+.sale-card{background:#fff;border-radius:14px;box-shadow:0 6px 20px rgba(240,65,127,.1);padding:24px 24px}
+.sale-tt{font-weight:700;font-size:15px;color:var(--pink-dark)}
+.sale-card dl{margin-top:10px;font-size:12.5px}
+.sale-card dt{font-weight:700;color:var(--gray);margin-top:8px}
+.sale-card dd{color:var(--ink)}
+
+/* FAQ */
+.faq-list{max-width:720px;margin:34px auto 0;display:grid;gap:12px}
+.faq-item{background:#fff;border-radius:12px;box-shadow:0 4px 14px rgba(240,65,127,.08);overflow:hidden}
+.faq-q{display:flex;gap:10px;align-items:baseline;width:100%;background:none;border:none;cursor:pointer;padding:16px 46px 16px 18px;font:inherit;font-weight:700;font-size:13.5px;text-align:left;position:relative}
+.faq-q::before{content:"Q.";flex:none;font-family:"Jost",sans-serif;font-weight:600;color:var(--pink)}
+.faq-q::after{content:"";position:absolute;right:20px;top:50%;width:8px;height:8px;border-right:1.5px solid var(--pink);border-bottom:1.5px solid var(--pink);transform:translateY(-70%) rotate(45deg);transition:transform .3s}
+.faq-item.open .faq-q::after{transform:translateY(-30%) rotate(225deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-item.open .faq-a{max-height:240px}
+.faq-a p{padding:0 18px 16px 46px;font-size:13px;color:var(--gray)}
+.faq-a b{color:var(--pink-dark)}
+
+/* CTA */
+.cta-sec{background:linear-gradient(135deg,#f0417f 0%,#f973a5 100%);color:#fff;text-align:center;padding:56px 24px}
+.cta-tt{font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:clamp(19px,3.4vw,24px);letter-spacing:.1em}
+.cta-btn{
+  display:block;width:min(340px,86%);margin:24px auto 0;text-align:center;
+  background:#fff;color:var(--pink);font:inherit;font-weight:900;font-size:15px;letter-spacing:.12em;
+  padding:17px;border-radius:999px;border:none;cursor:pointer;
+  box-shadow:0 4px 14px rgba(217,46,107,.35);transition:.2s;
+}
+.cta-btn:hover{transform:translateY(-2px)}
+.cta-msg{display:none;margin:16px auto 0;max-width:460px;background:rgba(255,255,255,.92);color:var(--pink-dark);border-radius:10px;padding:12px 16px;font-size:12.5px;font-weight:700}
+.cta-msg.show{display:block}
+.cta-note{margin-top:14px;font-size:11px;opacity:.85}
+
+/* footer */
+.site-foot{padding:40px 24px 28px;text-align:center}
+.foot-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;margin-bottom:20px}
+.foot-nav a{font-family:"Jost",sans-serif;font-weight:400;font-size:11px;letter-spacing:.16em;color:var(--gray)}
+.foot-nav a:hover{color:var(--pink)}
+.foot-legal{font-size:10.5px;color:var(--gray);line-height:2}
+.foot-legal a{text-decoration:underline;text-underline-offset:3px}
+
+@media(max-width:720px){
+  .brand-name{font-size:16px}
+  .sec{padding:48px 0}
+  .gd-item{grid-template-columns:1fr;padding:16px}
+  .gd-img{max-width:280px;margin:0 auto}
+  .sale-grid{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="head-in">
+    <a class="brand" href="index.html">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="8" fill="#f0417f"/>
+        <circle cx="21" cy="12" r="6" fill="#ffd23e"/>
+        <g fill="#fff">
+          <circle cx="10" cy="18" r="5"/>
+          <circle cx="16" cy="15" r="6.5"/>
+          <circle cx="22" cy="19" r="4.5"/>
+          <rect x="8" y="17" width="17" height="6" rx="3"/>
+        </g>
+      </svg>
+      <span class="brand-name">テンキヨホー!</span>
+    </a>
+    <a class="back" href="index.html">← BACK TO TOP</a>
+  </div>
+</header>
+
+<div class="page-hero">
+  <p class="ph-en">GOODS &amp; ONLINE STORE</p>
+  <p class="ph-name">グッズ・通販のご案内</p>
+  <p class="ph-tt">今日の観測グッズ、そろっています。</p>
+</div>
+<div class="crumb"><div class="wrap"><a href="index.html">HOME</a> › <a href="index.html#goods">GOODS</a> › グッズ・通販のご案内</div></div>
+
+<main>
+
+<section class="sec">
+  <div class="wrap">
+    <h2 class="sec-h">LINEUP</h2>
+    <p class="sec-sub">商品ラインナップ</p>
+    <div class="gd-list">
+
+      <div class="gd-item">
+        <div class="gd-img"><img src="goods-01-penlight.jpg" alt="ウェザーペンライトの商品写真" loading="lazy" width="900" height="900"></div>
+        <div>
+          <div class="gd-tags"><span class="gd-tag venue">会場</span><span class="gd-tag online">通販</span></div>
+          <h3 class="gd-tt">ウェザーペンライト(6色切替)</h3>
+          <p class="gd-price">¥2,800(税込)</p>
+          <p class="gd-bd">ボタンひとつで6人のメンバーカラーに切り替えられる公式ペンライト。曲ごとに「今日の担当」の色に変えるのが、かんそくたいの正式な観測方法です。</p>
+          <p class="gd-spec"><b>仕様:</b>全長約25cm / 単4電池×3(テスト用電池付) / 6色切替(ピンク・イエロー・パープル・ブルー・オレンジ・グリーン)</p>
+        </div>
+      </div>
+
+      <div class="gd-item">
+        <div class="gd-img"><img src="goods-02-towel.jpg" alt="推しメンタオルの商品写真" loading="lazy" width="900" height="900"></div>
+        <div>
+          <div class="gd-tags"><span class="gd-tag venue">会場</span><span class="gd-tag online">通販</span></div>
+          <h3 class="gd-tt">推しメンタオル(全6種)</h3>
+          <p class="gd-price">各¥1,800(税込)</p>
+          <p class="gd-bd">メンバーカラーのマフラータオル。ライブで掲げるもよし、雨の日の帰り道で頭にかぶるもよし。6色そろえると空が作れます。</p>
+          <p class="gd-spec"><b>仕様:</b>約20×110cm / コットン100% / 全6種(メンバーカラー各1種)</p>
+        </div>
+      </div>
+
+      <div class="gd-item">
+        <div class="gd-img"><img src="goods-03-badge.jpg" alt="缶バッジの商品写真" loading="lazy" width="900" height="900"></div>
+        <div>
+          <div class="gd-tags"><span class="gd-tag venue">会場</span><span class="gd-tag online">通販</span><span class="gd-tag random">ランダム</span></div>
+          <h3 class="gd-tt">缶バッジ(全6種+シークレット)</h3>
+          <p class="gd-price">¥400(税込・ランダム)</p>
+          <p class="gd-bd">担当天気のモチーフが入ったランダム缶バッジ。シークレットは6人の天気がぜんぶ入った「快晴レア」。出たらその日はいいことがあります(体感)。</p>
+          <p class="gd-spec"><b>仕様:</b>直径57mm / 全6種+シークレット1種 / ブラインド販売</p>
+        </div>
+      </div>
+
+      <div class="gd-item">
+        <div class="gd-img"><img src="goods-04-tshirt.jpg" alt="Tシャツの商品写真" loading="lazy" width="900" height="900"></div>
+        <div>
+          <div class="gd-tags"><span class="gd-tag venue">会場</span><span class="gd-tag online">通販</span></div>
+          <h3 class="gd-tt">Tシャツ「観測史上、最高!」</h3>
+          <p class="gd-price">¥3,500(税込)</p>
+          <p class="gd-bd">1stミニアルバムのリリースを記念したツアーTシャツ。胸には仲良しの太陽と雲。ライブでも普段着でも着られる、を目指しました。</p>
+          <p class="gd-spec"><b>仕様:</b>ブラック / S・M・L・XL / 綿100%</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-tint">
+  <div class="wrap">
+    <h2 class="sec-h">WHERE TO BUY</h2>
+    <p class="sec-sub">販売場所のご案内</p>
+    <div class="sale-grid">
+      <div class="sale-card">
+        <h3 class="sale-tt">会場物販</h3>
+        <dl>
+          <dt>営業時間</dt>
+          <dd>開場1時間前〜開演まで / 終演後〜特典会終了まで</dd>
+          <dt>お支払い</dt>
+          <dd>現金・コード決済</dd>
+          <dt>ご注意</dt>
+          <dd>混雑時はお一人さまあたりの購入点数を制限する場合があります。</dd>
+        </dl>
+      </div>
+      <div class="sale-card">
+        <h3 class="sale-tt"><a href="amemachi-store.html" style="text-decoration:underline;text-underline-offset:3px">公式通販「アメマチストア」</a></h3>
+        <dl>
+          <dt>発送目安</dt>
+          <dd>ご注文から3〜5営業日</dd>
+          <dt>お支払い</dt>
+          <dd>クレジットカード・コンビニ払い・キャリア決済</dd>
+          <dt>送料</dt>
+          <dd>全国一律600円(5,000円以上のご注文で無料)</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <h2 class="sec-h">FAQ</h2>
+    <p class="sec-sub">グッズに関するよくある質問</p>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">サイズ交換はできますか?</button>
+        <div class="faq-a"><p><b>A.</b> 通販でご購入のTシャツは、未開封・未着用に限り到着後7日以内で交換を承ります。会場でご購入の場合は、その場でサイズをお確かめください。</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">売り切れの商品は再入荷しますか?</button>
+        <div class="faq-a"><p><b>A.</b> 再入荷が決まり次第、公式Xと本サイトのNEWSでお知らせします。ペンライトは10月のワンマンまでに再入荷予定です。</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">会場でしか買えないものはありますか?</button>
+        <div class="faq-a"><p><b>A.</b> 生誕祭の限定グッズ(ランダムチェキ風カードなど)は会場のみの販売です。開催前のNEWSでご案内します。</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">缶バッジのシークレット、確率はどれくらいですか?</button>
+        <div class="faq-a"><p><b>A.</b> ひみつです。ただ、雨の日の会場物販で出やすいといううわさがあります(スタッフは何も知りません)。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div class="cta-sec">
+  <p class="cta-tt">おうちでも、観測を。</p>
+  <a class="cta-btn" href="amemachi-store.html" style="display:block;text-decoration:none">アメマチストア(公式通販)へ</a>
+  <p class="cta-note">※会場物販のラインナップは公演ごとに異なる場合があります。</p>
+</div>
+
+<footer class="site-foot">
+  <nav class="foot-nav" aria-label="フッターナビゲーション">
+    <a href="index.html">HOME</a>
+    <a href="index.html#goods">GOODS</a>
+    <a href="ticket.html">チケットのご案内</a>
+    <a href="fanclub.html">FANCLUB入会案内</a>
+    <a href="index.html#contact">CONTACT</a>
+  </nav>
+  <p class="foot-legal">
+    当サイトは架空のアイドルグループのデモサイトです。通販サイト「アメマチストア」も架空のサービスです。<br>
+    <a href="privacy.html">プライバシーポリシー</a>&nbsp;&nbsp;© TENKI-YOHO! / AOJASHIN RECORDS All rights reserved.
+  </p>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const open = item.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+});
+</script>
+</body>
+</html>
