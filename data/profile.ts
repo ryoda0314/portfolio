@@ -231,7 +231,7 @@ const contact = {
     "I'd love to hear from you about app development, AI-powered products, services for students — or working on something together.",
     "앱 개발, AI를 활용한 프로덕트, 학생 대상 서비스에 관한 상담이나 공동 개발 제안을 기다리고 있습니다."
   ),
-  email: "your-email@gmail.com",
+  email: "ryo.tsukamoto24@gmail.com",
   // label を小文字にしたものが components/SocialIcon.tsx のアイコン名と対応します
   links: [
     {
