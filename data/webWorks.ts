@@ -1,14 +1,14 @@
 import { localize, type Locale, type Localized } from "@/lib/locale";
 
 // ============================================================
-// LP・Web制作の作品集データ(日本語 / English / 한국어)
-// 実物は public/lp/<slug>/ に置かれ、サムネイルは public/lp-thumbs/<slug>.jpg
+// Web制作(サイト・LP)の作品集データ(日本語 / English / 한국어)
+// 実物は public/web/<slug>/ に置かれ、サムネイルは public/web-thumbs/<slug>.jpg
 // テキストは l("日本語", "English", "한국어") の順で3言語ぶん書きます。
 // ============================================================
 
 const l = (ja: string, en: string, ko: string): Localized => ({ ja, en, ko });
 
-export type LpWork = {
+export type WebWork = {
   slug: string;
   title: string;
   description: string;
@@ -17,38 +17,39 @@ export type LpWork = {
   variants?: { label: string; url: string }[];
 };
 
-export type LpCategory = {
+export type WebCategory = {
   category: string;
-  works: LpWork[];
+  works: WebWork[];
 };
 
-type LpWorkSource = Omit<LpWork, "title" | "description"> & {
+type WebWorkSource = Omit<WebWork, "title" | "description"> & {
   title: Localized;
   description: Localized;
 };
 
-type LpCategorySource = {
+type WebCategorySource = {
   category: Localized;
-  works: LpWorkSource[];
+  works: WebWorkSource[];
 };
 
 function work(
   slug: string,
   title: Localized,
   description: Localized,
-  variants?: { label: string; url: string }[]
-): LpWorkSource {
+  variants?: { label: string; url: string }[],
+  opts?: { url?: string }
+): WebWorkSource {
   return {
     slug,
     title,
     description,
-    url: `/lp/${slug}/index.html`,
-    thumb: `/lp-thumbs/${slug}.jpg`,
+    url: opts?.url ?? `/web/${slug}/index.html`,
+    thumb: `/web-thumbs/${slug}.jpg`,
     variants,
   };
 }
 
-const source: LpCategorySource[] = [
+const source: WebCategorySource[] = [
   {
     category: l("学園祭・イベント", "Campus Festivals & Events", "학교 축제·이벤트"),
     works: [
@@ -62,34 +63,12 @@ const source: LpCategorySource[] = [
         )
       ),
       work(
-        "festival",
-        l(
-          "星海祭 2026「無限彩 -INFINITE COLORS-」",
-          "Seikai-sai 2026 “INFINITE COLORS”",
-          "세이카이사이 2026 「무한채 -INFINITE COLORS-」"
-        ),
-        l(
-          "星海大学 第48回学園祭。夜空と色彩をテーマにした、グラデーション基調のビジュアル。",
-          "Seikai University's 48th campus festival. Gradient-driven visuals themed around the night sky and color.",
-          "세이카이대학 제48회 학교 축제. 밤하늘과 색채를 테마로 한 그러데이션 기조의 비주얼."
-        )
-      ),
-      work(
         "geisai",
         l("藝祭 2026「キャンバス」", "Geisai 2026 “Canvas”", "게이사이 2026 「캔버스」"),
         l(
           "みなと芸術大学 第58回藝祭。美大らしく「余白がキャンバスになる」レイアウトを意識。",
           "Minato University of the Arts' 58th art festival. A layout where — fittingly for an art school — the white space becomes the canvas.",
           "미나토예술대학 제58회 예술제. 미대답게 '여백이 캔버스가 되는' 레이아웃을 의식했습니다."
-        )
-      ),
-      work(
-        "michikusa",
-        l("北辰祭 2026「みちくさ」", "Hokushin-sai 2026 “Michikusa”", "호쿠신사이 2026 「미치쿠사」"),
-        l(
-          "北辰大学 第56回学園祭。寄り道をテーマに、歩くように読み進められる構成。",
-          "Hokushin University's 56th campus festival. Themed on taking detours — a page you read at a strolling pace.",
-          "호쿠신대학 제56회 학교 축제. '샛길'을 테마로, 걷듯이 읽어 나가는 구성."
         )
       ),
       work(
@@ -124,33 +103,11 @@ const source: LpCategorySource[] = [
           "태양의 하루를 실내에 재현하는 서캐디언 조명 LP. 시간대에 따라 변하는 빛을 스크롤로 체험."
         )
       ),
-      work(
-        "product",
-        l("IZUMI Bottle 480", "IZUMI Bottle 480", "IZUMI Bottle 480"),
-        l(
-          "真空二重構造ステンレスボトルのLP。スペックの伝え方と質感表現を重視。",
-          "Landing page for a vacuum-insulated stainless bottle, focused on how specs are communicated and how texture is expressed.",
-          "진공 이중 구조 스테인리스 보틀 LP. 스펙 전달 방식과 질감 표현을 중시."
-        )
-      ),
     ],
   },
   {
     category: l("アーティスト公式サイト", "Artist Official Sites", "아티스트 공식 사이트"),
     works: [
-      work(
-        "stellarion",
-        l("STELLARION Official Site", "STELLARION Official Site", "STELLARION Official Site"),
-        l(
-          "7人組アイドルグループの公式サイト。NEWS・MEMBER・DISCOGRAPHY・LIVE・FCまでフル構成。",
-          "Official site for a seven-member idol group — a full build with NEWS, MEMBER, DISCOGRAPHY, LIVE, and fan club sections.",
-          "7인조 아이돌 그룹 공식 사이트. NEWS·MEMBER·DISCOGRAPHY·LIVE·팬클럽까지 풀 구성."
-        ),
-        [
-          { label: "Atlas ver.", url: "/lp/stellarion/atlas.html" },
-          { label: "Kawaii Pop ver.", url: "/lp/stellarion/kawaii-pop.html" },
-        ]
-      ),
       work(
         "yoimachi",
         l("テンキヨホー! Official Site", "Tenki-Yohō! Official Site", "텐키요호! Official Site"),
@@ -167,46 +124,67 @@ const source: LpCategorySource[] = [
     works: [
       work(
         "axis-works",
-        l("株式会社アクシスワークス", "Axis Works Inc.", "주식회사 액시스웍스"),
         l(
-          "DXコンサル企業のコーポレートLP。同じ内容を4段階のデザイン強度で作り分けた比較シリーズ。",
-          "Corporate landing page for a DX consulting firm — a comparison series building the same content at four levels of design intensity.",
-          "DX 컨설팅 기업의 코퍼레이트 LP. 같은 내용을 4단계 디자인 강도로 만들어 비교한 시리즈."
+          "株式会社アクシスワークス(Standard)",
+          "Axis Works Inc. (Standard)",
+          "주식회사 액시스웍스 (Standard)"
         ),
-        [
-          { label: "Premium", url: "/lp/axis-works/premium.html" },
-          { label: "Flagship", url: "/lp/axis-works/flagship.html" },
-          { label: "Cinematic", url: "/lp/axis-works/flagship-cinematic.html" },
-        ]
-      ),
-    ],
-  },
-  {
-    category: l("実験・アート", "Experiments & Art", "실험·아트"),
-    works: [
-      work(
-        "a-day",
-        l("光の一日 — A DAY IN LIGHT", "A DAY IN LIGHT", "빛의 하루 — A DAY IN LIGHT"),
         l(
-          "スクロールすると一日の時間が流れる、光と色のスクロールテリング実験。",
-          "A scrollytelling experiment in light and color, where a full day passes as you scroll.",
-          "스크롤하면 하루의 시간이 흐르는, 빛과 색의 스크롤텔링 실험."
+          "DXコンサル企業のコーポレートLP。同じ内容を4段階のデザイン強度で作り分けた比較シリーズの基準版。",
+          "Corporate landing page for a DX consulting firm — the baseline of a series that builds the same content at four levels of design intensity.",
+          "DX 컨설팅 기업의 코퍼레이트 LP. 같은 내용을 4단계 디자인 강도로 만든 비교 시리즈의 기준판."
         )
       ),
       work(
-        "portfolio",
-        l("Portfolio 2026 (Alt Design)", "Portfolio 2026 (Alt Design)", "Portfolio 2026 (Alt Design)"),
+        "axis-works-premium",
         l(
-          "このサイトとは別アプローチで作ったポートフォリオ。DESIGN × CODE がテーマ。",
-          "A portfolio built with a different approach from this site, themed DESIGN × CODE.",
-          "이 사이트와는 다른 접근으로 만든 포트폴리오. 테마는 DESIGN × CODE."
-        )
+          "株式会社アクシスワークス(Premium)",
+          "Axis Works Inc. (Premium)",
+          "주식회사 액시스웍스 (Premium)"
+        ),
+        l(
+          "ビジュアルと余白の設計を一段引き上げたPremium版。",
+          "The Premium tier, stepping up the visuals and the use of white space.",
+          "비주얼과 여백 설계를 한 단계 끌어올린 Premium판."
+        ),
+        undefined,
+        { url: "/web/axis-works/premium.html" }
+      ),
+      work(
+        "axis-works-flagship",
+        l(
+          "株式会社アクシスワークス(Flagship)",
+          "Axis Works Inc. (Flagship)",
+          "주식회사 액시스웍스 (Flagship)"
+        ),
+        l(
+          "動きと演出を大胆に取り入れたFlagship版。",
+          "The Flagship tier, boldly adding motion and staging.",
+          "모션과 연출을 과감하게 도입한 Flagship판."
+        ),
+        undefined,
+        { url: "/web/axis-works/flagship.html" }
+      ),
+      work(
+        "axis-works-cinematic",
+        l(
+          "株式会社アクシスワークス(Flagship Cinematic)",
+          "Axis Works Inc. (Flagship Cinematic)",
+          "주식회사 액시스웍스 (Flagship Cinematic)"
+        ),
+        l(
+          "映像的な没入感まで振り切ったFlagship Cinematic版。",
+          "The Flagship Cinematic tier, pushed all the way to film-like immersion.",
+          "영상적인 몰입감까지 밀어붙인 Flagship Cinematic판."
+        ),
+        undefined,
+        { url: "/web/axis-works/flagship-cinematic.html" }
       ),
     ],
   },
 ];
 
-export function getLpWorks(locale: Locale): LpCategory[] {
+export function getWebWorks(locale: Locale): WebCategory[] {
   return source.map((group) => ({
     category: localize(group.category, locale),
     works: group.works.map((w) => ({
@@ -218,4 +196,4 @@ export function getLpWorks(locale: Locale): LpCategory[] {
 }
 
 // 既定値(日本語)
-export const lpWorks = getLpWorks("ja");
+export const webWorks = getWebWorks("ja");

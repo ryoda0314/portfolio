@@ -2,7 +2,7 @@ import type { Locale } from "./locale";
 
 // ============================================================
 // UI共通の文言(見出し・ボタン・案内文など)
-// プロフィール本文は data/profile.ts、LP作品は data/lpWorks.ts を編集してください。
+// プロフィール本文は data/profile.ts、Web作品は data/webWorks.ts を編集してください。
 // ============================================================
 
 const ja = {
@@ -18,16 +18,16 @@ const ja = {
   contactTitle: "お気軽にどうぞ",
 
   // リンク
-  lpPortfolioLink: "LP・Web制作の作品集も見る →",
+  webPortfolioLink: "Web制作の作品集も見る →",
   allPosts: "すべての記事 →",
   minRead: "min read",
   backToBlog: "← Blog",
 
-  // LP作品集ページ
-  lpPageTitle: "LP作品集",
-  lpPageLead:
-    "学園祭・イベント・プロダクト・アーティスト・コーポレートなど、テーマの異なるLP/Webサイトを1ページずつ設計から実装まで制作しています。いずれも架空の団体・製品を想定した自主制作です。カードをクリックすると実物が開きます。",
-  lpScreenshotAlt: "のスクリーンショット",
+  // Web作品集ページ
+  webPageTitle: "Web作品集",
+  webPageLead:
+    "学園祭・イベント・プロダクト・アーティスト・コーポレートなど、テーマの異なるWebサイトやLPを、設計から実装まで制作しています。いずれも架空の団体・製品を想定した自主制作です。カードをクリックすると実物が開きます。",
+  screenshotAlt: "のスクリーンショット",
 
   // 記事検索 (⌘K)
   searchAria: "記事を検索",
@@ -74,15 +74,15 @@ const en: UiStrings = {
   blogTitle: "Writing",
   contactTitle: "Say Hello",
 
-  lpPortfolioLink: "See the LP / web design portfolio →",
+  webPortfolioLink: "See the web design portfolio →",
   allPosts: "All posts →",
   minRead: "min read",
   backToBlog: "← Blog",
 
-  lpPageTitle: "LP Portfolio",
-  lpPageLead:
-    "A collection of landing pages and websites built one page at a time — campus festivals, events, products, artists, corporate — each designed and implemented from scratch. All are self-initiated works for fictional organizations and products. Click a card to open the real page.",
-  lpScreenshotAlt: " — screenshot",
+  webPageTitle: "Web Works",
+  webPageLead:
+    "A collection of websites and landing pages on different themes — campus festivals, events, products, artists, corporate — each designed and implemented from scratch. All are self-initiated works for fictional organizations and products. Click a card to open the real page.",
+  screenshotAlt: " — screenshot",
 
   searchAria: "Search posts",
   searchPlaceholder: "Search posts…",
@@ -126,15 +126,15 @@ const ko: UiStrings = {
   blogTitle: "쓴 글",
   contactTitle: "편하게 연락 주세요",
 
-  lpPortfolioLink: "LP·웹 제작 작품집 보기 →",
+  webPortfolioLink: "웹 제작 작품집 보기 →",
   allPosts: "모든 글 →",
   minRead: "min read",
   backToBlog: "← Blog",
 
-  lpPageTitle: "LP 작품집",
-  lpPageLead:
-    "학교 축제, 이벤트, 프로덕트, 아티스트, 기업 등 서로 다른 테마의 LP/웹사이트를 한 페이지씩 설계부터 구현까지 제작하고 있습니다. 모두 가상의 단체·제품을 상정한 자체 제작입니다. 카드를 클릭하면 실제 페이지가 열립니다.",
-  lpScreenshotAlt: " 스크린샷",
+  webPageTitle: "웹 작품집",
+  webPageLead:
+    "학교 축제, 이벤트, 프로덕트, 아티스트, 기업 등 서로 다른 테마의 웹사이트와 LP를 설계부터 구현까지 제작하고 있습니다. 모두 가상의 단체·제품을 상정한 자체 제작입니다. 카드를 클릭하면 실제 페이지가 열립니다.",
+  screenshotAlt: " 스크린샷",
 
   searchAria: "글 검색",
   searchPlaceholder: "글 검색…",

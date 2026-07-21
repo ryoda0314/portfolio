@@ -61,8 +61,8 @@ export function Works() {
           })}
         </div>
         <Reveal>
-          <a href="/lp" className="all-posts-link">
-            {t.lpPortfolioLink}
+          <a href="/web" className="all-posts-link">
+            {t.webPortfolioLink}
           </a>
         </Reveal>
       </div>

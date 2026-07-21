@@ -1,19 +1,19 @@
 "use client";
 
-import { getLpWorks } from "@/data/lpWorks";
+import { getWebWorks } from "@/data/webWorks";
 import { useLocale } from "@/lib/i18n";
 import { ui } from "@/lib/ui";
 
-export function LpGallery() {
+export function WebGallery() {
   const { locale } = useLocale();
-  const lpWorks = getLpWorks(locale);
+  const webWorks = getWebWorks(locale);
   const t = ui[locale];
   return (
     <div className="page container">
-      <p className="section-label">LP Works</p>
-      <h1 className="section-title">{t.lpPageTitle}</h1>
-      <p className="lp-lead">{t.lpPageLead}</p>
-      {lpWorks.map((group) => (
+      <p className="section-label">Web Works</p>
+      <h1 className="section-title">{t.webPageTitle}</h1>
+      <p className="lp-lead">{t.webPageLead}</p>
+      {webWorks.map((group) => (
         <section key={group.category} className="lp-group">
           <h2 className="lp-group-title">{group.category}</h2>
           <div className="works-grid">
@@ -29,7 +29,7 @@ export function LpGallery() {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={w.thumb}
-                      alt={`${w.title}${t.lpScreenshotAlt}`}
+                      alt={`${w.title}${t.screenshotAlt}`}
                       loading="lazy"
                     />
                   </div>
